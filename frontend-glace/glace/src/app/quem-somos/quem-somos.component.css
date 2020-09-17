@@ -4,14 +4,7 @@
   font-family: 'Ruda', sans-serif;
 */
 
-:root {
-  /*CORES PRINCIPAIS*/
-  --color1: #adb8d7;
-  --color2: #08074e;
-  --color3: #ff9900;
-  --color4: #ffffff;
-  --color5: #3e3e3e;
-}
+  
 
 /*RESET*/
 * {
@@ -34,14 +27,14 @@ body {
 
 .navbar-brand .title-container .title {
   font-size: 66px;
-  color: var(--color1);
+  color:#adb8d7;
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .navbar-brand .title-container .sub-title {
   font-size: 16.5px;
   margin-top: -15px;
-  color: var(--color2);
+  color:  #08074e;
   font-family: 'Ruda', sans-serif;
 }
 
@@ -51,12 +44,12 @@ body {
 
 .navbar-nav .nav-item .nav-link {
   font-size: 18px;
-  color: var(--color2);
+  color:  #08074e;
   font-family: 'Ruda', sans-serif;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-  color: var(--color3);
+  color:  #ff9900;
 }
 
 /*
