@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 import { LoginComponent } from './login/login.component';
+import { PerfilAdminComponent } from './perfil_admin/perfil-admin/perfil-admin.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     PesquisaComponent,
     QuemSomosComponent,
-    LoginComponent
+    LoginComponent,
+    PerfilAdminComponent
   ],
   imports: [
     BrowserModule,

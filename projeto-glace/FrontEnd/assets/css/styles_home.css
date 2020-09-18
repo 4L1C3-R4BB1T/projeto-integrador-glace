@@ -151,18 +151,18 @@ footer {
   }
 
   #title {
-    font-size: 70px;
+    font-size: 70px; 
   }
 
   #subtitle {
     font-size: 20px;
   }
-
+  
   .pesquisas {
     display: flex;
     flex-direction: row;
   }
-
+  
   .pesquisa {
     padding: 0 !important;
   }
@@ -182,12 +182,12 @@ footer {
   .logo1, .logo2 {
     display: none;
   }
-
+  
   .pesquisas {
     display: flex;
     flex-direction: row;
   }
-
+  
   .pesquisa {
     padding: 0 !important;
   }
