@@ -1,1 +1,212 @@
-<app-home></app-home>
+<div class="container-fluid">
+  <div id="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-start navbar-options" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" style="color: rgba(255, 153, 0, 1);" href="../home/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pesquisa/index.html">Pesquisa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../quemSomos/index.html">Quem somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header>
+      <div class="row">
+        <div class="col-1"></div>
+
+        <div class="col-xl-3 col-lg-3 col-md-2 col-sm-1">
+          <img class="img-fluid logo1" src="../../assets/images/kids-3.png" alt="imagem de bonecos">
+        </div>
+
+        <div class="col-xl-4 col-lg-4 col-xs-12">
+          <h1 id="title">GLACE</h1>
+          <h2 id="subtitle">Guia de Lugares Acessíveis</h2>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-2 col-sm-1">
+          <img class="img-fluid logo2" src="../../assets/images/kids-4.png" alt="imagem de bonecos">
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="row pesquisas">
+        <div class="col-2"></div>
+
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa">
+          <input type="text" id="input1" placeholder="Cidade">
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa">
+          <input type="text" id="input2" placeholder="Estado">
+        </div>
+
+        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 pesquisa">
+          <button type="submit" id="botao-pesquisa" class="btn btn-outline-light">
+            <i class="fas fa-search" style="color: rgba(196, 196, 196, 1); font-size: 20px;"></i>
+          </button>
+        </div>
+
+        <div class="col-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <h2 id="destaques">Destaques</h2>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-xl-4 row-cols-md-2 row-cols-sm-1">
+        <div class="col mb-4">
+          <div class="card">
+            <img src="../../assets/images/hotel1.jpg" class="card-img-top img-card" alt="imagem de quarto de hotel">
+            <div class="card-body">
+              <h5 class="card-title title-veg">Hotel Atlântico</h5>
+              <p class="card-text description">
+                Com restaurante e posição privilegiada, você também encontra opções para almoçar e jantar.
+              </p>
+              <p><small class="text-muted">Acessível</small></p>
+              <div>
+                <i class="icon fab fa-accessible-icon"></i> <i class="icon fas fa-sign-language"></i> <i class="icon fas fa-blind"></i>
+                <buton class="float-right ver-mais" type="submit">Ver mais</buton>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="../../assets/images/restaurante1.jpg" class="card-img-top img-card" alt="imagem de restaurante">
+            <div class="card-body">
+              <h5 class="card-title title-veg">OAZI Restaurante</h5>
+              <p class="card-text description">
+                Churrascaria que segue tradicional gaúcha (sem peixes, frutos do mar ou comida japonesa) em sistema de rodízio.
+              </p>
+              <p><small class="text-muted">Acessível</small></p>
+              <div>
+                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
+                <buton class="float-right ver-mais" type="submit">Ver mais</buton>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="../../assets/images/hotel2.jpg" class="card-img-top img-card" alt="imagem de banheiro de pousada">
+            <div class="card-body">
+              <h5 class="card-title title-veg">Pousada Astoria Palace</h5>
+              <p class="card-text description">
+                Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat MNI está situado no
+                Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.
+              </p>
+              <p><small class="text-muted">Acessível</small></p>
+              <div>
+                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i> <i class="icon fas fa-sign-language"></i>
+                <buton class="float-right ver-mais" type="submit">Ver mais</buton>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="../../assets/images/restaurante2.jpeg" class="card-img-top img-card" alt="imagem de restaurante">
+            <div class="card-body">
+              <h5 class="card-title title-veg">Restaurante Porto</h5>
+              <p class="card-text description">
+                A ementa, influenciada pela gastronomia típica portuense, é fixa de segunda ao sábado.
+              </p>
+              <p><small class="text-muted">Acessível</small></p>
+              <div>
+                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
+                <buton class="float-right ver-mais" type="submit">Ver mais</buton>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="../../assets/images/hotel1.jpg" class="card-img-top img-card" alt="imagem de quarto de hotel">
+            <div class="card-body">
+              <h5 class="card-title title-veg">Hotel Atlântico</h5>
+              <p class="card-text description">
+                Com restaurante e posição privilegiada, você também encontra opções para almoçar e jantar.
+              </p>
+              <p><small class="text-muted">Acessível</small></p>
+              <div>
+                <i class="icon fab fa-accessible-icon"></i> <i class="icon fas fa-sign-language"></i> <i class="icon fas fa-blind"></i>
+                <buton class="float-right ver-mais" type="submit">Ver mais</buton>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="../../assets/images/restaurante1.jpg" class="card-img-top img-card" alt="imagem de restaurante">
+            <div class="card-body">
+              <h5 class="card-title title-veg">OAZI Restaurante</h5>
+              <p class="card-text description">
+                Churrascaria que segue tradicional gaúcha (sem peixes, frutos do mar ou comida japonesa) em sistema de rodízio.
+              </p>
+              <p><small class="text-muted">Acessível</small></p>
+              <div>
+                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
+                <buton class="float-right ver-mais" type="submit">Ver mais</buton>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="../../assets/images/hotel2.jpg" class="card-img-top img-card" alt="imagem de banheiro de pousada">
+            <div class="card-body">
+              <h5 class="card-title title-veg">Pousada Astoria Palace</h5>
+              <p class="card-text description">
+                Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat MNI está situado no
+                Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.
+              </p>
+              <p><small class="text-muted">Acessível</small></p>
+              <div>
+                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i> <i class="icon fas fa-sign-language"></i>
+                <buton class="float-right ver-mais" type="submit">Ver mais</buton>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card">
+            <img src="../../assets/images/restaurante2.jpeg" class="card-img-top img-card" alt="imagem de restaurante">
+            <div class="card-body">
+              <h5 class="card-title title-veg">Restaurante Porto</h5>
+              <p class="card-text description">
+                A ementa, influenciada pela gastronomia típica portuense, é fixa de segunda ao sábado.
+              </p>
+              <p><small class="text-muted">Acessível</small></p>
+              <div>
+                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
+                <buton class="float-right ver-mais" type="submit">Ver mais</buton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-footer text-center">
+  <div class="footer-copyright text-center">
+    <strong>Projeto Integrador - GLACE</strong>
+  </div>
+</footer>

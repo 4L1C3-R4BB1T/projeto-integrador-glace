@@ -7,7 +7,11 @@ import { HomeComponent } from './home/home.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 import { LoginComponent } from './login/login.component';
+<<<<<<< HEAD
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+=======
+import { PerfilAdminComponent } from './perfil_admin/perfil-admin/perfil-admin.component';
+>>>>>>> 8d48e9ff96f9050e50136898eba31e6ec5e86316
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.co
     PesquisaComponent,
     QuemSomosComponent,
     LoginComponent,
+<<<<<<< HEAD
     CadastroUsuarioComponent
+=======
+    PerfilAdminComponent
+>>>>>>> 8d48e9ff96f9050e50136898eba31e6ec5e86316
   ],
   imports: [
     BrowserModule,
