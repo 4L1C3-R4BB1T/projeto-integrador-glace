@@ -13,7 +13,6 @@ export class CadastroUsuarioComponent implements OnInit {
 
   constructor(private clienteService: UsuarioService) {
   }
-
   ngOnInit() {
     this.consultar();
   }
