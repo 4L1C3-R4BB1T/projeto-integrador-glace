@@ -11,15 +11,17 @@ export class CadastroUsuarioComponent implements OnInit {
   usuario = {id: '', nome: '', telefone: '', cpf: '', dataAberturaConta: '', endereco: '',
   numeroConta: '' };
 
-  constructor(private clienteService: UsuarioService) {
+  constructor(/*private clienteService: UsuarioService*/) {
   }
   ngOnInit() {
-    this.consultar();
+    // this.consultar();
   }
+  /*
   consultar() {
     this.clienteService.listar().subscribe(resposta =>
       this.usuario = {id: '', nome: '', telefone: '', cpf: '', dataAberturaConta: '', endereco: '',
       numeroConta: '' });
       console.log('Dados inseridos com sucesso');
   }
+  */
 }
