@@ -1,5 +1,9 @@
+import { UsuarioService } from './../usuario.service';
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
+import { NgModule } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -8,20 +12,22 @@ import { UsuarioService } from '../usuario.service';
 })
 export class CadastroUsuarioComponent implements OnInit {
 
-  usuario = {id: '', nome: '', telefone: '', cpf: '', dataAberturaConta: '', endereco: '',
-  numeroConta: '' };
+  usuario = {id: '', nome: '', sobrenome: '', dataNasc: '', cpf: '', email: '',
+  telefone: '', endereco:'', senha: '', confirmarSenha: '' };
 
-  constructor(/*private clienteService: UsuarioService*/) {
+  constructor(private usuarioService: UsuarioService, private router: Router) {
   }
   ngOnInit() {
-    // this.consultar();
+     
   }
-  /*
-  consultar() {
-    this.clienteService.listar().subscribe(resposta =>
-      this.usuario = {id: '', nome: '', telefone: '', cpf: '', dataAberturaConta: '', endereco: '',
-      numeroConta: '' });
-      console.log('Dados inseridos com sucesso');
+  
+  adicionar() {
+    
+    this.usuario.adicionar(this.usuario).subscribe(() => {
+      this.usuario = {id: '', nome: '', sobrenome: '', dataNasc: '', cpf: '', email: '',
+      telefone: '', endereco:'', senha: '', confirmarSenha: ''};
+      console.log("Dados inseridos com sucesso!");
+    });
   }
-  */
+  
 }

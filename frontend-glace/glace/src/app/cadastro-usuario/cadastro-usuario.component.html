@@ -8,16 +8,19 @@
             <div class="collapse navbar-collapse justify-content-start navbar-options" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="home/index.html">Home</a>
+                        <hr>
+                        <a class="nav-link"routerLink="/home" >Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pesquisa/index.html">Pesquisa</a>
+                        <hr>
+                        <a class="nav-link" routerLink="/pesquisa">Pesquisa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="quemSomos/index.html">Quem somos</a>
+                        <hr>
+                        <a class="nav-link" routerLink="/quemSomos">Quem somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: rgba(255, 153, 0, 1);" href="">Login</a>
+                        <a class="nav-link" style="color: rgba(255, 153, 0, 1);" routerLink="/login">Login</a>
                     </li>
                 </ul>
             </div>
@@ -42,19 +45,34 @@
         <div class="content mt-4">
             <div class="pt-5 pb-5">
                 <div>
-                    <input type="text" class="input1" placeholder="Nome">
+                    <input type="text" class="input1"  name="nome" [(ngModel)]="usuario.nome" >
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4" placeholder="E-mail">
+                    <input type="text" class="input1"  name="sobrenome" [(ngModel)]="usuario.sobrenome" >
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4" placeholder="Senha">
+                    <input type="date" class="input1 mt-4" name="dataNasc"[(ngModel)]="usuario.dataNasc" >
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4 mb-3" placeholder="Confirmar senha">
+                    <input type="text" class="input1" name="cpf" [(ngModel)]="usuario.cpf" >
                 </div>
-                <button type="button" class="btn btn-primary mt-4 mb-2 entrar">Cadastrar</button>
-                <p class="mt-4 cadastro"><a href="#"><i class="fas fa-arrow-left mr-2"></i>Voltar para login</a></p>
+                <div>
+                    <input type="email" class="input1" name="email" [(ngModel)]="usuario.email" >
+                </div>
+                <div>
+                    <input type="text" class="input1 mt-4" [(ngModel)]="usuario.telefone" >
+                </div>
+                <div>
+                    <input type="text" class="input1 mt-4" name="endereco"[(ngModel)]="usuario.endereco" >
+                </div>
+                <div>
+                    <input type="password" class="input1 mt-4 mb-3"  name="senha" [(ngModel)]="usuario.senha">
+                </div>
+                <div>
+                    <input type="password" class="input1 mt-4 mb-3" name="confirmarSenha" [(ngModel)]="usuario.confirmarSenha" >
+                </div>
+                <button type="button" class="btn btn-primary mt-4 mb-2 entrar"(click)="adicionar()">Cadastrar</button>
+                <p class="mt-4 cadastro"><a routerLink="/login"><i class="fas fa-arrow-left mr-2"></i>Voltar para login</a></p>
             </div>
         </div>
     </div>
