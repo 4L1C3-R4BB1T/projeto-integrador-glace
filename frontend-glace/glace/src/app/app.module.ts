@@ -9,6 +9,7 @@ import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { PerfilAdminComponent } from './perfil-admin/perfil-admin.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PerfilAdminComponent } from './perfil-admin/perfil-admin.component';
     QuemSomosComponent,
     LoginComponent,
     CadastroUsuarioComponent,
-    PerfilAdminComponent
+    PerfilAdminComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

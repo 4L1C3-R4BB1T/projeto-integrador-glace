@@ -1,0 +1,245 @@
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+    
+#container {
+    width: 80%;
+}
+    
+.navbar-brand .title-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+    
+.navbar-brand .title-container .title {
+    margin-top: 30px;
+    font-size: 70px;
+    color: #ADB8D7;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+    
+.navbar-brand .title-container .sub-title {
+    font-size: 20px;
+    margin-top: -15px;
+    color: #08074E;
+    font-family: 'Ruda', sans-serif;
+}
+    
+.navbar-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+    
+.navbar .navbar-brand .navbar-img {
+    margin-top: 30px;
+    display: inline-block;
+}
+    
+.navbar-nav .nav-item .nav-link {
+    font-size: 24px;
+    padding-top: 0;
+    color: #08074E;
+    font-family: 'Ruda', sans-serif;
+}
+    
+.navbar-nav .nav-item .nav-link:hover {
+    color: #908F8E;
+}
+    
+.navbar, .navbar-expand-lg, .navbar-light {
+    padding: 0;
+}
+    
+.nome-perfil {
+    font-family: 'Ruda', sans-serif;
+    font-weight: 800 !important;
+    color: #3E3E3E;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 20px;
+}
+    
+.botoes{
+    margin-top: 10%;
+}
+    
+.botoes-perfil {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+    
+.circulo1 {
+    border: 5px solid #ADB8D7;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.circulo2 {
+    border: 5px solid #FF9900;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.img-circulo1 {
+    font-size: 60px;
+    color: #ADB8D7;
+}
+    
+.img-circulo2 {
+    font-size: 60px;
+    color: #FF9900;
+}
+    
+.button {
+    margin-top: 30px;
+    background: none;
+    border: 0;
+    font-family: 'Ruda', sans-serif;
+    width: 75%;
+}
+    
+.button:hover {
+    transition: 1s;
+    font-weight: 500;
+    color: black;
+}
+    
+.title-button1 {
+    font-weight: bold;
+    color: #ADB8D7;
+}
+    
+.title-button2 {
+    font-weight: bold;
+    color: #FF9900;
+}
+    
+.description-button {
+    color: #3E3E3E;
+    font-size: 20px;
+}
+    
+footer {
+    font-family: 'Ruda', sans-serif;
+    font-size: 18px;
+    color: #4E4E4E;
+    padding: 20px;
+    width: 100%;
+}
+    
+@media screen and (max-width: 1440px) {
+    .navbar .navbar-brand .navbar-img {
+        display: none;
+    }
+    
+    .nome-perfil {
+        padding-right: 5px !important;
+    }
+}
+    
+@media screen and (max-width: 1024px) {
+    .navbar-collapse, .navbar-toggler {
+        width: 70px;
+        margin-top: 50px;
+    }
+    
+    .nome-perfil {
+        padding-right: 5px !important;
+    }
+}
+    
+@media screen and (max-width: 960px) {
+    .container {
+        width: 90%;
+    }
+    
+    .ml-5, .navbar, .navbar-toggler {
+        margin: 0 !important;
+    }
+    
+    .navbar-collapse, .navbar-toggler {
+        width: 70px;
+        margin-top: 0;
+    }
+    
+    .nome-perfil {
+        padding-right: 5px !important;
+    }
+}
+    
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    
+    .navbar, .navbar-toggler {
+        padding: 0;
+    }
+    
+    .navbar-collapse, .navbar-toggler {
+        width: 70px;
+        margin-top: 50px;
+    }
+    
+    .ml-5, .navbar, .navbar-toggler {
+        margin: 0 !important;
+    }
+    
+    .nome-perfil {
+        padding-right: 5px !important;
+    }
+}
+    
+@media screen and (max-width: 576px) {
+    .navbar-brand {
+        margin: 0 !important;
+    }
+    
+    .container {
+        width: 95%;
+    }
+    
+    .navbar, .navbar-toggler {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .navbar-collapse, .navbar-toggler {
+        width: 70px;
+        margin-top: 50px;
+    }
+    
+    .nome-perfil {
+        padding-right: 5px !important;
+    }
+}
+    
+@media screen and (max-width: 456px) {
+    .navbar-brand {
+        margin: 10px !important;
+    }
+    
+    .nome-perfil {
+        flex-direction: row;
+        padding-left: 10px;
+        margin-top: 8px;
+    }
+}  

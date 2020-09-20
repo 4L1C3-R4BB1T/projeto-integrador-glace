@@ -22,8 +22,7 @@ export class CadastroUsuarioComponent implements OnInit {
   }
   
   adicionar() {
-    
-    this.usuario.adicionar(this.usuario).subscribe(() => {
+    this.usuarioService.adicionar(this.usuario).subscribe(() => {
       this.usuario = {id: '', nome: '', sobrenome: '', dataNasc: '', cpf: '', email: '',
       telefone: '', endereco:'', senha: '', confirmarSenha: ''};
       console.log("Dados inseridos com sucesso!");
