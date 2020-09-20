@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { PerfilAdminComponent } from './perfil-admin/perfil-admin.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     LoginComponent,
     CadastroUsuarioComponent,
     PerfilAdminComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    DetalhesLocalComponent
   ],
   imports: [
     BrowserModule,
