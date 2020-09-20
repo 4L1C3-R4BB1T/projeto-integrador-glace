@@ -12,5 +12,8 @@ export class QuemSomosComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
 
 }
