@@ -16,12 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.repository.ClienteGlaceRepository;
 
+@CrossOrigin
+@RestController
+@RequestMapping ("/cliente")
 public class ClienteGlaceController {
-
-	@CrossOrigin
-	@RestController
-	@RequestMapping ("/cliente")
-	public class ClienteController {
 
 		@Autowired
 		private ClienteGlaceRepository repository;
@@ -67,4 +65,3 @@ public class ClienteGlaceController {
 			repository.save(cl);
 	}
 	}
-}

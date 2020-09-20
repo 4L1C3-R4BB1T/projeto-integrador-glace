@@ -8,16 +8,16 @@
             <div class="collapse navbar-collapse justify-content-start navbar-options" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link"routerLinkActive="/home" >Home</a>
+                        <a class="nav-link" routerLink="/detalhesLocal" routerLinkActive="active">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="/pesquisa">Pesquisa</a>
+                        <a class="nav-link" routerLink="/pesquisa" routerLinkActive="active">Pesquisa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="/quemSomos">Quem somos</a>
+                        <a class="nav-link" routerLink="/quemSomos" routerLinkActive="active">Quem somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: rgba(255, 153, 0, 1);" routerLinkActive="/login">Login</a>
+                        <a class="nav-link" style="color: rgba(255, 153, 0, 1);" routerLink="/login" routerLinkActive="active">Login</a>
                     </li>
                 </ul>
             </div>
@@ -38,29 +38,29 @@
                 </div>
             </div>
         </header>
-        <div class="form-row">
+        
         <div class="content mt-4">
             <div class="pt-5 pb-5">
                 <div>
-                    <input type="text" class="input1"  placeholder="Nome" name="nome" [(ngModel)]="cliente.nome">
+                    <input type="text" class="input1"  placeholder="Nome" name="nome" [(ngModel)]="cliente.nome" required >
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4"  placeholder="Sobrenome" name="sobrenome" [(ngModel)]="cliente.sobrenome">
+                    <input type="text" class="input1 mt-4"  placeholder="Sobrenome" name="sobrenome" [(ngModel)]="cliente.sobrenome" required>
                 </div>
                 <div>
-                    <input type="date" class="input1 mt-4" name="dataNasc" [(ngModel)]="cliente.dataNasc">
+                    <input type="date" class="input1 mt-4" name="dataNasc" [(ngModel)]="cliente.dataNasc" required>
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4" placeholder="CPF" name="cpf" [(ngModel)]="cliente.cpf">
+                    <input type="text" class="input1 mt-4" placeholder="CPF" name="cpf" [(ngModel)]="cliente.cpf" required>
                 </div>
                 <div>
-                    <input type="email" class="input1 mt-4" placeholder="E-mail" name="email" [(ngModel)]="cliente.email">
+                    <input type="email" class="input1 mt-4" placeholder="E-mail" name="email" [(ngModel)]="cliente.email" required>
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4" placeholder="Telefone" [(ngModel)]="cliente.telefone">
+                    <input type="text" class="input1 mt-4" placeholder="Telefone" [(ngModel)]="cliente.telefone" required>
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4" placeholder="Endereco" name="endereco"[(ngModel)]="cliente.endereco">
+                    <input type="text" class="input1 mt-4" placeholder="Endereco" name="endereco"[(ngModel)]="cliente.endereco" required>
                 </div>
                 <div>
                     <input type="password" class="input1 mt-4" placeholder="Senha" name="senha" [(ngModel)]="cliente.senha" required>
@@ -74,7 +74,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 <footer class="container-footer text-center">
     <div class="footer-copyright text-center">

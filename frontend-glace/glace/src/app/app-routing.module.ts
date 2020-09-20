@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'cadastroUsuario', component: CadastroUsuarioComponent},
   {path: 'perfilUsuario', component: PerfilUsuarioComponent},
   {path: 'perfilAdmin', component: PerfilAdminComponent},
-  {path: 'detalhesLocais', component: DetalhesLocalComponent},
+  {path: 'detalhesLocal', component: DetalhesLocalComponent},
 
 
 ];

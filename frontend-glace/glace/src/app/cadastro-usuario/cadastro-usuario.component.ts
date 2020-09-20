@@ -1,9 +1,6 @@
-import { UsuarioService } from './../usuario.service';
+import { ClienteService } from './../cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgModule } from '@angular/core';
-
-
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -15,14 +12,14 @@ export class CadastroUsuarioComponent implements OnInit {
   cliente = {id: '', nome: '', sobrenome: '', dataNasc: '', cpf: '', email: '',
   telefone: '', endereco:'', senha: '', confirmarSenha: '' };
 
-  constructor(private usuarioService: UsuarioService, private router: Router) {
+  constructor(private clienteService: ClienteService, private router: Router) {
   }
-  ngOnInit() {
+  ngOnInit(): void {
      
   }
   
   adicionar() {
-    this.usuarioService.adicionar(this.cliente).subscribe(() => {
+    this.clienteService.adicionar(this.cliente).subscribe(() => {
       this.cliente = {id: '', nome: '', sobrenome: '', dataNasc: '', cpf: '', email: '',
       telefone: '', endereco:'', senha: '', confirmarSenha: ''};
       console.log("Dados inseridos com sucesso!");
