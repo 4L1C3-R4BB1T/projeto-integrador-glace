@@ -1,5 +1,7 @@
 package br.com.projetoglace.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import br.com.projetoglace.model.ClienteGlace;
-import br.com.projetoglace.repository.ContatoGlaceRepository;
+import br.com.projetoglace.repository.ClienteGlaceRepository;
 
-public class ContatoGlace {
+public class ClienteGlaceController {
 
 	@CrossOrigin
 	@RestController
@@ -23,7 +24,7 @@ public class ContatoGlace {
 	public class ClienteController {
 
 		@Autowired
-		private ContatoGlaceRepository repository;
+		private ClienteGlaceRepository repository;
 		
 		//POST - insert
 		//PUT - Update
@@ -41,8 +42,8 @@ public class ContatoGlace {
 		}
 		
 		@PostMapping
-		public void adicionar(@RequestBody ClienteGlace contact) {
-			repository.save(contact);
+		public void adicionar(@RequestBody ClienteGlace cliente) {
+			repository.save(cliente);
 		}
 		
 		@DeleteMapping("/{id}")
@@ -52,19 +53,18 @@ public class ContatoGlace {
 		}
 		
 		@PutMapping("/{id}")
-		public void atualizar(@PathVariable Long id, @RequestBody ClienteGlace contact) {
-			contact = repository.findById(id).get();
+		public void atualizar(@PathVariable Long id, @RequestBody ClienteGlace cliente 	) {
+			ClienteGlace cl = repository.findById(id).get();
 			
-			contact.setNome(contact.getNome());
-			contact.setSobrenome(contact.getSobrenome());
-			contact.setDataNasc(contact.getDataNasc());
-			contact.setCpf(contact.getCpf());
-			contact.setRg(contact.getRg());
-			contact.setEmail(contact.getEmail());
-			contact.setTelefone(contact.getTelefone());
+			cl.setNome(cliente.getNome());
+			cl.setSobrenome(cliente.getSobrenome());
+			cl.setDataNasc(cliente.getDataNasc());
+			cl.setCpf(cliente.getCpf());
+			cl.setEmail(cliente.getEmail());
+			cl.setTelefone(cliente.getTelefone());
 			
 			
-			repository.save(contact);
+			repository.save(cl);
 	}
 	}
 }

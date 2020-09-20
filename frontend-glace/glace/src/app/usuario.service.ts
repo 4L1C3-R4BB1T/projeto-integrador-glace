@@ -8,7 +8,7 @@ import { NgModule } from '@angular/core';
 })
 export class UsuarioService {
 
-  apiUrl = "http://localhost:8080/usuario"
+  apiUrl = "http://localhost:8080/cliente"
 
   constructor(private httpClient: HttpClient) { 
   
@@ -18,15 +18,15 @@ export class UsuarioService {
     return this.httpClient.get(this.apiUrl);
   }
 
-  adicionar(usuario: any) {
-    return this.httpClient.post(this.apiUrl, usuario);
+  adicionar(cliente: any) {
+    return this.httpClient.post(this.apiUrl, cliente);
   }
 
   excluir(id: number) {
     return this.httpClient.delete(this.apiUrl + '/' + id);
   }
 
-  atualizar(usuario: any) {
-    return this.httpClient.put(this.apiUrl+ '/' + usuario.id, usuario);
+  atualizar(cliente: any) {
+    return this.httpClient.put(this.apiUrl+ '/' + cliente.id, cliente);
   }
 }

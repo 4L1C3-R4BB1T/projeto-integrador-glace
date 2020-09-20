@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.projetoglace.model.ClienteGlace;
 
 @Repository
-public interface ContatoGlaceRepository extends JpaRepository<ClienteGlace, Long> {
+public interface ClienteGlaceRepository extends JpaRepository<ClienteGlace, Long> {
 
 }

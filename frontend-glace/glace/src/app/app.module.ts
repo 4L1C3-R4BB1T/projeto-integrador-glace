@@ -11,6 +11,7 @@ import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.co
 import { PerfilAdminComponent } from './perfil-admin/perfil-admin.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

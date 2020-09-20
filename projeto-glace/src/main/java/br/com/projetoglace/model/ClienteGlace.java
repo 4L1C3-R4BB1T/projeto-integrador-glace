@@ -1,12 +1,17 @@
 package br.com.projetoglace.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+
+@Entity
+@Table(name = "cliente")
 public class ClienteGlace {
 
 	@Id
@@ -30,11 +35,12 @@ public class ClienteGlace {
 	@Column
 	private String email;
 	
-	@Column
-	private String rg;
 	
 	@Column
 	private String telefone;
+	
+	@Column
+	private String endereco;
 	
 	public ClienteGlace() {
 		
@@ -42,18 +48,19 @@ public class ClienteGlace {
 	
 	
 
-	public ClienteGlace(Long id, String nome, String sobrenome, String dataNasc, String cpf, String email, String rg,
-			String telefone) {
-	
+
+	public ClienteGlace(Long id, String nome, String sobrenome, String dataNasc, String cpf, String email,
+			String telefone, String endereco) {
 		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.dataNasc = dataNasc;
 		this.cpf = cpf;
 		this.email = email;
-		this.rg = rg;
 		this.telefone = telefone;
+		this.endereco = endereco;
 	}
+
 
 
 
@@ -101,25 +108,18 @@ public class ClienteGlace {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-
-
-	public String getRg() {
-		return rg;
+	
+	public String getEndereco() {
+		return endereco;
 	}
 
-
-
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
-
-
 
 	public String getTelefone() {
 		return telefone;
 	}
-
 
 
 	public void setTelefone(String telefone) {
@@ -138,12 +138,13 @@ public class ClienteGlace {
 
 
 
+
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", dataNasc=" + dataNasc + ", cpf="
-				+ cpf + ", email=" + email + ", rg=" + rg + ", telefone=" + telefone + "]";
+		return "ClienteGlace [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", dataNasc=" + dataNasc
+				+ ", cpf=" + cpf + ", email=" + email + ", telefone=" + telefone + ", endereco=" + endereco + "]";
 	}
-
+	
 	
 
-}
+	}
