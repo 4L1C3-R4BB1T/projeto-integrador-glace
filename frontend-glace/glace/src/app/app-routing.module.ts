@@ -19,8 +19,7 @@ const routes: Routes = [
   {path: 'perfilUsuario', component: PerfilUsuarioComponent},
   {path: 'perfilAdmin', component: PerfilAdminComponent},
   {path: 'detalhesLocal', component: DetalhesLocalComponent},
-
-
+  {path: '', pathMatch: 'full', redirectTo:'/home'}
 ];
 
 @NgModule({
