@@ -45,9 +45,6 @@ public class ClienteGlace {
 	@Column
 	private String senha;
 	
-	@Column
-	private String confirmarSenha;
-	
 	public ClienteGlace() {
 		
 	}  
@@ -56,7 +53,7 @@ public class ClienteGlace {
 
 
 	public ClienteGlace(Long id, String nome, String sobrenome, String dataNasc, String cpf, String email,
-			String telefone, String endereco, String confirmarSenha, String senha) {
+			String telefone, String endereco, String senha) {
 		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
@@ -66,7 +63,7 @@ public class ClienteGlace {
 		this.telefone = telefone;
 		this.endereco = endereco;
 		this.senha = senha;
-		this.confirmarSenha = confirmarSenha;
+		
 	}
 
 
@@ -155,27 +152,11 @@ public class ClienteGlace {
 	}
 
 
-
-
-	public String getConfirmarSenha() {
-		return confirmarSenha;
-	}
-
-
-
-
-	public void setConfirmarSenha(String confirmarSenha) {
-		this.confirmarSenha = confirmarSenha;
-	}
-
-
-
-
 	@Override
 	public String toString() {
 		return "ClienteGlace [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", dataNasc=" + dataNasc
 				+ ", cpf=" + cpf + ", email=" + email + ", telefone=" + telefone + ", endereco=" + endereco + ", senha="
-				+ senha + ", confirmarSenha=" + confirmarSenha + "]";
+				+ senha + "]";
 	}
 
 

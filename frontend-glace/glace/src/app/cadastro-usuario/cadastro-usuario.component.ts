@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class CadastroUsuarioComponent implements OnInit {
 
   cliente = {id: '', nome: '', sobrenome: '', dataNasc: '', cpf: '', email: '',
-  telefone: '', endereco:'', senha: '', confirmarSenha: '' };
+  telefone: '', endereco:'', senha: ''};
 
   constructor(private clienteService: ClienteService, private router: Router) {
   }
@@ -21,9 +21,21 @@ export class CadastroUsuarioComponent implements OnInit {
   adicionar() {
     this.clienteService.adicionar(this.cliente).subscribe(() => {
       this.cliente = {id: '', nome: '', sobrenome: '', dataNasc: '', cpf: '', email: '',
-      telefone: '', endereco:'', senha: '', confirmarSenha: ''};
+      telefone: '', endereco:'', senha: ''};
       console.log("Dados inseridos com sucesso!");
     });
   }
   
+  
 }
+// var senha = document.getElementById("senha");
+// var confirmarSenha = document.getElementById("confirmarSenha");
+
+// function validatePassword(): void{
+//   if(senha.nodeValue != confirmarSenha.nodeValue) {
+//     alert("Senhas diferentes!");
+//   } 
+// }
+
+// senha.onchange = validatePassword;
+// confirmarSenha.onkeyup = validatePassword;

@@ -63,10 +63,10 @@
                     <input type="text" class="input1 mt-4" placeholder="Endereco" name="endereco"[(ngModel)]="cliente.endereco" ng-disabled="mainForm.$invalid" required>
                 </div>
                 <div>
-                    <input type="password" class="input1 mt-4" placeholder="Senha" name="senha" [(ngModel)]="cliente.senha" ng-disabled="mainForm.$invalid" required>
+                    <input type="password" class="input1 mt-4" placeholder="Senha" id="senha" name="senha" [(ngModel)]="cliente.senha" ng-disabled="mainForm.$invalid" required>
                 </div>
                 <div>
-                    <input type="password" class="input1 mt-4 mb-3" placeholder="Confirmar senha" name="confirmarSenha" [(ngModel)]="cliente.confirmarSenha" ng-disabled="mainForm.$invalid" required>
+                    <input type="password" class="input1 mt-4 mb-3" id="confirmarSenha" placeholder="Confirmar senha"  required>
                 </div>
                 <button type="button" class="btn btn-primary mt-4 mb-2 entrar"(click)="adicionar()" routerLink="/login" routerLinkActive="active">Cadastrar</button>
                 <p class="mt-4 cadastro"><a routerLink="/login"><i class="fas fa-arrow-left mr-2"></i>Voltar para login</a></p>

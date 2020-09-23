@@ -1,6 +1,7 @@
 package br.com.projetoglace.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projetoglace.model.ClienteGlace;
-import br.com.projetoglace.repository.ClienteGlaceRepository;
+import br.com.projetoglace.service.ClienteGlaceService;
 
 @CrossOrigin
 @RestController
@@ -22,46 +23,40 @@ import br.com.projetoglace.repository.ClienteGlaceRepository;
 public class ClienteGlaceController {
 
 		@Autowired
-		private ClienteGlaceRepository repository;
+		private ClienteGlaceService service;
 		
 		//POST - insert
 		//PUT - Update
 		//GET - select
 		//Delete - Delete
-		
-		@GetMapping
-		public List<ClienteGlace> listar(){
-			return repository.findAll();
+		@PostMapping
+		public void salvar(@RequestBody ClienteGlace cliente) {
+			service.salvar(cliente);
 		}
 		
 		@GetMapping("/{id}")
-		public ClienteGlace buscar(@PathVariable Long id) {
-			return repository.findById(id).orElse(null);
+		public Optional<ClienteGlace> buscar(@PathVariable Long id) {
+			return service.buscar(id);
 		}
 		
-		@PostMapping
-		public void adicionar(@RequestBody ClienteGlace cliente) {
-			repository.save(cliente);
+		@GetMapping
+		public List<ClienteGlace> listar(){
+			return service.listar();
 		}
-		
+//		
+//		@GetMapping("/{id}/email")
+//		public List<ClienteGlace> buscarEmail(@PathVariable Long id) {
+//			return service.buscarEmail(id);
+//		}
+//		
 		@DeleteMapping("/{id}")
-		public void delete(@PathVariable Long id) {
-			
-			repository.deleteById(id);
+		public void excluir(@PathVariable Long id) {
+			service.excluir(id);
 		}
 		
 		@PutMapping("/{id}")
-		public void atualizar(@PathVariable Long id, @RequestBody ClienteGlace cliente 	) {
-			ClienteGlace cl = repository.findById(id).get();
+		public void atualizar(@PathVariable Long id, @RequestBody ClienteGlace cliente) {
+		service.atualizar(cliente, id);
 			
-			cl.setNome(cliente.getNome());
-			cl.setSobrenome(cliente.getSobrenome());
-			cl.setDataNasc(cliente.getDataNasc());
-			cl.setCpf(cliente.getCpf());
-			cl.setEmail(cliente.getEmail());
-			cl.setTelefone(cliente.getTelefone());
-			
-			
-			repository.save(cl);
 	}
 	}
