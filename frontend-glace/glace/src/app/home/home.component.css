@@ -7,53 +7,6 @@
   width: 80%;
 }
 
-.navbar {
-  padding-top: 30px;
-}
-
-.navbar-nav .nav-item .nav-link {
-  font-family: 'Ruda', sans-serif;
-  font-size: 25px;
-  color: #08074E
-}
-
-.navbar-nav .nav-item .nav-link:hover {
-  transition: 0.3s;
-  color: #908F8E;
-}
-
-#title {
-width: 100%;
-
-font-family: 'M PLUS Rounded 1c', sans-serif;
-font-weight: bold;
-font-size: 120px;
-text-align: center;
-
-color: #ADB8D7;
-margin-top: 70px;
-}
-
-#subtitle {
-width: 100%;
-font-family: 'Ruda', sans-serif;
-font-size: 30px;
-text-align: center;
-margin-top: 8px;
-
-color: #08074E;
-}
-
-.logo1 {
-  margin-top: 70px;
-  width: 100%;
-}
-
-.logo2 {
-  margin-top: 80px;
-  width: 100%;
-}
-
 #input1 {
   width: 100%;
   height: 55px;
@@ -138,19 +91,6 @@ color: #08074E;
 }
 
 @media screen and (max-width: 1440px) {
-  .navbar-collapse, .navbar-toggler {
-    width: 70px;
-    margin-top: 50px;
-  }
-
-  #title {
-    font-size: 70px;
-  }
-
-  #subtitle {
-    font-size: 20px;
-  }
-
   .pesquisas {
     display: flex;
     flex-direction: row;
@@ -163,19 +103,6 @@ color: #08074E;
 }
 
 @media screen and (max-width: 1024px) {
-  .navbar-collapse, .navbar-toggler {
-    width: 70px;
-    margin-top: 50px;
-  }
-
-  #title {
-    margin: 0;
-  }
-
-  .logo1, .logo2 {
-    display: none;
-  }
-
   .pesquisas {
     display: flex;
     flex-direction: row;
@@ -190,28 +117,6 @@ color: #08074E;
 @media screen and (max-width: 960px) {
   .container {
     width: 90%;
-  }
-
-  .navbar, .navbar-toggler {
-    padding: 0;
-  }
-
-  .navbar-collapse, .navbar-toggler {
-    width: 70px;
-    margin-top: 50px;
-  }
-
-  #title {
-    font-size: 120px;
-    margin: 0;
-  }
-
-  #subtitle {
-    font-size: 30px;
-  }
-
-  .logo1, .logo2 {
-    display: none;
   }
 
   .pesquisas {
@@ -242,28 +147,6 @@ color: #08074E;
     width: 90%;
   }
 
-  .navbar, .navbar-toggler {
-    padding: 0;
-  }
-
-  .navbar-collapse, .navbar-toggler {
-    width: 70px;
-    margin-top: 50px;
-  }
-
-  #title {
-    font-size: 120px;
-    margin: 0;
-  }
-
-  #subtitle {
-    font-size: 30px;
-  }
-
-  .logo1, .logo2 {
-    display: none;
-  }
-
   .pesquisas {
     display: flex;
     flex-direction: column;
@@ -292,28 +175,6 @@ color: #08074E;
     width: 95%;
   }
 
-  .navbar, .navbar-toggler {
-    padding: 0;
-  }
-
-  .navbar-collapse, .navbar-toggler {
-    width: 70px;
-    margin-top: 50px;
-  }
-
-  #title {
-    font-size: 90px;
-    margin: 0;
-  }
-
-  #subtitle {
-    font-size: 22px;
-  }
-
-  .logo1, .logo2 {
-    display: none;
-  }
-
   .pesquisas {
     display: flex;
     flex-direction: column;
@@ -327,7 +188,6 @@ color: #08074E;
   #input1, #input2, #botao-pesquisa {
     width: 100%;
     border-radius: 10px;
-
   }
 
   #destaques {
