@@ -11,37 +11,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "parceiro")
-public class ParceiroGlace {
+@Table(name= "estado")
+public class Estado {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private Long id;
 	
-	@Column
-	private String razaoSocial;
-	
-	@Column
-	private String cnpj;
-	
-	@Column
-	private String email;
-	
-	
-	@Column
-	private String telefone;
-	
-	@Column
-	private String endereco;
-	
-	@Column
-	private String senha;
-	
-	@Column
-	private String confirmarSenha;
-	
-	
-	
-
-	}
+	@Column(nullable = false)
+	private String nome;
+}
