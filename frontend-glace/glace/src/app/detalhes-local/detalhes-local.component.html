@@ -1,38 +1,7 @@
 <div class="container-fluid">
     <div id="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" routerLink="/home" routerLinkActive="active">
-                <div class="title-container mr-4">
-                    <h1 class="title">GLACE</h1>
-                    <h2 class="sub-title">Guia de Lugares Acessíveis</h2>
-                </div>
-                <img src="../assets/images/kids-2.png" class="align-top navbar-img"
-                    alt="imagem de uma ilustração de crianças com deficiência" loading="lazy">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end navbar-options" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/pesquisa" routerLinkActive="active">Pesquisa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/quemSomos" routerLinkActive="active">Quem somos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/perfil" routerLinkActive="active">Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: rgba(144, 143, 142, 100%);" routerLink="/perfil" routerLinkActive="active">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        
+        <app-nav-bar></app-nav-bar>
 
         <div id="carouselExampleControls" class="carousel slide mt-5" data-ride="carousel">
             <div class="carousel-inner">

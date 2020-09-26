@@ -17,6 +17,7 @@ import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.componen
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { NavBarSecundariaComponent } from './nav-bar-secundaria/nav-bar-secundaria.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NavBarSecundariaComponent } from './nav-bar-secundaria/nav-bar-secundar
     PerfilUsuarioComponent,
     DetalhesLocalComponent,
     FooterComponent,
-    NavBarSecundariaComponent
+    NavBarSecundariaComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

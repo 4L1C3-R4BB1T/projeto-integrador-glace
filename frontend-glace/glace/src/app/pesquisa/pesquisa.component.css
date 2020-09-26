@@ -7,46 +7,6 @@
   width: 80%;
 }
 
-.nav-link {
-  font-family: 'Ruda', sans-serif;
-  font-size: 25px;
-  color: #08074E;
-}
-
-.nav-link:hover {
-  transition: 0.3s;
-  color: #908F8E;
-}
-
-#title {
-  width: 100%;
-  
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-weight: bold;
-  font-size: 70px;
-  text-align: center;
-  
-  color: #ADB8D7;
-  margin-top: 30px;
-  margin-bottom: 0;
-}
-  
-#subtitle {
-  width: 100%;
-  
-  font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  text-align: center;
-  
-  color: #08074E;
-}
-
-#logo {
-    width: 350px;
-    margin-left: 20px;
-    margin-top: 30px;
-}
-
 #input1 {
     width: 100%;
     height: 55px;
