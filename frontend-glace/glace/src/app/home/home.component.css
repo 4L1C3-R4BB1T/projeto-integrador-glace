@@ -18,6 +18,7 @@
 
   background: #FFFFFF;
   border: 1px solid #F1E9E9;
+  border-radius: 0;
   box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
 
   font-family: 'Ruda', sans-serif;
@@ -79,6 +80,7 @@
   color: #FFFFFF;
   font-family: 'Ruda', sans-serif;
   font-size: 15px;
+  border: 0;
 }
 
 @media screen and (max-width: 1440px) {
