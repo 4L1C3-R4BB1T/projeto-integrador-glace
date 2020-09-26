@@ -93,15 +93,7 @@
     background-color: orange;
     color: rgb(240, 240, 240);
 }
-    
-footer {
-    font-family: 'Ruda', sans-serif;
-    font-size: 18px;
-    color: #4E4E4E;
-    padding: 20px;
-    width: 100%;
-}
-    
+ 
 @media screen and (max-width: 1440px) {
     .navbar .navbar-brand .navbar-img {
         display: none;

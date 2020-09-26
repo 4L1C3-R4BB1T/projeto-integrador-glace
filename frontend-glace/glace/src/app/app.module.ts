@@ -15,6 +15,7 @@ import { PerfilAdminComponent } from './perfil-admin/perfil-admin.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     CadastroUsuarioComponent,
     PerfilAdminComponent,
     PerfilUsuarioComponent,
-    DetalhesLocalComponent
+    DetalhesLocalComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

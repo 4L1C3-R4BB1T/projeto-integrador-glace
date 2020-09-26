@@ -137,13 +137,6 @@ color: #08074E;
   font-size: 15px;
 }
 
-footer {
-  font-family: 'Ruda', sans-serif;
-  font-size: 18px;
-  color: #4E4E4E;
-  padding: 20px;
-}
-
 @media screen and (max-width: 1440px) {
   .navbar-collapse, .navbar-toggler {
     width: 70px;
