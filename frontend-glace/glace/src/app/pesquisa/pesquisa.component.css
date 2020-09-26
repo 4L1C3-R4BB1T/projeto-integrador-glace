@@ -1,12 +1,3 @@
-.container-fluid {
-  display: flex;
-  justify-content: center;
-}
-
-#container {
-  width: 80%;
-}
-
 #input1 {
     width: 100%;
     height: 55px;

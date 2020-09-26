@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+/*ESTILO DOS CONTAINERS*/
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+    
+#container {
+    width: 90%;
+}
+
+@media screen and (max-width: 960px) {
+    .container {
+        width: 90%;
+    }
+}
+    
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}
+    
+@media screen and (max-width: 576px) {
+    .container {
+        width: 95%;
+    }
+}

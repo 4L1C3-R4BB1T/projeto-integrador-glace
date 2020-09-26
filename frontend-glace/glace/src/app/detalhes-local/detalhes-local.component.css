@@ -1,13 +1,3 @@
-.container-fluid {
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-}
-    
-#container {
-    width: 80%;
-}
- 
 .carousel {
     border: 1px solid #908F8E;
     border-radius: 2px;

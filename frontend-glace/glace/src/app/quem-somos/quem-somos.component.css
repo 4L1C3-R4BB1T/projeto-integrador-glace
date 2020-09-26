@@ -1,13 +1,3 @@
-.container-fluid {
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-}
-  
-#container {
-  width: 80%;
-}
-
 .content {
   font-family: 'Ruda', sans-serif;
 }

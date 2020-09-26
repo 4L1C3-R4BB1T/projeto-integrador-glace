@@ -1,13 +1,3 @@
-.container-fluid {
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-}
-    
-#container {
-    width: 80%;
-}
- 
 .nome-perfil {
     font-family: 'Ruda', sans-serif;
     font-weight: 800 !important;
