@@ -37,11 +37,6 @@ public class ParceiroGlace {
 	
 	@Column
 	private String senha;
-	
-	@Column
-	private String confirmarSenha;
-	
-	
-	
+		
 
 	}
