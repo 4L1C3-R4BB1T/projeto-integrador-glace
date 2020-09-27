@@ -47,7 +47,7 @@
     margin-top: 80px;
 }
 
-.cards {
+.card {
   margin-top: 100px;
 }
 
@@ -71,22 +71,17 @@
 }
 
 #container-filtros {
-    border: 2px solid #C4C4C4;
-    border-top: 0;
-    margin-top: 100px;
-    border-radius: 3px;
+  border-top: 0;
 }
 
 .div-filtros {
-    border-bottom: 2px solid #C4C4C4;
-    border-top: 2px solid #C4C4C4;
-
+  border-bottom: 2px solid #C4C4C4;
 }
 
 .title-filtros {
   font-family: 'Ruda', sans-serif;
   font-size: 25px;
-  padding: 20px;
+  padding: 10px;
   color: #4E4E4E;
   margin: 0;
 }
@@ -152,4 +147,102 @@ color: #C4C4C4;
   font-family: 'Ruda', sans-serif;
   font-size: 15px;
   border: 0;
+}
+
+@media screen and (max-width: 1440px) {
+  .pesquisas {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .pesquisa {
+    padding: 0 !important;
+  }
+
+}
+
+@media screen and (max-width: 1024px) {
+  .pesquisas {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .pesquisa {
+    padding: 0 !important;
+  }
+
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    width: 90%;
+  }
+
+  .pesquisas {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pesquisa {
+    margin-top: 10px;
+    padding: 0 !important;
+  }
+
+  #input1, #input2, #botao-pesquisa {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  #destaques {
+    padding: 0;
+    margin-top: 30px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pesquisas {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pesquisa {
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  #input1, #input2, #botao-pesquisa {
+    width: 100%;
+    border-radius: 10px;
+
+  }
+
+  #destaques {
+    padding: 0;
+    margin-top: 30px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .pesquisas {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pesquisa {
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  #input1, #input2, #botao-pesquisa {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  #destaques {
+    padding: 0;
+    margin-top: 30px;
+    font-size: 18px;
+  }
 }
