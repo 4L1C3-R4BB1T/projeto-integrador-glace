@@ -3,6 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button'
+import { InputTextModule } from 'primeng/inputtext';
+import { PanelModule } from 'primeng/panel';
+import { TableModule } from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +24,8 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { NavBarSecundariaComponent } from './nav-bar-secundaria/nav-bar-secundaria.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { DropdownModule } from 'primeng/dropdown';
+
 
 @NgModule({
   declarations: [
@@ -36,10 +44,16 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule, 
+    FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    TableModule,
+    PanelModule,
+    InputTextModule,
+    ButtonModule,
+    ToastModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    DropdownModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -46,6 +46,4 @@ public class ClienteGlace {
 	
 	@Column
 	private String senha;
-	
-	
 	}

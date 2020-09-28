@@ -7,6 +7,5 @@ import br.com.projetoglace.model.ParceiroGlace;
 
 @Repository
 public interface ParceiroGlaceRepositry extends JpaRepository <ParceiroGlace, Long>{
-
 	
 }

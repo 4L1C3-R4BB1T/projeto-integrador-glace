@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Estado } from './estado';
+import { Cidade } from './cidade';
+import { EstabelecimentoService } from '../estabelecimento.service';
 
 @Component({
   selector: 'app-pesquisa',
@@ -8,10 +11,21 @@ import { Router } from '@angular/router';
 })
 export class PesquisaComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  estados: Estado[];
+  cidades: Cidade[];
+
+  estadoSelecionado: Estado;
+  cidadeSelecionada: Cidade;
+
+  constructor(private clienteService: EstabelecimentoService) { }
 
   ngOnInit(): void {
-
+    this.clienteService.listarEstados().subscribe(resposta =>
+      this.estados = resposta as any);
   }
 
+  listarCidades(idEstado: number) {
+    this.clienteService.listarCidades(idEstado).subscribe(resposta =>
+      this.cidades = resposta as any);
+  }
 }

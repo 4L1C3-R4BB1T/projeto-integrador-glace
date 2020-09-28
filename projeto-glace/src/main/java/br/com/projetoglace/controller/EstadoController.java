@@ -33,9 +33,4 @@ public class EstadoController {
 	public List<Estado> listar(){
 		return repository.findAll();
 	}
-	
-	@GetMapping("/{id}/cidades")
-	public List<Cidade> listarCidadesPorEstado(@PathVariable Long id){
-		return repository.buscarCidades(id);
-	}
 }

@@ -38,6 +38,7 @@ public class ParceiroGlaceService {
 		return repository.findById(id);
 	}
 	
+	
 	@Transactional
 	public void excluir(Long id) {
 		repository.deleteById(id);
@@ -51,7 +52,6 @@ public class ParceiroGlaceService {
 		parc.setCnpj(parceiro.getCnpj());
 		parc.setEmail(parceiro.getEmail());
 		parc.setTelefone(parceiro.getTelefone());
-		parc.setEndereco(parceiro.getEndereco());
 		parc.setSenha(parceiro.getSenha());
 		
 		
