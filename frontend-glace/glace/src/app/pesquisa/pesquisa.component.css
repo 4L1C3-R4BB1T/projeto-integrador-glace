@@ -1,40 +1,40 @@
 #input1 {
-    width: 100%;
-    height: 55px;
+  width: 100%;
+  height: 55px;
 
-    background: #FFFFFF;
-    border: 1px solid #F1E9E9;
-    box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
-    border-radius: 10px 0 0 10px;
+  background: #FFFFFF;
+  border: 1px solid #F1E9E9;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px 0 0 10px;
 
-    font-family: 'Ruda', sans-serif;
-    font-size: 20px;
-    padding-left: 20px;
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding-left: 20px;
 }
 
 #input2 {
-    width: 100%;
-    height: 55px;
+  width: 100%;
+  height: 55px;
 
-    background: #FFFFFF;
-    border: 1px solid #F1E9E9;
-    border-radius: 0;
-    box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  background: #FFFFFF;
+  border: 1px solid #F1E9E9;
+  border-radius: 0;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
 
-    font-family: 'Ruda', sans-serif;
-    font-size: 20px;
-    padding-left: 20px;
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding-left: 20px;
 }
 
 #botao-pesquisa {
-    width: 100%;
-    height: 55px;
+  width: 100%;
+  height: 55px;
 
-    background: #FFFFFF;
-    border: 1px solid #F1E9E9;
-    box-sizing: border-box;
-    box-shadow: 3px 2px 20px rgba(146, 140, 140, 0.08);
-    border-radius: 0 10px 10px 0;
+  background: #FFFFFF;
+  border: 1px solid #F1E9E9;
+  box-sizing: border-box;
+  box-shadow: 3px 2px 20px rgba(146, 140, 140, 0.08);
+  border-radius: 0 10px 10px 0;
 }
 
 #input1:hover, #input2:hover, #botao-pesquisa:hover {
@@ -43,26 +43,27 @@
 }
 
 .pesquisa {
-    padding: 0;
-    margin-top: 80px;
+  padding: 0;
+  margin-top: 80px;
 }
 
 .card {
   margin-top: 100px;
+  min-height: 470px;
 }
 
 .card-deck {
-    margin: 0 0 30px 0;
+  margin: 0 0 30px 0;
 }
 
 .img-card {
-    max-height: 180px;
-    object-fit: cover;
+  max-height: 180px;
+  object-fit: cover;
 }
 
 .card-text {
-    min-height: 119px;
-    max-height: 120px;
+  min-height: 119px;
+  max-height: 120px;
 }
 
 .icon {
@@ -71,7 +72,9 @@
 }
 
 #container-filtros {
-  border-top: 0;
+  height: 100%;
+  margin-top: 100px;
+  padding: 0 !important;
 }
 
 .div-filtros {
@@ -81,7 +84,7 @@
 .title-filtros {
   font-family: 'Ruda', sans-serif;
   font-size: 25px;
-  padding: 10px;
+  padding: 20px;
   color: #4E4E4E;
   margin: 0;
 }
@@ -91,12 +94,12 @@
 }
 
 .form-check-input {
-width: 25px;
-height: 25px;
+  width: 25px;
+  height: 25px;
 
-border: 1px solid #C4C4C4;
-box-sizing: border-box;
-color: #C4C4C4;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  color: #C4C4C4;
 }
 
 .form-check-label {
@@ -109,6 +112,7 @@ color: #C4C4C4;
 #filtro-deficiencia {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .img-deficiencias {
@@ -158,7 +162,6 @@ color: #C4C4C4;
   .pesquisa {
     padding: 0 !important;
   }
-
 }
 
 @media screen and (max-width: 1024px) {
@@ -197,6 +200,11 @@ color: #C4C4C4;
     padding: 0;
     margin-top: 30px;
     font-size: 18px;
+  }
+
+  #container-filtros {
+    border-bottom: 2px solid #C4C4C4;
+    border-top: 2px solid #C4C4C4;
   }
 }
 

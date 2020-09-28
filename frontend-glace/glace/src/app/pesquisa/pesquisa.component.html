@@ -44,7 +44,7 @@
           </select>
         </div>
 
-        <div class="col-2 pesquisa">
+        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 pesquisa">
           <button type="submit" id="botao-pesquisa" class="btn btn-outline-light">
             <i class="fas fa-search" style="color: rgba(196, 196, 196, 1); font-size: 20px;"></i>
           </button>
@@ -53,192 +53,221 @@
         <div class="col-2"></div>
       </div>
 
-        <div class="row row-cols-1 row-cols-xl-4 row-cols-md-2 row-cols-sm-1">
+      <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 float-left" id="container-filtros">
+        <div class="div-filtros">
+          <h2 class="title-filtros">Filtrar por:</h2>
+        </div>
+
+        <div id="filtros-locais">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Hotel
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">
+              Pousada
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+            <label class="form-check-label" for="defaultCheck3">
+              Hotéis fazenda
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+            <label class="form-check-label" for="defaultCheck4">
+              Restaurantes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+            <label class="form-check-label" for="defaultCheck5">
+              Cafés
+            </label>
+          </div>
+        </div>
+
+        <div class="div-filtros">
+          <h2 class="title-filtros">Acessível para:</h2>
+        </div>
+
+        <div id="filtro-deficiencia">
+          <div class="col-md-3 text-center">
+            <label class="image-checkbox" title="England">
+              <img class="img-deficiencias" src="./assets/images/mobilidade.png" />
+              <input type="checkbox" name="team[]" value="england" checked="checked" />
+            </label>
+          </div>
+          <div class="col-md-3 text-center">
+            <label class="image-checkbox" title="Germany">
+              <img class="img-deficiencias" src="./assets/images/auditivo.png" />
+              <input type="checkbox" name="team[]" value="germany" />
+            </label>
+          </div>
+          <div class="col-md-3 text-center">
+            <label class="image-checkbox" title="Italy">
+              <img class="img-deficiencias" src="./assets/images/cego.png" />
+              <input type="checkbox" name="team[]" value="italy" />
+            </label>
+          </div>
+          <div class="col-md-3 text-center">
+            <label class="image-checkbox" title="Spain">
+              <img class="img-deficiencias" src="./assets/images/intelectual.png" />
+              <input type="checkbox" name="team[]" value="spain" />
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-cards float-right col-xl-9 col-lg-9 col-md-12 col-sm-12">
+        <div class="row row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
           <div class="col mb-4">
             <div class="card">
+              <img src="../../assets/images/restaurante1.jpg" class="card-img-top img-card" alt="imagem de restaurante">
               <div class="card-body">
-                <div id="container-filtros">
-                  <div class="div-filtros">
-                    <h2 class="title-filtros">Filtrar por:</h2>
-                  </div>
-
-                  <div id="filtros-locais">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                      <label class="form-check-label" for="defaultCheck1">
-                        Hotel
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                      <label class="form-check-label" for="defaultCheck2">
-                        Pousada
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-                      <label class="form-check-label" for="defaultCheck3">
-                        Hotéis fazenda
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-                      <label class="form-check-label" for="defaultCheck4">
-                        Restaurantes
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
-                      <label class="form-check-label" for="defaultCheck5">
-                        Cafés
-                      </label>
-                    </div>
-
-                  <div class="div-filtros">
-                    <h2 class="title-filtros">Acessível para:</h2>
-                  </div>
+                <h5 class="card-title title-veg">OAZI Restaurante</h5>
+                <p class="card-text description">
+                  Churrascaria que segue tradicional gaúcha (sem peixes, frutos do mar ou comida japonesa) em sistema de rodízio.
+                </p>
+                <p><small class="text-muted">Acessível</small></p>
+                <div>
+                  <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
+                  <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
                 </div>
-
-                <div id="filtro-deficiencia">
-                  <div class="col-md-3 text-center">
-                    <label class="image-checkbox" title="England">
-                      <img class="img-deficiencias" src="./assets/images/mobilidade.png" />
-                      <input type="checkbox" name="team[]" value="england" checked="checked" />
-                    </label>
-                  </div>
-                  <div class="col-md-3 text-center">
-                    <label class="image-checkbox" title="Germany">
-                      <img class="img-deficiencias" src="./assets/images/auditivo.png" />
-                      <input type="checkbox" name="team[]" value="germany" />
-                    </label>
-                  </div>
-                  <div class="col-md-3 text-center">
-                    <label class="image-checkbox" title="Italy">
-                      <img class="img-deficiencias" src="./assets/images/cego.png" />
-                      <input type="checkbox" name="team[]" value="italy" />
-                    </label>
-                  </div>
-                  <div class="col-md-3 text-center">
-                    <label class="image-checkbox" title="Spain">
-                      <img class="img-deficiencias" src="./assets/images/intelectual.png" />
-                      <input type="checkbox" name="team[]" value="spain" />
-                    </label>
-                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="../../assets/images/hotel2.jpg" class="card-img-top img-card" alt="imagem de banheiro de pousada">
+              <div class="card-body">
+                <h5 class="card-title title-veg">Pousada Astoria Palace</h5>
+                <p class="card-text description">
+                  Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat MNI está situado no
+                  Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.
+                </p>
+                <p><small class="text-muted">Acessível</small></p>
+                <div>
+                  <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i> <i class="icon fas fa-sign-language"></i>
+                  <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
                 </div>
-               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/restaurante1.jpg" class="card-img-top img-card" alt="imagem de restaurante">
-            <div class="card-body">
-              <h5 class="card-title title-veg">OAZI Restaurante</h5>
-              <p class="card-text description">
-                Churrascaria que segue tradicional gaúcha (sem peixes, frutos do mar ou comida japonesa) em sistema de rodízio.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/hotel2.jpg" class="card-img-top img-card" alt="imagem de banheiro de pousada">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Pousada Astoria Palace</h5>
-              <p class="card-text description">
-                Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat MNI está situado no
-                Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i> <i class="icon fas fa-sign-language"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="../../assets/images/restaurante2.jpeg" class="card-img-top img-card" alt="imagem de restaurante">
+              <div class="card-body">
+                <h5 class="card-title title-veg">Restaurante Porto</h5>
+                <p class="card-text description">
+                  A ementa, influenciada pela gastronomia típica portuense, é fixa de segunda ao sábado.
+                </p>
+                <p><small class="text-muted">Acessível</small></p>
+                <div>
+                  <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
+                  <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/restaurante2.jpeg" class="card-img-top img-card" alt="imagem de restaurante">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Restaurante Porto</h5>
-              <p class="card-text description">
-                A ementa, influenciada pela gastronomia típica portuense, é fixa de segunda ao sábado.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="../../assets/images/hotel1.jpg" class="card-img-top img-card" alt="imagem de quarto de hotel">
+              <div class="card-body">
+                <h5 class="card-title title-veg">Hotel Atlântico</h5>
+                <p class="card-text description">
+                  Com restaurante e posição privilegiada, você também encontra opções para almoçar e jantar.
+                </p>
+                <p><small class="text-muted">Acessível</small></p>
+                <div>
+                  <i class="icon fab fa-accessible-icon"></i> <i class="icon fas fa-sign-language"></i> <i class="icon fas fa-blind"></i>
+                  <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/hotel1.jpg" class="card-img-top img-card" alt="imagem de quarto de hotel">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Hotel Atlântico</h5>
-              <p class="card-text description">
-                Com restaurante e posição privilegiada, você também encontra opções para almoçar e jantar.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fab fa-accessible-icon"></i> <i class="icon fas fa-sign-language"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="../../assets/images/restaurante1.jpg" class="card-img-top img-card" alt="imagem de restaurante">
+              <div class="card-body">
+                <h5 class="card-title title-veg">OAZI Restaurante</h5>
+                <p class="card-text description">
+                  Churrascaria que segue tradicional gaúcha (sem peixes, frutos do mar ou comida japonesa) em sistema de rodízio.
+                </p>
+                <p><small class="text-muted">Acessível</small></p>
+                <div>
+                  <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
+                  <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/restaurante1.jpg" class="card-img-top img-card" alt="imagem de restaurante">
-            <div class="card-body">
-              <h5 class="card-title title-veg">OAZI Restaurante</h5>
-              <p class="card-text description">
-                Churrascaria que segue tradicional gaúcha (sem peixes, frutos do mar ou comida japonesa) em sistema de rodízio.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="../../assets/images/hotel2.jpg" class="card-img-top img-card" alt="imagem de banheiro de pousada">
+              <div class="card-body">
+                <h5 class="card-title title-veg">Pousada Astoria Palace</h5>
+                <p class="card-text description">
+                  Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat MNI está situado no
+                  Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.
+                </p>
+                <p><small class="text-muted">Acessível</small></p>
+                <div>
+                  <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i> <i class="icon fas fa-sign-language"></i>
+                  <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/hotel2.jpg" class="card-img-top img-card" alt="imagem de banheiro de pousada">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Pousada Astoria Palace</h5>
-              <p class="card-text description">
-                Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat MNI está situado no
-                Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i> <i class="icon fas fa-sign-language"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="../../assets/images/restaurante2.jpeg" class="card-img-top img-card" alt="imagem de restaurante">
+              <div class="card-body">
+                <h5 class="card-title title-veg">Restaurante Porto</h5>
+                <p class="card-text description">
+                  A ementa, influenciada pela gastronomia típica portuense, é fixa de segunda ao sábado.
+                </p>
+                <p><small class="text-muted">Acessível</small></p>
+                <div>
+                  <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
+                  <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/restaurante2.jpeg" class="card-img-top img-card" alt="imagem de restaurante">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Restaurante Porto</h5>
-              <p class="card-text description">
-                A ementa, influenciada pela gastronomia típica portuense, é fixa de segunda ao sábado.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="../../assets/images/hotel1.jpg" class="card-img-top img-card" alt="imagem de quarto de hotel">
+              <div class="card-body">
+                <h5 class="card-title title-veg">Hotel Atlântico</h5>
+                <p class="card-text description">
+                  Com restaurante e posição privilegiada, você também encontra opções para almoçar e jantar.
+                </p>
+                <p><small class="text-muted">Acessível</small></p>
+                <div>
+                  <i class="icon fab fa-accessible-icon"></i> <i class="icon fas fa-sign-language"></i> <i class="icon fas fa-blind"></i>
+                  <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="../../assets/images/restaurante1.jpg" class="card-img-top img-card" alt="imagem de restaurante">
+              <div class="card-body">
+                <h5 class="card-title title-veg">OAZI Restaurante</h5>
+                <p class="card-text description">
+                  Churrascaria que segue tradicional gaúcha (sem peixes, frutos do mar ou comida japonesa) em sistema de rodízio.
+                </p>
+                <p><small class="text-muted">Acessível</small></p>
+                <div>
+                  <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
+                  <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
+                </div>
               </div>
             </div>
           </div>
