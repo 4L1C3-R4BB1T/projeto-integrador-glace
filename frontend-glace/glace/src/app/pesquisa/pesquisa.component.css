@@ -47,8 +47,11 @@
   margin-top: 80px;
 }
 
-.card {
+.main-cards {
   margin-top: 100px;
+}
+
+.card {
   min-height: 470px;
 }
 
@@ -126,6 +129,10 @@
   opacity: 100%;
 }
 
+.text-center {
+  padding: 0 !important;
+}
+
 .image-checkbox {
   cursor: pointer;
   box-sizing: border-box;
@@ -174,6 +181,9 @@
     padding: 0 !important;
   }
 
+  .img-deficiencias {
+    width: 35px;
+  }
 }
 
 @media screen and (max-width: 960px) {
@@ -205,6 +215,10 @@
   #container-filtros {
     border-bottom: 2px solid #C4C4C4;
     border-top: 2px solid #C4C4C4;
+  }
+
+  .img-deficiencias {
+    width: 45px;
   }
 }
 
