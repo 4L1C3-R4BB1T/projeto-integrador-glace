@@ -29,7 +29,8 @@ public class EstadoController {
 		repository.save(estado);
 	}
 	
-	@GetMapping
+	
+	@GetMapping("/estados")
 	public List<Estado> listar(){
 		return repository.findAll();
 	}
