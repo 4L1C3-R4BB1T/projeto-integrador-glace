@@ -6,45 +6,31 @@
     <div class="content">
       <div class="row pesquisas">
         <div class="col-2"></div>
-
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa">
-          <input type="text" id="input1" placeholder="Cidade">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input1">
+          <p-dropdown [options]="cidades" 
+          [(ngModel)]="cidadeSelecionada" 
+          optionLabel="nome" 
+          [filter]="true" 
+          filterBy="value.nome" 
+          name="cidade" 
+          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+        </p-dropdown>
         </div>
 
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa" >
-          <select class="form-control form-control-lg" id="input2"  placeholder="Estado">
-            <option value="ESTADO">Estado</option>
-            <option>ACRE</option>
-            <option>ALAGOAS</option>
-            <option>AMAPÁ</option>
-            <option>AMAZONAS</option>
-            <option>BAHIA</option>
-            <option>CEARÁ</option>
-            <option>ESPÍRITO SANTO</option>
-            <option>GOIÁS</option>
-            <option>MARANHÃO</option>
-            <option>MATO GROSSO</option>
-            <option>MATO GROSSO DO SUL</option>
-            <option>MINAS GERAIS</option>
-            <option>PARÁ</option>
-            <option>PARAÍBA</option>
-            <option>PARANÁ</option>
-            <option>PERNAMBUCO</option>
-            <option>PIAUÍ</option>
-            <option>RIO DE JANEIRO</option>
-            <option>RIO GRANDE DO NORTE</option>
-            <option>RIO GRANDE DO SUL</option>
-            <option>RONDÔNIA</option>
-            <option>RORAIMA</option>
-            <option>SANTA CATARINA</option>
-            <option>SÃO PAULO</option>
-            <option>SERGIPE</option>
-            <option>TOCANTINS</option>
-            <option>DISTRITO FEDERAL</option>
-          </select>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input2">
+          <p-dropdown 
+          [options]="estados" 
+          [(ngModel)]="estadoSelecionado" 
+          optionLabel="nome" 
+          [filter]="true" 
+          filterBy="value.nome" 
+          name="estado"  
+          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}" 
+          (onChange)="listarCidades(estadoSelecionado.id)">
+        </p-dropdown>
         </div>
 
-        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 pesquisa">
+        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 pesquisa" >
           <button type="submit" id="botao-pesquisa" class="btn btn-outline-light" ng-click="buscar()">
             <i class="fas fa-search" style="color: rgba(196, 196, 196, 1); font-size: 20px;"></i>
           </button>

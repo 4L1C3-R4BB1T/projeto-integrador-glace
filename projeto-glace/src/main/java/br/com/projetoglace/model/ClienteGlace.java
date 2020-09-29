@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,9 +33,13 @@ public class ClienteGlace {
 	@Column(name= "data_nasc")
 	private String dataNasc;
 	
+	@NotNull
+	@NotBlank
 	@Column
 	private String cpf;
 	
+	@NotNull
+	@NotBlank
 	@Column
 	private String email;
 	

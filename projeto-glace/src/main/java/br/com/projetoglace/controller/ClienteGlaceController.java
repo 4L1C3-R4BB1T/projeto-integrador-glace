@@ -3,6 +3,8 @@ package br.com.projetoglace.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,7 +32,7 @@ public class ClienteGlaceController {
 		//GET - select
 		//Delete - Delete
 		@PostMapping
-		public void salvar(@RequestBody ClienteGlace cliente) {
+		public void salvar(@RequestBody @Valid ClienteGlace cliente) {
 			service.salvar(cliente);
 		}
 		
@@ -55,7 +57,7 @@ public class ClienteGlaceController {
 		}
 		
 		@PutMapping("/{id}")
-		public void atualizar(@PathVariable Long id, @RequestBody ClienteGlace cliente) {
+		public void atualizar(@PathVariable Long id, @RequestBody @Valid ClienteGlace cliente) {
 		service.atualizar(cliente, id);
 			
 	}

@@ -27,6 +27,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DropdownModule } from 'primeng/dropdown';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { DropdownModule } from 'primeng/dropdown';
     DetalhesLocalComponent,
     FooterComponent,
     NavBarSecundariaComponent,
-    NavBarComponent
+    NavBarComponent,
+    
   ],
   imports: [
     BrowserModule,
