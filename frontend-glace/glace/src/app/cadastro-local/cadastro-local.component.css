@@ -1,0 +1,145 @@
+.nome-perfil {
+  font-family: 'Ruda', sans-serif;
+  font-weight: 800 !important;
+  color: #3E3E3E;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 20px;
+}
+
+.input, textarea {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #F1E9E9;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.input:hover, textarea:hover {
+  transition: 0.5s;
+  border-color: #f58723;
+}
+
+.input {
+  height: 55px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.botao {
+  background-color: rgba(255, 153, 0, 1);
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 24px;
+  border: none;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  padding: 5px 15px 5px 15px;
+}
+
+.botao:hover {
+  background-color: orange;
+}
+
+h4 {
+  font-family: 'Ruda', sans-serif;
+  color: #08074E;
+}
+
+.image-checkbox p {
+  font-family: 'Ruda', sans-serif;
+  color: #08074E;
+  font-size: 17px;
+}
+
+.title-filtros {
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding: 20px;
+  color: #4E4E4E;
+  margin: 0;
+  text-align: left;
+}
+
+#filtro-deficiencia {
+  display: flex;
+}
+
+.img-deficiencias {
+  width: 40px;
+  opacity: 80%;
+}
+
+.img-deficiencias:hover {
+  transition: 0.5s;
+  opacity: 100%;
+}
+
+.text-center {
+  padding: 0 !important;
+}
+
+.image-checkbox {
+  cursor: pointer;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 4px solid transparent;
+  outline: 0;
+}
+
+.image-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.image-checkbox-checked {
+  border-color: #f58723;
+}
+
+@media screen and (max-width: 1440px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 456px) {
+  .nome-perfil {
+    flex-direction: row;
+    padding-left: 10px;
+    margin-top: 8px;
+  }
+}

@@ -3,7 +3,7 @@
     margin: auto;
 }
 
-.input1 {
+.input {
     width: 100%;
     height: 55px;
   
@@ -17,7 +17,7 @@
     padding-left: 20px;
 }
 
-.input1:hover {
+.input:hover {
     transition: 0.5s;
     border-color:#f58723;
 }

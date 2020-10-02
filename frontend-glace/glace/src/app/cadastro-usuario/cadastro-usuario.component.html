@@ -1,40 +1,57 @@
 <div class="container-fluid">
     <div id="container">
-        
+
         <app-nav-bar-secundaria></app-nav-bar-secundaria>
-        
+
         <div class="content mt-4">
             <div class="pt-5 pb-5">
                 <div>
-                    <input type="text" class="input1"  placeholder="Nome" name="nome" [(ngModel)]="cliente.nome" ng-disabled="mainForm.$invalid" required >
+                    <input type="text" class="input" placeholder="Nome" name="nome" [(ngModel)]="cliente.nome"
+                        ng-disabled="mainForm.$invalid" required>
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4"  placeholder="Sobrenome" name="sobrenome" [(ngModel)]="cliente.sobrenome" ng-disabled="mainForm.$invalid" required>
+                    <input type="text" class="input mt-4" placeholder="Sobrenome" name="sobrenome"
+                        [(ngModel)]="cliente.sobrenome" ng-disabled="mainForm.$invalid" required>
                 </div>
                 <div>
-                    <input type="date" class="input1 mt-4" name="dataNasc" [(ngModel)]="cliente.dataNasc" ng-disabled="mainForm.$invalid"required>
+                    <input type="date" class="input mt-4" name="dataNasc" [(ngModel)]="cliente.dataNasc"
+                        ng-disabled="mainForm.$invalid" required>
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4" placeholder="CPF" name="cpf" [(ngModel)]="cliente.cpf" ng-disabled="mainForm.$invalid" required> 
+                    <input type="text" class="input mt-4" placeholder="CPF" name="cpf" [(ngModel)]="cliente.cpf"
+                        ng-disabled="mainForm.$invalid" required>
                 </div>
                 <div>
-                    <input type="email" class="input1 mt-4" placeholder="E-mail" name="email" [(ngModel)]="cliente.email" ng-disabled="mainForm.$invalid" required>
+                    <input type="text" class="input mt-4" placeholder="Telefone" [(ngModel)]="cliente.telefone"
+                        ng-disabled="mainForm.$invalid" required>
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4" placeholder="Telefone" [(ngModel)]="cliente.telefone" ng-disabled="mainForm.$invalid" required>
+                    <input type="text" class="input mt-4" placeholder="Endereco" name="endereco"
+                        [(ngModel)]="cliente.endereco" ng-disabled="mainForm.$invalid" required>
                 </div>
                 <div>
-                    <input type="text" class="input1 mt-4" placeholder="Endereco" name="endereco"[(ngModel)]="cliente.endereco" ng-disabled="mainForm.$invalid" required>
+                    <input type="email" class="input mt-4" placeholder="E-mail" name="email"
+                        [(ngModel)]="cliente.email" ng-disabled="mainForm.$invalid" required>
                 </div>
                 <div>
-                    <input type="password" class="input1 mt-4" placeholder="Senha" id="senha" name="senha" [(ngModel)]="cliente.senha" ng-disabled="mainForm.$invalid" required>
+                    <input type="password" class="input mt-4" placeholder="Senha" id="senha" name="senha"
+                        [(ngModel)]="cliente.senha" ng-disabled="mainForm.$invalid" required>
                 </div>
                 <div>
-                    <input type="password" class="input1 mt-4 mb-3" id="confirmarSenha" placeholder="Confirmar senha"  required>
+                    <input type="password" class="input mt-4" id="confirmarSenha" placeholder="Confirmar senha"
+                        required>
                 </div>
-                <button type="button" class="btn btn-primary mt-4 mb-2 entrar"(click)="adicionar()" routerLink="/login" routerLinkActive="active">Cadastrar</button>
+                <div>
+                    <label for="parceiro" class="parceiro mt-4 ml-1 mr-2 mb-3" title="Parceiro">
+                        Sou parceiro
+                    </label>
+                    <input id="parceiro" type="checkbox" name="parceiro" value="1" />
+                </div>
+                <button type="button" class="btn mt-4 mb-2 entrar" (click)="adicionar()" routerLink="/login"
+                    routerLinkActive="active">Cadastrar</button>
                 <p class="mt-4 cadastro"><a routerLink="/login"><i class="fas fa-arrow-left mr-2"></i>Voltar para login</a></p>
             </div>
         </div>
+
     </div>
 </div>

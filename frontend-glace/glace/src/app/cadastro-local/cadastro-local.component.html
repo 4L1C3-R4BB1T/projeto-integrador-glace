@@ -1,0 +1,125 @@
+<div class="container-fluid">
+    <div id="container">
+
+        <app-nav-bar></app-nav-bar>
+
+        <div class="row">
+            <div class="nome-perfil">
+                <h2 class="nome-perfil">Admin</h2>
+            </div>
+        </div>
+
+        <div class="pt-5">
+            <h4>Cadastro de Estabelecimento</h4>
+
+            <form>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <input type="text" class="input mt-3" placeholder="Nome" name="nome">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="input mt-3" placeholder="CNPJ" name="cnpj">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <input type="text" class="input mt-4" placeholder="Rua" name="rua">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="input mt-4" placeholder="Telefone" name="telefone">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="input mt-4" placeholder="CEP" name="cep">
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <input type="text" class="input mt-4" placeholder="Bairro" name="bairro">
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <input type="text" class="input mt-4" placeholder="Número" name="numero">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6 ">
+                        <div class="mt-4 input no-padding">
+                            <p-dropdown 
+                                [options]="cidades" 
+                                [(ngModel)]="cidadeSelecionada" 
+                                optionLabel="nome"    
+                                [filter]="true" 
+                                filterBy="value.nome" 
+                                name="cidade"
+                                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="mt-4 input no-padding">
+                            <p-dropdown 
+                                [options]="estados" 
+                                [(ngModel)]="estadoSelecionado" 
+                                optionLabel="nome"
+                                [filter]="true" 
+                                filterBy="value.nome" 
+                                name="estado"
+                                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                (onChange)="listarCidades(estadoSelecionado.id)">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <textarea class="mt-4" rows="4" cols="60" placeholder="Descrição do local" name="descricao"></textarea>
+                </div>
+
+                <div class="mt-2 mb-3">
+                    <div class="div-filtros">
+                        <p class="title-filtros"> Acessível para deficiência:</p>
+                    </div>
+
+                    <div id="filtro-deficiencia">
+                        <div class="col-md-3 text-center">
+                            <label for="motora" class="image-checkbox" title="Motora">
+                                <img class="img-deficiencias" src="../../assets/images/mobilidade.png" />
+                                <p>Motora</p>
+                                <input id="motora" type="checkbox" name="motora" value="" />
+                            </label>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <label class="image-checkbox" title="Auditiva">
+                                <img class="img-deficiencias" src="../../assets/images/auditivo.png" />
+                                <p>Auditiva</p>
+                                <input type="checkbox" name="auditiva" value="" />
+                            </label>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <label class="image-checkbox" title="Visual">
+                                <img class="img-deficiencias" src="../../assets/images/cego.png" />
+                                <p>Visual</p>
+                                <input type="checkbox" name="visual" value="" />
+                            </label>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <label class="image-checkbox" title="Mental">
+                                <img class="img-deficiencias" src="../../assets/images/intelectual.png" />
+                                <p>Mental</p>
+                                <input type="checkbox" name="mental" value="" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="float-right mb-5">
+                    <button type="button" class="btn mr-2 botao">Cadastrar</button>
+                    <button type="button" class="btn botao bg-danger" routerLink="/perfilAdmin">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

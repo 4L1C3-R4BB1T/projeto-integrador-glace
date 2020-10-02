@@ -1,3 +1,4 @@
+import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { PerfilAdminComponent } from './perfil-admin/perfil-admin.component';
 import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.component';
@@ -9,7 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 
-
 const routes: Routes = [
   {path: 'quemSomos', component: QuemSomosComponent},
   {path: 'home', component: HomeComponent},
@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'perfilUsuario', component: PerfilUsuarioComponent},
   {path: 'perfilAdmin', component: PerfilAdminComponent},
   {path: 'detalhesLocal', component: DetalhesLocalComponent},
+  {path: 'cadastroLocal', component: CadastroLocalComponent},
   {path: '', pathMatch: 'full', redirectTo:'/home'}
 ];
 

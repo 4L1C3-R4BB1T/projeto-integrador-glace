@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,8 +24,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavBarSecundariaComponent } from './nav-bar-secundaria/nav-bar-secundaria.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DropdownModule } from 'primeng/dropdown';
-
-
+import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +40,7 @@ import { DropdownModule } from 'primeng/dropdown';
     FooterComponent,
     NavBarSecundariaComponent,
     NavBarComponent,
+    CadastroLocalComponent,
     
   ],
   imports: [
