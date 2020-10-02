@@ -141,6 +141,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	
 	
+	@SuppressWarnings("unused")
 	private ResponseEntity<Object> handlePropertyBinding(PropertyBindingException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		
@@ -156,6 +157,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		return handleExceptionInternal(ex, problem, headers, status, request);
 	}
 	
+	@SuppressWarnings("unused")
 	private ResponseEntity<Object> handleInvalidFormat(InvalidFormatException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		String path = joinPath(ex.getPath());

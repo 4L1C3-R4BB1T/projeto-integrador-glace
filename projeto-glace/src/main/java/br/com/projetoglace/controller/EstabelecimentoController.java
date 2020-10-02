@@ -1,7 +1,6 @@
 package br.com.projetoglace.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,14 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.projetoglace.model.Cidade;
-import br.com.projetoglace.model.Estabelecimento;
-import br.com.projetoglace.model.Estado;
-import br.com.projetoglace.model.ParceiroGlace;
-import br.com.projetoglace.repository.CidadeRepository;
-import br.com.projetoglace.repository.EstabelecimentoRepository;
-import br.com.projetoglace.repository.EstadoRepository;
-import br.com.projetoglace.service.ParceiroGlaceService;
+import br.com.projetoglace.model.EstabelecimentoGlace;
+
+import br.com.projetoglace.service.EstabelecimentoGlaceService;
 
 @CrossOrigin
 @RestController
@@ -27,38 +21,15 @@ import br.com.projetoglace.service.ParceiroGlaceService;
 public class EstabelecimentoController {
 	
 	@Autowired
-	private EstabelecimentoRepository estabelecimentoRepository;
-	
-	@Autowired
-	private EstadoRepository estadoReposity;
-	
-	@Autowired
-	private CidadeRepository cidadeReposity;
-	
-	@Autowired
-	private ParceiroGlaceService parceiroGlaceService; 
+	private EstabelecimentoGlaceService service;
 	
 	@PostMapping("/{id}/parceiro")
-	public void salvar(@PathVariable Long id, @RequestBody Estabelecimento estabelecimento) {
-		
-		Optional<ParceiroGlace> glace = parceiroGlaceService.buscar(id);
-		ParceiroGlace parceiroGlace = glace.get();
-		
-		estabelecimento.setParceiroGlace(parceiroGlace);
-		
-		estadoReposity.save(estabelecimento.getEndereco().getCidade().getEstado());
-		cidadeReposity.save(estabelecimento.getEndereco().getCidade());
-		
-		estabelecimentoRepository.save(estabelecimento);
+	public void salvar(@PathVariable Long id,  @RequestBody EstabelecimentoGlace estabelecimento) {
+		service.salvar(id, estabelecimento);
 	}
 	
-	@GetMapping("/estado")
-	public List<Estado> listarEstados(){
-		return estadoReposity.findAll();
-	}
-	
-	@GetMapping("/cidade/{id}")
-	public List<Cidade> listarCidades(@PathVariable Long id){
-		return cidadeReposity.bucarCidades(id);
+	@GetMapping("/listar")
+	public List<EstabelecimentoGlace> listarEstabelecimentos(){
+		return service.listar();
 	}
 }

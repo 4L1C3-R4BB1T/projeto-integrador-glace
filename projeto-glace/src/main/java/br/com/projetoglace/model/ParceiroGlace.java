@@ -10,30 +10,40 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@Builder
-@AllArgsConstructor
 @Entity
 @Table(name = "parceiro")
 public class ParceiroGlace {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 	
-	@Column(name = "razao_social")
-	private String razaoSocial;
+	@Column
+	private String nome;
 	
 	@Column
-	private String cnpj;
+	private String sobrenome;
 	
+	@DateTimeFormat(pattern="yyyy-mm-dd")
+	@Column(name= "data_nasc")
+	private String dataNasc;
+	
+	@NotNull
+	@NotBlank
+	@Column
+	private String cpf;
+	
+	@NotNull
+	@NotBlank
 	@Column
 	private String email;
 	
@@ -41,8 +51,11 @@ public class ParceiroGlace {
 	private String telefone;
 	
 	@Column
+	private String endereco;
+	
+	@Column
 	private String senha;
 		
 	@OneToMany(mappedBy = "parceiroGlace", cascade = CascadeType.ALL)
-	private List<Estabelecimento> estabelecimentos;
+	private List<EstabelecimentoGlace> estabelecimentos;
 }

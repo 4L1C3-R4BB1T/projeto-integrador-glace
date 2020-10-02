@@ -3,7 +3,11 @@ package br.com.projetoglace.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projetoglace.dto.ParceiroGlaceDTO;
 import br.com.projetoglace.model.ParceiroGlace;
+import br.com.projetoglace.request.ParceiroGlaceRequest;
 import br.com.projetoglace.service.ParceiroGlaceService;
 
 
@@ -31,8 +37,13 @@ public class ParceiroGlaceController {
 	//GET - select
 	//Delete - Delete
 	@PostMapping
-	public void salvar(@RequestBody ParceiroGlace parceiro) {
-		service.salvar(parceiro);
+	public ResponseEntity<?> salvar(@RequestBody @Valid ParceiroGlaceRequest request) {
+		try {
+			ParceiroGlaceDTO parceiro = service.salvar(request);
+			return ResponseEntity.status(HttpStatus.CREATED).body(parceiro);
+		}catch(Exception ex) {
+			return ResponseEntity.badRequest().body(ex.getMessage());
+		}	
 	}
 	
 	@GetMapping("/{id}")
