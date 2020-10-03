@@ -1,18 +1,22 @@
 <div class="container-fluid">
     <div id="container">
-        
+
         <app-nav-bar-secundaria></app-nav-bar-secundaria>
 
-        <div class="content mt-5 pt-4">
+        <div class="content mt-4">
             <div class="pt-5 pb-5">
-                <div class="">
-                    <input type="email" class="input" placeholder="E-mail">
-                </div>
-                <div>
-                    <input type="password" class="input mt-4 mb-3" placeholder="Senha">
-                </div>
-                <button type="button" class="btn mt-4 mb-2 entrar" routerLinkActive="active" routerLink="/perfilUsuario">Entrar</button>
-                <p class="mt-4 cadastro"><a routerLinkActive="active" routerLink="/cadastroUsuario">Não possuo cadastro</a></p>
+
+                <form>
+                    <div>
+                        <input type="email" class="input" placeholder="E-mail">
+                    </div>
+                    <div>
+                        <input type="password" class="input mt-4 mb-3" placeholder="Senha">
+                    </div>
+                    <button type="button" class="btn mt-4 mb-2 entrar" routerLinkActive="active" routerLink="/perfilUsuario">Entrar</button>
+                    <p class="mt-4 cadastro"><a routerLinkActive="active" routerLink="/cadastroUsuario">Não possuo cadastro</a></p>
+                </form>
+
             </div>
         </div>
 
