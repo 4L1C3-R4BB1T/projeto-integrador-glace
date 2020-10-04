@@ -1,38 +1,78 @@
 .carousel {
-    border: 1px solid #908F8E;
-    border-radius: 2px;
+  border: 1px solid #908F8E;
+  border-radius: 2px;
 }
-  
+
 .content {
-    font-family: 'Ruda', sans-serif;
+  font-family: 'Ruda', sans-serif;
 }
 
 .content p {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .content .localizacao {
-    color: #908F8E;
-    font-size: 18px;
+  color: #908F8E;
+  font-size: 18px;
 }
 
 .icon {
-    font-size: 13px;
-    color: #FF9900;
-    margin-right: 5px;
+  font-size: 13px;
+  color: #FF9900;
+  margin-right: 5px;
 }
 
 .reserva {
-    background-color: rgba(255, 153, 0, 1);;
-    border-radius: 5px;
-    padding: 5px 30px 5px 30px;
-    color: #FFFFFF;
-    font-family: 'Ruda', sans-serif;
-    font-size: 18px;
+  background-color: rgba(255, 153, 0, 1);
+  ;
+  border-radius: 5px;
+  padding: 5px 30px 5px 30px;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 18px;
 }
 
 .reserva:hover {
-    background-color: orange;
-    color: rgb(240, 240, 240);
+  background-color: orange;
+  color: rgb(240, 240, 240);
 }
- 
+
+.input {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #F1E9E9;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  height: 55px;
+  font-family: 'Ruda', sans-serif;
+  font-size: 19px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.input:hover {
+  transition: 0.5s;
+  border-color: #f58723;
+}
+
+
+.botao {
+  background-color: rgba(255, 153, 0, 1);
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  border: none;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  padding: 5px 15px 5px 15px;
+}
+
+.botao:hover {
+  background-color: orange;
+}
+
+.modal-title {
+  font-family: 'Ruda', sans-serif;
+  color: #08074E;
+  font-size: 22px;
+}

@@ -1,6 +1,8 @@
 import { ClienteService } from './../cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cidade } from './../pesquisa/cidade';
+import { Estado } from './../pesquisa/estado';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -11,6 +13,12 @@ export class CadastroUsuarioComponent implements OnInit {
 
   cliente = {id: '', nome: '', sobrenome: '', dataNasc: '', cpf: '', email: '',
   telefone: '', endereco:'', senha: ''};
+
+  estados: Estado[];
+  cidades: Cidade[];
+
+  estadoSelecionado: Estado;
+  cidadeSelecionada: Cidade;
 
   constructor(private clienteService: ClienteService, private router: Router) {
   }
@@ -26,7 +34,11 @@ export class CadastroUsuarioComponent implements OnInit {
     });
   }
   
-  
+  listarCidades(idEstado: number) {
+    this.clienteService.listarCidades(idEstado).subscribe(resposta =>
+      this.cidades = resposta as any);
+  }
+
 }
 // var senha = document.getElementById("senha");
 // var confirmarSenha = document.getElementById("confirmarSenha");

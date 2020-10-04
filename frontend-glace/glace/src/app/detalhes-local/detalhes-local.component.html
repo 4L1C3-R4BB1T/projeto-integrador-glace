@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div id="container">
-        
+
         <app-nav-bar></app-nav-bar>
 
         <div id="carouselExampleControls" class="carousel slide mt-5" data-ride="carousel">
@@ -48,8 +48,42 @@
                     <i class="fas fa-circle icon"></i> Serviço de quarto
                 </p>
             </div>
-            <p class="float-right text-right localizacao">Largo São Benedito 200, Passagem, Cabo Frio - RJ, <br> CEP 22061-020, Brasil</p>
-            <button class="reserva" type="submit">Fazer reserva</button>
+            <p class="float-right text-right localizacao">Largo São Benedito 200, Passagem, Cabo Frio - RJ, <br> CEP
+                22061-020, Brasil</p>
+            <button class="reserva" type="button" data-toggle="modal" data-target="#fazerReserva">Fazer reserva</button>
         </div>
+
+        <!-- MODAL -->
+        <div class="modal fade" id="fazerReserva" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <i class="far fa-calendar-check mr-2"></i>Escolha a data e o horário da reserva
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <input type="date" class="input mt-4" name="data">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="time" class="input mt-4 mb-4" name="hora">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn botao">Reservar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIM MODAL -->
+
     </div>
 </div>

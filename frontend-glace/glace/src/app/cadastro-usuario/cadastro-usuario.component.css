@@ -43,18 +43,22 @@ p {
     text-align: center;
 }
       
-.cadastro a, .parceiro {
+.cadastro a {
     font-family: 'Ruda', sans-serif;
     font-size: 20px;
     color: #08074E;
 } 
        
-.cadastro a:hover, .parceiro:hover {
+.cadastro a:hover {
     transition: 0.3s;
     color: #908F8E;
     text-decoration: none;    
 }
   
+.no-padding {
+    padding: 0;
+}
+
 @media screen and (min-width: 1000px) {
     .content {
         width: 50%;

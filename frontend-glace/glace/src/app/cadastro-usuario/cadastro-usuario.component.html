@@ -5,53 +5,189 @@
 
         <div class="content mt-4">
             <div class="pt-5 pb-5">
-                
-                <form>
-                    <div>
-                        <input type="text" class="input" placeholder="Nome" name="nome" [(ngModel)]="cliente.nome"
-                            ng-disabled="mainForm.$invalid" required>
+
+                <!--SELECIONAR TIPO DE USUÁRIO-->
+                <div class="row">
+                    <div class="col-12">
+                        <select id="tipoUser" class="input mt-4" name="tipoUser" onchange="carregarForm()">
+                            <option disabled selected>Tipo de usuário...</option>
+                            <option value="1">Cliente</option>
+                            <option value="2">Parceiro</option>
+                        </select>
                     </div>
-                    <div>
-                        <input type="text" class="input mt-4" placeholder="Sobrenome" name="sobrenome"
-                            [(ngModel)]="cliente.sobrenome" ng-disabled="mainForm.$invalid" required>
-                    </div>
-                    <div>
-                        <input type="date" class="input mt-4" name="dataNasc" [(ngModel)]="cliente.dataNasc"
-                            ng-disabled="mainForm.$invalid" required>
-                    </div>
-                    <div>
-                        <input type="text" class="input mt-4" placeholder="CPF" name="cpf" [(ngModel)]="cliente.cpf"
-                            ng-disabled="mainForm.$invalid" required>
-                    </div>
-                    <div>
-                        <input type="text" class="input mt-4" placeholder="Telefone" [(ngModel)]="cliente.telefone"
-                            ng-disabled="mainForm.$invalid" required>
-                    </div>
-                    <div>
-                        <input type="text" class="input mt-4" placeholder="Endereco" name="endereco"
-                            [(ngModel)]="cliente.endereco" ng-disabled="mainForm.$invalid" required>
-                    </div>
-                    <div>
-                        <input type="email" class="input mt-4" placeholder="E-mail" name="email"
-                            [(ngModel)]="cliente.email" ng-disabled="mainForm.$invalid" required>
-                    </div>
-                    <div>
-                        <input type="password" class="input mt-4" placeholder="Senha" id="senha" name="senha"
-                            [(ngModel)]="cliente.senha" ng-disabled="mainForm.$invalid" required>
-                    </div>
-                    <div>
-                        <input type="password" class="input mt-4" id="confirmarSenha" placeholder="Confirmar senha"
-                            required>
-                    </div>
-                    <div>
-                        <label for="parceiro" class="parceiro mt-4 ml-1 mr-2 mb-3" title="Parceiro">
-                            Sou parceiro
-                        </label>
-                        <input id="parceiro" type="checkbox" name="parceiro" value="1" />
-                    </div>
-                    <button type="submit" class="btn mt-4 mb-2 entrar" (click)="adicionar()" routerLink="/login" routerLinkActive="active">Cadastrar</button>
-                    <p class="mt-4 cadastro"><a routerLink="/login"><i class="fas fa-arrow-left mr-2"></i>Voltar para login</a></p>
-                </form>
+                </div>
+
+                <!--FORMULÁRIO DE CLIENTE-->
+                <div id="formUser" style="display: none;">
+                    <!--FORMULÁRIO-->
+                    <form>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="input mt-4" placeholder="Nome" name="nome"
+                                    [(ngModel)]="cliente.nome" ng-disabled="mainForm.$invalid" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="input mt-4" placeholder="Sobrenome" name="sobrenome"
+                                    [(ngModel)]="cliente.sobrenome" ng-disabled="mainForm.$invalid" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="input mt-4" placeholder="CPF" name="cpf"
+                                    [(ngModel)]="cliente.cpf" ng-disabled="mainForm.$invalid" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="date" class="input mt-4" name="dataNasc" [(ngModel)]="cliente.dataNasc"
+                                    ng-disabled="mainForm.$invalid" required>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="text" class="input mt-4" placeholder="Telefone" [(ngModel)]="cliente.telefone"
+                                ng-disabled="mainForm.$invalid" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-9">
+                                <input type="text" class="input mt-4" placeholder="Rua" name="rua">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <input type="text" class="input mt-4" placeholder="Número" name="numero">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-7">
+                                <input type="text" class="input mt-4" placeholder="Bairro" name="bairro">
+                            </div>
+                            <div class="col-12 col-md-5">
+                                <input type="text" class="input mt-4" placeholder="CEP" name="cep">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 ">
+                                <div class="mt-4 input no-padding">
+                                    <p-dropdown 
+                                        [options]="cidades" 
+                                        [(ngModel)]="cidadeSelecionada" 
+                                        optionLabel="nome"
+                                        [filter]="true" 
+                                        filterBy="value.nome" 
+                                        name="cidade"
+                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="mt-4 input no-padding">
+                                    <p-dropdown 
+                                        [options]="estados" 
+                                        [(ngModel)]="estadoSelecionado" 
+                                        optionLabel="nome"
+                                        [filter]="true" 
+                                        filterBy="value.nome" 
+                                        name="estado"
+                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                        (onChange)="listarCidades(estadoSelecionado.id)">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="email" class="input mt-4" placeholder="E-mail" name="email"
+                                [(ngModel)]="cliente.email" ng-disabled="mainForm.$invalid" required>
+                        </div>
+                        <div>
+                            <input type="password" class="input mt-4" placeholder="Senha" id="senha" name="senha"
+                                [(ngModel)]="cliente.senha" ng-disabled="mainForm.$invalid" required>
+                        </div>
+                        <div>
+                            <input type="password" class="input mt-4" id="confirmarSenha" placeholder="Confirmar senha"
+                                required>
+                        </div>
+                        <button type="submit" class="btn mt-4 mb-2 entrar" (click)="adicionar()"
+                            routerLink="/login">Cadastrar</button>
+                    </form>
+                    <!--FIM FORMULÁRIO-->
+                </div>
+                <!--FIM FORMULÁRIO DE CLIENTE-->
+
+                <!----------------------------------------------------------------------------------------------->
+
+                <!--FORMULÁRIO DE PARCEIRO-->
+                <div id="formAdmin" style="display: none;">
+                    <!--FORMULÁRIO-->
+                    <form>
+                        <div>
+                            <input type="text" class="input mt-4" placeholder="Razão social" name="razao">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="input mt-4" placeholder="CNPJ" name="cnpj">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="input mt-4" placeholder="Telefone" name="telefone">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-9">
+                                <input type="text" class="input mt-4" placeholder="Rua" name="rua">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <input type="text" class="input mt-4" placeholder="Número" name="numero">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-7">
+                                <input type="text" class="input mt-4" placeholder="Bairro" name="bairro">
+                            </div>
+                            <div class="col-12 col-md-5">
+                                <input type="text" class="input mt-4" placeholder="CEP" name="cep">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 ">
+                                <div class="mt-4 input no-padding">
+                                    <p-dropdown 
+                                        [options]="cidades" 
+                                        [(ngModel)]="cidadeSelecionada" 
+                                        optionLabel="nome"
+                                        [filter]="true" 
+                                        filterBy="value.nome" 
+                                        name="cidade"
+                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="mt-4 input no-padding">
+                                    <p-dropdown 
+                                        [options]="estados" 
+                                        [(ngModel)]="estadoSelecionado" 
+                                        optionLabel="nome"
+                                        [filter]="true" 
+                                        filterBy="value.nome" 
+                                        name="estado"
+                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                        (onChange)="listarCidades(estadoSelecionado.id)">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="text" class="input mt-4" placeholder="E-mail" name="email">
+                        </div>
+                        <div>
+                            <input type="text" class="input mt-4" placeholder="Senha" name="senha">
+                        </div>
+                        <div>
+                            <input type="text" class="input mt-4 mb-3" placeholder="Confirmar senha">
+                        </div>
+                        <button type="submit" class="btn mt-4 mb-2 entrar" routerLink="/login">Cadastrar</button>
+                    </form>
+                    <!--FIM FORMULÁRIO-->
+                </div>
+                <!--FIM FORMULÁRIO DE PARCEIRO-->
+
+                <p class="mt-4 cadastro"><a routerLink="/login"><i class="fas fa-arrow-left mr-2"></i>Voltar para
+                        login</a></p>
 
             </div>
         </div>
