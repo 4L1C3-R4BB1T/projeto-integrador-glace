@@ -1,9 +1,7 @@
-export interface ClienteModel {
+export interface ParceiroModel {
     id?: number;
-    nome?: string;
-    sobrenome?: string;
-    cpf?: string;
-    dataNasc?: string;
+    razao?: string;
+    cnpj?: string;
     telefone?: string;
     endereco?: EnderecoModel;
     email?: string;

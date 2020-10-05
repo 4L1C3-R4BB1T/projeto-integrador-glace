@@ -9,14 +9,11 @@ import lombok.Data;
 public class ParceiroGlaceDTO {
 
 	private Long id;
-	private String nome;
-	private String sobrenome;
-	private String dataNasc;
-	private String cpf;
+	private String razao;
+	private String cnpj;
 	private String email;
 	private String telefone;
 	private String endereco;
 	private String senha;
 	private List<EstabelecimentoGlace> estabelecimentos;
-	
 }

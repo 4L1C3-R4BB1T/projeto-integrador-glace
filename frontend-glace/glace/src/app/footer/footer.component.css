@@ -4,3 +4,8 @@ footer {
     color: #4E4E4E;
     padding: 20px;
 }
+
+a {
+    text-decoration: none;
+    color:orangered;
+}

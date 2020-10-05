@@ -1,8 +1,9 @@
 package br.com.projetoglace.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,12 +16,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "cliente")
+@Table(name="cliente")
 public class ClienteGlace {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private Long id;
 	
 	@Column
@@ -30,8 +30,8 @@ public class ClienteGlace {
 	private String sobrenome;
 	
 	@DateTimeFormat(pattern="yyyy-mm-dd")
-	@Column(name= "data_nasc")
-	private Date dataNasc;
+	@Column(name="data_nasc")
+	private LocalDate dataNasc;
 	
 	@Column
 	private String cpf;
@@ -43,8 +43,9 @@ public class ClienteGlace {
 	private String telefone;
 	
 	@Column
-	private Endereco endereco;
-	
-	@Column
 	private String senha;
-	}
+	
+	@Embedded
+	private Endereco endereco;
+
+}

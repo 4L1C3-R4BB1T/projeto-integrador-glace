@@ -1,3 +1,4 @@
+import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
 import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { PerfilAdminComponent } from './perfil-admin/perfil-admin.component';
@@ -20,14 +21,14 @@ const routes: Routes = [
   {path: 'perfilAdmin', component: PerfilAdminComponent},
   {path: 'detalhesLocal', component: DetalhesLocalComponent},
   {path: 'cadastroLocal', component: CadastroLocalComponent},
+  {path: 'cadastroParceiro', component: CadastroParceiroComponent},
   {path: '', pathMatch: 'full', redirectTo:'/home'}
 ];
 
 @NgModule({
   declarations: [],
   imports: [
-    RouterModule.forRoot(routes),
-    RouterModule.forChild(routes)
+    RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
 })

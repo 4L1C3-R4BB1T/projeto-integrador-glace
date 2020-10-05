@@ -1,10 +1,10 @@
-import { CidadeMapper } from './../mapper/cidade-mapper';
-import { EstadoMapper } from './../mapper/estado-mapper';
-import { BaseHttpService } from './../../services/http/base-http.service';
-import { environment } from './../../../environments/environment';
-import { ClienteMapper } from './../mapper/cliente-mapper';
-import { ClienteEntity, EstadoEntity, CidadeEntity } from './../entity/cliente-entity';
-import { ClienteModel, EstadoModel, CidadeModel } from './../model/cliente-model';
+import { CidadeMapper } from '../../cadastro-usuario/mapper/cidade-mapper';
+import { EstadoMapper } from '../../cadastro-usuario/mapper/estado-mapper';
+import { BaseHttpService } from '../../services/http/base-http.service';
+import { environment } from '../../../environments/environment';
+import { ParceiroMapper } from '../mapper/parceiro-mapper';
+import { ParceiroEntity, EstadoEntity, CidadeEntity } from '../entity/parceiro-entity';
+import { ParceiroModel, EstadoModel, CidadeModel } from '../model/parceiro-model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
@@ -12,23 +12,23 @@ import { map, mergeMap } from 'rxjs/operators';
 @Injectable({
     providedIn: 'root',
 })
-export class ClienteRepository {
+export class ParceiroRepository {
 
-    mapper = new ClienteMapper();
+    mapper = new ParceiroMapper();
     mapperEstado = new EstadoMapper();
     mapperCidade = new CidadeMapper();
    
     constructor(public http: BaseHttpService) { }
 
-    getClienteById(id: number): Observable<ClienteModel> {
+    getParceiroById(id: number): Observable<ParceiroModel> {
         return this.http
-            .getAll<ClienteModel>(`${environment.URLSERVIDOR}cliente/${id}`)
+            .getAll<ParceiroModel>(`${environment.URLSERVIDOR}parceiro/${id}`)
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
 
-    getAllClientes(): Observable<ClienteModel> {
+    getAllParceiros(): Observable<ParceiroModel> {
         return this.http
-            .getAll<ClienteEntity[]>(`${environment.URLSERVIDOR}cliente`)
+            .getAll<ParceiroEntity[]>(`${environment.URLSERVIDOR}parceiro`)
             .pipe(mergeMap((x) => x.data))
             .pipe(map((x) => this.mapper.mapFrom(x)));
     }
@@ -47,24 +47,24 @@ export class ClienteRepository {
             .pipe(map((x) => this.mapperCidade.mapFrom(x)));
     }
  
-    postCliente(param: ClienteModel) {
+    postParceiro(param: ParceiroModel) {
         return this.http
-            .post<ClienteEntity>(`${environment.URLSERVIDOR}cliente`, this.mapper.mapTo(param))
+            .post<ParceiroEntity>(`${environment.URLSERVIDOR}parceiro`, this.mapper.mapTo(param))
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
 
-    putCliente(param: ClienteModel) {
+    putParceiro(param: ParceiroModel) {
         return this.http
             .put<void>(
-                `${environment.URLSERVIDOR}cliente/${param.id}`,
+                `${environment.URLSERVIDOR}parceiro/${param.id}`,
                 this.mapper.mapTo(param)
             )
             .pipe(map((x) => x.data));
     }
 
-    deleteCliente(id: number): Observable<void> {
+    deleteParceiro(id: number): Observable<void> {
         return this.http
-            .delete<void>(`${environment.URLSERVIDOR}cliente/${id}`, id)
+            .delete<void>(`${environment.URLSERVIDOR}parceiro/${id}`, id)
             .pipe(map((x) => x.data));
     }
 }

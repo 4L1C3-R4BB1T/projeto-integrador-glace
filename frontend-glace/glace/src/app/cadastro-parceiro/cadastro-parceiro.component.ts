@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ClienteModel } from './model/cliente-model';
-import { ClienteRepository } from './repository/cliente-repository';
+import { ParceiroModel } from './model/parceiro-model';
+import { ParceiroRepository } from './repository/parceiro-repository';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-cadastro-usuario',
-  templateUrl: './cadastro-usuario.component.html',
-  styleUrls: ['./cadastro-usuario.component.css']
+  selector: 'app-cadastro-parceiro',
+  templateUrl: './cadastro-parceiro.component.html',
+  styleUrls: ['./cadastro-parceiro.component.css']
 })
-export class CadastroUsuarioComponent implements OnInit {
+export class CadastroParceiroComponent implements OnInit {
 
   estados: any[] = [];
   cidades: any[] = [];
   public formulario: FormGroup;
 
   constructor(
-    private repository: ClienteRepository,
+    private repository: ParceiroRepository,
     private fb: FormBuilder,
-    private router: Router) {
-  }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.iniciarFormulario();
@@ -31,12 +30,11 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   public iniciarFormulario() {
+
     this.formulario = this.fb.group({
       id: [null],
-      nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
-      sobrenome: ['', Validators.required],
-      cpf: ['', Validators.required],
-      dataNasc: [''],
+      razao: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
+      cnpj: ['', Validators.required],
       telefone: [''],
       email: ['', Validators.required],
       senha: ['', Validators.required],
@@ -60,13 +58,12 @@ export class CadastroUsuarioComponent implements OnInit {
   salvar() {
     const dados = {
       id: this.formulario.value.id,
-      nome: this.formulario.value.nome,
-      sobrenome: this.formulario.value.sobrenome,
-      cpf: this.formulario.value.cpf,
-      dataNasc: this.formulario.value.dataNasc,
+      razao: this.formulario.value.razao,
+      cnpj: this.formulario.value.cnpj,
       telefone: this.formulario.value.telefone,
       email: this.formulario.value.email,
       senha: this.formulario.value.senha,
+      confirmarsenha: this.formulario.value.confirmarsenha,
       endereco: {
         cep: this.formulario.value.cep,
         rua: this.formulario.value.rua,
@@ -76,19 +73,17 @@ export class CadastroUsuarioComponent implements OnInit {
           id: this.formulario.value.cidade
         }
       }
-    } as ClienteModel;
+    } as ParceiroModel;
 
     if (dados.id) {
-      this.repository.putCliente(dados).subscribe(resposta => {
+      this.repository.putParceiro(dados).subscribe(resposta => {
         this.limparFormulario();
       });
     } else {
-      this.repository.postCliente(dados).subscribe(resposta => {
+      this.repository.postParceiro(dados).subscribe(resposta => {
         this.limparFormulario();
       });
     }
-
-    console.log(this.formulario.value.dataNasc);
   }
 
   limparFormulario() {
@@ -98,7 +93,6 @@ export class CadastroUsuarioComponent implements OnInit {
   listarCidades() {
     this.cidades = [];
     let id: number = this.formulario.value.estado;
-
     this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
       this.cidades.push({ label: resposta.nome, value: resposta.id });
     });

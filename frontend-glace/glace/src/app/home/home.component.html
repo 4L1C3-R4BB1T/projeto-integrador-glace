@@ -9,7 +9,7 @@
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input1">
           <p-dropdown [options]="cidades" 
           [(ngModel)]="cidadeSelecionada" 
-          formControlLabel="nome" 
+          optionLabel="nome" 
           [filter]="true" 
           filterBy="value.nome" 
           name="cidade" 
@@ -21,7 +21,7 @@
           <p-dropdown 
           [options]="estados" 
           [(ngModel)]="estadoSelecionado" 
-          formControlLabel="nome" 
+          optionLabel="nome" 
           [filter]="true" 
           filterBy="value.nome" 
           name="estado"  

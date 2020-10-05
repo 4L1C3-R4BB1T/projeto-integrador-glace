@@ -1,9 +1,7 @@
-export interface ClienteEntity {
+export interface ParceiroEntity {
     id?: number;
-    nome?: string;
-    sobrenome?: string;
-    cpf?: string;
-    dataNasc?: string;
+    razao?: string;
+    cnpj?: string;
     telefone?: string;
     endereco?: EnderecoEntity;
     email?: string;

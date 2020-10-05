@@ -6,28 +6,20 @@
         <div class="content mt-4">
             <div class="pt-5 pb-5">
 
-                <!--FORMULÁRIO DE CLIENTE-->
-                <div id="formUser">
+                <!--FORMULÁRIO DE PARCEIRO-->
+                <div id="formAdmin">
                     <!--FORMULÁRIO-->
                     <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <input type="text" class="input mt-4" placeholder="Nome" formControlName="nome">
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <input type="text" class="input mt-4" placeholder="Sobrenome" formControlName="sobrenome">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <input type="text" class="input mt-4" placeholder="CPF" formControlName="cpf">
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <input type="date" class="input mt-4" formControlName="dataNasc">
-                            </div>
-                        </div>
                         <div>
-                            <input type="text" class="input mt-4" placeholder="Telefone" formControlName="telefone">
+                            <input type="text" class="input mt-4" placeholder="Razão social" formControlName="razao">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="input mt-4" placeholder="CNPJ" formControlName="cnpj">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="text" class="input mt-4" placeholder="Telefone" formControlName="telefone">
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-9">
@@ -50,7 +42,7 @@
                                 <div class="mt-4 input no-padding">
                                     <p-dropdown 
                                         [options]="cidades" 
-                                        formControlName="cidade"
+                                        formControlName="cidade" 
                                         [filter]="true" 
                                         [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
                                     </p-dropdown>
@@ -69,19 +61,19 @@
                             </div>
                         </div>
                         <div>
-                            <input type="email" class="input mt-4" placeholder="E-mail" formControlName="email">
+                            <input type="text" class="input mt-4" placeholder="E-mail" formControlName="email">
                         </div>
                         <div>
-                            <input type="password" class="input mt-4" placeholder="Senha" id="senha" formControlName="senha">
+                            <input type="password" class="input mt-4" placeholder="Senha" formControlName="senha">
                         </div>
                         <div>
-                            <input type="password" class="input mt-4" id="confirmarSenha" placeholder="Confirmar senha" formControlName="confirmarsenha">
+                            <input type="password" class="input mt-4 mb-3" placeholder="Confirmar senha" formControlName="confirmarsenha">
                         </div>
                         <button type="submit" class="btn mt-4 mb-2 entrar">Cadastrar</button>
                     </form>
                     <!--FIM FORMULÁRIO-->
                 </div>
-                <!--FIM FORMULÁRIO DE CLIENTE-->
+                <!--FIM FORMULÁRIO DE PARCEIRO-->
 
                 <p class="mt-4 cadastro"><a routerLink="/login"><i class="fas fa-arrow-left mr-2"></i>Voltar para
                         login</a></p>
