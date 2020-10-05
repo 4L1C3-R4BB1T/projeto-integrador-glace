@@ -67,7 +67,7 @@
                                     <p-dropdown 
                                         [options]="cidades" 
                                         [(ngModel)]="cidadeSelecionada" 
-                                        optionLabel="nome"
+                                        formControlName="nome"
                                         [filter]="true" 
                                         filterBy="value.nome" 
                                         name="cidade"
@@ -80,7 +80,7 @@
                                     <p-dropdown 
                                         [options]="estados" 
                                         [(ngModel)]="estadoSelecionado" 
-                                        optionLabel="nome"
+                                        formControlName="nome"
                                         [filter]="true" 
                                         filterBy="value.nome" 
                                         name="estado"
@@ -91,6 +91,7 @@
                             </div>
                         </div>
                         <div>
+                            
                             <input type="email" class="input mt-4" placeholder="E-mail" name="email"
                                 [(ngModel)]="cliente.email" ng-disabled="mainForm.$invalid" required>
                         </div>
@@ -102,8 +103,9 @@
                             <input type="password" class="input mt-4" id="confirmarSenha" placeholder="Confirmar senha"
                                 required>
                         </div>
-                        <button type="submit" class="btn mt-4 mb-2 entrar" (click)="adicionar()"
-                            routerLink="/login">Cadastrar</button>
+                        <button type="submit" class="btn"
+                            [class]="operacao ? 'btn-primary' : 'btn-success'">{{ operacao ? "Cadastrar" : "Atualizar" }}
+                        </button>
                     </form>
                     <!--FIM FORMULÁRIO-->
                 </div>
@@ -180,7 +182,9 @@
                         <div>
                             <input type="text" class="input mt-4 mb-3" placeholder="Confirmar senha">
                         </div>
-                        <button type="submit" class="btn mt-4 mb-2 entrar" routerLink="/login">Cadastrar</button>
+                        <button type="submit" class="btn"
+                            [class]="operacao ? 'btn-primary' : 'btn-success'">{{ operacao ? "Cadastrar" : "Atualizar" }}
+                        </button>
                     </form>
                     <!--FIM FORMULÁRIO-->
                 </div>

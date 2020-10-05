@@ -7,6 +7,7 @@ import br.com.projetoglace.model.ClienteGlace;
 
 @Repository
 public interface ClienteGlaceRepository extends JpaRepository<ClienteGlace, Long> {
-	
+//	@Query("from Cliente where nome like :nome")
+//	List<ClienteGlace> buscarPorNome(String nome);
 
 }

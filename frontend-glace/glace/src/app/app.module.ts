@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button'
@@ -40,7 +40,7 @@ import { CadastroLocalComponent } from './cadastro-local/cadastro-local.componen
     FooterComponent,
     NavBarSecundariaComponent,
     NavBarComponent,
-    CadastroLocalComponent,
+    CadastroLocalComponent
     
   ],
   imports: [
@@ -55,6 +55,7 @@ import { CadastroLocalComponent } from './cadastro-local/cadastro-local.componen
     BrowserAnimationsModule,
     AppRoutingModule,
     DropdownModule,
+    FormBuilder
   ],
   providers: [],
   bootstrap: [AppComponent]

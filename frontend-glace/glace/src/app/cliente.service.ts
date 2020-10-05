@@ -6,33 +6,33 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ClienteService {
-  apiUrl = "http://localhost:8080/"
+  URLSERVIDOR = "http://localhost:8080/"
 
   constructor(private httpClient: HttpClient) { 
   
   }
 
   listar(){
-    return this.httpClient.get(this.apiUrl);
+    return this.httpClient.get(this.URLSERVIDOR);
   }
 
   listarEstados(){
-    return this.httpClient.get(this.apiUrl+ '/estado');
+    return this.httpClient.get(this.URLSERVIDOR+ '/estado');
   }
 
   listarCidades(idEstado){
-    return this.httpClient.get(this.apiUrl+ '/cidade/'+idEstado);
+    return this.httpClient.get(this.URLSERVIDOR+ '/cidade/'+idEstado);
   }
 
   adicionar(cliente: any) {
-    return this.httpClient.post(this.apiUrl, cliente);
+    return this.httpClient.post(this.URLSERVIDOR, cliente);
   }
 
   excluir(id: number) {
-    return this.httpClient.delete(this.apiUrl + '/' + id);
+    return this.httpClient.delete(this.URLSERVIDOR + '/' + id);
   }
   
   atualizar(cliente: any) {
-    return this.httpClient.put(this.apiUrl+ '/' + cliente.id, cliente);
+    return this.httpClient.put(this.URLSERVIDOR+ '/' + cliente.id, cliente);
   }
 }
