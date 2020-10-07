@@ -15,7 +15,13 @@
                                 <input type="text" class="input mt-4" placeholder="Nome" formControlName="nome">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="input mt-4" placeholder="Sobrenome" formControlName="sobrenome">
+                                <input type="text" class="input mt-4" placeholder="Sobrenome"
+                                    formControlName="sobrenome" [class]="(submitted && formulario.get('sobrenome').errors) || 
+                         (formulario.get('sobrenome').errors && formulario.get('sobrenome').dirty) ? 'is-invalid' : 
+                         formulario.get('sobrenome').dirty ? 'is-valid' : '' ">
+                                <div *ngIf="formulario.get('sobrenome').errors?.required" class="invalid-feedback">
+                                    Sobrenome é obrigatório!
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -48,20 +54,14 @@
                         <div class="row">
                             <div class="col-12 col-md-6 ">
                                 <div class="mt-4 input no-padding">
-                                    <p-dropdown 
-                                        [options]="cidades" 
-                                        formControlName="cidade"
-                                        [filter]="true" 
+                                    <p-dropdown [options]="cidades" formControlName="cidade" [filter]="true"
                                         [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
                                     </p-dropdown>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="mt-4 input no-padding">
-                                    <p-dropdown 
-                                        [options]="estados" 
-                                        formControlName="estado" 
-                                        [filter]="true" 
+                                    <p-dropdown [options]="estados" formControlName="estado" [filter]="true"
                                         [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
                                         (onChange)="listarCidades()">
                                     </p-dropdown>
@@ -72,12 +72,16 @@
                             <input type="email" class="input mt-4" placeholder="E-mail" formControlName="email">
                         </div>
                         <div>
-                            <input type="password" class="input mt-4" placeholder="Senha" id="senha" formControlName="senha">
+                            <input type="password" class="input mt-4" placeholder="Senha" id="senha"
+                                formControlName="senha">
                         </div>
                         <div>
-                            <input type="password" class="input mt-4" id="confirmarSenha" placeholder="Confirmar senha" formControlName="confirmarsenha">
+                            <input type="password" class="input mt-4" id="confirmarSenha" placeholder="Confirmar senha"
+                                formControlName="confirmarsenha">
                         </div>
-                        <button type="submit" class="btn mt-4 mb-2 entrar">Cadastrar</button>
+                        <button type="submit" class="btn mt-4 mb-2 entrar"
+                            [class]="operacao ? 'btn-primary' : 'btn-success'">{{ operacao ? "Cadastrar" : "Atualizar" }}
+                        </button>
                     </form>
                     <!--FIM FORMULÁRIO-->
                 </div>

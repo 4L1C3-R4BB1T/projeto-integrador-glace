@@ -26,6 +26,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
 import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro
     BrowserAnimationsModule,
     AppRoutingModule,
     DropdownModule,
+    MessagesModule,
+    MessageModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

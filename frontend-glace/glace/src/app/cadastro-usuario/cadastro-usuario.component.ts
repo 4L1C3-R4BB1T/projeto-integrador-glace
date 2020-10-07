@@ -4,17 +4,26 @@ import { Router } from '@angular/router';
 import { ClienteModel } from './model/cliente-model';
 import { ClienteRepository } from './repository/cliente-repository';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Message, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-cadastro-usuario',
   templateUrl: './cadastro-usuario.component.html',
-  styleUrls: ['./cadastro-usuario.component.css']
+  styleUrls: ['./cadastro-usuario.component.css'],
+  providers: [MessageService]
 })
 export class CadastroUsuarioComponent implements OnInit {
 
   estados: any[] = [];
   cidades: any[] = [];
   public formulario: FormGroup;
+  public submitted: boolean = false;
+
+
+  mensagem: Message[] = [];
+
+  operacao: boolean = true;
+
 
   constructor(
     private repository: ClienteRepository,
@@ -51,6 +60,7 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   cadastrar() {
+    this.submitted = true;
     if (this.formulario.invalid) {
       return;
     }
@@ -84,15 +94,44 @@ export class CadastroUsuarioComponent implements OnInit {
       });
     } else {
       this.repository.postCliente(dados).subscribe(resposta => {
+        this.mensagem = [
+          {
+            severity: 'success',
+            summary: 'CLIENTE',
+            detail: 'cadastrado com sucesso!'
+          }];
         this.limparFormulario();
-      });
+      },
+        (e) => {
+          var msg: any[] = [];
+          //Erro Principal
+          msg.push({
+            severity: 'error',
+            summary: 'ERRO',
+            detail: e.error.userMessage
+          });
+          //Erro de cada atributo
+          var erros = e.error.objects;
+          erros.forEach(function (value) {
+            msg.push(
+              {
+                severity: 'error',
+                summary: 'ERRO',
+                detail: value.userMessage
+              });
+          });
+          this.mensagem = msg;
+        }
+      );
     }
-
-    console.log(this.formulario.value.dataNasc);
   }
 
   limparFormulario() {
+    this.submitted = false;
     this.formulario.reset();
+    this.cidades = [];
+    this.estados = [];
+    this.listarEstados();
   }
 
   listarCidades() {
@@ -101,6 +140,12 @@ export class CadastroUsuarioComponent implements OnInit {
 
     this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
       this.cidades.push({ label: resposta.nome, value: resposta.id });
+    });
+  }
+
+  listarEstados() {
+    this.repository.getAllEstados().subscribe(resposta => {
+      this.estados.push({ label: resposta.nome, value: resposta.id });
     });
   }
 
