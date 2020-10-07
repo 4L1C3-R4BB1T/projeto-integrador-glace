@@ -9,17 +9,45 @@
                 <!--FORMULÁRIO DE PARCEIRO-->
                 <div id="formAdmin">
                     <!--FORMULÁRIO-->
-                    <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
+                    <p-messages [(value)]="mensagem" 
+                                [enableService]="false" 
+                                [showTransitionOptions]="'1000ms'" 
+                                [hideTransitionOptions]="'1000ms'">
+                            </p-messages>
+                            <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
                         <div>
-                            <input type="text" class="input mt-4" placeholder="Razão social" formControlName="razao">
+                            <input type="text" class="input mt-4" placeholder="Razão social" formControlName="razao"
+                                 [class]="(submitted && formulario.get('razao').errors) || 
+                                (formulario.get('razao').errors && formulario.get('razao').dirty) ? 'is-invalid' : 
+                                        formulario.get('razao').dirty ? 'is-valid' : '' "
+                                />
+                                <div *ngIf="formulario.get('razao').errors?.required"
+                                class="invalid-feedback" >
+                                    Razão Social é obrigatório!
+                                </div>
+                                <div *ngIf="formulario.get('razao').errors?.minlength"
+                                class="invalid-feedback" >
+                                    Razão Social deve ter mais que 3 caracteres!
+                                </div>
+                                <div *ngIf="formulario.get('razao').errors?.maxlength"
+                                class="invalid-feedback" >
+                                    Razão Social excedeu a quantidade máxima de 150 caracteres!
+                                </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <input type="text" class="input mt-4" placeholder="CNPJ" formControlName="cnpj">
+                                <p-inputMask [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                        type="text" styleClass="input mt-4" class="input mt-4" placeholder="CNPJ" formControlName="cnpj"
+                                        id="cnpj" placeholder= "99.999.999/9999-99" mask = "99.999.999/9999-99">
+                                </p-inputMask>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="input mt-4" placeholder="Telefone" formControlName="telefone">
-                            </div>
+                            <p-inputMask 
+                                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                type="text" styleClass="input mt-4" class="input mt-4" placeholder="Telefone" formControlName="telefone"
+                                id="telefone" placeholder= "(99) 99999-9999" mask = "(99)99999-9999">
+                            </p-inputMask>
+                        </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-9">
@@ -34,13 +62,16 @@
                                 <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro">
                             </div>
                             <div class="col-12 col-md-5">
-                                <input type="text" class="input mt-4" placeholder="CEP" formControlName="cep">
+                                <p-inputMask [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                 type="text" styleClass="input mt-4" class="input mt-4" placeholder="CEP" formControlName="cep"
+                            id="cep" placeholder= "99999-999" mask = "99999-999"></p-inputMask>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 ">
                                 <div class="mt-4 input no-padding">
                                     <p-dropdown 
+                                        placeholder="Cidade"
                                         [options]="cidades" 
                                         formControlName="cidade" 
                                         [filter]="true" 
@@ -51,6 +82,7 @@
                             <div class="col-12 col-md-6">
                                 <div class="mt-4 input no-padding">
                                     <p-dropdown 
+                                        placeholder="Estado"
                                         [options]="estados" 
                                         formControlName="estado" 
                                         [filter]="true" 
@@ -60,6 +92,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div>
                             <input type="text" class="input mt-4" placeholder="E-mail" formControlName="email">
                         </div>
@@ -69,8 +102,10 @@
                         <div>
                             <input type="password" class="input mt-4 mb-3" placeholder="Confirmar senha" formControlName="confirmarsenha">
                         </div>
-                        <button type="submit" class="btn mt-4 mb-2 entrar">Cadastrar</button>
-                    </form>
+                        <button type="submit" class="btn mt-4 mb-2 entrar"
+                            [class]="operacao ? 'btn-primary' : 'btn-success'">{{ operacao ? "Cadastrar" : "Atualizar" }}
+                        </button>
+                     </form>
                     <!--FIM FORMULÁRIO-->
                 </div>
                 <!--FIM FORMULÁRIO DE PARCEIRO-->

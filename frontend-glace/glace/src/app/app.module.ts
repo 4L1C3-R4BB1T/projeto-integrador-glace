@@ -8,6 +8,9 @@ import { ButtonModule } from 'primeng/button'
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {InputMaskModule} from 'primeng/inputmask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -58,6 +61,9 @@ import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro
     BrowserAnimationsModule,
     AppRoutingModule,
     DropdownModule,
+    MessageModule,
+    MessagesModule,
+    InputMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

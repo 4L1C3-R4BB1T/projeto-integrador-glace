@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ParceiroModel } from './model/parceiro-model';
 import { ParceiroRepository } from './repository/parceiro-repository';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Message, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-cadastro-parceiro',
@@ -14,6 +15,12 @@ export class CadastroParceiroComponent implements OnInit {
 
   estados: any[] = [];
   cidades: any[] = [];
+  public submitted: boolean = false;
+
+  mensagem: Message[] = [];
+
+  operacao: boolean = true;
+
   public formulario: FormGroup;
 
   constructor(
@@ -43,8 +50,8 @@ export class CadastroParceiroComponent implements OnInit {
       rua: [''],
       numero: [''],
       bairro: [''],
-      cidade: [''],
-      estado: [''],
+      cidade: ['', Validators.required],
+      estado: ['', Validators.required],
     });
   }
 
@@ -81,21 +88,57 @@ export class CadastroParceiroComponent implements OnInit {
       });
     } else {
       this.repository.postParceiro(dados).subscribe(resposta => {
+        this.mensagem = [
+          {
+            severity: 'success',
+            summary: 'PARCEIRO',
+            detail: 'cadastrado com sucesso!'
+          }];
         this.limparFormulario();
-      });
+      },
+      (e) => {
+          var msg: any[] = [];
+          //Erro Principal
+          msg.push({
+            severity: 'error',
+            summary: 'ERRO',
+            detail: e.error.userMessage
+          });
+          //Erro de cada atributo
+          var erros = e.error.objects;
+          erros.forEach(function (value) {
+            msg.push(
+              {
+                severity: 'error',
+                summary: 'ERRO',
+                detail: value.userMessage
+              });
+          });
+          this.mensagem = msg;
+        }
+      );
     }
   }
 
-  limparFormulario() {
-    this.formulario.reset();
+  listarEstados() {
+    this.repository.getAllEstados().subscribe(resposta => {
+      this.estados.push({ label: resposta.nome, value: resposta.id });
+    });
   }
-
   listarCidades() {
     this.cidades = [];
     let id: number = this.formulario.value.estado;
+
     this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
       this.cidades.push({ label: resposta.nome, value: resposta.id });
     });
+  }
+  limparFormulario() {
+    this.submitted = false;
+    this.formulario.reset();
+    this.cidades = [];
+    this.estados = [];
+    this.listarEstados();
   }
 
 }
