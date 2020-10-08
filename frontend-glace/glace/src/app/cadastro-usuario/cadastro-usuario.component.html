@@ -12,28 +12,64 @@
                     <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <input type="text" class="input mt-4" placeholder="Nome" formControlName="nome">
+                                <input type="text" class="input mt-4 form-control" placeholder="Nome"
+                                    formControlName="nome" [class]="(submitted && formulario.get('nome').errors) || 
+                                             (formulario.get('nome').errors && formulario.get('nome').dirty) ? 'is-invalid' : 
+                                             formulario.get('nome').dirty ? 'is-valid' : '' " />
+                                <div *ngIf="formulario.get('nome').errors?.required" class="invalid-feedback">
+                                    nome é obrigatório!
+                                </div>
+                                <div *ngIf="formulario.get('nome').errors?.minlength" class="invalid-feedback">
+                                    nome deve ter mais que 3 caracteres!
+                                </div>
+                                <div *ngIf="formulario.get('nome').errors?.maxlength" class="invalid-feedback">
+                                    nome excedeu a quantidade máxima de 10 caracteres!
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" class="input mt-4" placeholder="Sobrenome"
-                                    formControlName="sobrenome" [class]="(submitted && formulario.get('sobrenome').errors) || 
-                         (formulario.get('sobrenome').errors && formulario.get('sobrenome').dirty) ? 'is-invalid' : 
-                         formulario.get('sobrenome').dirty ? 'is-valid' : '' ">
+                                <input type="text" class="form-control input mt-4 " id="sobrenome"
+                                    placeholder="Sobrenome" formControlName="sobrenome" [class]="(submitted && formulario.get('sobrenome').errors) || 
+                                         (formulario.get('sobrenome').errors && formulario.get('sobrenome').dirty) ? 'is-invalid' : 
+                                         formulario.get('sobrenome').dirty ? 'is-valid' : '' " />
                                 <div *ngIf="formulario.get('sobrenome').errors?.required" class="invalid-feedback">
                                     Sobrenome é obrigatório!
+                                </div>
+                                <div *ngIf="formulario.get('sobrenome').errors?.minlength" class="invalid-feedback">
+                                    Sobrenome deve ter mais que 3 caracteres!
+                                </div>
+                                <div *ngIf="formulario.get('sobrenome').errors?.maxlength" class="invalid-feedback">
+                                    Sobrenome excedeu a quantidade máxima de 10 caracteres!
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <input type="text" class="input mt-4" placeholder="CPF" formControlName="cpf">
+                                <input type="text" class="input mt-4 form-control" placeholder="CPF"
+                                    formControlName="cpf" mask="000.000.000-00" placeholder="345.234.123-34"
+                                    formControlName="cpf" [class]="(submitted && formulario.get('cpf').errors) || 
+                                         (formulario.get('cpf').errors && formulario.get('cpf').dirty) ? 'is-invalid' : 
+                                         formulario.get('cpf').dirty ? 'is-valid' : '' " />
+                                <div *ngIf="formulario.get('cpf').errors?.required" class="invalid-feedback">
+                                    cpf é obrigatório!
+                                </div>
+                                <div *ngIf="formulario.get('cpf').errors?.minlength" class="invalid-feedback">
+                                    cpf inválido
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <input type="date" class="input mt-4" formControlName="dataNasc">
                             </div>
                         </div>
                         <div>
-                            <input type="text" class="input mt-4" placeholder="Telefone" formControlName="telefone">
+                            <input type="text" class="input mt-4 form-control" placeholder="Telefone"
+                                formControlName="telefone" [class]=" (submitted && formulario.get('telefone').errors) ||
+                            (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' : 
+                            formulario.get('telefone').dirty ? 'is-valid' : '' " mask="(00) 00000-0000"
+                                placeholder="(73) 95321-9875" />
+                            <div *ngIf="formulario.get('telefone').errors?.minlength" class="invalid-feedback"
+                                onchange=confirm()>
+                                telefone inválido
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-9">

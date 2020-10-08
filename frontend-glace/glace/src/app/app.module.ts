@@ -28,6 +28,8 @@ import { CadastroLocalComponent } from './cadastro-local/cadastro-local.componen
 import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {InputMaskModule} from 'primeng/inputmask';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import {MessageModule} from 'primeng/message';
     DropdownModule,
     MessagesModule,
     MessageModule,
+    InputMaskModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { ClienteModel } from './model/cliente-model';
 import { ClienteRepository } from './repository/cliente-repository';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Message, MessageService } from 'primeng/api';
+import { ConfirmationService, Message, MessageService } from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -43,14 +44,14 @@ export class CadastroUsuarioComponent implements OnInit {
     this.formulario = this.fb.group({
       id: [null],
       nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
-      sobrenome: ['', Validators.required],
-      cpf: ['', Validators.required],
+      sobrenome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
+      cpf: ['', [Validators.required, Validators.minLength(11)]],
       dataNasc: [''],
-      telefone: [''],
+      telefone: ['', [Validators.minLength(11)]],
       email: ['', Validators.required],
       senha: ['', Validators.required],
       confirmarsenha: ['', Validators.required],
-      cep: [''],
+      cep: ['', [Validators.required, Validators.minLength(11)]],
       rua: [''],
       numero: [''],
       bairro: [''],
@@ -148,5 +149,4 @@ export class CadastroUsuarioComponent implements OnInit {
       this.estados.push({ label: resposta.nome, value: resposta.id });
     });
   }
-
 }
