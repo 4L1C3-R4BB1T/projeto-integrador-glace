@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projetoglace.model.Acessibilidade;
-import br.com.projetoglace.repository.AcessibilidadeGlaceRepositry;
-
+import br.com.projetoglace.repository.AcessibilidadeGlaceRepository;
 
 @CrossOrigin
 @RestController
@@ -21,7 +20,7 @@ import br.com.projetoglace.repository.AcessibilidadeGlaceRepositry;
 public class AcessibilidadeController {
 
 	@Autowired
-	private AcessibilidadeGlaceRepositry acessibilidadeGlaceRepositry;
+	private AcessibilidadeGlaceRepository acessibilidadeGlaceRepository;
 	
 	//POST - insert
 	//PUT - Update
@@ -29,16 +28,17 @@ public class AcessibilidadeController {
 	//Delete - Delete
 	@PostMapping
 	public void salvar(@RequestBody Acessibilidade acessibilidade) {
-		acessibilidadeGlaceRepositry.save(acessibilidade);
+		acessibilidadeGlaceRepository.save(acessibilidade);
 	}
 	
 	@GetMapping("/listar")
 	public List<Acessibilidade> listarAcessibilidade(){
-		return acessibilidadeGlaceRepositry.findAll();
+		return acessibilidadeGlaceRepository.findAll();
 	}
 	
 	@GetMapping("/buscarAcessibilidade/{id}")
 	public List<Acessibilidade> buscarAcessibilidade(@PathVariable Long id){
-		return acessibilidadeGlaceRepositry.bucarAAcessibilidade(id);
+		return acessibilidadeGlaceRepository.bucarAAcessibilidade(id);
 	}
+	
 }

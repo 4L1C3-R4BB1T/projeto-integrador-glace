@@ -8,5 +8,4 @@ import br.com.projetoglace.model.ClienteGlace;
 @Repository
 public interface ClienteGlaceRepository extends JpaRepository<ClienteGlace, Long> {
 	
-
 }

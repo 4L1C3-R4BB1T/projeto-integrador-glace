@@ -9,8 +9,9 @@ import org.springframework.stereotype.Repository;
 import br.com.projetoglace.model.Acessibilidade;
 
 @Repository
-public interface AcessibilidadeGlaceRepositry extends JpaRepository <Acessibilidade, Long>{
+public interface AcessibilidadeGlaceRepository extends JpaRepository <Acessibilidade, Long>{
 	
 	@Query("from Acessibilidade a where a.id = :id")
 	List<Acessibilidade> bucarAAcessibilidade(Long id);
+	
 }

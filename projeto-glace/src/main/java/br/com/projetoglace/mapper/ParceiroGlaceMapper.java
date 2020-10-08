@@ -4,11 +4,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.projetoglace.dto.ClienteGlaceDTO;
 import br.com.projetoglace.dto.ParceiroGlaceDTO;
-import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.model.ParceiroGlace;
-import br.com.projetoglace.request.ClienteGlaceRequest;
 import br.com.projetoglace.request.ParceiroGlaceRequest;
 
 @Component

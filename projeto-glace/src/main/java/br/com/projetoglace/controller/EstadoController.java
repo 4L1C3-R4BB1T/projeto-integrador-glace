@@ -15,7 +15,6 @@ import br.com.projetoglace.model.Cidade;
 import br.com.projetoglace.model.Estado;
 import br.com.projetoglace.repository.EstadoRepository;
 
-
 @CrossOrigin 
 @RestController
 @RequestMapping ("/estado")
@@ -38,4 +37,5 @@ public class EstadoController {
 	public List<Cidade> listarCidadesPorEstado(@PathVariable Long id){
 		return repository.buscarCidades(id);
 	}
+	
 }

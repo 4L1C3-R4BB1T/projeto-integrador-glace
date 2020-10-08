@@ -19,15 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.projetoglace.dto.ClienteGlaceDTO;
 import br.com.projetoglace.dto.ParceiroGlaceDTO;
-import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.model.ParceiroGlace;
-import br.com.projetoglace.request.ClienteGlaceRequest;
 import br.com.projetoglace.request.ParceiroGlaceRequest;
-import br.com.projetoglace.service.ClienteGlaceService;
 import br.com.projetoglace.service.ParceiroGlaceService;
-
 
 @CrossOrigin
 @RestController

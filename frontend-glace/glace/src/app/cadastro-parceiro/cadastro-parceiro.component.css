@@ -22,6 +22,16 @@
     border-color:#f58723;
 }
 
+.is-invalid {
+    border-color: red;
+    background: #ffe6e6;
+}
+
+.is-valid {
+    border-color: green;
+    background: #ebfaeb;
+}
+
 .entrar {
     width: 100%;
       

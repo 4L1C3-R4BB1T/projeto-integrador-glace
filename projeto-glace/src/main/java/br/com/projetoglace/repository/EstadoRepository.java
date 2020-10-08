@@ -11,6 +11,7 @@ import br.com.projetoglace.model.Estado;
 
 @Repository
 public interface EstadoRepository extends JpaRepository<Estado, Long>{
+	
 	@Query("from Estado where nome like :nome")
 	List<Estado> buscarEstado(String nome);
 	

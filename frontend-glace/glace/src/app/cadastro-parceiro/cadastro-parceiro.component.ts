@@ -9,7 +9,8 @@ import { Message, MessageService } from 'primeng/api';
 @Component({
   selector: 'app-cadastro-parceiro',
   templateUrl: './cadastro-parceiro.component.html',
-  styleUrls: ['./cadastro-parceiro.component.css']
+  styleUrls: ['./cadastro-parceiro.component.css'],
+  providers: [MessageService]
 })
 export class CadastroParceiroComponent implements OnInit {
 
@@ -25,19 +26,15 @@ export class CadastroParceiroComponent implements OnInit {
 
   constructor(
     private repository: ParceiroRepository,
-    private fb: FormBuilder,
-    private router: Router) { }
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
     this.iniciarFormulario();
-
-    this.repository.getAllEstados().subscribe(resposta => {
-      this.estados.push({ label: resposta.nome, value: resposta.id });
-    });
+    this.listarEstados();
   }
 
   public iniciarFormulario() {
-
     this.formulario = this.fb.group({
       id: [null],
       razao: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
@@ -56,6 +53,7 @@ export class CadastroParceiroComponent implements OnInit {
   }
 
   cadastrar() {
+    this.submitted = true;
     if (this.formulario.invalid) {
       return;
     }
@@ -120,11 +118,14 @@ export class CadastroParceiroComponent implements OnInit {
     }
   }
 
-  listarEstados() {
-    this.repository.getAllEstados().subscribe(resposta => {
-      this.estados.push({ label: resposta.nome, value: resposta.id });
-    });
+  limparFormulario() {
+    this.submitted = false;
+    this.formulario.reset();
+    this.cidades = [];
+    this.estados = [];
+    this.listarEstados();
   }
+
   listarCidades() {
     this.cidades = [];
     let id: number = this.formulario.value.estado;
@@ -133,12 +134,11 @@ export class CadastroParceiroComponent implements OnInit {
       this.cidades.push({ label: resposta.nome, value: resposta.id });
     });
   }
-  limparFormulario() {
-    this.submitted = false;
-    this.formulario.reset();
-    this.cidades = [];
-    this.estados = [];
-    this.listarEstados();
+
+  listarEstados() {
+    this.repository.getAllEstados().subscribe(resposta => {
+      this.estados.push({ label: resposta.nome, value: resposta.id });
+    });
   }
 
 }

@@ -29,54 +29,52 @@ import br.com.projetoglace.service.ClienteGlaceService;
 @RequestMapping ("/cliente")
 public class ClienteGlaceController {
 
-		@Autowired
-		private ClienteGlaceService service;
+	@Autowired
+	private ClienteGlaceService service;
 		
-		@PostMapping
-		public ResponseEntity<?> salvar(@RequestBody @Valid ClienteGlaceRequest clienteRequest) {	
-			try {
-				ClienteGlaceDTO clienteDTO = service.salvar(clienteRequest);			
-				return ResponseEntity.status(HttpStatus.CREATED).body(clienteDTO);
-			
-			}catch(Exception ex) {
-				return ResponseEntity.badRequest().body(ex.getMessage());
-			}		
-		}
+	@PostMapping
+	public ResponseEntity<?> salvar(@RequestBody @Valid ClienteGlaceRequest clienteRequest) {	
+		try {
+			ClienteGlaceDTO clienteDTO = service.salvar(clienteRequest);			
+			return ResponseEntity.status(HttpStatus.CREATED).body(clienteDTO);	
+		}catch(Exception ex) {
+			return ResponseEntity.badRequest().body(ex.getMessage());
+		}		
+	}
 		
-		@GetMapping
-		public List<ClienteGlaceDTO> listar(){
-			return service.listar();
-		}
+	@GetMapping
+	public List<ClienteGlaceDTO> listar(){
+		return service.listar();
+	}
 
-		@GetMapping("/{id}")
-		public ResponseEntity<ClienteGlace> buscar(@PathVariable Long id) {
-			Optional<ClienteGlace> cliente = service.buscar(id);
-			if (cliente.isPresent()) {
-				return ResponseEntity.ok(cliente.get());
-			}
+	@GetMapping("/{id}")
+	public ResponseEntity<ClienteGlace> buscar(@PathVariable Long id) {
+		Optional<ClienteGlace> cliente = service.buscar(id);
+		if (cliente.isPresent()) {
+			return ResponseEntity.ok(cliente.get());
+		}
+		return ResponseEntity.notFound().build();
+	}
+			
+	@DeleteMapping("/{id}")
+	public ResponseEntity<ClienteGlace> excluir(@PathVariable Long id) {
+		try {
+			service.excluir(id);	
+			return ResponseEntity.noContent().build();
+		} catch (Exception e) {
 			return ResponseEntity.notFound().build();
 		}
+	}
 		
-		
-		@DeleteMapping("/{id}")
-		public ResponseEntity<ClienteGlace> excluir(@PathVariable Long id) {
-			try {
-				service.excluir(id);	
-				return ResponseEntity.noContent().build();
-			} catch (Exception e) {
-				return ResponseEntity.notFound().build();
-			}
-		}
-		
-		@PutMapping("/{id}")
-		public ResponseEntity<?> atualizar(@RequestBody @Valid ClienteGlace cliente, @PathVariable Long id) {
-			ClienteGlace clienteAtual = service.buscar(id).orElse(null);
-			if (clienteAtual != null) {
-				BeanUtils.copyProperties(cliente, clienteAtual, "id");
-				service.atualizar(clienteAtual);
-				return ResponseEntity.ok(clienteAtual);
-			}	
-			return ResponseEntity.notFound().build();
-		}
+	@PutMapping("/{id}")
+	public ResponseEntity<?> atualizar(@RequestBody @Valid ClienteGlace cliente, @PathVariable Long id) {
+		ClienteGlace clienteAtual = service.buscar(id).orElse(null);
+		if (clienteAtual != null) {
+			BeanUtils.copyProperties(cliente, clienteAtual, "id");
+			service.atualizar(clienteAtual);
+			return ResponseEntity.ok(clienteAtual);
+		}	
+		return ResponseEntity.notFound().build();
+	}
 	
 }

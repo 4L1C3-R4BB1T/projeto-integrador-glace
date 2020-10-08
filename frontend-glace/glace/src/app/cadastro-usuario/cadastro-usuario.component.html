@@ -9,109 +9,184 @@
                 <!--FORMULÁRIO DE CLIENTE-->
                 <div id="formUser">
                     <!--FORMULÁRIO-->
-                            <p-messages [(value)]="mensagem" 
-                                [enableService]="false" 
-                                [showTransitionOptions]="'1000ms'" 
-                                [hideTransitionOptions]="'1000ms'">
-                            </p-messages>
-                            <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
-                                <div class="row">
-                                    <div class="col-12 col-md-6">
-                                        <input type="text" class="input mt-4" placeholder="Nome" formControlName="nome">
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <input type="text" class="input mt-4" placeholder="Sobrenome" formControlName="sobrenome"
-                                        [class]="(submitted && formulario.get('sobrenome').errors) || 
-                                (formulario.get('sobrenome').errors && formulario.get('sobrenome').dirty) ? 'is-invalid' : 
-                                        formulario.get('sobrenome').dirty ? 'is-valid' : '' "
+                    <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <input 
+                                    type="text" 
+                                    id="nome" 
+                                    class="input mt-4 form-control" 
+                                    placeholder="Nome" 
+                                    formControlName="nome"
+                                    [class]="(submitted && formulario.get('nome').errors) || 
+                                    (formulario.get('nome').errors && formulario.get('nome').dirty) ? 'is-invalid' : 
+                                    formulario.get('nome').dirty ? 'is-valid' : '' "
                                 />
-                                <div *ngIf="formulario.get('sobrenome').errors?.required"
-                                class="invalid-feedback" >
-                                    Sobrenome é obrigatório!
+                                <div *ngIf="formulario.get('nome').errors?.required" class="invalid-feedback">
+                                    Nome é obrigatório!
                                 </div>
-                                <div *ngIf="formulario.get('sobrenome').errors?.minlength"
-                                class="invalid-feedback" >
-                                    Sobrenome deve ter mais que 3 caracteres!
+                                <div *ngIf="formulario.get('nome').errors?.minlength" class="invalid-feedback">
+                                    Nome deve ter mais que 3 caracteres!
                                 </div>
-                                <div *ngIf="formulario.get('sobrenome').errors?.maxlength"
-                                class="invalid-feedback" >
-                                    Sobrenome excedeu a quantidade máxima de 10 caracteres!
+                                <div *ngIf="formulario.get('nome').errors?.maxlength" class="invalid-feedback" >
+                                    Nome excedeu a quantidade máxima de 10 caracteres!
                                 </div>
-                             </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 col-md-6">
-                                        <p-inputMask [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                        type="text" styleClass="input mt-4" class="input mt-4" placeholder="CPF" formControlName="cpf"
-                                        id="cpf" placeholder= "999.999.999-99" mask = "999.999.999-99"></p-inputMask>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="date" class="input mt-4" formControlName="dataNasc">
-                                
+                                <input 
+                                    type="text" 
+                                    id="sobrenome"
+                                    class="input mt-4" 
+                                    placeholder="Sobrenome" 
+                                    formControlName="sobrenome"
+                                    [class]="(submitted && formulario.get('sobrenome').errors) || 
+                                    (formulario.get('sobrenome').errors && formulario.get('sobrenome').dirty) ? 'is-invalid' : 
+                                    formulario.get('sobrenome').dirty ? 'is-valid' : '' "
+                                />
+                                <div *ngIf="formulario.get('sobrenome').errors?.required" class="invalid-feedback">
+                                    Sobrenome é obrigatório!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="mt-4 input no-padding">
+                                    <p-inputMask 
+                                        type="text" 
+                                        placeholder="CPF" 
+                                        formControlName="cpf"
+                                        id="cpf" 
+                                        mask="999.999.999-99"
+                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                    ></p-inputMask> 
+                                </div>
+                                <div *ngIf="formulario.get('cpf').errors?.required" class="invalid-feedback">
+                                    CPF é obrigatório!
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input 
+                                    type="date" 
+                                    id="dataNasc"
+                                    class="input mt-4" 
+                                    formControlName="dataNasc"
+                                    [class]="(submitted && formulario.get('dataNasc').errors) || 
+                                    (formulario.get('dataNasc').errors && formulario.get('dataNasc').dirty) ? 'is-invalid' : 
+                                    formulario.get('dataNasc').dirty ? 'is-valid' : '' "
+                                />
+                                <div *ngIf="formulario.get('dataNasc').errors?.required" class="invalid-feedback">
+                                    Data de Nascimento é obrigatória!
+                                </div>
                             </div>
                         </div>
                         <div>
-                            <p-inputMask 
-                            [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                            type="text" styleClass="input mt-4" class="input mt-4" placeholder="Telefone" formControlName="telefone"
-                            id="telefone" placeholder= "(99) 99999-9999" mask = "(99)99999-9999"></p-inputMask>
-                        
+                            <div class="mt-4 input no-padding">
+                                <p-inputMask 
+                                    type="text" 
+                                    placeholder="Telefone" 
+                                    formControlName="telefone"
+                                    id="telefone" 
+                                    mask="(99) 99999-9999"
+                                    [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                ></p-inputMask>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-9">
-                                <input type="text" class="input mt-4" placeholder="Rua" formControlName="rua">
+                                <input type="text" class="input mt-4" placeholder="Rua" formControlName="rua"/>
                             </div>
                             <div class="col-12 col-md-3">
-                                <input type="text" class="input mt-4" placeholder="Número" formControlName="numero">
+                                <input type="text" class="input mt-4" placeholder="Número" formControlName="numero"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-7">
-                                <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro">
+                                <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro"/>
                             </div>
                             <div class="col-12 col-md-5">
-                                <p-inputMask [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                 type="text" styleClass="input mt-4" class="input mt-4" placeholder="CEP" formControlName="cep"
-                            id="cep" placeholder= "99999-999" mask = "99999-999"></p-inputMask>
+                                <div class="mt-4 input no-padding">
+                                    <p-inputMask 
+                                        type="text" 
+                                        placeholder="CEP" 
+                                        formControlName="cep"
+                                        id="cep" 
+                                        mask="99999-999"
+                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                    ></p-inputMask>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 ">
                                 <div class="mt-4 input no-padding">
                                     <p-dropdown 
-                                    placeholder="Cidade"
-                                        [options]="cidades" 
-                                        formControlName="cidade" 
-                                        [filter]="true" 
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
-                                    </p-dropdown>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="mt-4 input no-padding">
-                                    <p-dropdown 
-                                        placeholder="Estado"
                                         [options]="estados" 
-                                        formControlName="estado" 
+                                        formControlName="estado"
+                                        placeholder="Estado"
                                         [filter]="true" 
                                         [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
                                         (onChange)="listarCidades()">
                                     </p-dropdown>
                                 </div>
                             </div>
+                            <div class="col-12 col-md-6">
+                                <div class="mt-4 input no-padding">
+                                    <p-dropdown 
+                                        [options]="cidades" 
+                                        formControlName="cidade" 
+                                        placeholder="Cidade"
+                                        [filter]="true" 
+                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                                    </p-dropdown>
+                                </div>
+                            </div>
                         </div>
                         <div>
-                            <input type="email" class="input mt-4" placeholder="E-mail" formControlName="email">
+                            <input 
+                                type="email"
+                                id="email" 
+                                class="input mt-4" 
+                                placeholder="E-mail" 
+                                formControlName="email"
+                                [class]="(submitted && formulario.get('email').errors) || 
+                                (formulario.get('email').errors && formulario.get('email').dirty) ? 'is-invalid' : 
+                                formulario.get('email').dirty ? 'is-valid' : '' "
+                            />
+                            <div *ngIf="formulario.get('email').errors?.required" class="invalid-feedback">
+                                Email é obrigatório!
+                            </div>
                         </div>
                         <div>
-                            <input type="password" class="input mt-4" placeholder="Senha" id="senha" formControlName="senha">
+                            <input 
+                                type="password" 
+                                id="senha"
+                                class="input mt-4" 
+                                placeholder="Senha"
+                                formControlName="senha"
+                                [class]="(submitted && formulario.get('senha').errors) || 
+                                (formulario.get('senha').errors && formulario.get('senha').dirty) ? 'is-invalid' : 
+                                formulario.get('senha').dirty ? 'is-valid' : '' "
+                            />
+                            <div *ngIf="formulario.get('senha').errors?.required" class="invalid-feedback">
+                                Senha é obrigatória!
+                            </div>
                         </div>
                         <div>
-                            <input type="password" class="input mt-4" id="confirmarSenha" placeholder="Confirmar senha" formControlName="confirmarsenha">
+                            <input 
+                                type="password" 
+                                id="confirmarsenha" 
+                                class="input mt-4" 
+                                placeholder="Confirmar senha" 
+                                formControlName="confirmarsenha"
+                                [class]="(submitted && formulario.get('confirmarsenha').errors) || 
+                                (formulario.get('confirmarsenha').errors && formulario.get('confirmarsenha').dirty) ? 'is-invalid' : 
+                                formulario.get('confirmarsenha').dirty ? 'is-valid' : '' "
+                            />
+                            <div *ngIf="formulario.get('confirmarsenha').errors?.required" class="invalid-feedback">
+                                Confirmar senha é obrigatório!
+                            </div>
                         </div>
-                        <button type="submit" class="btn mt-4 mb-2 entrar"
-                            [class]="operacao ? 'btn-primary' : 'btn-success'">{{ operacao ? "Cadastrar" : "Atualizar" }}
-                        </button>
+                        <button type="submit" class="btn mt-4 mb-2 entrar">{{ operacao ? "Cadastrar" : "Atualizar" }}</button>
                     </form>
                     <!--FIM FORMULÁRIO-->
                 </div>
@@ -119,6 +194,13 @@
 
                 <p class="mt-4 cadastro"><a routerLink="/login"><i class="fas fa-arrow-left mr-2"></i>Voltar para
                         login</a></p>
+
+                <p-messages 
+                    [(value)]="mensagem" 
+                    [enableService]="false" 
+                    [showTransitionOptions]="'1000ms'" 
+                    [hideTransitionOptions]="'1000ms'"
+                ></p-messages>                       
 
             </div>
         </div>

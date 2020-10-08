@@ -12,17 +12,35 @@ import lombok.Data;
 @Data
 public class ClienteGlaceRequest {
 
-	private Long id;
-	private String nome;	
-	private String sobrenome;		
-	private String telefone;
-	private LocalDate dataNasc;
+private Long id;
+	
 	@NotNull
+	@NotBlank
+	private String nome;
+	
+	@NotNull
+	@NotBlank
+	private String sobrenome;
+	
+	private String telefone;
+	
+	@NotNull
+	private LocalDate dataNasc;
+	
+	@NotNull
+	@NotBlank
 	private String cpf;		
+	
+	@NotNull
 	@NotBlank
 	private String senha;	
+	
 	@Email
+	@NotNull
+	@NotBlank
 	private String email;
+	
+	@NotNull
 	private Endereco endereco;
 	
 }

@@ -32,4 +32,5 @@ public class EstabelecimentoController {
 	public List<EstabelecimentoGlace> listarEstabelecimentos(){
 		return service.listar();
 	}
+	
 }

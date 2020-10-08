@@ -9,7 +9,8 @@ import { Message,MessageService} from 'primeng/api';
 @Component({
   selector: 'app-cadastro-usuario',
   templateUrl: './cadastro-usuario.component.html',
-  styleUrls: ['./cadastro-usuario.component.css']
+  styleUrls: ['./cadastro-usuario.component.css'],
+  providers: [MessageService]
 })
 export class CadastroUsuarioComponent implements OnInit {
 
@@ -25,17 +26,12 @@ export class CadastroUsuarioComponent implements OnInit {
 
   constructor(
     private repository: ClienteRepository,
-    private fb: FormBuilder,
-    private router: Router) {
-  }
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
     this.iniciarFormulario();
     this.listarEstados();
-
-    this.repository.getAllEstados().subscribe(resposta => {
-      this.estados.push({ label: resposta.nome, value: resposta.id });
-    });
   }
 
   public iniciarFormulario() {
@@ -44,7 +40,7 @@ export class CadastroUsuarioComponent implements OnInit {
       nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
       sobrenome: ['', Validators.required],
       cpf: ['', Validators.required],
-      dataNasc: [''],
+      dataNasc: ['', Validators.required],
       telefone: [''],
       email: ['', Validators.required],
       senha: ['', Validators.required],
@@ -59,6 +55,7 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   cadastrar() {
+    this.submitted = true;
     if (this.formulario.invalid) {
       return;
     }
@@ -99,8 +96,7 @@ export class CadastroUsuarioComponent implements OnInit {
             detail: 'cadastrado com sucesso!'
           }];
         this.limparFormulario();
-      },
-      (e) => {
+      }, (e) => {
           var msg: any[] = [];
           //Erro Principal
           msg.push({
@@ -124,19 +120,6 @@ export class CadastroUsuarioComponent implements OnInit {
     }
   }
 
-  listarEstados() {
-    this.repository.getAllEstados().subscribe(resposta => {
-      this.estados.push({ label: resposta.nome, value: resposta.id });
-    });
-  }
-  listarCidades() {
-    this.cidades = [];
-    let id: number = this.formulario.value.estado;
-
-    this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
-      this.cidades.push({ label: resposta.nome, value: resposta.id });
-    });
-  }
   limparFormulario() {
     this.submitted = false;
     this.formulario.reset();
@@ -145,4 +128,19 @@ export class CadastroUsuarioComponent implements OnInit {
     this.listarEstados();
   }
 
+  listarCidades() {
+    this.cidades = [];
+    let id: number = this.formulario.value.estado;
+
+    this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
+      this.cidades.push({ label: resposta.nome, value: resposta.id });
+    });
+  }
+
+  listarEstados() {
+    this.repository.getAllEstados().subscribe(resposta => {
+      this.estados.push({ label: resposta.nome, value: resposta.id });
+    });
+  }
+  
 }

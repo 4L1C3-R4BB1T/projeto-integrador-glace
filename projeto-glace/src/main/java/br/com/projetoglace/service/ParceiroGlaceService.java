@@ -9,21 +9,14 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import br.com.projetoglace.dto.ClienteGlaceDTO;
 import br.com.projetoglace.dto.ParceiroGlaceDTO;
 import br.com.projetoglace.exception.ClienteNaoEncontradoException;
-import br.com.projetoglace.mapper.ClienteGlaceMapper;
 import br.com.projetoglace.mapper.ParceiroGlaceMapper;
-import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.model.ParceiroGlace;
 import br.com.projetoglace.repository.CidadeRepository;
-import br.com.projetoglace.repository.ClienteGlaceRepository;
 import br.com.projetoglace.repository.EstadoRepository;
 import br.com.projetoglace.repository.ParceiroGlaceRepository;
-import br.com.projetoglace.request.ClienteGlaceRequest;
 import br.com.projetoglace.request.ParceiroGlaceRequest;
 
 @Service

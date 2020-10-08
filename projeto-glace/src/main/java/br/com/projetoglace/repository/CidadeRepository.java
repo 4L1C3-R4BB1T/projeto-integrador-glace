@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import br.com.projetoglace.model.Cidade;
 
 public interface CidadeRepository extends JpaRepository <Cidade, Long>{
+	
 	@Query("from Cidade where estado_id = :id")
 	List<Cidade> bucarCidades(Long id);
+
 }
