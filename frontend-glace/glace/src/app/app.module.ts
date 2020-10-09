@@ -29,7 +29,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
 import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
-import { NgxMaskModule } from 'ngx-mask';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -65,7 +65,7 @@ import { NgxMaskModule } from 'ngx-mask';
     MessageModule,
     MessagesModule,
     InputMaskModule,
-    NgxMaskModule
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
