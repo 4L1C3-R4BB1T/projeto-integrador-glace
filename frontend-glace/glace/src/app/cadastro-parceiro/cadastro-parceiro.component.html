@@ -31,19 +31,17 @@
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <div class="mt-4 input no-padding">
-                                    <p-inputMask
-                                        type="text" 
-                                        placeholder="CNPJ"
-                                        formControlName="cnpj" 
-                                        id="cnpj" 
-                                        mask="99.999.999/9999-99"
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                    ></p-inputMask>
-                                </div>
-                                <div *ngIf="formulario.get('cnpj').errors?.required" class="invalid-feedback">
-                                    CNPJ é obrigatório!
-                                </div>
+                                <input type="text" class="input mt-4 form-control" placeholder="CNPJ"
+                                formControlName="cnpj" mask="00.000.000/0000-00"
+                                 [class]="(submitted && formulario.get('cnpj').errors) || 
+                                     (formulario.get('cnpj').errors && formulario.get('cnpj').dirty) ? 'is-invalid' : 
+                                     formulario.get('cnpj').dirty ? 'is-valid' : '' " />
+                            <div *ngIf="formulario.get('cnpj').errors?.required" class="invalid-feedback">
+                                cnpj é obrigatório!
+                            </div>
+                            <div *ngIf="formulario.get('cnpj').errors?.minlength" class="invalid-feedback">
+                                cnpj inválido
+                            </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="mt-4 input no-padding">
