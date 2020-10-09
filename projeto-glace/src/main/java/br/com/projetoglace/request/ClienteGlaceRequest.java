@@ -40,7 +40,6 @@ private Long id;
 	@NotBlank
 	private String email;
 	
-	@NotNull
 	private Endereco endereco;
 	
 }
