@@ -36,7 +36,7 @@
                                 <input 
                                     type="text" 
                                     id="sobrenome"
-                                    class="input mt-4 form-control" 
+                                    class="input mt-4" 
                                     placeholder="Sobrenome" 
                                     formControlName="sobrenome"
                                     [class]="(submitted && formulario.get('sobrenome').errors) || 
@@ -50,17 +50,16 @@
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <input 
-                                    type="text" 
-                                    id="nome" 
-                                    class="input mt-4 form-control" 
-                                    placeholder="CPF" 
-                                    formControlName="cpf"
-                                    mask="000.000.000-00"
-                                    [class]="(submitted && formulario.get('cpf').errors) || 
-                                    (formulario.get('cpf').errors && formulario.get('cpf').dirty) ? 'is-invalid' : 
-                                    formulario.get('cpf').dirty ? 'is-valid' : '' "
-                                />
+                                <div class="mt-4 input no-padding">
+                                    <p-inputMask 
+                                        type="text" 
+                                        placeholder="CPF" 
+                                        formControlName="cpf"
+                                        id="cpf" 
+                                        mask="999.999.999-99"
+                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                    ></p-inputMask> 
+                                </div>
                                 <div *ngIf="formulario.get('cpf').errors?.required" class="invalid-feedback">
                                     CPF é obrigatório!
                                 </div>
@@ -81,13 +80,16 @@
                             </div>
                         </div>
                         <div>
-
-                        <input type="text"  
-                               id="telefone" 
-                               class="input mt-4"  
-                               mask="(000) 00000-0000" 
-                               placeholder="Telefone" 
-                               aria-label="Telephone number 10 digits only">
+                            <div class="mt-4 input no-padding">
+                                <p-inputMask 
+                                    type="text" 
+                                    placeholder="Telefone" 
+                                    formControlName="telefone"
+                                    id="telefone" 
+                                    mask="(99) 99999-9999"
+                                    [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                ></p-inputMask>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-9">
