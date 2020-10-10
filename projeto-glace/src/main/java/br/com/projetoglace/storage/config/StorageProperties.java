@@ -1,4 +1,4 @@
-package br.com.projetoglace.service;
+package br.com.projetoglace.storage.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 	@Setter
 	@Component
-	@ConfigurationProperties("digitalhouse.storage.s3")
+	@ConfigurationProperties("glace.storage.s3")
 	public class StorageProperties {
 		private String idChaveAcesso;
 		private String chaveAcessoSecreta;

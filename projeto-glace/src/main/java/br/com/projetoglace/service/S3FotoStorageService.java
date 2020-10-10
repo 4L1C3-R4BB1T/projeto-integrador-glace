@@ -13,6 +13,7 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 
 import br.com.projetoglace.exception.StorageException;
+import br.com.projetoglace.storage.config.StorageProperties;
 
 @Service
 public class S3FotoStorageService {

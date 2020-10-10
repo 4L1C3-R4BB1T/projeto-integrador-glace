@@ -9,7 +9,6 @@ public class ImagemDTO {
 	
 	private Long id;
 	private String nomeArquivo;
-	private String nomeArquivoCompleto;
 	private String contentType;
 	private Long tamanho;
 	private URL url;
