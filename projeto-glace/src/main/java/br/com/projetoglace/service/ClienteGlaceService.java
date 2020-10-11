@@ -40,11 +40,11 @@ public class ClienteGlaceService {
 		
 		if(cliente.getEndereco().getCidade().getId() == null) {
 			
-			estadoRepository.findById(cliente.getEndereco().getCidade().getEstado().getId());
-			cidadeRepository.findById(cliente.getEndereco().getCidade().getId());
+//			estadoRepository.findById(cliente.getEndereco().getCidade().getEstado().getId());
+//			cidadeRepository.findById(cliente.getEndereco().getCidade().getId());
 			
-//			estadoRepository.save(cliente.getEndereco().getCidade().getEstado());
-//		    cidadeRepository.save(cliente.getEndereco().getCidade());
+			estadoRepository.save(cliente.getEndereco().getCidade().getEstado());
+		    cidadeRepository.save(cliente.getEndereco().getCidade());
 		}
 	    return mapper.modelToDTO(repository.save(cliente));		
 	}

@@ -37,12 +37,12 @@
                                      (formulario.get('cnpj').errors && formulario.get('cnpj').dirty) ? 'is-invalid' : 
                                      formulario.get('cnpj').dirty ? 'is-valid' : '' " />
                             <div *ngIf="formulario.get('cnpj').errors?.required" class="invalid-feedback">
-                                cnpj é obrigatório!
+                                CNPJ é obrigatório!
                             </div>
                             <div *ngIf="formulario.get('cnpj').errors?.minlength" class="invalid-feedback">
-                                cnpj inválido
+                                CNPJ inválido
                             </div>
-                            </div>
+                            </div>  
                             <div class="col-12 col-md-6">
                                 <div class="mt-4 input no-padding">
                                     <p-inputMask
@@ -52,7 +52,16 @@
                                         id="telefone" 
                                         mask="(99) 99999-9999"
                                         [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                    ></p-inputMask>
+                                        [class]="(submitted && formulario.get('telefone').errors) || 
+                                        (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' : 
+                                        formulario.get('telefone').dirty ? 'is-valid' : '' " 
+                                        ></p-inputMask>
+                                        <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
+                                            Telefone é obrigatório!
+                                        </div>
+                                        <div *ngIf="formulario.get('telefone').errors?.minlength" class="invalid-feedback">
+                                            Telefone inválido
+                                        </div>
                                 </div>
                             </div>
                         </div>

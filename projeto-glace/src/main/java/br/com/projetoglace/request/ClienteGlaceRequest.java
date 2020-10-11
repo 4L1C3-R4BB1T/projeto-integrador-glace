@@ -24,10 +24,9 @@ private Long id;
 	private String sobrenome;
 	
 	@NotNull
-	@NotBlank
 	private String telefone;
 	
-	@NotNull
+	
 	private LocalDate dataNasc;
 	
 	@NotNull
@@ -43,7 +42,9 @@ private Long id;
 	@NotBlank
 	private String email;
 	
+	@NotNull
 	private Endereco endereco;
+	
 	private Imagem foto;
 	
 }

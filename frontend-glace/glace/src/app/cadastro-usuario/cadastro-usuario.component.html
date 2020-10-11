@@ -56,11 +56,12 @@
                                          (formulario.get('cpf').errors && formulario.get('cpf').dirty) ? 'is-invalid' : 
                                          formulario.get('cpf').dirty ? 'is-valid' : '' " />
                                 <div *ngIf="formulario.get('cpf').errors?.required" class="invalid-feedback">
-                                    cpf é obrigatório!
+                                    CPF é obrigatório!
                                 </div>
                                 <div *ngIf="formulario.get('cpf').errors?.minlength" class="invalid-feedback">
-                                    cpf inválido
+                                    CPF inválido
                                 </div>
+                                
                             </div>
                             <div class="col-12 col-md-6">
                                 <input 
@@ -78,7 +79,20 @@
                             </div>
                         </div>
                         <div>
-                            <input type="text" class="input mt-4 form-control" mask="(000) 00000-9999" placeholder="Telefone" aria-label="Telephone number 10 digits only">
+                            <input type="text" 
+                            class="input mt-4 form-control" 
+                            mask="(00) 00000-0000" 
+                            placeholder="Telefone" 
+                            aria-label="Telephone number 10 digits only"
+                            [class]="(submitted && formulario.get('telefone').errors) || 
+                                         (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' : 
+                                         formulario.get('telefone').dirty ? 'is-valid' : '' " />
+                                <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
+                                    Telefone é obrigatório!
+                                </div>
+                                <div *ngIf="formulario.get('telefone').errors?.minlength" class="invalid-feedback">
+                                    Telefone inválido
+                                </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-9">
