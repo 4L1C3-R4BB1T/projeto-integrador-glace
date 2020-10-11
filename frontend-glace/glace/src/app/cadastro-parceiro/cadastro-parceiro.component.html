@@ -44,74 +44,98 @@
                             </div>
                             </div>  
                             <div class="col-12 col-md-6">
-                                <div class="mt-4 input no-padding">
-                                    <p-inputMask
-                                        type="text" 
-                                        placeholder="Telefone"
-                                        formControlName="telefone" 
-                                        id="telefone" 
-                                        mask="(99) 99999-9999"
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                        [class]="(submitted && formulario.get('telefone').errors) || 
-                                        (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' : 
-                                        formulario.get('telefone').dirty ? 'is-valid' : '' " 
-                                        ></p-inputMask>
-                                        <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
-                                            Telefone é obrigatório!
-                                        </div>
-                                        <div *ngIf="formulario.get('telefone').errors?.minlength" class="invalid-feedback">
-                                            Telefone inválido
-                                        </div>
-                                </div>
+                                    <input type="text" 
+                                    class="input mt-4 form-control" 
+                                    mask="(000) 00000-9999" 
+                                    placeholder="Telefone" 
+                                    formControlName="telefone"
+                                    aria-label="Telephone number 10 digits only"
+                                    [class]="(submitted && formulario.get('telefone').errors) || 
+                                (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' : 
+                                formulario.get('telefone').dirty ? 'is-valid' : '' " />
+                            <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
+                                Telefone é obrigatório!
+                            </div>
+                                
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-9">
-                                <input type="text" class="input mt-4" placeholder="Rua" formControlName="rua">
+                                <input type="text" class="input mt-4" placeholder="Rua" formControlName="rua" [class]="(submitted && formulario.get('rua').errors) || 
+                                (formulario.get('rua').errors && formulario.get('rua').dirty) ? 'is-invalid' : 
+                                formulario.get('rua').dirty ? 'is-valid' : '' " />
+                            <div *ngIf="formulario.get('rua').errors?.required" class="invalid-feedback">
+                                Rua é obrigatório!
+                            </div>
                             </div>
                             <div class="col-12 col-md-3">
-                                <input type="text" class="input mt-4" placeholder="Número" formControlName="numero">
+                                <input type="text" class="input mt-4" placeholder="Número" formControlName="numero" [class]="(submitted && formulario.get('rua').errors) || 
+                                (formulario.get('numero').errors && formulario.get('numero').dirty) ? 'is-invalid' : 
+                                formulario.get('numero').dirty ? 'is-valid' : '' " />
+                            <div *ngIf="formulario.get('numero').errors?.required" class="invalid-feedback">
+                                Número é obrigatório!
+                            </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-7">
-                                <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro">
+                                <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro"[class]="(submitted && formulario.get('bairro').errors) || 
+                                (formulario.get('bairro').errors && formulario.get('bairro').dirty) ? 'is-invalid' : 
+                                formulario.get('bairro').dirty ? 'is-valid' : '' " />
+                            <div *ngIf="formulario.get('bairro').errors?.required" class="invalid-feedback">
+                                Bairro é obrigatório!
+                            </div>
                             </div>
                             <div class="col-12 col-md-5">
-                                <div class="mt-4 input no-padding">
-                                    <p-inputMask
-                                        type="text" 
-                                        placeholder="CEP"
-                                        formControlName="cep" 
-                                        id="cep" 
-                                        mask="99999-999"
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                    ></p-inputMask>
-                                </div>
+                                <input type="text" class="input mt-4 form-control" placeholder="CEP"
+                                formControlName="cep" mask="00000.000"
+                                 [class]="(submitted && formulario.get('cep').errors) || 
+                                     (formulario.get('cep').errors && formulario.get('cep').dirty) ? 'is-invalid' : 
+                                     formulario.get('cep').dirty ? 'is-valid' : '' " />
+                            <div *ngIf="formulario.get('cep').errors?.required" class="invalid-feedback">
+                                Cep é obrigatório!
+                            </div>
+                            <div *ngIf="formulario.get('cep').errors?.minlength" class="invalid-feedback">
+                                Cep inválido
+                            </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 ">
-                                <div class="mt-4 input no-padding">
+                                <div>
                                     <p-dropdown 
                                         placeholder="Estado" 
                                         [options]="estados" 
+                                        class="mt-4 input no-padding form-control"
                                         formControlName="estado"
                                         [filter]="true"
                                         [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                        (onChange)="listarCidades()">
+                                        (onChange)="listarCidades()"
+                                        [class]="(submitted && formulario.get('estado').errors) || 
+                                (formulario.get('estado').errors && formulario.get('estado').dirty) ? 'is-invalid' : 
+                                formulario.get('estado').dirty ? 'is-valid' : '' " >
                                     </p-dropdown>
+                                    <div *ngIf="formulario.get('estado').errors?.required" class="invalid-feedback">
+                                        Estado é obrigatório!
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <div class="mt-4 input no-padding">
+                                <div>
                                     <p-dropdown 
+                                        class="mt-4 input no-padding form-control"
                                         placeholder="Cidade" 
                                         [options]="cidades" 
                                         formControlName="cidade"
                                         [filter]="true"
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                        [class]="(submitted && formulario.get('cidade').errors) || 
+                                        (formulario.get('cidade').errors && formulario.get('cidade').dirty) ? 'is-invalid' : 
+                                        formulario.get('cidade').dirty ? 'is-valid' : '' " >
                                     </p-dropdown>
+                                    <div *ngIf="formulario.get('estado').errors?.required" class="invalid-feedback">
+                                        Cidade é obrigatório!
+                                    </div>
                                 </div>
                             </div>
                         </div>

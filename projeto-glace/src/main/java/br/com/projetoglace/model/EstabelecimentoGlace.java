@@ -46,13 +46,10 @@ public class EstabelecimentoGlace {
 	@JoinColumn(name="parceiro_id", nullable = false) 
 	private ParceiroGlace parceiroGlace;
 	
-	  @OneToMany(
-		        cascade = CascadeType.ALL,
-		        orphanRemoval = true
-		    )
+	@OneToMany
+	@JoinColumn(name="estabecimento_id")
 	private List<Acessibilidade> acessibilidades;
 	
 	@Embedded
 	private Endereco endereco;
-	
 }
