@@ -1,3 +1,4 @@
+import { ImagemModel } from './../model/imagem-model';
 import { ImagemMapper } from './../mapper/imagem-mapper';
 import { ImagemEntity } from './../entity/imagem-entity';
 import { CidadeMapper } from './../mapper/cidade-mapper';
@@ -59,6 +60,11 @@ export class ClienteRepository {
         return this.http
             .post<ImagemEntity>(`${environment.URLSERVIDOR}imagem`, param)
             .pipe(map((x) => this.mapperImagem.mapFrom(x.data)));
+    }
+    getImagemById(id: number): Observable<ClienteModel> {
+        return this.http
+            .getAll<ImagemModel>(`${environment.URLSERVIDOR}imagem/${id}`)
+            .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
 
     putCliente(param: ClienteModel) {

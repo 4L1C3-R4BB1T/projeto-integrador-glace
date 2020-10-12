@@ -1,8 +1,5 @@
-import { ClienteMapper } from './mapper/cliente-mapper';
-import { ClienteEntity } from './entity/cliente-entity';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ClienteModel } from './model/cliente-model';
 import { ClienteRepository } from './repository/cliente-repository';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
