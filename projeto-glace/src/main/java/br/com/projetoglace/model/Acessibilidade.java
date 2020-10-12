@@ -20,5 +20,5 @@ public class Acessibilidade {
 	
 	@Column(name = "tipo_acessibilidade")
 	private String tipoAcessibilidade;
+
 }
-/////

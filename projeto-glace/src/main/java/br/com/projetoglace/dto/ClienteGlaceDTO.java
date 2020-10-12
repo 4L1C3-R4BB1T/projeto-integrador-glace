@@ -17,5 +17,5 @@ public class ClienteGlaceDTO {
 	private String senha;	
 	private String email;
 	private Endereco endereco;	
-	
+	private ImagemDTO foto;
 }

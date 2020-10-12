@@ -29,7 +29,7 @@
                                     Nome deve ter mais que 3 caracteres!
                                 </div>
                                 <div *ngIf="formulario.get('nome').errors?.maxlength" class="invalid-feedback" >
-                                    Nome excedeu a quantidade máxima de 10 caracteres!
+                                    Nome excedeu a quantidade máxima de 50 caracteres!
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
@@ -50,19 +50,18 @@
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <div class="mt-4 input no-padding">
-                                    <p-inputMask 
-                                        type="text" 
-                                        placeholder="CPF" 
-                                        formControlName="cpf"
-                                        id="cpf" 
-                                        mask="999.999.999-99"
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                    ></p-inputMask> 
-                                </div>
+                                <input type="text" class="input mt-4 form-control" placeholder="CPF"
+                                    formControlName="cpf" mask="000.000.000-00"
+                                     [class]="(submitted && formulario.get('cpf').errors) || 
+                                         (formulario.get('cpf').errors && formulario.get('cpf').dirty) ? 'is-invalid' : 
+                                         formulario.get('cpf').dirty ? 'is-valid' : '' " />
                                 <div *ngIf="formulario.get('cpf').errors?.required" class="invalid-feedback">
                                     CPF é obrigatório!
                                 </div>
+                                <div *ngIf="formulario.get('cpf').errors?.minlength" class="invalid-feedback">
+                                    CPF inválido
+                                </div>
+                                
                             </div>
                             <div class="col-12 col-md-6">
                                 <input 
@@ -80,16 +79,20 @@
                             </div>
                         </div>
                         <div>
-                            <div class="mt-4 input no-padding">
-                                <p-inputMask 
-                                    type="text" 
-                                    placeholder="Telefone" 
-                                    formControlName="telefone"
-                                    id="telefone" 
-                                    mask="(99) 99999-9999"
-                                    [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                ></p-inputMask>
-                            </div>
+                            <input type="text" 
+                            class="input mt-4 form-control" 
+                            mask="(00) 00000-0000" 
+                            placeholder="Telefone" 
+                            aria-label="Telephone number 10 digits only"
+                            [class]="(submitted && formulario.get('telefone').errors) || 
+                                         (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' : 
+                                         formulario.get('telefone').dirty ? 'is-valid' : '' " />
+                                <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
+                                    Telefone é obrigatório!
+                                </div>
+                                <div *ngIf="formulario.get('telefone').errors?.minlength" class="invalid-feedback">
+                                    Telefone inválido
+                                </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-9">
@@ -104,22 +107,16 @@
                                 <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro"/>
                             </div>
                             <div class="col-12 col-md-5">
-                                <div class="mt-4 input no-padding">
-                                    <p-inputMask 
-                                        type="text" 
-                                        placeholder="CEP" 
-                                        formControlName="cep"
-                                        id="cep" 
-                                        mask="99999-999"
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                    ></p-inputMask>
-                                </div>
+                                    <div>
+                                        <input type="text" class="input mt-4 form-control" mask="00000-000" placeholder="Cep" aria-label="cep number 10 digits only">
+                                    </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 ">
                                 <div class="mt-4 input no-padding">
                                     <p-dropdown 
+                                        placeholder="Estado"
                                         [options]="estados" 
                                         formControlName="estado"
                                         placeholder="Estado"
@@ -132,6 +129,7 @@
                             <div class="col-12 col-md-6">
                                 <div class="mt-4 input no-padding">
                                     <p-dropdown 
+                                        placeholder="Cidade"
                                         [options]="cidades" 
                                         formControlName="cidade" 
                                         placeholder="Cidade"
@@ -200,8 +198,7 @@
                     [enableService]="false" 
                     [showTransitionOptions]="'1000ms'" 
                     [hideTransitionOptions]="'1000ms'"
-                ></p-messages>                       
-
+                ></p-messages>                      
             </div>
         </div>
 

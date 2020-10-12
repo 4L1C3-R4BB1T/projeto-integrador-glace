@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import br.com.projetoglace.model.Endereco;
+import br.com.projetoglace.model.Imagem;
 import lombok.Data;
 
 @Data
@@ -22,9 +23,10 @@ private Long id;
 	@NotBlank
 	private String sobrenome;
 	
+	@NotNull
 	private String telefone;
 	
-	@NotNull
+	
 	private LocalDate dataNasc;
 	
 	@NotNull
@@ -42,5 +44,7 @@ private Long id;
 	
 	@NotNull
 	private Endereco endereco;
+	
+	private Imagem foto;
 	
 }

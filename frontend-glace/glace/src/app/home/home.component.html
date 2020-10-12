@@ -1,37 +1,34 @@
 <div class="container-fluid">
   <div id="container">
-    
+
     <app-nav-bar-secundaria></app-nav-bar-secundaria>
 
     <div class="content">
       <div class="row pesquisas">
         <div class="col-2"></div>
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input1">
-          <p-dropdown [options]="cidades" 
-          [(ngModel)]="cidadeSelecionada" 
-          optionLabel="nome" 
-          [filter]="true" 
-          filterBy="value.nome" 
-          name="cidade" 
-          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+          <p-dropdown
+          placeholder="Estado"
+          [options]="estados"
+          formControlName="estado"
+          placeholder="Estado"
+          [filter]="true"
+          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+          (onChange)="listarCidades()">
         </p-dropdown>
         </div>
 
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input2">
-          <p-dropdown 
-          [options]="estados" 
-          [(ngModel)]="estadoSelecionado" 
-          optionLabel="nome" 
-          [filter]="true" 
-          filterBy="value.nome" 
-          name="estado"  
-          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}" 
-          (onChange)="listarCidades(estadoSelecionado.id)">
+          <p-dropdown
+          placeholder="Cidade"
+          [options]="cidades"
+          formControlName="cidade"
+          [filter]="true"
+          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
         </p-dropdown>
         </div>
-
         <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 pesquisa" >
-          <button type="submit" id="botao-pesquisa" class="btn btn-outline-light" ng-click="buscar()">
+          <button type="submited" id="botao-pesquisa" class="btn btn-outline-light" ng-click="buscar()">
             <i class="fas fa-search" style="color: rgba(196, 196, 196, 1); font-size: 20px;"></i>
           </button>
         </div>
@@ -45,138 +42,8 @@
         </div>
       </div>
 
-      <div class="row row-cols-1 row-cols-xl-4 row-cols-md-2 row-cols-sm-1">
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/hotel1.jpg" class="card-img-top img-card" alt="imagem de quarto de hotel">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Hotel Atlântico</h5>
-              <p class="card-text description">
-                Com restaurante e posição privilegiada, você também encontra opções para almoçar e jantar.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fab fa-accessible-icon"></i> <i class="icon fas fa-sign-language"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/restaurante1.jpg" class="card-img-top img-card" alt="imagem de restaurante">
-            <div class="card-body">
-              <h5 class="card-title title-veg">OAZI Restaurante</h5>
-              <p class="card-text description">
-                Churrascaria que segue tradicional gaúcha (sem peixes, frutos do mar ou comida japonesa) em sistema de rodízio.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/hotel2.jpg" class="card-img-top img-card" alt="imagem de banheiro de pousada">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Pousada Astoria Palace</h5>
-              <p class="card-text description">
-                Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat MNI está situado no
-                Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i> <i class="icon fas fa-sign-language"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/restaurante2.jpeg" class="card-img-top img-card" alt="imagem de restaurante">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Restaurante Porto</h5>
-              <p class="card-text description">
-                A ementa, influenciada pela gastronomia típica portuense, é fixa de segunda ao sábado.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/hotel1.jpg" class="card-img-top img-card" alt="imagem de quarto de hotel">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Hotel Atlântico</h5>
-              <p class="card-text description">
-                Com restaurante e posição privilegiada, você também encontra opções para almoçar e jantar.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fab fa-accessible-icon"></i> <i class="icon fas fa-sign-language"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/restaurante1.jpg" class="card-img-top img-card" alt="imagem de restaurante">
-            <div class="card-body">
-              <h5 class="card-title title-veg">OAZI Restaurante</h5>
-              <p class="card-text description">
-                Churrascaria que segue tradicional gaúcha (sem peixes, frutos do mar ou comida japonesa) em sistema de rodízio.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/hotel2.jpg" class="card-img-top img-card" alt="imagem de banheiro de pousada">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Pousada Astoria Palace</h5>
-              <p class="card-text description">
-                Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat MNI está situado no
-                Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i> <i class="icon fas fa-sign-language"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <img src="../../assets/images/restaurante2.jpeg" class="card-img-top img-card" alt="imagem de restaurante">
-            <div class="card-body">
-              <h5 class="card-title title-veg">Restaurante Porto</h5>
-              <p class="card-text description">
-                A ementa, influenciada pela gastronomia típica portuense, é fixa de segunda ao sábado.
-              </p>
-              <p><small class="text-muted">Acessível</small></p>
-              <div>
-                <i class="icon fas fa-brain"></i> <i class="icon fas fa-blind"></i>
-                <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">Ver mais</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-card></app-card>
+
     </div>
   </div>
 </div>

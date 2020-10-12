@@ -39,6 +39,10 @@ public class ClienteGlaceService {
 		ClienteGlace cliente = mapper.requestToModel(clienteRequest);
 		
 		if(cliente.getEndereco().getCidade().getId() == null) {
+			
+//			estadoRepository.findById(cliente.getEndereco().getCidade().getEstado().getId());
+//			cidadeRepository.findById(cliente.getEndereco().getCidade().getId());
+			
 			estadoRepository.save(cliente.getEndereco().getCidade().getEstado());
 		    cidadeRepository.save(cliente.getEndereco().getCidade());
 		}

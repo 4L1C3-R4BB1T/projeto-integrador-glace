@@ -33,10 +33,12 @@ public class ClienteGlaceController {
 	private ClienteGlaceService service;
 		
 	@PostMapping
-	public ResponseEntity<?> salvar(@RequestBody @Valid ClienteGlaceRequest clienteRequest) {	
+	public ResponseEntity<?> salvar(@RequestBody @Valid ClienteGlaceRequest clienteGlaceRequest) {	
 		try {
-			ClienteGlaceDTO clienteDTO = service.salvar(clienteRequest);			
-			return ResponseEntity.status(HttpStatus.CREATED).body(clienteDTO);	
+			
+			ClienteGlaceDTO clienteGlaceDTO = service.salvar(clienteGlaceRequest);			
+			return ResponseEntity.status(HttpStatus.CREATED).body(clienteGlaceDTO);
+		
 		}catch(Exception ex) {
 			return ResponseEntity.badRequest().body(ex.getMessage());
 		}		

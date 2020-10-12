@@ -54,23 +54,45 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-		<dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator-annotation-processor</artifactId>
-        </dependency>
-        <dependency>
-  			<groupId>org.modelmapper</groupId>
-  			<artifactId>modelmapper</artifactId>
-  			<version>2.3.0</version>
-		</dependency>
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate.validator</groupId>
+				<artifactId>hibernate-validator</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate.validator</groupId>
+				<artifactId>hibernate-validator-annotation-processor</artifactId>
+			</dependency>
+			<dependency>
+			    <groupId>javax.el</groupId>
+			    <artifactId>javax.el-api</artifactId>
+			    <version>3.0.0</version>
+			</dependency>
+			 
+			<dependency>
+			    <groupId>org.glassfish.web</groupId>
+			    <artifactId>javax.el</artifactId>
+			    <version>2.2.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.modelmapper</groupId>
+				<artifactId>modelmapper</artifactId>
+				<version>2.3.8</version>
+			</dependency>
+			
+			<dependency>			
+				<groupId>com.amazonaws</groupId>				
+				<artifactId>aws-java-sdk-s3</artifactId>				
+				<version>1.11.671</version>			
+			</dependency>			
+			<dependency>			
+				<groupId>org.springframework.boot</groupId>				
+				<artifactId>spring-boot-configuration-processor</artifactId>				
+				<optional>true</optional>			
+			</dependency>
 	</dependencies>
 
 	<build>

@@ -11,7 +11,7 @@ export class CardService {
   constructor(private HttpClient: HttpClient) { }
 
   getCards() {
-    return this.HttpClient.get<any>('')
+    return this.HttpClient.get<any>('assets/db.json')
     .toPromise()
     .then(res => <Card[]>res.data)
     .then(data => { return data; });

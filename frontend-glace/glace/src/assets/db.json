@@ -1,0 +1,67 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Hotel Atlântico",
+      "descricao": "Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat está situado no Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.",
+      "acessibilidades": "Visual",
+      "imagem": "https://z7d7p5r4.stackpathcdn.com/wp-content/uploads/2018/06/melhores-hoteis-cordoba-nh.jpg"
+    },
+
+    {
+      "id": 1,
+      "title": "Hotel Atlântico",
+      "descricao": "Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat está situado no Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.",
+      "acessibilidades": "Auditiva",
+      "imagem": "https://z7d7p5r4.stackpathcdn.com/wp-content/uploads/2018/06/melhores-hoteis-cordoba-nh.jpg"
+    },
+
+    {
+      "id": 1,
+      "title": "Hotel Atlântico",
+      "descricao": "Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat está situado no Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.",
+      "acessibilidades": "Motora",
+      "imagem": "https://z7d7p5r4.stackpathcdn.com/wp-content/uploads/2018/06/melhores-hoteis-cordoba-nh.jpg"
+    },
+
+    {
+      "id": 1,
+      "title": "Hotel Atlântico",
+      "descricao": "Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat está situado no Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.",
+      "acessibilidades": "Intelectual",
+      "imagem": "https://z7d7p5r4.stackpathcdn.com/wp-content/uploads/2018/06/melhores-hoteis-cordoba-nh.jpg"
+    },
+
+    {
+      "id": 1,
+      "title": "Hotel Atlântico",
+      "descricao": "Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat está situado no Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.",
+      "acessibilidades": "Motora",
+      "imagem": "https://z7d7p5r4.stackpathcdn.com/wp-content/uploads/2018/06/melhores-hoteis-cordoba-nh.jpg"
+    },
+
+    {
+      "id": 1,
+      "title": "Hotel Atlântico",
+      "descricao": "Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat está situado no Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.",
+      "acessibilidades": "Intelectual",
+      "imagem": "https://z7d7p5r4.stackpathcdn.com/wp-content/uploads/2018/06/melhores-hoteis-cordoba-nh.jpg"
+    },
+
+    {
+      "id": 1,
+      "title": "Hotel Atlântico",
+      "descricao": "Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat está situado no Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.",
+      "acessibilidades": "Motora",
+      "imagem": "https://z7d7p5r4.stackpathcdn.com/wp-content/uploads/2018/06/melhores-hoteis-cordoba-nh.jpg"
+    },
+
+    {
+      "id": 1,
+      "title": "Hotel Atlântico",
+      "descricao": "Oferecendo piscina, restaurante, academia e vista da cidade, o Rio Flat está situado no Rio de Janeiro e dispõe de acomodações com Wi-Fi gratuito.",
+      "acessibilidades": "Intelectual",
+      "imagem": "https://z7d7p5r4.stackpathcdn.com/wp-content/uploads/2018/06/melhores-hoteis-cordoba-nh.jpg"
+    }
+  ]
+}
