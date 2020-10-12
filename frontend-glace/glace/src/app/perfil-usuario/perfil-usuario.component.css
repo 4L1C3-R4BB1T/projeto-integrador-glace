@@ -64,20 +64,16 @@
   color: black;
 }
 
-.title-button1 {
-  font-weight: bold;
-  color: #ADB8D7;
-}
+
 
 .title-button2 {
-  font-weight: bold;
+  padding: 11px;
   color: #FF9900;
 }
 
 .description-button {
     color: #3E3E3E;
     font-size: 20px;
-    padding: 10px;
 }
 
 @media screen and (max-width: 1440px) {
@@ -165,9 +161,10 @@
 }
   
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.title-button2 {
    width: 100%;
-    
+  
   background-color: rgba(255, 153, 0, 1);;
   border-radius: 10px;
   color: #FFFFFF;
