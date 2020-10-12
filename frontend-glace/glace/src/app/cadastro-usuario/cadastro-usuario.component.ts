@@ -62,6 +62,13 @@ export class CadastroUsuarioComponent implements OnInit {
     this.salvar();
   };
 
+  atualizar() {
+    this.submitted = true;
+    if (this.formulario.invalid) {
+      return;
+    }
+    this.salvar();
+  };
   salvar() {
     const dados = {
       id: this.formulario.value.id,

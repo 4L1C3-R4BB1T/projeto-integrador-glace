@@ -29,7 +29,7 @@
                                     Nome deve ter mais que 3 caracteres!
                                 </div>
                                 <div *ngIf="formulario.get('nome').errors?.maxlength" class="invalid-feedback" >
-                                    Nome excedeu a quantidade máxima de 10 caracteres!
+                                    Nome excedeu a quantidade máxima de 50 caracteres!
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
@@ -198,8 +198,7 @@
                     [enableService]="false" 
                     [showTransitionOptions]="'1000ms'" 
                     [hideTransitionOptions]="'1000ms'"
-                ></p-messages>                       
-
+                ></p-messages>                      
             </div>
         </div>
 
