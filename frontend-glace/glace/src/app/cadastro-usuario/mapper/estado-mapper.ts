@@ -4,15 +4,13 @@ import { Mapper } from './../../../app/base/mapper';
 
 export class EstadoMapper extends Mapper<EstadoEntity, EstadoModel> {
 
-    mapFrom(param: EstadoEntity): EstadoModel {
-
+    mapFrom(param: EstadoEntity):EstadoModel{
         return {
             id: param.id,
-            nome: param.nome
+            nome:param.nome
         };
     }
-
-    mapTo(param: EstadoModel): EstadoEntity {
+    mapTo(param: EstadoModel): EstadoEntity{
         return {
             id: param.id,
             nome: param.nome
