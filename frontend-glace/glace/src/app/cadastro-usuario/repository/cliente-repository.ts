@@ -1,3 +1,5 @@
+import { ImagemMapper } from './../mapper/imagem-mapper';
+import { ImagemEntity } from './../entity/imagem-entity';
 import { CidadeMapper } from './../mapper/cidade-mapper';
 import { EstadoMapper } from './../mapper/estado-mapper';
 import { BaseHttpService } from './../../services/http/base-http.service';
@@ -17,7 +19,7 @@ export class ClienteRepository {
     mapper = new ClienteMapper();
     mapperEstado = new EstadoMapper();
     mapperCidade = new CidadeMapper();
-   
+    mapperImagem = new ImagemMapper();
     constructor(public http: BaseHttpService) { }
 
     getClienteById(id: number): Observable<ClienteModel> {
@@ -51,6 +53,12 @@ export class ClienteRepository {
         return this.http
             .post<ClienteEntity>(`${environment.URLSERVIDOR}cliente`, this.mapper.mapTo(param))
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
+    }
+
+    postImagem(param: any) {
+        return this.http
+            .post<ImagemEntity>(`${environment.URLSERVIDOR}imagem`, param)
+            .pipe(map((x) => this.mapperImagem.mapFrom(x.data)));
     }
 
     putCliente(param: ClienteModel) {

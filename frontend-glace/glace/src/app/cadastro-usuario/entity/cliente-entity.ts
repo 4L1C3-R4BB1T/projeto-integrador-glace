@@ -8,6 +8,7 @@ export interface ClienteEntity {
     endereco?: EnderecoEntity;
     email?: string;
     senha?: string;
+    foto?: any;
 }
 
 export interface EnderecoEntity {

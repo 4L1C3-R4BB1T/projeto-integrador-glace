@@ -8,6 +8,7 @@ export interface ClienteModel {
     endereco?: EnderecoModel;
     email?: string;
     senha?: string;
+    foto?: any;
 }
 
 export interface EnderecoModel {

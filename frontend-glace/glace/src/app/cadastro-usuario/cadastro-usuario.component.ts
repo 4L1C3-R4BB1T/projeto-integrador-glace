@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ClienteModel } from './model/cliente-model';
@@ -14,20 +14,24 @@ import { Message,MessageService} from 'primeng/api';
 })
 export class CadastroUsuarioComponent implements OnInit {
 
+  @ViewChild('upload') upload: ElementRef;
+  public formulario: FormGroup;
   estados: any[] = [];
   cidades: any[] = [];
+  imagem: number;
+    
   public submitted: boolean = false;
+
+  uploadedFiles: any[] = [];
 
   mensagem: Message[] = [];
 
   operacao: boolean = true;
 
-  public formulario: FormGroup;
-
   constructor(
     private repository: ClienteRepository,
-    private fb: FormBuilder
-  ) { }
+    private fb: FormBuilder) { }
+
 
   ngOnInit(): void {
     this.iniciarFormulario();
@@ -70,6 +74,13 @@ export class CadastroUsuarioComponent implements OnInit {
     this.salvar();
   };
   salvar() {
+
+    const formData: any = new FormData();
+    formData.append('imagem', this.uploadedFiles[0]);
+     
+    this.repository.postImagem(formData).subscribe(resposta => {      
+      this.imagem = resposta.id;
+
     const dados = {
       id: this.formulario.value.id,
       nome: this.formulario.value.nome,
@@ -87,67 +98,82 @@ export class CadastroUsuarioComponent implements OnInit {
         cidade: {
           id: this.formulario.value.cidade
         }
+      },
+      foto: {
+        id: this.imagem
       }
-    } as ClienteModel;
 
-    if (dados.id) {
-      this.repository.putCliente(dados).subscribe(resposta => {
-        this.limparFormulario();
-      });
-    } else {
-      this.repository.postCliente(dados).subscribe(resposta => {
-        this.mensagem = [
-          {
-            severity: 'success',
-            summary: 'CLIENTE',
-            detail: 'cadastrado com sucesso!'
-          }];
-        this.limparFormulario();
-      }, (e) => {
-          var msg: any[] = [];
-          //Erro Principal
-          msg.push({
-            severity: 'error',
-            summary: 'ERRO',
-            detail: e.error.userMessage
+        } as ClienteModel;
+
+        if (dados.id) {
+          this.repository.putCliente(dados).subscribe(resposta => {
+            this.limparFormulario();
           });
-          //Erro de cada atributo
-          var erros = e.error.objects;
-          erros.forEach(function (value) {
-            msg.push(
+        } else {
+          this.repository.postCliente(dados).subscribe(resposta => {
+            this.mensagem = [
               {
+                severity: 'success',
+                summary: 'CLIENTE',
+                detail: 'cadastrado com sucesso!'
+              }];
+            this.limparFormulario();
+          },
+          (e) => {
+              var msg: any[] = [];
+              //Erro Principal
+              msg.push({
                 severity: 'error',
                 summary: 'ERRO',
-                detail: value.userMessage
+                detail: e.error.userMessage
               });
-          });
-          this.mensagem = msg;
+              //Erro de cada atributo
+              var erros = e.error.objects;
+              erros.forEach(function (elemento) {
+                msg.push(
+                  {
+                    severity: 'error',
+                    summary: 'ERRO',
+                    detail: elemento.userMessage
+                  });
+              });
+              this.mensagem = msg;
+            }
+          );
         }
-      );
+        
+      });     
     }
-  }
 
-  limparFormulario() {
-    this.submitted = false;
-    this.formulario.reset();
-    this.cidades = [];
-    this.estados = [];
-    this.listarEstados();
-  }
+    listarEstados() {
+      this.repository.getAllEstados().subscribe(resposta => {
+        this.estados.push({ label: resposta.nome, value: resposta.id });
+      });
+    }
+    listarCidades() {
+      this.cidades = [];
+      let id: number = this.formulario.value.estado;
+      this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
+        this.cidades.push({ label: resposta.nome, value: resposta.id });
+      });
+    }
 
-  listarCidades() {
-    this.cidades = [];
-    let id: number = this.formulario.value.estado;
+    limparFormulario() {
+      this.submitted = false;
+      this.formulario.reset();
+      this.cidades = [];
+      this.estados = [];
+      this.listarEstados();
+      (this.upload as any).clear();
+    }
 
-    this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
-      this.cidades.push({ label: resposta.nome, value: resposta.id });
-    });
-  }
+    enviarImagem(evento){
+      this.uploadedFiles = [];
+      
+      for(let file of evento.files) {
+        this.uploadedFiles.push(file);
+      }    
+      
+    }
 
-  listarEstados() {
-    this.repository.getAllEstados().subscribe(resposta => {
-      this.estados.push({ label: resposta.nome, value: resposta.id });
-    });
-  }
-  
-}
+    }

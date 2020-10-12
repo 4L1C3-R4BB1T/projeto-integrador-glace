@@ -1,4 +1,3 @@
-import { CardComponent } from './card/card.component';
 import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
 import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
@@ -23,7 +22,6 @@ const routes: Routes = [
   {path: 'detalhesLocal', component: DetalhesLocalComponent},
   {path: 'cadastroLocal', component: CadastroLocalComponent},
   {path: 'cadastroParceiro', component: CadastroParceiroComponent},
-  {path: 'card', component: CardComponent},
   {path: '', pathMatch: 'full', redirectTo:'/home'}
 ];
 

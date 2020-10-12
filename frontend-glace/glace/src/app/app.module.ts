@@ -30,7 +30,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
 import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { CardComponent} from "./card/card.component";
+import { CardComponent } from "./card/card.component";
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,9 @@ import { CardComponent} from "./card/card.component";
     MessageModule,
     MessagesModule,
     InputMaskModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    FileUploadModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

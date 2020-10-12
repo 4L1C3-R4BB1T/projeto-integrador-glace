@@ -57,7 +57,7 @@ export class PerfilUsuarioComponent implements OnInit {
 
   atualizar() {
     this.submitted = true;
-    if (this.formulario.invalid) {
+    if (this.formulario.dirty) {
       return;
     }
     this.salvar();

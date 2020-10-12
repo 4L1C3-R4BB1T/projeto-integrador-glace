@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Estado } from './estado';
 import { Cidade } from './cidade';
-import { EstabelecimentoService } from '../estabelecimento.service';
+import { EstabelecimentoService } from '../services/http/estabelecimento.service';
 
 @Component({
   selector: 'app-pesquisa',
