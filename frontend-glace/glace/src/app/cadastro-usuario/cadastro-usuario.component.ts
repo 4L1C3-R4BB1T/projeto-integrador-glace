@@ -1,3 +1,5 @@
+import { ClienteMapper } from './mapper/cliente-mapper';
+import { ClienteEntity } from './entity/cliente-entity';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -66,13 +68,6 @@ export class CadastroUsuarioComponent implements OnInit {
     this.salvar();
   };
 
-  atualizar() {
-    this.submitted = true;
-    if (this.formulario.invalid) {
-      return;
-    }
-    this.salvar();
-  };
   salvar() {
 
     const formData: any = new FormData();

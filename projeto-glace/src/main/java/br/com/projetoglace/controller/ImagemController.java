@@ -1,6 +1,7 @@
 	package br.com.projetoglace.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projetoglace.dto.ImagemDTO;
+import br.com.projetoglace.model.Imagem;
 import br.com.projetoglace.request.ImagemRequest;
 import br.com.projetoglace.service.ImagemService;
 
@@ -35,6 +37,16 @@ public class ImagemController {
 		
 		return service.salvar(imagem);
 	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Imagem> buscar(@PathVariable Long id) {
+		Optional<Imagem> imagem = Optional.empty();
+		if (imagem.isPresent()) {
+			return ResponseEntity.ok(imagem.get());
+		}
+		return ResponseEntity.notFound().build();
+	}
+	
 	@DeleteMapping ("/{id}")
 	public ResponseEntity<ImagemDTO> excluir (@PathVariable Long id){
 		try {
