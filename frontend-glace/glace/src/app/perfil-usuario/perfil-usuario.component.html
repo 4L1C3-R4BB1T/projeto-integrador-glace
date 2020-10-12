@@ -17,8 +17,6 @@
                     </div>
                     <button class="button">
                         <a class="nav-link" >
-                            <h2 class="title-button1">Editar Perfil</h2>
-                            <p class="description-button">Foto de perfil, nome do perfil, email de entrada, senha.</p>
                           <!-- MODAL -->
               <!-- Botão para acionar modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ExemploModalCentralizado">
@@ -45,15 +43,7 @@
                             mask="(00) 00000-0000" 
                             placeholder="Telefone" 
                             aria-label="Telephone number 10 digits only"
-                            [class]="(submitted && formulario.get('telefone').errors) || 
-                                         (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' : 
-                                         formulario.get('telefone').dirty ? 'is-valid' : '' " />
-                                <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
-                                    Telefone é obrigatório!
-                                </div>
-                                <div *ngIf="formulario.get('telefone').errors?.minlength" class="invalid-feedback">
-                                    Telefone inválido
-                                </div>
+                            />
                             </div>
                         </div>
                         <div class="row">
@@ -108,13 +98,7 @@
                                 class="input mt-4" 
                                 placeholder="E-mail" 
                                 formControlName="email"
-                                [class]="(submitted && formulario.get('email').errors) || 
-                                (formulario.get('email').errors && formulario.get('email').dirty) ? 'is-invalid' : 
-                                formulario.get('email').dirty ? 'is-valid' : '' "
                             />
-                            <div *ngIf="formulario.get('email').errors?.required" class="invalid-feedback">
-                                Email é obrigatório!
-                            </div>
                         </div>
                         <div>
                             <input 
@@ -123,13 +107,7 @@
                                 class="input mt-4" 
                                 placeholder="Senha"
                                 formControlName="senha"
-                                [class]="(submitted && formulario.get('senha').errors) || 
-                                (formulario.get('senha').errors && formulario.get('senha').dirty) ? 'is-invalid' : 
-                                formulario.get('senha').dirty ? 'is-valid' : '' "
                             />
-                            <div *ngIf="formulario.get('senha').errors?.required" class="invalid-feedback">
-                                Senha é obrigatória!
-                            </div>
                         </div>
                         <div>
                             <input 
@@ -138,13 +116,7 @@
                                 class="input mt-4" 
                                 placeholder="Confirmar senha" 
                                 formControlName="confirmarsenha"
-                                [class]="(submitted && formulario.get('confirmarsenha').errors) || 
-                                (formulario.get('confirmarsenha').errors && formulario.get('confirmarsenha').dirty) ? 'is-invalid' : 
-                                formulario.get('confirmarsenha').dirty ? 'is-valid' : '' "
-                            />
-                            <div *ngIf="formulario.get('confirmarsenha').errors?.required" class="invalid-feedback">
-                                Confirmar senha é obrigatório!
-                            </div>
+                                />
                         </div>
                         </form>
                     </div>
@@ -156,6 +128,7 @@
                 </div>
             </div>
     <!-- FIM MODAL -->
+                        <p class="description-button">Foto de perfil, nome do perfil, email de entrada, senha.</p>
                         </a>
                     </button>
                 </div>

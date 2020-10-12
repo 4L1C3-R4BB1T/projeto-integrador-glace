@@ -77,6 +77,7 @@
 .description-button {
     color: #3E3E3E;
     font-size: 20px;
+    padding: 10px;
 }
 
 @media screen and (max-width: 1440px) {
@@ -150,7 +151,7 @@
   background: #ebfaeb;
 }
 
-.entrar {
+.editar {
   width: 100%;
     
   background-color: rgba(255, 153, 0, 1);;
@@ -163,9 +164,19 @@
   box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);    
 }
   
-.entrar:hover {
-  background-color: orange; 
+.btn-primary,
+.btn-secondary {
+   width: 100%;
+    
+  background-color: rgba(255, 153, 0, 1);;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 24px;
+  border: none;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
 }
+
 
 p {
   text-align: center;
