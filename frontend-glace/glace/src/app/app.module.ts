@@ -29,6 +29,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
 import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro
     NavBarComponent,
     CadastroLocalComponent,
     CadastroParceiroComponent,
+    CardComponent,
     
   ],
   imports: [

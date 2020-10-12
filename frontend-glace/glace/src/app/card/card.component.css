@@ -1,0 +1,36 @@
+.descricao {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-deck {
+  margin: 20px 0 30px 0;
+}
+
+.img-card {
+  max-height: 180px;
+  object-fit: cover;
+}
+
+.card-text {
+  min-height: 119px;
+  max-height: 120px;
+}
+
+.icon {
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+.ver-mais {
+  background-color: rgba(255, 153, 0, 1);;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 15px;
+  border: 0;
+}
+
