@@ -46,28 +46,25 @@
                 <div class="row">
                     <div class="col-12 col-md-6 ">
                         <div class="mt-4 input no-padding">
-                            <p-dropdown 
-                                [options]="cidades" 
-                                [(ngModel)]="cidadeSelecionada" 
-                                optionLabel="nome"    
-                                [filter]="true" 
-                                filterBy="value.nome" 
-                                name="cidade"
-                                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
-                            </p-dropdown>
+                        <p-dropdown 
+                            placeholder="Estado"
+                            [options]="estados" 
+                            formControlName="estado"
+                            placeholder="Estado"
+                            [filter]="true"  
+                            [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}" 
+                            (onChange)="listarCidades()">
+                        </p-dropdown>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="mt-4 input no-padding">
                             <p-dropdown 
-                                [options]="estados" 
-                                [(ngModel)]="estadoSelecionado" 
-                                optionLabel="nome"
+                                placeholder="Cidade"
+                                [options]="cidades" 
+                                formControlName="cidade" 
                                 [filter]="true" 
-                                filterBy="value.nome" 
-                                name="estado"
-                                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                (onChange)="listarCidades(estadoSelecionado.id)">
+                                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
                             </p-dropdown>
                         </div>
                     </div>

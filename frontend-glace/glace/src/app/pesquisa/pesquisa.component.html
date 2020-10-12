@@ -1,121 +1,130 @@
 <div class="container-fluid">
   <div id="container">
 
-    <app-nav-bar></app-nav-bar>
+      <app-nav-bar></app-nav-bar>
 
-    <div class="content">
       <div class="row">
-        <div class="col-2"></div>
-
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input2">
-          <p-dropdown
-          placeholder="Estado"
-          [options]="estados"
-          [(ngModel)]="estadoSelecionado"
-          optionLabel="nome"
-          [filter]="true"
-          filterBy="value.nome"
-          name="estado"
-          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-          (onChange)="listarCidades(estadoSelecionado.id)">
-        </p-dropdown>
-        </div>
-
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input1">
-          <p-dropdown
-          placeholder="Cidade"
-          [options]="cidades"
-          [(ngModel)]="cidadeSelecionada"
-          optionLabel="nome"
-          [filter]="true"
-          filterBy="value.nome"
-          name="cidade"
-          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
-        </p-dropdown>
+          <div class="nome-perfil">
+              <h2 class="nome-perfil">Admin</h2>
+          </div>
       </div>
 
-        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 pesquisa">
-          <button type="submit" id="botao-pesquisa" class="btn btn-outline-light">
-            <i class="fas fa-search" style="color: rgba(196, 196, 196, 1); font-size: 20px;"></i>
-          </button>
-        </div>
+      <div class="pt-5">
+          <h4>Cadastro de Estabelecimento</h4>
 
-        <div class="col-2"></div>
+          <form>
+              <div class="row">
+                  <div class="col-12 col-md-8">
+                      <input type="text" class="input mt-3" placeholder="Nome" name="nome">
+                  </div>
+                  <div class="col-12 col-md-4">
+                      <input type="text" class="input mt-3" placeholder="CNPJ" name="cnpj">
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-12 col-md-8">
+                      <input type="text" class="input mt-4" placeholder="Rua" name="rua">
+                  </div>
+                  <div class="col-12 col-md-4">
+                      <input type="text" class="input mt-4" placeholder="Telefone" name="telefone">
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-12 col-md-4">
+                      <input type="text" class="input mt-4" placeholder="CEP" name="cep">
+                  </div>
+                  <div class="col-12 col-md-5">
+                      <input type="text" class="input mt-4" placeholder="Bairro" name="bairro">
+                  </div>
+                  <div class="col-12 col-md-3">
+                      <input type="text" class="input mt-4" placeholder="Número" name="numero">
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-12 col-md-6 ">
+                      <div class="mt-4 input no-padding">
+                      <p-dropdown
+                          placeholder="Estado"
+                          [options]="estados"
+                          formControlName="estado"
+                          placeholder="Estado"
+                          [filter]="true"
+                          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                          (onChange)="listarCidades()">
+                      </p-dropdown>
+                      </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                      <div class="mt-4 input no-padding">
+                          <p-dropdown
+                              placeholder="Cidade"
+                              [options]="cidades"
+                              formControlName="cidade"
+                              [filter]="true"
+                              [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                          </p-dropdown>
+                      </div>
+                  </div>
+              </div>
+
+              <div>
+                  <textarea class="mt-4" rows="4" cols="60" placeholder="Descrição do local" name="descricao"></textarea>
+              </div>
+
+              <div class="mt-2 mb-3">
+                  <div class="div-filtros">
+                      <p class="title-filtros"> Acessível para deficiência:</p>
+                  </div>
+
+                  <div id="filtro-deficiencia">
+                      <div class="col-md-7 text-center">
+                          <ul>
+                              <li>
+                                  <input type="checkbox" id="myCheckbox1" />
+                                  <label for="myCheckbox1">
+                                      <img src="../../assets/images/mobilidade.png" />
+                                      <p>Motora</p>
+                                  </label>
+                              </li>
+                              <li>
+
+                                  <input type="checkbox" id="myCheckbox2" />
+                                  <label for="myCheckbox2">
+                                      <img src="../../assets/images/auditivo.png" />
+                                      <p>Auditiva</p>
+                                  </label>
+                              </li>
+                              <li>
+
+                                  <input type="checkbox" id="myCheckbox3" />
+                                  <label for="myCheckbox3">
+                                      <img src="../../assets/images/cego.png" />
+                                      <p>Visual</p>
+                                  </label>
+                              </li>
+                              <li>
+
+                                  <input type="checkbox" id="myCheckbox4" />
+                                  <label for="myCheckbox4">
+                                      <img src="../../assets/images/intelectual.png" />
+                                      <p>Intelectual</p>
+                                  </label>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="float-right mb-5">
+                  <button type="submit" class="btn mr-2 botao">Cadastrar</button>
+                  <button type="button" class="btn botao bg-danger" routerLink="/perfilAdmin">Cancelar</button>
+              </div>
+          </form>
+
       </div>
 
-      <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 float-left" id="container-filtros">
-        <div class="div-filtros">
-          <h2 class="title-filtros">Filtrar por:</h2>
-        </div>
-
-        <div id="filtros-locais">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Hotel
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-            <label class="form-check-label" for="defaultCheck2">
-              Pousada
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-            <label class="form-check-label" for="defaultCheck3">
-              Hotel fazenda
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-            <label class="form-check-label" for="defaultCheck4">
-              Restaurantes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
-            <label class="form-check-label" for="defaultCheck5">
-              Cafés
-            </label>
-          </div>
-        </div>
-
-        <div class="div-filtros">
-          <h2 class="title-filtros">Acessível para:</h2>
-        </div>
-
-        <div id="filtro-deficiencia">
-          <div class="col-md-3 text-center">
-            <label class="image-checkbox" title="Mobilidade Reduzida">
-              <img class="img-deficiencias" src="./assets/images/mobilidade.png" />
-              <input type="checkbox" name="team[]" value="england" checked="checked" />
-            </label>
-          </div>
-          <div class="col-md-3 text-center">
-            <label class="image-checkbox" title="Deficiência Auditiva">
-              <img class="img-deficiencias" src="./assets/images/auditivo.png" />
-              <input type="checkbox" name="team[]" value="germany" />
-            </label>
-          </div>
-          <div class="col-md-3 text-center">
-            <label class="image-checkbox" title="Deficiência Visual">
-              <img class="img-deficiencias" src="./assets/images/cego.png" />
-              <input type="checkbox" name="team[]" value="italy" />
-            </label>
-          </div>
-          <div class="col-md-3 text-center">
-            <label class="image-checkbox" title="Deficiência Intelectual">
-              <img class="img-deficiencias" src="./assets/images/intelectual.png" />
-              <input type="checkbox" name="team[]" value="spain" />
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <div class="main-cards float-right col-xl-9 col-lg-9 col-md-12 col-sm-12">
-        <app-card></app-card>
-      </div>
-    </div>
   </div>
 </div>

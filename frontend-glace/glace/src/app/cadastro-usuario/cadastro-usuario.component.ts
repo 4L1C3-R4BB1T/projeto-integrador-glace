@@ -1,6 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ClienteModel } from './model/cliente-model';
 import { ClienteRepository } from './repository/cliente-repository';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -66,13 +65,6 @@ export class CadastroUsuarioComponent implements OnInit {
     this.salvar();
   };
 
-  atualizar() {
-    this.submitted = true;
-    if (this.formulario.invalid) {
-      return;
-    }
-    this.salvar();
-  };
   salvar() {
 
     const formData: any = new FormData();
@@ -176,4 +168,4 @@ export class CadastroUsuarioComponent implements OnInit {
       
     }
 
-    }
+ }

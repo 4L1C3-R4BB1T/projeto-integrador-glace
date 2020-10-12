@@ -2,6 +2,7 @@ package br.com.projetoglace.service;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import br.com.projetoglace.dto.ImagemDTO;
 import br.com.projetoglace.exception.ImagemNaoEncontradaException;
 import br.com.projetoglace.mapper.ImagemMapper;
+import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.model.Imagem;
 import br.com.projetoglace.repository.ImagemRepository;
 import br.com.projetoglace.request.ImagemRequest;
@@ -64,6 +66,10 @@ public class ImagemService {
 			throw new ImagemNaoEncontradaException(id);
 		}
 	}
+			public Optional<ClienteGlace> buscar(Long id) {
+				return Optional.empty();
+			}
+	
 
 		public List<ImagemDTO> listar() {
 			
@@ -72,4 +78,5 @@ public class ImagemService {
 					.map(cli -> mapper.modelToDTO(cli))
 					.collect(Collectors.toList());	
 		}
+
 	}
