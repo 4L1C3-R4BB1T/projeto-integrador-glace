@@ -1,6 +1,8 @@
-import { Cidade } from './../pesquisa/cidade';
-import { Estado } from './../pesquisa/estado';
-import { EstabelecimentoService } from './../estabelecimento.service';
+import { ClienteRepository } from './../cadastro-usuario/repository/cliente-repository';
+import { FormBuilder, FormGroup } from '@angular/forms';
+// import { Cidade } from './../pesquisa/cidade';
+// import { Estado } from './../pesquisa/estado';
+// import { EstabelecimentoService } from '../services/http/estabelecimento.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,22 +13,45 @@ import { Router } from '@angular/router';
 })
 export class CadastroLocalComponent implements OnInit {
 
-  estados: Estado[];
-  cidades: Cidade[];
+  estados: any[] = [];
+  cidades: any[] = [];
+  public submitted: boolean = false;
+  public formulario: FormGroup;
 
-  estadoSelecionado: Estado;
-  cidadeSelecionada: Cidade;
-
-  constructor(private router: Router, private estabelecimentoService: EstabelecimentoService) { }
+  constructor(private router: Router,private repository: ClienteRepository,
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.estabelecimentoService.listarEstados().subscribe(resposta =>
-      this.estados = resposta as any);
+    this.iniciarFormulario();
+    this.listarEstados();
+  }
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
+  public iniciarFormulario() {
+    this.formulario = this.fb.group({
+      cidade: [''],
+      estado: [''],
+    });
+  }
+  limparFormulario() {
+    this.submitted = false;
+    this.formulario.reset();
+    this.cidades = [];
+    this.estados = [];
+    this.listarEstados();
+  }
+  listarCidades() {
+    this.cidades = [];
+    let id: number = this.formulario.value.estado;
+    this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
+      this.cidades.push({ label: resposta.nome, value: resposta.id });
+    });
   }
 
-  listarCidades(idEstado: number) {
-    this.estabelecimentoService.listarCidades(idEstado).subscribe(resposta =>
-      this.cidades = resposta as any);
+  listarEstados() {
+    this.repository.getAllEstados().subscribe(resposta => {
+      this.estados.push({ label: resposta.nome, value: resposta.id });
+    });
   }
-
 }
