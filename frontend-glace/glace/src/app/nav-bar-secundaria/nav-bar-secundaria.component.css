@@ -50,6 +50,11 @@
     max-height: 200px;
 }
 
+.logos {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 1440px) {
     .navbar-collapse,
     .navbar-toggler {
@@ -63,6 +68,10 @@
 
     #subtitle {
         font-size: 20px;
+    }
+
+    .logo1, .logo2 {
+      max-height: 150px;
     }
 }
 
