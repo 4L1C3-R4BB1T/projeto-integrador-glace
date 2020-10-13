@@ -42,12 +42,12 @@
 
 .logo1 {
     margin-top: 70px;
-    width: 100%;
+    max-height: 200px;
 }
 
 .logo2 {
     margin-top: 80px;
-    width: 100%;
+    max-height: 200px;
 }
 
 @media screen and (max-width: 1440px) {
