@@ -12,7 +12,8 @@ export class ParceiroMapper extends Mapper<ParceiroEntity, ParceiroModel> {
             telefone: entity.telefone,
             endereco: entity.endereco,
             email: entity.email,
-            senha: entity.senha
+            senha: entity.senha,
+            foto: entity.foto
         };
     }
 
@@ -24,7 +25,8 @@ export class ParceiroMapper extends Mapper<ParceiroEntity, ParceiroModel> {
             telefone: model.telefone,
             endereco: model.endereco,
             email: model.email,
-            senha: model.senha
+            senha: model.senha,
+            foto: model.foto
         };
     }
 }

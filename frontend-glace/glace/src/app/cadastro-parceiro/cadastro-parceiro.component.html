@@ -10,6 +10,20 @@
                 <div id="formAdmin">
                     <!--FORMULÁRIO-->
                     <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
+                         <!--FOTO PERFIL-->
+                         <div class="form-group" >
+                            <label for="nome">Foto</label>
+                            <p-fileUpload #upload
+                                name="demo[]" 
+                                chooseLabel="Escolher uma foto" 
+                                [showUploadButton]="false"
+                                [showCancelButton]="false"
+                                (onSelect)="enviarImagem($event)"
+                                [multiple]="false" 
+                                accept="image/*"
+                                maxFileSize="1000000">               
+                        </p-fileUpload>
+                    </div>
                         <div>
                             <input 
                                 type="text" 

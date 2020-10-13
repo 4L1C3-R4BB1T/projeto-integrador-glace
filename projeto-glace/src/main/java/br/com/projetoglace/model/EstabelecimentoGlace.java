@@ -51,4 +51,7 @@ public class EstabelecimentoGlace {
 	
 	@Embedded
 	private Endereco endereco;
+	
+	@ManyToOne
+	private Imagem foto;
 }

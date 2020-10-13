@@ -15,7 +15,7 @@ export class ClienteMapper extends Mapper<ClienteEntity, ClienteModel> {
             endereco: entity.endereco,
             email: entity.email,
             senha: entity.senha,
-            foto: entity.foto
+            foto: entity.foto,
         };
     }
 
@@ -30,7 +30,7 @@ export class ClienteMapper extends Mapper<ClienteEntity, ClienteModel> {
             endereco: model.endereco,
             email: model.email,
             senha: model.senha,
-            foto: model.foto
+            foto: model.foto,
         };
     }
 }

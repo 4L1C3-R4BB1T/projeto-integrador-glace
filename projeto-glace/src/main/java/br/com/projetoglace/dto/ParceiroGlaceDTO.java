@@ -16,5 +16,6 @@ public class ParceiroGlaceDTO {
 	private String endereco;
 	private String senha;
 	private List<EstabelecimentoGlace> estabelecimentos;
+	private ImagemDTO fotosParceiro;
 	
 }

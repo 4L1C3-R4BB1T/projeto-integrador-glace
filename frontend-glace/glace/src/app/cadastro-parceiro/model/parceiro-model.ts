@@ -6,6 +6,7 @@ export interface ParceiroModel {
     endereco?: EnderecoModel;
     email?: string;
     senha?: string;
+    foto?: any;
 }
 
 export interface EnderecoModel {

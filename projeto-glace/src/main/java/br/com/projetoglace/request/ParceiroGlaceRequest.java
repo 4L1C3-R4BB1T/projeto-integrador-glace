@@ -1,10 +1,12 @@
 package br.com.projetoglace.request;
 
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import br.com.projetoglace.model.Endereco;
+import br.com.projetoglace.model.Imagem;
 import lombok.Data;
 
 @Data
@@ -34,5 +36,8 @@ private Long id;
 	
 	@NotNull
 	private Endereco endereco;
+	
+	@NotNull
+	private Imagem foto;
 	
 }
