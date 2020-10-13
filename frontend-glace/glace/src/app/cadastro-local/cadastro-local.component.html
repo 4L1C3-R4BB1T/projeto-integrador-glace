@@ -1,130 +1,133 @@
 <div class="container-fluid">
-    <div id="container">
+  <div id="container">
 
-        <app-nav-bar></app-nav-bar>
+    <app-nav-bar></app-nav-bar>
+
+    <div class="row">
+      <div class="nome-perfil">
+        <h2 class="nome-perfil">Admin</h2>
+      </div>
+    </div>
+
+    <div class="pt-5">
+      <h4>Cadastro de Estabelecimento</h4>
+
+      <form>
+        <div class="row">
+          <div class="col-12 col-md-8">
+            <input type="text" class="input mt-3" placeholder="Nome" name="nome">
+          </div>
+
+          <div class="col-12 col-md-4">
+            <input type="text" class="input mt-3" placeholder="CNPJ" name="cnpj">
+          </div>
+        </div>
 
         <div class="row">
-            <div class="nome-perfil">
-                <h2 class="nome-perfil">Admin</h2>
+          <div class="col-12 col-md-8">
+            <input type="text" class="input mt-4" placeholder="Rua" name="rua">
+          </div>
+
+          <div class="col-12 col-md-4">
+            <input type="text" class="input mt-4" placeholder="Telefone" name="telefone">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <input type="text" class="input mt-4" placeholder="CEP" name="cep">
+          </div>
+
+          <div class="col-12 col-md-5">
+            <input type="text" class="input mt-4" placeholder="Bairro" name="bairro">
+          </div>
+
+          <div class="col-12 col-md-3">
+            <input type="text" class="input mt-4" placeholder="Número" name="numero">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-md-6 ">
+            <div class="mt-4 input no-padding">
+              <p-dropdown
+                placeholder="Estado"
+                [options]="estados"
+                formControlName="estado"
+                placeholder="Estado"
+                [filter]="true"
+                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                (onChange)="listarCidades()">
+              </p-dropdown>
             </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <div class="mt-4 input no-padding">
+              <p-dropdown
+                placeholder="Cidade"
+                [options]="cidades"
+                formControlName="cidade"
+                [filter]="true"
+                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+              </p-dropdown>
+            </div>
+          </div>
         </div>
 
-        <div class="pt-5">
-            <h4>Cadastro de Estabelecimento</h4>
-
-            <form>
-                <div class="row">
-                    <div class="col-12 col-md-8">
-                        <input type="text" class="input mt-3" placeholder="Nome" name="nome">
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <input type="text" class="input mt-3" placeholder="CNPJ" name="cnpj">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-8">
-                        <input type="text" class="input mt-4" placeholder="Rua" name="rua">
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <input type="text" class="input mt-4" placeholder="Telefone" name="telefone">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <input type="text" class="input mt-4" placeholder="CEP" name="cep">
-                    </div>
-                    <div class="col-12 col-md-5">
-                        <input type="text" class="input mt-4" placeholder="Bairro" name="bairro">
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <input type="text" class="input mt-4" placeholder="Número" name="numero">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-6 ">
-                        <div class="mt-4 input no-padding">
-                        <p-dropdown 
-                            placeholder="Estado"
-                            [options]="estados" 
-                            formControlName="estado"
-                            placeholder="Estado"
-                            [filter]="true"  
-                            [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}" 
-                            (onChange)="listarCidades()">
-                        </p-dropdown>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="mt-4 input no-padding">
-                            <p-dropdown 
-                                placeholder="Cidade"
-                                [options]="cidades" 
-                                formControlName="cidade" 
-                                [filter]="true" 
-                                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
-                            </p-dropdown>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <textarea class="mt-4" rows="4" cols="60" placeholder="Descrição do local" name="descricao"></textarea>
-                </div>
-
-                <div class="mt-2 mb-3">
-                    <div class="div-filtros">
-                        <p class="title-filtros"> Acessível para deficiência:</p>
-                    </div>
-
-                    <div id="filtro-deficiencia">
-                        <div class="col-md-7 text-center">
-                            <ul>
-                                <li>
-                                    <input type="checkbox" id="myCheckbox1" />
-                                    <label for="myCheckbox1">
-                                        <img src="../../assets/images/mobilidade.png" />
-                                        <p>Motora</p>
-                                    </label>
-                                </li>
-                                <li>
-
-                                    <input type="checkbox" id="myCheckbox2" />
-                                    <label for="myCheckbox2">
-                                        <img src="../../assets/images/auditivo.png" />
-                                        <p>Auditiva</p>
-                                    </label>
-                                </li>
-                                <li>
-
-                                    <input type="checkbox" id="myCheckbox3" />
-                                    <label for="myCheckbox3">
-                                        <img src="../../assets/images/cego.png" />
-                                        <p>Visual</p>
-                                    </label>
-                                </li>
-                                <li>
-
-                                    <input type="checkbox" id="myCheckbox4" />
-                                    <label for="myCheckbox4">
-                                        <img src="../../assets/images/intelectual.png" />
-                                        <p>Intelectual</p>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="float-right mb-5">
-                    <button type="submit" class="btn mr-2 botao">Cadastrar</button>
-                    <button type="button" class="btn botao bg-danger" routerLink="/perfilAdmin">Cancelar</button>
-                </div>
-            </form>
-
+        <div>
+          <textarea class="mt-4" rows="4" cols="60" placeholder="Descrição do local" name="descricao"></textarea>
         </div>
 
+        <div class="mt-2 mb-3">
+          <div class="div-filtros">
+            <p class="title-filtros"> Acessível para deficiência:</p>
+          </div>
+
+          <div id="filtro-deficiencia">
+            <div class="col-md-7 text-center">
+              <ul>
+                <li>
+                  <input type="checkbox" id="myCheckbox1" />
+                  <label for="myCheckbox1">
+                    <img src="../../assets/images/mobilidade.png" />
+                    <p>Motora</p>
+                  </label>
+                </li>
+
+                <li>
+                  <input type="checkbox" id="myCheckbox2" />
+                  <label for="myCheckbox2">
+                    <img src="../../assets/images/auditivo.png" />
+                    <p>Auditiva</p>
+                  </label>
+                </li>
+
+                <li>
+                  <input type="checkbox" id="myCheckbox3" />
+                  <label for="myCheckbox3">
+                    <img src="../../assets/images/cego.png" />
+                    <p>Visual</p>
+                  </label>
+                </li>
+
+                <li>
+                  <input type="checkbox" id="myCheckbox4" />
+                  <label for="myCheckbox4">
+                    <img src="../../assets/images/intelectual.png" />
+                    <p>Intelectual</p>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="float-right mb-5">
+          <button type="submit" class="btn mr-2 botao">Cadastrar</button>
+          <button type="button" class="btn botao bg-danger" routerLink="/perfilAdmin">Cancelar</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
