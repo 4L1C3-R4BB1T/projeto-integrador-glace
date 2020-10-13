@@ -4,36 +4,36 @@
     <app-nav-bar-secundaria></app-nav-bar-secundaria>
 
     <div class="content">
-      <div class="row pesquisas">
-        <div class="col-2"></div>
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input1">
-          <p-dropdown
-          placeholder="Estado"
-          [options]="estados"
-          formControlName="estado"
-          placeholder="Estado"
-          [filter]="true"
-          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-          (onChange)="listarCidades()">
-        </p-dropdown>
+      <form [formGroup]="formulario">
+        <div class="row pesquisas">
+          <div class="col-2"></div>
+          <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input1">
+            <p-dropdown
+              placeholder="Estado"
+              [options]="estados"
+              formControlName="estado"
+              [filter]="true"
+              [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+              (onChange)="listarCidades()">
+            </p-dropdown>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input2">
+            <p-dropdown
+              placeholder="Cidade"
+              [options]="cidades"
+              formControlName="cidade"
+              [filter]="true"
+              [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+            </p-dropdown>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 pesquisa" >
+            <button type="submited" id="botao-pesquisa" class="btn btn-outline-light" routerLink="/pesquisa">
+              <i class="fas fa-search" style="color: rgba(196, 196, 196, 1); font-size: 20px;"></i>
+            </button>
+          </div>
+          <div class="col-2"></div>
         </div>
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input2">
-          <p-dropdown
-          placeholder="Cidade"
-          [options]="cidades"
-          formControlName="cidade"
-          [filter]="true"
-          [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
-        </p-dropdown>
-        </div>
-        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 pesquisa" >
-          <button type="submited" id="botao-pesquisa" class="btn btn-outline-light" routerLink="/pesquisa">
-            <i class="fas fa-search" style="color: rgba(196, 196, 196, 1); font-size: 20px;"></i>
-          </button>
-        </div>
-
-        <div class="col-2"></div>
-      </div>
+      </form>
 
       <div class="row">
         <div class="col-12">

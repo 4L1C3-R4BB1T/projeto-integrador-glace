@@ -15,121 +15,9 @@
                     <div class="circulo1">
                         <i class="fas fa-user-edit img-circulo1"></i>
                     </div>
-                    <button class="button">
-                        <a class="nav-link" >
-                          <!-- MODAL -->
-              <!-- Botão para acionar modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ExemploModalCentralizado">
-                Editar Perfil
-            </button>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="TituloModalCentralizado">Perfil</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    
-                    <div class="modal-body">
-                        <form [formGroup]="formulario" (ngSubmit)="atualizar()">
-                            <div class="row">
-                        <div>
-                            <input type="text" 
-                            class="input mt-4 form-control" 
-                            mask="(00) 00000-0000" 
-                            placeholder="Telefone" 
-                            aria-label="Telephone number 11 digits only"
-                            />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-9">
-                                <input type="text" class="input mt-4" placeholder="Rua" formControlName="rua"/>
-                            </div>
-                            <div class="col-12 col-md-3">
-                                <input type="text" class="input mt-4" placeholder="Número" formControlName="numero"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-7">
-                                <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro"/>
-                            </div>
-                            <div class="col-12 col-md-5">
-                                    <div>
-                                        <input type="text" class="input mt-4 form-control" mask="00000-000" placeholder="Cep" aria-label="cep number 10 digits only">
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6 ">
-                                <div class="mt-4 input no-padding">
-                                    <p-dropdown 
-                                        placeholder="Estado"
-                                        [options]="estados" 
-                                        formControlName="estado"
-                                        placeholder="Estado"
-                                        [filter]="true" 
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                        (onChange)="listarCidades()">
-                                    </p-dropdown>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="mt-4 input no-padding">
-                                    <p-dropdown 
-                                        placeholder="Cidade"
-                                        [options]="cidades" 
-                                        formControlName="cidade" 
-                                        placeholder="Cidade"
-                                        [filter]="true" 
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
-                                    </p-dropdown>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <input 
-                                type="email"
-                                id="email" 
-                                class="input mt-4" 
-                                placeholder="E-mail" 
-                                formControlName="email"
-                            />
-                        </div>
-                        <div>
-                            <input 
-                                type="password" 
-                                id="senha"
-                                class="input mt-4" 
-                                placeholder="Senha"
-                                formControlName="senha"
-                            />
-                        </div>
-                        <div>
-                            <input 
-                                type="password" 
-                                id="confirmarsenha" 
-                                class="input mt-4" 
-                                placeholder="Confirmar senha" 
-                                formControlName="confirmarsenha"
-                                />
-                        </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Salvar mudanças</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-    <!-- FIM MODAL -->
+                    <button class="button" data-toggle="modal" data-target="#editarPerfil">
+                        <h2 class="title-button1">Editar Perfil</h2>
                         <p class="description-button">Foto de perfil, nome do perfil, email de entrada, senha.</p>
-                        </a>
                     </button>
                 </div>
             </div>
@@ -138,12 +26,167 @@
                     <div class="circulo2">
                         <i class="far fa-list-alt img-circulo2"></i>
                     </div>
-                    <button class="button" type="submit">
+                    <button class="button" data-toggle="modal" data-target="#reservas">
                         <h2 class="title-button2">Reservas</h2>
                         <p class="description-button">Visualizar suas reservas.</p>
                     </button>
                 </div>
             </div>
         </div>
+
+        <!-- MODAL EDITAR PERFIL -->
+        <div id="editarPerfil" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="TituloModalCentralizado">
+                            <i class="far fa-user ml-2 mr-2"></i>Editar perfil
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="formulario" (ngSubmit)="atualizar()">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="input form-control" mask="(00) 00000-0000"
+                                        placeholder="Telefone" aria-label="Telephone number 11 digits only" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-9">
+                                    <input type="text" class="input mt-4" placeholder="Rua" formControlName="rua" />
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <input type="text" class="input mt-4" placeholder="Número"
+                                        formControlName="numero" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-7">
+                                    <input type="text" class="input mt-4" placeholder="Bairro"
+                                        formControlName="bairro" />
+                                </div>
+                                <div class="col-12 col-md-5">
+                                    <div>
+                                        <input type="text" class="input mt-4 form-control" mask="00000-000"
+                                            placeholder="Cep" aria-label="cep number 10 digits only">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-6 ">
+                                    <div class="mt-4 input no-padding">
+                                        <p-dropdown 
+                                            placeholder="Estado" 
+                                            [options]="estados" 
+                                            formControlName="estado"
+                                            placeholder="Estado" 
+                                            [filter]="true"
+                                            [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                                            (onChange)="listarCidades()">
+                                        </p-dropdown>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="mt-4 input no-padding">
+                                        <p-dropdown 
+                                            placeholder="Cidade" 
+                                            [options]="cidades" 
+                                            formControlName="cidade"
+                                            placeholder="Cidade" 
+                                            [filter]="true"
+                                            [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                                        </p-dropdown>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="email" id="email" class="input mt-4" placeholder="E-mail"
+                                    formControlName="email" />
+                            </div>
+                            <div>
+                                <input type="password" id="senha" class="input mt-4" placeholder="Senha"
+                                    formControlName="senha" />
+                            </div>
+                            <div>
+                                <input type="password" id="confirmarsenha" class="input mt-4"
+                                    placeholder="Confirmar senha" formControlName="confirmarsenha" />
+                            </div>
+                            <div class="float-right mt-4">
+                                <button type="button" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn botao">Atualizar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIM MODAL EDITAR PERFIL -->
+
+        <!-- MODAL RESERVAS -->
+        <div id="reservas" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="TituloModalCentralizado">
+                            <i class="far fa-list-alt ml-2 mr-2"></i>Minhas reservas
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="d-none d-sm-table-cell">Local</th>
+                                        <th class="d-none d-lg-table-cell">Data</th>
+                                        <th class="text-center">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--CONTEÚDO DINÂMICO-->
+                                    <tr>
+                                        <td class="d-none d-sm-table-cell">Nome do local</td>
+                                        <td class="d-none d-lg-table-cell">13-10-2020</td>
+                                        <td class="text-center">
+                                            <span class="d-none d-md-block">
+                                                <button type="button" class='btn btn-outline-danger btn-sm'>Cancelar</button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="d-none d-sm-table-cell">Nome do local</td>
+                                        <td class="d-none d-lg-table-cell">13-10-2020</td>
+                                        <td class="text-center">
+                                            <span class="d-none d-md-block">
+                                                <button type="button" class='btn btn-outline-danger btn-sm'>Cancelar</button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="d-none d-sm-table-cell">Nome do local</td>
+                                        <td class="d-none d-lg-table-cell">13-10-2020</td>
+                                        <td class="text-center">
+                                            <span class="d-none d-md-block">
+                                                <button type="button" class='btn btn-outline-danger btn-sm'>Cancelar</button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <!--FIM DO CONTEÚDO DINÂMICO-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIM MODAL RESERVAS -->
+
     </div>
 </div>

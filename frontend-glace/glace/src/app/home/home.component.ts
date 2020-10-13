@@ -3,7 +3,6 @@ import { ClienteRepository } from './../cadastro-usuario/repository/cliente-repo
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -23,15 +22,18 @@ export class HomeComponent implements OnInit {
     this.iniciarFormulario();
     this.listarEstados();
   }
+
   goToLogin() {
     this.router.navigate(['/login']);
   }
+
   public iniciarFormulario() {
     this.formulario = this.fb.group({
       cidade: [''],
       estado: [''],
     });
   }
+
   limparFormulario() {
     this.submitted = false;
     this.formulario.reset();
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
     this.estados = [];
     this.listarEstados();
   }
+
   listarCidades() {
     this.cidades = [];
     let id: number = this.formulario.value.estado;
