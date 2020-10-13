@@ -1,3 +1,6 @@
+import { ImagemMapper } from './../../cadastro-usuario/mapper/imagem-mapper';
+import { ImagemEntity } from './../../cadastro-usuario/entity/imagem-entity';
+import { ImagemModel } from './../../cadastro-usuario/model/imagem-model';
 import { CidadeMapper } from '../../cadastro-usuario/mapper/cidade-mapper';
 import { EstadoMapper } from '../../cadastro-usuario/mapper/estado-mapper';
 import { BaseHttpService } from '../../services/http/base-http.service';
@@ -17,7 +20,7 @@ export class ParceiroRepository {
     mapper = new ParceiroMapper();
     mapperEstado = new EstadoMapper();
     mapperCidade = new CidadeMapper();
-   
+    mapperImagem = new ImagemMapper();
     constructor(public http: BaseHttpService) { }
 
     getParceiroById(id: number): Observable<ParceiroModel> {
@@ -67,4 +70,30 @@ export class ParceiroRepository {
             .delete<void>(`${environment.URLSERVIDOR}parceiro/${id}`, id)
             .pipe(map((x) => x.data));
     }
+    postImagem(param: any) {
+        return this.http
+            .post<ImagemEntity>(`${environment.URLSERVIDOR}imagem`, param)
+            .pipe(map((x) => this.mapperImagem.mapFrom(x.data)));
+    }
+    getImagemById(id: number): Observable<ImagemModel> {
+        return this.http
+            .getAll<ImagemModel>(`${environment.URLSERVIDOR}imagem/${id}`)
+            .pipe(map((x) => this.mapper.mapFrom(x.data)));
+    }
+    putImageById(param: ImagemModel) {
+        return this.http
+            .put<void>(
+                `${environment.URLSERVIDOR}imagem/${param.id}`,
+                this.mapper.mapTo(param)
+            )
+            .pipe(map((x) => x.data));
+    }
+
+    deleteImagem(id: number): Observable<void> {
+        return this.http
+            .delete<void>(`${environment.URLSERVIDOR}imagem/${id}`, id)
+            .pipe(map((x) => x.data));
+    }
+
+    
 }

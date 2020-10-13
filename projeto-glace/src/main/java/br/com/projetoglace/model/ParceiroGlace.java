@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -43,4 +44,7 @@ public class ParceiroGlace {
 		
 	@OneToMany(mappedBy = "parceiroGlace", cascade = CascadeType.ALL)
 	private List<EstabelecimentoGlace> estabelecimentos;
+	
+	@OneToOne
+	private Imagem foto;
 }
