@@ -19,7 +19,7 @@ import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
-import { PerfilAdminComponent } from './perfil-admin/perfil-admin.component';
+import { PerfilParceiroComponent } from './perfil-parceiro/perfil-parceiro.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.component';
 import { FormsModule } from '@angular/forms';
@@ -42,7 +42,7 @@ import { CardPesquisaComponent } from './card-pesquisa/card-pesquisa.component';
     QuemSomosComponent,
     LoginComponent,
     CadastroUsuarioComponent,
-    PerfilAdminComponent,
+    PerfilParceiroComponent,
     PerfilUsuarioComponent,
     DetalhesLocalComponent,
     FooterComponent,

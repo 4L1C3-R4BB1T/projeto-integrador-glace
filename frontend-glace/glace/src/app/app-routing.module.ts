@@ -1,7 +1,7 @@
 import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
 import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
-import { PerfilAdminComponent } from './perfil-admin/perfil-admin.component';
+import { PerfilParceiroComponent } from './perfil-parceiro/perfil-parceiro.component';
 import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'pesquisa', component: PesquisaComponent},
   {path: 'cadastroUsuario', component: CadastroUsuarioComponent},
   {path: 'perfilUsuario', component: PerfilUsuarioComponent},
-  {path: 'perfilAdmin', component: PerfilAdminComponent},
+  {path: 'perfilParceiro', component: PerfilParceiroComponent},
   {path: 'detalhesLocal', component: DetalhesLocalComponent},
   {path: 'cadastroLocal', component: CadastroLocalComponent},
   {path: 'cadastroParceiro', component: CadastroParceiroComponent},

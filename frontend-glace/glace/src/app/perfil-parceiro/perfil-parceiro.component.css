@@ -1,0 +1,176 @@
+.nome-perfil {
+  font-family: 'Ruda', sans-serif;
+  font-weight: 800 !important;
+  color: #3E3E3E;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 20px;
+}
+
+.botoes{
+  margin-top: 10%;
+}
+
+.botoes-perfil {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.editar-perfil-button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.circulo1 {
+  border: 5px solid #ADB8D7;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-circulo1 {
+  font-size: 80px;
+  color: #ADB8D7;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  background: none;
+  border: 0;
+  font-family: 'Ruda', sans-serif;
+  width: 75%;
+}
+
+.title-button1 {
+  width: 100%;
+
+  color: #ADB8D7;
+  font-family: 'Ruda', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  border: none;
+  background-color: none;
+}
+
+.title-button1:hover {
+  transition: 1s;
+  color: #3E3E3E;
+}
+
+.description-button {
+  color: #3E3E3E;
+  font-size: 25px;
+  max-width: 450px;
+  margin-top: 20px;
+}
+
+.modal {
+  padding: 0;
+}
+
+.modal-title {
+  color: #3E3E3E;
+  font-family: 'Ruda', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.fechar-button {
+  background-color: #908F8E;
+  color: #FFFFFF;
+}
+
+.salvar-mudancas-button {
+  background-color: #FF9900;
+  color: #FFFFFF;
+}
+
+.modal-dialog.modal-dialog-centered {
+  max-width: 800px;
+}
+
+.modal-content {
+background: rgba(255, 255, 255);
+}
+
+.input {
+  width: 100%;
+  height: 55px;
+
+  background: #FFFFFF;
+  border: 1px solid #F1E9E9;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.input:hover {
+  transition: 0.5s;
+  border-color:#f58723;
+}
+
+.is-invalid {
+  border-color: red;
+  background: #ffe6e6;
+}
+
+.is-valid {
+  border-color: green;
+  background: #ebfaeb;
+}
+
+@media screen and (max-width: 1440px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+
+  .modal-dialog.modal-dialog-centered {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 456px) {
+  .nome-perfil {
+    flex-direction: row;
+    padding-left: 10px;
+    margin-top: 8px;
+  }
+}
