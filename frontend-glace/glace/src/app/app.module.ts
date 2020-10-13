@@ -32,6 +32,7 @@ import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { CardComponent } from "./card/card.component";
 import { FileUploadModule } from 'primeng/fileupload';
+import { CardPesquisaComponent } from './card-pesquisa/card-pesquisa.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { FileUploadModule } from 'primeng/fileupload';
     CadastroLocalComponent,
     CadastroParceiroComponent,
     CardComponent,
+    CardPesquisaComponent,
 
   ],
   imports: [

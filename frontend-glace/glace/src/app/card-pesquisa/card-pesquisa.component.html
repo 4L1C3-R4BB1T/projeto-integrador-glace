@@ -1,0 +1,22 @@
+<div class="row row-cols-1 row-cols-xl-3 row-cols-md-2 row-cols-sm-1">
+  <div *ngFor="let c of meusCards" class="col mb-4">
+    <div class="card">
+      <img [src]="c.imagem" class="card-img-top img-card" alt="imagem de quarto de hotel">
+      <div class="card-body">
+        <h5 class="card-title">{{c.title}}</h5>
+        <p class="card-text descricao">{{c.descricao}}</p>
+        <p><small class="text-muted">Acessível</small></p>
+        <div class="acessivel-button">
+          <p *ngIf="c.acessibilidades"> <i class="icon fab fa-accessible-icon"></i> </p>
+          <button
+            class="float-right ver-mais"
+            type="submit"
+            routerLink="/detalhesLocal"
+            routerLinkActive="active">
+            Ver mais
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
