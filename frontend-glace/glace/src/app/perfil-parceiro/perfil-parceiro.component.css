@@ -29,15 +29,15 @@
 .circulo1 {
   border: 5px solid #ADB8D7;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .img-circulo1 {
-  font-size: 80px;
+  font-size: 60px;
   color: #ADB8D7;
 }
 
