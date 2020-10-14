@@ -79,7 +79,7 @@
 }
 
 .title-button2 {
-  padding: 11px;
+  font-weight: bold;
   color: #FF9900;
   width: 100%;
   font-family: 'Ruda', sans-serif;
@@ -127,7 +127,7 @@
 }
 
 .modal-content {
-background: rgba(255, 255, 255);
+  background: rgba(255, 255, 255);
 }
 
 .input {
@@ -149,14 +149,13 @@ background: rgba(255, 255, 255);
   border-color:#f58723;
 }
 
-.is-invalid {
-  border-color: red;
-  background: #ffe6e6;
+.no-padding {
+  padding: 0;
 }
 
-.is-valid {
-  border-color: green;
-  background: #ebfaeb;
+.btn-outline-danger {
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 1440px) {
@@ -184,6 +183,18 @@ background: rgba(255, 255, 255);
 
   .modal-dialog.modal-dialog-centered {
     max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .nome-perfil {
+    padding-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nome-perfil {
+    padding-right: 5px !important;
   }
 }
 

@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-pesquisa',
   templateUrl: './pesquisa.component.html',
@@ -24,15 +22,18 @@ export class PesquisaComponent implements OnInit {
     this.iniciarFormulario();
     this.listarEstados();
   }
+
   // goToLogin() {
   //   this.router.navigate(['/login']);
   // }
+
   public iniciarFormulario() {
     this.formulario = this.fb.group({
       cidade: [''],
       estado: [''],
     });
   }
+
   // limparFormulario() {
   //   this.submitted = false;
   //   this.formulario.reset();
@@ -40,6 +41,7 @@ export class PesquisaComponent implements OnInit {
   //   this.estados = [];
   //   this.listarEstados();
   // }
+  
   listarCidades() {
     this.cidades = [];
     let id: number = this.formulario.value.estado;
