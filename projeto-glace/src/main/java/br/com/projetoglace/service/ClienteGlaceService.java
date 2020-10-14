@@ -46,6 +46,7 @@ public class ClienteGlaceService {
 			estadoRepository.save(cliente.getEndereco().getCidade().getEstado());
 		    cidadeRepository.save(cliente.getEndereco().getCidade());
 		}
+		System.out.println(cliente.getEndereco().getCep()+ "\n\n\n\n\n\n");
 	    return mapper.modelToDTO(repository.save(cliente));		
 	}
 	

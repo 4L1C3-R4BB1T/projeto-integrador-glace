@@ -20,5 +20,17 @@ public class Acessibilidade {
 	
 	@Column(name = "tipo_acessibilidade")
 	private String tipoAcessibilidade;
+	
+	@Column
+	private String mobilidadeReduzida;
+	
+	@Column
+	private String deficienciaVisual;
+	
+	@Column
+	private String deficienciaAuditiva;
+	
+	@Column
+	private String deficienciaIntelectual;
 
 }

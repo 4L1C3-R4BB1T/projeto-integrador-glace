@@ -23,9 +23,9 @@ export class PesquisaComponent implements OnInit {
     this.listarEstados();
   }
 
-  // goToLogin() {
-  //   this.router.navigate(['/login']);
-  // }
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
 
   public iniciarFormulario() {
     this.formulario = this.fb.group({
@@ -34,13 +34,13 @@ export class PesquisaComponent implements OnInit {
     });
   }
 
-  // limparFormulario() {
-  //   this.submitted = false;
-  //   this.formulario.reset();
-  //   this.cidades = [];
-  //   this.estados = [];
-  //   this.listarEstados();
-  // }
+  limparFormulario() {
+    this.submitted = false;
+    this.formulario.reset();
+    this.cidades = [];
+    this.estados = [];
+    this.listarEstados();
+  }
   
   listarCidades() {
     this.cidades = [];
