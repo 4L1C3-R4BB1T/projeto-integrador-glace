@@ -75,11 +75,6 @@ p {
   color: #495057;
 }
 
-.p-fileupload-buttonbar {
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-}
-
 @media screen and (min-width: 1000px) {
   .content {
     width: 50%;
