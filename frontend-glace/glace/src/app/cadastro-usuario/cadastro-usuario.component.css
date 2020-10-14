@@ -1,77 +1,88 @@
 .content {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 
 .input {
-    width: 100%;
-    height: 55px;
-  
-    background: #FFFFFF;
-    border: 1px solid #F1E9E9;
-    box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
-  
-    font-family: 'Ruda', sans-serif;
-    font-size: 20px;
-    padding-left: 20px;
+  width: 100%;
+  height: 55px;
+
+  background: #FFFFFF;
+  border: 1px solid #F1E9E9;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding-left: 20px;
 }
 
 .input:hover {
-    transition: 0.5s;
-    border-color:#f58723;
+  transition: 0.5s;
+  border-color:#f58723;
 }
 
 .is-invalid {
-    border-color: red;
-    background: #ffe6e6;
+  border-color: red;
+  background: #ffe6e6;
 }
 
 .is-valid {
-    border-color: green;
-    background: #ebfaeb;
+  border-color: green;
+  background: #ebfaeb;
 }
 
 .entrar {
-    width: 100%;
-      
-    background-color: rgba(255, 153, 0, 1);;
-    border-radius: 10px;
-      
-    color: #FFFFFF;
-    font-family: 'Ruda', sans-serif;
-    font-size: 24px;
-    border: none;
-    box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);    
+  width: 100%;
+
+  background-color: rgba(255, 153, 0, 1);;
+  border-radius: 10px;
+
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 24px;
+  border: none;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
 }
-    
+
 .entrar:hover {
-    background-color: orange; 
+  background-color: orange;
 }
-  
+
 p {
-    text-align: center;
+  text-align: center;
 }
-      
+
 .cadastro a {
-    font-family: 'Ruda', sans-serif;
-    font-size: 20px;
-    color: #08074E;
-} 
-       
-.cadastro a:hover {
-    transition: 0.3s;
-    color: #908F8E;
-    text-decoration: none;    
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  color: #08074E;
 }
-  
+
+.cadastro a:hover {
+  transition: 0.3s;
+  color: #908F8E;
+  text-decoration: none;
+}
+
 .no-padding {
-    padding: 0;
+  padding: 0;
+}
+
+.foto-title {
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  color: #495057;
+}
+
+.p-fileupload-buttonbar {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 @media screen and (min-width: 1000px) {
-    .content {
-        width: 50%;
-        margin: auto;
-    }
+  .content {
+    width: 50%;
+    margin: auto;
+  }
 }
