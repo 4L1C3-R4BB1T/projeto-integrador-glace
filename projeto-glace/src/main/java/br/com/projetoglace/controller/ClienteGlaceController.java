@@ -3,8 +3,6 @@ package br.com.projetoglace.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projetoglace.controller.openapi.ClienteGlaceControllerOpenApi;
 import br.com.projetoglace.dto.ClienteGlaceDTO;
 import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.request.ClienteGlaceRequest;
@@ -27,13 +26,14 @@ import br.com.projetoglace.service.ClienteGlaceService;
 @CrossOrigin
 @RestController
 @RequestMapping ("/cliente")
-public class ClienteGlaceController {
+public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 
 	@Autowired
 	private ClienteGlaceService service;
 		
+	@Override
 	@PostMapping
-	public ResponseEntity<?> salvar(@RequestBody @Valid ClienteGlaceRequest clienteGlaceRequest) {	
+	public ResponseEntity<?> salvar(@RequestBody ClienteGlaceRequest clienteGlaceRequest) {	
 		try {
 			
 			ClienteGlaceDTO clienteGlaceDTO = service.salvar(clienteGlaceRequest);			
@@ -44,11 +44,13 @@ public class ClienteGlaceController {
 		}		
 	}
 		
+	@Override
 	@GetMapping
 	public List<ClienteGlaceDTO> listar(){
 		return service.listar();
 	}
 
+	@Override
 	@GetMapping("/{id}")
 	public ResponseEntity<ClienteGlace> buscar(@PathVariable Long id) {
 		Optional<ClienteGlace> cliente = service.buscar(id);
@@ -58,6 +60,7 @@ public class ClienteGlaceController {
 		return ResponseEntity.notFound().build();
 	}
 			
+	@Override
 	@DeleteMapping("/{id}")
 	public ResponseEntity<ClienteGlace> excluir(@PathVariable Long id) {
 		try {
@@ -68,8 +71,9 @@ public class ClienteGlaceController {
 		}
 	}
 		
+	@Override
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody @Valid ClienteGlace cliente, @PathVariable Long id) {
+	public ResponseEntity<?> atualizar(@RequestBody ClienteGlace cliente, @PathVariable Long id) {
 		ClienteGlace clienteAtual = service.buscar(id).orElse(null);
 		if (clienteAtual != null) {
 			BeanUtils.copyProperties(cliente, clienteAtual, "id");

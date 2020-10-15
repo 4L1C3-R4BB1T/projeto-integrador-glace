@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projetoglace.controller.openapi.EstadoControllerOpenApi;
 import br.com.projetoglace.model.Cidade;
 import br.com.projetoglace.model.Estado;
 import br.com.projetoglace.repository.EstadoRepository;
@@ -18,21 +19,24 @@ import br.com.projetoglace.repository.EstadoRepository;
 @CrossOrigin 
 @RestController
 @RequestMapping ("/estado")
-public class EstadoController {
+public class EstadoController implements EstadoControllerOpenApi {
 
 	@Autowired
 	private EstadoRepository repository;
 	
+	@Override
 	@PostMapping
 	public void salvar(@RequestBody Estado estado) {
 		repository.save(estado);
 	}
 	
+	@Override
 	@GetMapping()
 	public List<Estado> listar(){
 		return repository.findAll();
 	}
 	
+	@Override
 	@GetMapping("/{id}/cidades")
 	public List<Cidade> listarCidadesPorEstado(@PathVariable Long id){
 		return repository.buscarCidades(id);

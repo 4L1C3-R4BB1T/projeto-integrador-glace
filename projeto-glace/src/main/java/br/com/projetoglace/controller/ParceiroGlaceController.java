@@ -3,8 +3,6 @@ package br.com.projetoglace.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projetoglace.controller.openapi.ParceiroGlaceControllerOpenApi;
 import br.com.projetoglace.dto.ParceiroGlaceDTO;
 import br.com.projetoglace.model.ParceiroGlace;
 import br.com.projetoglace.request.ParceiroGlaceRequest;
@@ -27,13 +26,14 @@ import br.com.projetoglace.service.ParceiroGlaceService;
 @CrossOrigin
 @RestController
 @RequestMapping ("/parceiro")
-public class ParceiroGlaceController {
+public class ParceiroGlaceController implements ParceiroGlaceControllerOpenApi {
 
 	@Autowired
 	private ParceiroGlaceService service;
 	
+	@Override
 	@PostMapping
-	public ResponseEntity<?> salvar(@RequestBody @Valid ParceiroGlaceRequest parceiroRequest) {	
+	public ResponseEntity<?> salvar(@RequestBody ParceiroGlaceRequest parceiroRequest) {	
 		try {
 			ParceiroGlaceDTO parceiroDTO = service.salvar(parceiroRequest);			
 			return ResponseEntity.status(HttpStatus.CREATED).body(parceiroDTO);
@@ -43,11 +43,13 @@ public class ParceiroGlaceController {
 		}		
 	}
 	
+	@Override
 	@GetMapping
 	public List<ParceiroGlaceDTO> listar(){
 		return service.listar();
 	}
 
+	@Override
 	@GetMapping("/{id}")
 	public ResponseEntity<ParceiroGlace> buscar(@PathVariable Long id) {
 		Optional<ParceiroGlace> parceiro = service.buscar(id);
@@ -58,6 +60,7 @@ public class ParceiroGlaceController {
 	}
 	
 	
+	@Override
 	@DeleteMapping("/{id}")
 	public ResponseEntity<ParceiroGlace> excluir(@PathVariable Long id) {
 		try {
@@ -68,8 +71,10 @@ public class ParceiroGlaceController {
 		}
 	}
 	
+	
+	@Override
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody @Valid ParceiroGlace cliente, @PathVariable Long id) {
+	public ResponseEntity<?> atualizar(@RequestBody ParceiroGlace cliente, @PathVariable Long id) {
 		ParceiroGlace parceiroAtual = service.buscar(id).orElse(null);
 		if (parceiroAtual != null) {
 			BeanUtils.copyProperties(cliente, parceiroAtual, "id");
