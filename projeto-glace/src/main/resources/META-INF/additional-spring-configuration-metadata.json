@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "glace.storage.s3.id-chave-acesso",
+    "type": "java.lang.String",
+    "description": "A description for 'glace.storage.s3.id-chave-acesso'"
+  },
+  {
+    "name": "glace.storage.s3.chave-acesso-secreta",
+    "type": "java.lang.String",
+    "description": "A description for 'glace.storage.s3.chave-acesso-secreta'"
+  },
+  {
+    "name": "glace.storage.s3.bucket",
+    "type": "java.lang.String",
+    "description": "A description for 'glace.storage.s3.bucket'"
+  },
+  {
+    "name": "glace.storage.s3.regiao",
+    "type": "java.lang.String",
+    "description": "A description for 'glace.storage.s3.regiao'"
+  },
+  {
+    "name": "glace.storage.s3.fotos",
+    "type": "java.lang.String",
+    "description": "A description for 'glace.storage.s3.fotos'"
+  }
+]}

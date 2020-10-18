@@ -34,7 +34,7 @@ public class ImagemController implements ImagemControllerOpenApi {
 	
 	@Override
 	@PostMapping
-	public ImagemDTO salvar( ImagemRequest imagem) {
+	public ImagemDTO salvarFoto(ImagemRequest imagem) {
 		
 		return service.salvar(imagem);
 	}

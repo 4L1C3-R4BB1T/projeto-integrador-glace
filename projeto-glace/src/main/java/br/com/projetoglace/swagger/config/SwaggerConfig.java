@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.ServletWebRequest;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -62,7 +63,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
 				.additionalModels(typeResolver.resolve(Problem.class))
 				.ignoredParameterTypes(ServletWebRequest.class,
 						URL.class, URI.class, URLStreamHandler.class, Resource.class,
-						File.class, InputStream.class)
+						File.class, InputStream.class, MultipartFile.class)
 				.directModelSubstitute(Pageable.class, PageableModelOpenApi.class)
 				.securitySchemes(Arrays.asList(securityScheme()))
 				.securityContexts(Arrays.asList(securityContext()))
