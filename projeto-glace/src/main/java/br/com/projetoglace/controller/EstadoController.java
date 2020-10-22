@@ -15,6 +15,7 @@ import br.com.projetoglace.controller.openapi.EstadoControllerOpenApi;
 import br.com.projetoglace.model.Cidade;
 import br.com.projetoglace.model.Estado;
 import br.com.projetoglace.repository.EstadoRepository;
+import br.com.projetoglace.security.permissões.CheckSecurity;
 
 @CrossOrigin 
 @RestController
@@ -30,12 +31,14 @@ public class EstadoController implements EstadoControllerOpenApi {
 		repository.save(estado);
 	}
 	
+	@CheckSecurity.Estado.ListarEstados
 	@Override
 	@GetMapping()
 	public List<Estado> listar(){
 		return repository.findAll();
 	}
 	
+	@CheckSecurity.Estado.ListarCidadesPorEstado
 	@Override
 	@GetMapping("/{id}/cidades")
 	public List<Cidade> listarCidadesPorEstado(@PathVariable Long id){

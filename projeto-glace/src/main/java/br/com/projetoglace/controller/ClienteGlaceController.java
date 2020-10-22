@@ -21,6 +21,7 @@ import br.com.projetoglace.controller.openapi.ClienteGlaceControllerOpenApi;
 import br.com.projetoglace.dto.ClienteGlaceDTO;
 import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.request.ClienteGlaceRequest;
+import br.com.projetoglace.security.permissões.CheckSecurity;
 import br.com.projetoglace.service.ClienteGlaceService;
 
 @CrossOrigin
@@ -44,6 +45,7 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		}		
 	}
 		
+	@CheckSecurity.Cliente.PodeConsultar
 	@Override
 	@GetMapping
 	public List<ClienteGlaceDTO> listar(){
