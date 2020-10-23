@@ -9,8 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -38,15 +39,23 @@ public class EstabelecimentoGlace {
 	@Column
 	private String cnpj;
 	
-	@Column String tipoEstabelecimento;
+	@Column
+	private String telefone;
+	
+	@Column
+	private String descricao;
+	
+	@Column 
+	String tipoEstabelecimento;
 	
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="parceiro_id", nullable = false) 
 	private ParceiroGlace parceiroGlace;
 	
-	@OneToMany
-	@JoinColumn(name="estabecimento_id")
+	@ManyToMany
+	@JoinTable(name = "estabelecimento_acessibilidade", joinColumns = @JoinColumn(name = "estabelecimento_id"))
+	@Column(name = "acessibilidade_id")
 	private List<Acessibilidade> acessibilidades;
 	
 	@Embedded

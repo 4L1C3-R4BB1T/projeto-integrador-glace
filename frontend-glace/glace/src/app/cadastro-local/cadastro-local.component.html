@@ -11,11 +11,11 @@
 
     <div class="pt-5">
       <h4>Cadastro de Estabelecimento</h4>
-
-      <form>
+      <div id="formUser">
+      <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
         <div class="row">
           <div class="col-12 col-md-8">
-            <input type="text" class="input mt-3" placeholder="Nome" name="nome">
+            <input type="text" class="input mt-3" placeholder="Nome" name="nome"  formControlName="nome">
           </div>
 
           <div class="col-12 col-md-4">
@@ -25,25 +25,25 @@
 
         <div class="row">
           <div class="col-12 col-md-8">
-            <input type="text" class="input mt-4" placeholder="Rua" name="rua">
+            <input type="text" class="input mt-4" placeholder="Rua" name="rua"  formControlName="rua">
           </div>
 
           <div class="col-12 col-md-4">
-            <input type="text" class="input mt-4" placeholder="Telefone" name="telefone">
+            <input type="text" class="input mt-4" placeholder="Telefone" name="telefone" >
           </div>
         </div>
 
         <div class="row">
           <div class="col-12 col-md-4">
-            <input type="text" class="input mt-4" placeholder="CEP" name="cep">
+            <input type="text" class="input mt-4" placeholder="CEP" name="cep"  formControlName="cep">
           </div>
 
           <div class="col-12 col-md-5">
-            <input type="text" class="input mt-4" placeholder="Bairro" name="bairro">
+            <input type="text" class="input mt-4" placeholder="Bairro" name="bairro"  formControlName="bairro">
           </div>
 
           <div class="col-12 col-md-3">
-            <input type="text" class="input mt-4" placeholder="Número" name="numero">
+            <input type="text" class="input mt-4" placeholder="Número" name="numero"  formControlName="numero">
           </div>
         </div>
 
@@ -124,10 +124,11 @@
         </div>
 
         <div class="float-right mb-5">
-          <button type="submit" class="btn mr-2 botao">Cadastrar</button>
+          <button type="submit" class="btn mt-4 mb-2 entrar">{{ operacao ? "Cadastrar" : "Atualizar" }}</button>
           <button type="button" class="btn botao bg-danger" routerLink="/perfilAdmin">Cancelar</button>
         </div>
       </form>
+      </div>
     </div>
   </div>
 </div>
