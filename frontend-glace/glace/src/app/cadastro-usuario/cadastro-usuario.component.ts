@@ -44,7 +44,7 @@ export class CadastroUsuarioComponent implements OnInit {
       sobrenome: ['', Validators.required],
       cpf: ['', Validators.required],
       dataNasc: ['', Validators.required],
-      telefone: [''],
+      telefone: ['', Validators.required],
       email: ['', Validators.required],
       senha: ['', Validators.required],
       confirmarsenha: ['', Validators.required],

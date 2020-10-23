@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div id="container">
+
+    <app-nav-bar-secundaria></app-nav-bar-secundaria>
+
+    <div class="content mt-4">
+      <div class="pt-5 pb-5">
+        <form [formGroup]="formulario"(ngSubmit)= "logar()">
+          <div >
+            <input type="email"  class="input form-control" placeholder="E-mail"required autofocus formControlName="login">
+          </div>
+
+          <div>
+            <input type="password" id="inputPassword" class="input mt-4 mb-3 form-control" placeholder="Senha" required formControlName="senha" >
+          </div>
+
+          <button type="submit" class="btn mt-4 mb-2 entrar">Entrar</button>
+          <hr class="my-4">
+          <p class="mt-4 cadastro"><a routerLinkActive="active" routerLink="/cadastroUsuario">Não possuo cadastro</a></p>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

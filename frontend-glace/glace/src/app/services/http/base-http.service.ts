@@ -15,9 +15,10 @@ export class BaseHttpService {
         url: string,
         body,
         useDefaultHeader: boolean = true,
-        useFormData: boolean = false
+        useFormData: boolean = false,
+        newHeaders: HttpHeaders = null
     ): Observable<DefaultResponse<T>> {
-        return this._http.post<T>(url, body, useDefaultHeader, useFormData);
+        return this._http.post<T>(url, body, useDefaultHeader, useFormData, newHeaders);
     }
 
     put<T>(url: string, body,

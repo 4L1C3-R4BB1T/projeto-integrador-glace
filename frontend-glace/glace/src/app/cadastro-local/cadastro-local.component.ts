@@ -1,6 +1,6 @@
-import { EstabelecimentoRepository } from './../cadastro-local/repository/estabelecimento-repository';
+import { EstabelecimentoRepository } from './repository/estabelecimento-repository';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EstabelecimentoModel } from '../cadastro-local/model/estabelecimento-model';
+import { EstabelecimentoModel } from './model/estabelecimento-model';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Message,MessageService} from 'primeng/api';
 

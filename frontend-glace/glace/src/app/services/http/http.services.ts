@@ -17,14 +17,16 @@ export class HttpService {
         url,
         body,
         useDefaultHeader: boolean = true,
-        useFormData: boolean = false
+        useFormData: boolean = false,
+        newHeaders: HttpHeaders = null
     ): Observable<DefaultResponse<T>> {
         return this.request<T>(
             'POST',
             `${url}`,
             body,
             useDefaultHeader,
-            useFormData
+            useFormData,
+            newHeaders
         );
     }
 
@@ -60,10 +62,11 @@ export class HttpService {
         url: string,
         body: any = null,
         useDefaultHeader: boolean = true,
-        useFormData: boolean = false
+        useFormData: boolean = false,
+        newHeaders: HttpHeaders = null
     ): Observable<DefaultResponse<T>> {
         let headers: HttpHeaders;
-        headers = this.getDefaultHeader(useFormData);
+        headers = newHeaders || this.getDefaultHeader(useFormData);
 
         if (environment.logRequest) {
             console.dir({ type, url, headers, body });
@@ -88,7 +91,8 @@ export class HttpService {
     }
 
     private getDefaultHeader(useFormData: boolean = false) {
-        const headers = new HttpHeaders({});
+        const token: string = localStorage.getItem('token');
+        const headers = new HttpHeaders({'Autohorization':'Bearer ' + token});
 
         return headers;
     }

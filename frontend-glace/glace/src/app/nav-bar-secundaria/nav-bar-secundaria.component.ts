@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ export class NavBarSecundariaComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+ngOnInit(): void {
+}
 
 }
