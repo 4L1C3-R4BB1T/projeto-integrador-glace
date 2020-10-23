@@ -52,6 +52,7 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		return service.listar();
 	}
 
+	@CheckSecurity.Cliente.PodeConsultarPorId
 	@Override
 	@GetMapping("/{id}")
 	public ResponseEntity<ClienteGlace> buscar(@PathVariable Long id) {
@@ -61,7 +62,8 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		}
 		return ResponseEntity.notFound().build();
 	}
-			
+		
+	@CheckSecurity.Cliente.PodeExcluirPerfil
 	@Override
 	@DeleteMapping("/{id}")
 	public ResponseEntity<ClienteGlace> excluir(@PathVariable Long id) {
@@ -73,6 +75,7 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		}
 	}
 		
+	@CheckSecurity.Cliente.PodeEditarPerfil
 	@Override
 	@PutMapping("/{id}")
 	public ResponseEntity<?> atualizar(@RequestBody ClienteGlace cliente, @PathVariable Long id) {

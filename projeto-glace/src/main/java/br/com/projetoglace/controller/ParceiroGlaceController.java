@@ -21,6 +21,7 @@ import br.com.projetoglace.controller.openapi.ParceiroGlaceControllerOpenApi;
 import br.com.projetoglace.dto.ParceiroGlaceDTO;
 import br.com.projetoglace.model.ParceiroGlace;
 import br.com.projetoglace.request.ParceiroGlaceRequest;
+import br.com.projetoglace.security.permissões.CheckSecurity;
 import br.com.projetoglace.service.ParceiroGlaceService;
 
 @CrossOrigin
@@ -43,12 +44,14 @@ public class ParceiroGlaceController implements ParceiroGlaceControllerOpenApi {
 		}		
 	}
 	
+	@CheckSecurity.Parceiro.PodeConsultar
 	@Override
 	@GetMapping
 	public List<ParceiroGlaceDTO> listar(){
 		return service.listar();
 	}
 
+	@CheckSecurity.Parceiro.PodeConsultarPorId
 	@Override
 	@GetMapping("/{id}")
 	public ResponseEntity<ParceiroGlace> buscar(@PathVariable Long id) {
@@ -59,7 +62,7 @@ public class ParceiroGlaceController implements ParceiroGlaceControllerOpenApi {
 		return ResponseEntity.notFound().build();
 	}
 	
-	
+	@CheckSecurity.Parceiro.PodeExcluirPerfil
 	@Override
 	@DeleteMapping("/{id}")
 	public ResponseEntity<ParceiroGlace> excluir(@PathVariable Long id) {
@@ -71,7 +74,7 @@ public class ParceiroGlaceController implements ParceiroGlaceControllerOpenApi {
 		}
 	}
 	
-	
+	@CheckSecurity.Parceiro.PodeEditarPerfil
 	@Override
 	@PutMapping("/{id}")
 	public ResponseEntity<?> atualizar(@RequestBody ParceiroGlace cliente, @PathVariable Long id) {

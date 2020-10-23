@@ -12,23 +12,69 @@ public @interface CheckSecurity {
 
 	public @interface Cliente {
 
-		// DH01
+		// Permissões Cliente
 		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('DH01')")
+				"hasAuthority('CG')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
-		public @interface PodeEditar {
+		public @interface PodeEditarPerfil {
 		}
 
-		// DH02
 		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('DH02')")
+				"hasAuthority('CG')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface PodeConsultar {
 		}	
+		
+		@PreAuthorize("isAuthenticated() and " + 
+				"hasAuthority('CG')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface PodeConsultarPorId {
+		}	
+		
+		@PreAuthorize("isAuthenticated() and " + 
+				"hasAuthority('CG')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface PodeExcluirPerfil {
+		}	
+		
 	}
 	
+	// Permissões Parceiro
+	public @interface Parceiro { 
+		
+		@PreAuthorize("isAuthenticated() and " + 
+				"hasAuthority('PG')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface PodeEditarPerfil {
+		}
+
+		@PreAuthorize("isAuthenticated() and " + 
+				"hasAuthority('PG')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface PodeConsultar {
+		}	
+					
+		@PreAuthorize("isAuthenticated() and " + 
+				"hasAuthority('PG')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface PodeConsultarPorId {
+		}	
+					
+		@PreAuthorize("isAuthenticated() and " + 
+				"hasAuthority('PG')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface PodeExcluirPerfil {
+		}	
+		
+	}
 	
 	public @interface Estado {
 
@@ -47,6 +93,7 @@ public @interface CheckSecurity {
 		@Target(METHOD)
 		public @interface ListarCidadesPorEstado {
 		}	
+		
 	}
 	
 }
