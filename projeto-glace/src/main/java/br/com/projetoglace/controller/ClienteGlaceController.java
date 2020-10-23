@@ -45,14 +45,12 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		}		
 	}
 		
-	@CheckSecurity.Cliente.PodeConsultar
 	@Override
 	@GetMapping
 	public List<ClienteGlaceDTO> listar(){
 		return service.listar();
 	}
 
-	@CheckSecurity.Cliente.PodeConsultarPorId
 	@Override
 	@GetMapping("/{id}")
 	public ResponseEntity<ClienteGlace> buscar(@PathVariable Long id) {

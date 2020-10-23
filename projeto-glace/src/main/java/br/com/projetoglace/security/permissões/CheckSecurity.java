@@ -10,9 +10,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 
 public @interface CheckSecurity {
 
+	// Permissões Cliente
 	public @interface Cliente {
 
-		// Permissões Cliente
 		@PreAuthorize("isAuthenticated() and " + 
 				"hasAuthority('CG')")
 		@Retention(RUNTIME)
@@ -20,20 +20,6 @@ public @interface CheckSecurity {
 		public @interface PodeEditarPerfil {
 		}
 
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('CG')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface PodeConsultar {
-		}	
-		
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('CG')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface PodeConsultarPorId {
-		}	
-		
 		@PreAuthorize("isAuthenticated() and " + 
 				"hasAuthority('CG')")
 		@Retention(RUNTIME)
@@ -52,46 +38,12 @@ public @interface CheckSecurity {
 		@Target(METHOD)
 		public @interface PodeEditarPerfil {
 		}
-
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('PG')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface PodeConsultar {
-		}	
-					
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('PG')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface PodeConsultarPorId {
-		}	
 					
 		@PreAuthorize("isAuthenticated() and " + 
 				"hasAuthority('PG')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface PodeExcluirPerfil {
-		}	
-		
-	}
-	
-	public @interface Estado {
-
-		// DH02
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('DH02')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface ListarEstados {
-		}	
-		
-		// DH03
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('DH02')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface ListarCidadesPorEstado {
 		}	
 		
 	}

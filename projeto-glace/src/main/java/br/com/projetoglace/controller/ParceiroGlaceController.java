@@ -44,14 +44,12 @@ public class ParceiroGlaceController implements ParceiroGlaceControllerOpenApi {
 		}		
 	}
 	
-	@CheckSecurity.Parceiro.PodeConsultar
 	@Override
 	@GetMapping
 	public List<ParceiroGlaceDTO> listar(){
 		return service.listar();
 	}
 
-	@CheckSecurity.Parceiro.PodeConsultarPorId
 	@Override
 	@GetMapping("/{id}")
 	public ResponseEntity<ParceiroGlace> buscar(@PathVariable Long id) {
