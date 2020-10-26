@@ -1,16 +1,16 @@
 import { LoginFormComponent } from './seguranca/login-form/login-form.component';
-import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
-import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
-import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
-import { PerfilParceiroComponent } from './perfil-parceiro/perfil-parceiro.component';
-import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.component';
-import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
-import { PesquisaComponent } from './pesquisa/pesquisa.component';
+import { CadastroParceiroComponent } from './parceiro-glace/cadastro-parceiro/cadastro-parceiro.component';
+import { CadastroLocalComponent } from './estabelecimento-glace/cadastro-local/cadastro-local.component';
+import { PerfilUsuarioComponent } from './cliente-glace/perfil-usuario/perfil-usuario.component';
+import { PerfilParceiroComponent } from './parceiro-glace/perfil-parceiro/perfil-parceiro.component';
+import { DetalhesLocalComponent } from './estabelecimento-glace/detalhes-local/detalhes-local.component';
+import { CadastroUsuarioComponent } from './cliente-glace/cadastro-usuario/cadastro-usuario.component';
+import { PesquisaComponent } from './pagina-glace/pesquisa/pesquisa.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pagina-glace/home/home.component';
 
-import { QuemSomosComponent } from './quem-somos/quem-somos.component';
+import { QuemSomosComponent } from './pagina-glace/quem-somos/quem-somos.component';
 
 const routes: Routes = [
   {path: 'quemSomos', component: QuemSomosComponent},

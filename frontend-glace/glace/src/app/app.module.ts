@@ -1,4 +1,4 @@
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NavBarComponent } from '../app/template/nav-bar/nav-bar.component';
 import { MessageService } from 'primeng/api';
 import { AuthService } from './seguranca/auth.service';
 import { SegurancaModule } from './seguranca/seguranca.module';
@@ -18,24 +18,24 @@ import {InputMaskModule} from 'primeng/inputmask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { PesquisaComponent } from './pesquisa/pesquisa.component';
-import { QuemSomosComponent } from './quem-somos/quem-somos.component';
+import { HomeComponent } from './pagina-glace/home/home.component';
+import { PesquisaComponent } from './pagina-glace/pesquisa/pesquisa.component';
+import { QuemSomosComponent } from './pagina-glace/quem-somos/quem-somos.component';
 import { LoginFormComponent } from '../app/seguranca/login-form/login-form.component';
-import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
-import { PerfilParceiroComponent } from './perfil-parceiro/perfil-parceiro.component';
-import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
-import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.component';
+import { CadastroUsuarioComponent } from './cliente-glace/cadastro-usuario/cadastro-usuario.component';
+import { PerfilParceiroComponent } from './parceiro-glace/perfil-parceiro/perfil-parceiro.component';
+import { PerfilUsuarioComponent } from './cliente-glace/perfil-usuario/perfil-usuario.component';
+import { DetalhesLocalComponent } from './estabelecimento-glace/detalhes-local/detalhes-local.component';
 import { FormsModule } from '@angular/forms';
-import { FooterComponent } from './footer/footer.component';
-import { NavBarSecundariaComponent } from '../app/nav-bar-secundaria/nav-bar-secundaria.component';
+import { FooterComponent } from './template/footer/footer.component';
+import { NavBarSecundariaComponent } from '../app/template/nav-bar-secundaria/nav-bar-secundaria.component';
 import { DropdownModule } from 'primeng/dropdown';
-import { CadastroLocalComponent } from './cadastro-local/cadastro-local.component';
-import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
+import { CadastroLocalComponent } from './estabelecimento-glace/cadastro-local/cadastro-local.component';
+import { CadastroParceiroComponent } from './parceiro-glace/cadastro-parceiro/cadastro-parceiro.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { CardComponent } from "./card/card.component";
+import { CardComponent } from "./estabelecimento-glace/card/card.component";
 import { FileUploadModule } from 'primeng/fileupload';
-import { CardPesquisaComponent } from './card-pesquisa/card-pesquisa.component';
+import { CardPesquisaComponent } from './estabelecimento-glace/card-pesquisa/card-pesquisa.component';
 import { NavigationStart } from '@angular/router';
 
 @NgModule({
@@ -55,10 +55,8 @@ import { NavigationStart } from '@angular/router';
     CardPesquisaComponent,
     NavBarSecundariaComponent,
     LoginFormComponent,
-    NavBarComponent
+    NavBarComponent,
     
-        
-
   ],
   imports: [
     BrowserModule,
@@ -80,7 +78,8 @@ import { NavigationStart } from '@angular/router';
     FileUploadModule,
     SegurancaModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
 
   ],
   providers: [

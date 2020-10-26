@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
-import br.com.projetoglace.model.Usuario;
+import br.com.projetoglace.model.UsuarioADMGlace;
 import lombok.Getter;
 
 @Getter
@@ -16,7 +16,7 @@ private static final long serialVersionUID = 1L;
 	private Long userId;
 	private String nomeCompleto;
 	
-	public AuthUser(Usuario usuario, Collection<? extends GrantedAuthority> permissoes) {
+	public AuthUser(UsuarioADMGlace usuario, Collection<? extends GrantedAuthority> permissoes) {
 		super(usuario.getEmail(), usuario.getSenha(), permissoes);
 		
 		this.userId = usuario.getId();

@@ -75,10 +75,10 @@ public class ParceiroGlaceController implements ParceiroGlaceControllerOpenApi {
 	@CheckSecurity.Parceiro.PodeEditarPerfil
 	@Override
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody ParceiroGlace cliente, @PathVariable Long id) {
+	public ResponseEntity<?> atualizar(@RequestBody ParceiroGlace parceiro, @PathVariable Long id) {
 		ParceiroGlace parceiroAtual = service.buscar(id).orElse(null);
 		if (parceiroAtual != null) {
-			BeanUtils.copyProperties(cliente, parceiroAtual, "id");
+			BeanUtils.copyProperties(parceiro, parceiroAtual, "id");
 			service.atualizar(parceiroAtual);
 			return ResponseEntity.ok(parceiroAtual);
 		}	

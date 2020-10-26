@@ -12,26 +12,26 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.projetoglace.model.Usuario;
-import br.com.projetoglace.repository.UsuarioRepository;
+import br.com.projetoglace.model.UsuarioADMGlace;
+import br.com.projetoglace.repository.UsuarioADMGlaceRepository;
 
 @Service
 public class JpaUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UsuarioADMGlaceRepository usuarioRepository;
 	
 	@Transactional(readOnly = true)
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		Usuario usuario = usuarioRepository.findByEmail(username)
+		UsuarioADMGlace usuario = usuarioRepository.findByEmail(username)
 				.orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado com e-mail informado"));
 		
 		return new AuthUser(usuario, getAuthorities(usuario));
 	}
 	
-	private Collection<GrantedAuthority> getAuthorities(Usuario usuario) {
+	private Collection<GrantedAuthority> getAuthorities(UsuarioADMGlace usuario) {
 		
 		return usuario.getGrupos().stream()
 				.flatMap(grupo -> grupo.getPermissoes().stream())

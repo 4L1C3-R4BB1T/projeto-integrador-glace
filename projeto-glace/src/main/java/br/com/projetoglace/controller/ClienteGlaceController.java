@@ -34,10 +34,10 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		
 	@Override
 	@PostMapping
-	public ResponseEntity<?> salvar(@RequestBody ClienteGlaceRequest clienteGlaceRequest) {	
+	public ResponseEntity<?> salvarCliente(@RequestBody ClienteGlaceRequest clienteGlaceRequest) {	
 		try {
 			
-			ClienteGlaceDTO clienteGlaceDTO = service.salvar(clienteGlaceRequest);			
+			ClienteGlaceDTO clienteGlaceDTO = service.salvarCliente(clienteGlaceRequest);			
 			return ResponseEntity.status(HttpStatus.CREATED).body(clienteGlaceDTO);
 		
 		}catch(Exception ex) {
@@ -47,14 +47,14 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		
 	@Override
 	@GetMapping
-	public List<ClienteGlaceDTO> listar(){
-		return service.listar();
+	public List<ClienteGlaceDTO> listarCliente(){
+		return service.listarCliente();
 	}
 
 	@Override
 	@GetMapping("/{id}")
-	public ResponseEntity<ClienteGlace> buscar(@PathVariable Long id) {
-		Optional<ClienteGlace> cliente = service.buscar(id);
+	public ResponseEntity<ClienteGlace> buscarCliente(@PathVariable Long id) {
+		Optional<ClienteGlace> cliente = service.buscarCliente(id);
 		if (cliente.isPresent()) {
 			return ResponseEntity.ok(cliente.get());
 		}
@@ -64,9 +64,9 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 	@CheckSecurity.Cliente.PodeExcluirPerfil
 	@Override
 	@DeleteMapping("/{id}")
-	public ResponseEntity<ClienteGlace> excluir(@PathVariable Long id) {
+	public ResponseEntity<ClienteGlace> excluirCliente(@PathVariable Long id) {
 		try {
-			service.excluir(id);	
+			service.excluirCliente(id);	
 			return ResponseEntity.noContent().build();
 		} catch (Exception e) {
 			return ResponseEntity.notFound().build();
@@ -76,14 +76,15 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 	@CheckSecurity.Cliente.PodeEditarPerfil
 	@Override
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody ClienteGlace cliente, @PathVariable Long id) {
-		ClienteGlace clienteAtual = service.buscar(id).orElse(null);
+	public ResponseEntity<?> atualizarCliente(@RequestBody ClienteGlace cliente, @PathVariable Long id) {
+		ClienteGlace clienteAtual = service.buscarCliente(id).orElse(null);
 		if (clienteAtual != null) {
 			BeanUtils.copyProperties(cliente, clienteAtual, "id");
-			service.atualizar(clienteAtual);
+			service.atualizarCliente(clienteAtual);
 			return ResponseEntity.ok(clienteAtual);
 		}	
 		return ResponseEntity.notFound().build();
 	}
+
 	
 }

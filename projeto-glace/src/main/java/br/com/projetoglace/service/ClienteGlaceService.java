@@ -35,7 +35,7 @@ public class ClienteGlaceService {
 	private ClienteGlaceMapper mapper;
 	
 	@Transactional
-	public ClienteGlaceDTO salvar(ClienteGlaceRequest clienteRequest) {
+	public ClienteGlaceDTO salvarCliente(ClienteGlaceRequest clienteRequest) {
 		ClienteGlace cliente = mapper.requestToModel(clienteRequest);
 		
 		if(cliente.getEndereco().getCidade().getId() == null) {
@@ -51,16 +51,16 @@ public class ClienteGlaceService {
 	}
 	
 	@Transactional
-	public void atualizar(ClienteGlace cliente) {
+	public void atualizarCliente(ClienteGlace cliente) {
 		repository.save(cliente);		
 	}
 	
-	public Optional<ClienteGlace> buscar(Long id) {
+	public Optional<ClienteGlace> buscarCliente(Long id) {
 		return repository.findById(id);
 	}
 	
 	@Transactional
-	public void excluir(Long id) {
+	public void excluirCliente(Long id) {
 		try {
 			repository.deleteById(id);
 			repository.flush();
@@ -69,7 +69,7 @@ public class ClienteGlaceService {
 		};			
 	}
 	
-	public List<ClienteGlaceDTO> listar() {	
+	public List<ClienteGlaceDTO> listarCliente() {	
 		return repository.findAll()
 				.stream()
 				.map(cli -> mapper.modelToDTO(cli))
