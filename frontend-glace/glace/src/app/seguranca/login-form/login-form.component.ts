@@ -11,34 +11,30 @@ import { Router } from '@angular/router';
 export class LoginFormComponent implements OnInit {
 
   public formulario: FormGroup;
-  public submitted: boolean = false;
 
   constructor(
     private service: AuthService,
-    private fb: FormBuilder,
-    private router: Router) { }
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.iniciarFormulario();
   }
 
-
-  public iniciarFormulario(){
-    this.formulario= this.fb.group({
+  public iniciarFormulario() {
+    this.formulario = this.fb.group({
       login: ['', Validators.required],
-      senha: ['', [Validators.required]]
-    });
+      senha: ['', [Validators.required]]     
+    });       
   }
-  logar(){
-    this.submitted= true;
-    if (this.formulario.invalid){
+
+  logar() {
+    if (this.formulario.invalid) {
       return;
     }
     //fazer a chamada
     const login = this.formulario.value.login;
     const senha = this.formulario.value.senha;
 
-    this.service.console.login(login,senha);
-    
+    this.service.login(login, senha);
   }
 }

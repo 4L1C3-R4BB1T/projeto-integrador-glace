@@ -29,7 +29,9 @@ export class CadastroUsuarioComponent implements OnInit {
 
   constructor(
     private repository: ClienteRepository,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private messageService: MessageService
+    ) { }
 
 
   ngOnInit(): void {
@@ -105,6 +107,7 @@ export class CadastroUsuarioComponent implements OnInit {
           this.repository.postCliente(dados).subscribe(resposta => {
             this.mensagem = [
               {
+                key: 'toast',
                 severity: 'success',
                 summary: 'CLIENTE',
                 detail: 'cadastrado com sucesso!'
@@ -129,7 +132,7 @@ export class CadastroUsuarioComponent implements OnInit {
                     detail: elemento.userMessage
                   });
               });
-              this.mensagem = msg;
+              this.messageService.addAll(msg);
             }
           );
         }

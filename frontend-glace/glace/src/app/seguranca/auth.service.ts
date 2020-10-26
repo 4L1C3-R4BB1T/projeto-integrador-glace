@@ -8,22 +8,22 @@ import { AuthRepository } from './auth-repository';
 export class AuthService {
 
   jwtPayload: any; 
-  console: any;
 
   constructor(public repository: AuthRepository, private router: Router) { 
     this.carregarToken();
   }
 
-  login(usuario: string, senha: string){
+  login(login: string, senha: string){
     
-    return this.repository.post(usuario, senha).subscribe(resposta => {
+    return this.repository.postLogin(login, senha).subscribe(resposta => {
         
         const json: JSON = JSON.parse(JSON.stringify(resposta));
+        console.log(json);
+        this.armazenarToken(json['access_token']);
         
-        this.armazenarToken(json['data']['access_token']);
-        
-        console.log('Novo access token criado! '+JSON.stringify(this.jwtPayload));
+        console.log('Novo access token criado!'+JSON.stringify(this.jwtPayload));
         this.router.navigate(['/cliente']);
+        console.log
       },
         (e) => {
           console.log(e.error.error_description);      
@@ -61,8 +61,32 @@ export class AuthService {
 
   isAccessTokenInvalido() {
     const token = localStorage.getItem('token');
+    
+    return !token || this.isTokenExpired();
+  }
 
-    return !token;
+  isTokenExpired(){
+    this.repository.postCheckToken().subscribe(resposta => {        
+      const json: JSON = JSON.parse(JSON.stringify(resposta));      
+      if(json['active']){
+        return false;
+      }    
+    },
+    ( e ) => {
+        this.obterNovoAccessToken();           
+    });
+  }
+
+  obterNovoAccessToken(){    
+    return this.repository.postRefreshToken().subscribe(resposta => {
+      const json: JSON = JSON.parse(JSON.stringify(resposta));
+      this.armazenarToken(json['access_token']);
+      console.log('Novo access token criado pelo refresh token! '+JSON.stringify(this.jwtPayload));
+      },
+      (e) => {
+        console.log(e.error.error_description);  
+        this.router.navigate(['/login']);    
+      });  
   }
 
   temPermissao(permissao: string) {
@@ -76,17 +100,6 @@ export class AuthService {
       }
     }
     return false;
-  }
-
-  obterNovoAccessToken(){    
-    return this.repository.postRefreshToken().subscribe(resposta => {
-      const json: JSON = JSON.parse(JSON.stringify(resposta));
-      this.armazenarToken(json['data']['access_token']);
-      console.log('Novo access token criado! '+JSON.stringify(this.jwtPayload));
-      },
-      (e) => {
-        console.log(e.error.error_description);      
-      });  
   }
 
 }
