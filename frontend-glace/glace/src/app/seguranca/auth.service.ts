@@ -22,7 +22,7 @@ export class AuthService {
         this.armazenarToken(json['access_token']);
         
         console.log('Novo access token criado!'+JSON.stringify(this.jwtPayload));
-        this.router.navigate(['/cliente']);
+        this.router.navigate(['/perfilUsuario']);
         console.log
       },
         (e) => {

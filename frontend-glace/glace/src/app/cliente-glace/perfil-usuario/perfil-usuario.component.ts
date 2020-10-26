@@ -1,3 +1,4 @@
+import { AuthService } from './../../seguranca/auth.service';
 import { ClienteModel } from '../model/cliente-model';
 import { ClienteRepository } from '../repository/cliente-repository';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -12,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class PerfilUsuarioComponent implements OnInit {
   estados: any[] = [];
   cidades: any[] = [];
+  usuario: string = '';
   public submitted: boolean = false;
 
   mensagem: Message[] = [];
@@ -21,23 +23,28 @@ export class PerfilUsuarioComponent implements OnInit {
   public formulario: FormGroup;
 
   constructor(
+    public service: AuthService,
     private repository: ClienteRepository,
     private fb: FormBuilder
-  ) { }
+  ) { this.usuario = service.jwtPayload ? service.jwtPayload.nome_completo : '';}
 
   ngOnInit(): void {
     this.iniciarFormulario();
     this.listarEstados();
   }
 
+  logout() {
+    this.service.logout();      
+  }
+
   public iniciarFormulario() {
     this.formulario = this.fb.group({
       id: [null],
-      cpf: ['', Validators.required],
+      cpf: [''],
       telefone: [''],
-      email: ['', Validators.required],
-      senha: ['', Validators.required],
-      confirmarsenha: ['', Validators.required],
+      email: [''],
+      senha: [''],
+      confirmarsenha: [''],
       cep: [''],
       rua: [''],
       numero: [''],
@@ -91,6 +98,7 @@ export class PerfilUsuarioComponent implements OnInit {
       this.repository.postCliente(dados).subscribe(resposta => {
         this.mensagem = [
           {
+            key: 'toast',
             severity: 'success',
             summary: 'CLIENTE',
             detail: 'cadastrado com sucesso!'

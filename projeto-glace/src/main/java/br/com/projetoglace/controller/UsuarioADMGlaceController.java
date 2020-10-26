@@ -31,7 +31,7 @@ public class UsuarioADMGlaceController implements UsuarioADMGlaceControllerOpenA
 	@Autowired
 	private UsuarioADMGlaceService serviceUsuario;
 	
-	
+		
 	//USUARIO ADMINISTRATIVO
 	@Override
 	@PostMapping

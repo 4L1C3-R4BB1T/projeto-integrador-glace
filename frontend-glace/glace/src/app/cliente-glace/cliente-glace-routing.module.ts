@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'cliente', component: CadastroUsuarioComponent,
+  { path: 'cadastro-usuario', component: CadastroUsuarioComponent,
     canActivate: [AuthGuard],
     data: { roles: ['CG'] } 
   }

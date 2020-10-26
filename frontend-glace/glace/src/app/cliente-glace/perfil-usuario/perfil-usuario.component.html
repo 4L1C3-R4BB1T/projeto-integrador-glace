@@ -5,7 +5,17 @@
 
     <div class="row">
       <div class="nome-perfil">
-        <h2 class="nome-perfil">Nome do Usuário</h2>
+        <a href="#"   >{{usuario}}</a>
+        <a *ngIf="service.temPermissao('UG')"                         
+        routerLinkActive="ativo" 
+        routerLink="/cadastroUsuario"
+        class="dropdown-item"></a>     
+        
+        <a *ngIf="service.temPermissao('UG')" 
+        routerLinkActive="ativo" 
+        routerLink="/perfilUsuario"
+        class="dropdown-item"></a>
+        <h2 class="nome-perfil"></h2>
       </div>
     </div>
 
