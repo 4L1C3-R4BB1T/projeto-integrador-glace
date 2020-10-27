@@ -100,9 +100,25 @@
   margin-top: 20px;
 }
 
+.botao {
+  background-color: rgba(255, 153, 0, 1);
+  border-radius: 7px;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  border: none;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  padding: 5px 15px 5px 15px;
+}
+
+.botao:hover {
+  background-color: orange;
+}
 
 .modal {
   padding: 0;
+  font-size: 18px;
+  font-family: 'Ruda', sans-serif;
 }
 
 .modal-title {
@@ -110,20 +126,6 @@
   font-family: 'Ruda', sans-serif;
   font-size: 25px;
   font-weight: bold;
-}
-
-.fechar-button {
-  background-color: #908F8E;
-  color: #FFFFFF;
-}
-
-.salvar-mudancas-button {
-  background-color: #FF9900;
-  color: #FFFFFF;
-}
-
-.modal-dialog.modal-dialog-centered {
-  max-width: 800px;
 }
 
 .modal-content {
@@ -179,10 +181,6 @@
 @media screen and (max-width: 768px) {
   .nome-perfil {
     padding-right: 5px !important;
-  }
-
-  .modal-dialog.modal-dialog-centered {
-    max-width: 90%;
   }
 }
 
