@@ -18,7 +18,7 @@ import br.com.projetoglace.repository.EstadoRepository;
 
 @CrossOrigin 
 @RestController
-@RequestMapping ("/estado")
+@RequestMapping("/estado")
 public class EstadoController implements EstadoControllerOpenApi {
 
 	@Autowired

@@ -18,7 +18,7 @@ export class CadastroUsuarioComponent implements OnInit {
   estados: any[] = [];
   cidades: any[] = [];
   imagem: number;
-    
+
   public submitted: boolean = false;
 
   uploadedFiles: any[] = [];
@@ -65,14 +65,14 @@ export class CadastroUsuarioComponent implements OnInit {
       return;
     }
     this.salvar();
-  };
+  }
 
   salvar() {
 
     const formData: any = new FormData();
     formData.append('imagem', this.uploadedFiles[0]);
-     
-    this.repository.postImagem(formData).subscribe(resposta => {      
+
+    this.repository.postImagem(formData).subscribe(resposta => {
       this.imagem = resposta.id;
 
     const dados = {
@@ -136,8 +136,8 @@ export class CadastroUsuarioComponent implements OnInit {
             }
           );
         }
-        
-      });     
+
+      });
     }
 
     listarEstados() {
@@ -164,11 +164,11 @@ export class CadastroUsuarioComponent implements OnInit {
 
     enviarImagem(evento){
       this.uploadedFiles = [];
-      
+
       for(let file of evento.files) {
         this.uploadedFiles.push(file);
-      }    
-      
+      }
+
     }
 
  }
