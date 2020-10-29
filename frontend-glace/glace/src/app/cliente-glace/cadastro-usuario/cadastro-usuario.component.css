@@ -1,6 +1,10 @@
 .content {
-  width: 80%;
+  width: 70% !important;
   margin: auto;
+}
+
+:host /deep/ .p-inputtext {
+  font-size: 20px;
 }
 
 .input {

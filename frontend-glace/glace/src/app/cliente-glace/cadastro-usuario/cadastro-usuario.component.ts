@@ -152,6 +152,14 @@ export class CadastroUsuarioComponent implements OnInit {
         this.cidades.push({ label: resposta.nome, value: resposta.id });
       });
     }
+    listarCidadeSelecionada(idCidade: number) {
+      this.cidades = [];
+      let id: number = this.formulario.value.estado;
+      this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
+        this.cidades.push({ label: resposta.nome, value: resposta.id });
+        this.formulario.controls.cidade.setValue(idCidade);
+      });
+    }
 
     limparFormulario() {
       this.submitted = false;

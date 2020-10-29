@@ -1,3 +1,8 @@
+.form-local {
+  width: 70%;
+  margin: auto;
+}
+
 .nome-perfil {
   font-family: 'Ruda', sans-serif;
   font-weight: 800 !important;
@@ -6,6 +11,17 @@
   display: flex;
   flex-direction: row-reverse;
   padding-right: 20px;
+}
+
+h4 {
+  font-family: 'Ruda', sans-serif;
+  color: #08074E;
+}
+
+.foto-title {
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  color: #4E4E4E;
 }
 
 .input, textarea {
@@ -28,34 +44,6 @@
   height: 55px;
 }
 
-textarea {
-  resize: vertical;
-}
-
-.no-padding {
-  padding: 0;
-}
-
-.botao {
-  background-color: rgba(255, 153, 0, 1);
-  border-radius: 10px;
-  color: #FFFFFF;
-  font-family: 'Ruda', sans-serif;
-  font-size: 24px;
-  border: none;
-  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
-  padding: 5px 15px 5px 15px;
-}
-
-.botao:hover {
-  background-color: orange;
-}
-
-h4 {
-  font-family: 'Ruda', sans-serif;
-  color: #08074E;
-}
-
 .image-checkbox p {
   font-family: 'Ruda', sans-serif;
   color: #08074E;
@@ -71,10 +59,6 @@ h4 {
   text-align: left;
 }
 
-#filtro-deficiencia {
-  display: flex;
-}
-
 .img-deficiencias {
   width: 40px;
   opacity: 80%;
@@ -87,6 +71,11 @@ h4 {
 
 .text-center {
   padding: 0 !important;
+  max-width: 50%;
+}
+
+.descricao {
+  padding-top: 10px;
 }
 
 .image-checkbox {
@@ -106,13 +95,17 @@ h4 {
   border-color: #f58723;
 }
 
+.img-deficiencias {
+  width: 50px !important;
+  height: 50px !important;
+}
 
 ul {
   list-style-type: none;
-}
-
-li {
-  display: inline-block;
+  padding: 0;
+  text-align: start;
+  display: flex;
+  flex-direction: row;
 }
 
 input[type="checkbox"][id^="myCheckbox"] {
@@ -124,17 +117,13 @@ label {
   padding: 10px;
   display: block;
   position: relative;
-  margin: 10px;
+  margin-right: 10px;
   cursor: pointer;
-  height: 145px;
 }
 
 label:before {
-  background-color: white;
-  color: white;
   content: " ";
   display: block;
-  border-radius: 50%;
   border: 1px solid grey;
   position: absolute;
   top: -5px;
@@ -148,8 +137,6 @@ label:before {
 }
 
 label img {
-  height: 100px;
-  width: 100px;
   transition-duration: 0.2s;
   transform-origin: 50% 50%;
 }
@@ -175,6 +162,38 @@ p {
   color: #08074E;
   font-size: 17px;
   margin-top: 5px;
+}
+
+.checkbox-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.entrar {
+  background-color: rgba(255, 153, 0, 1);
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 24px;
+  border: none;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  padding: 5px 10px 5px 10px;
+  margin-top: 0 !important;
+}
+
+.entrar:hover {
+  transition: 1s;
+  background-color: orange;
+}
+
+.cancelar {
+  font-family: 'Ruda', sans-serif;
+  font-size: 24px;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 1440px) {

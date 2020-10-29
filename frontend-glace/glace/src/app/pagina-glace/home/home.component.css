@@ -85,6 +85,10 @@ span.ng-tns-c57-1.p-dropdown-label.p-inputtext.p-placeholder.ng-star-inserted {
   border: 0;
 }
 
+#__lpform_input_idx_0_icon {
+  display: none;
+}
+
 @media screen and (max-width: 1440px) {
   .pesquisas {
     display: flex;
