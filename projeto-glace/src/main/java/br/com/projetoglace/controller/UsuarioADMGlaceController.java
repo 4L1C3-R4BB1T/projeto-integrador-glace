@@ -19,6 +19,7 @@ import br.com.projetoglace.controller.openapi.UsuarioADMGlaceControllerOpenApi;
 import br.com.projetoglace.dto.UsuarioADMGlaceDTO;
 import br.com.projetoglace.model.UsuarioADMGlace;
 import br.com.projetoglace.request.UsuarioADMGlaceRequest;
+import br.com.projetoglace.security.permissões.CheckSecurity;
 import br.com.projetoglace.service.UsuarioADMGlaceService;
 
 
@@ -33,6 +34,7 @@ public class UsuarioADMGlaceController implements UsuarioADMGlaceControllerOpenA
 	
 		
 	//USUARIO ADMINISTRATIVO
+	
 	@Override
 	@PostMapping
 	public ResponseEntity<?> salvarUsuario (@RequestBody UsuarioADMGlaceRequest usuarioAdmRequest) {
@@ -45,6 +47,7 @@ public class UsuarioADMGlaceController implements UsuarioADMGlaceControllerOpenA
 		}
 	}
 
+	@CheckSecurity.Cliente.PodeEditarPerfil
 	@Override
 	@PutMapping("/{id}")
 	public ResponseEntity<?> atualizarUsuario (@RequestBody UsuarioADMGlace usuario, @PathVariable Long id) {
@@ -57,6 +60,7 @@ public class UsuarioADMGlaceController implements UsuarioADMGlaceControllerOpenA
 		return ResponseEntity.notFound().build();
 	}
 
+	@CheckSecurity.Cliente.PodeExcluirPerfil
 	@Override
 	public ResponseEntity<UsuarioADMGlace> excluirUsuario(@PathVariable Long id) {
 		try {
@@ -68,6 +72,7 @@ public class UsuarioADMGlaceController implements UsuarioADMGlaceControllerOpenA
 		
 	}
 
+	@CheckSecurity.Cliente.PodeVerPerfil
 	@Override
 	@GetMapping ("/{id}")
 	public ResponseEntity<UsuarioADMGlace> buscarUsuario(@PathVariable Long id) {

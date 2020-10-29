@@ -25,6 +25,13 @@ public @interface CheckSecurity {
 				"hasAuthority('UG')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
+		public @interface PodeVerPerfilUsuario {
+		}
+		
+		@PreAuthorize("isAuthenticated() and " + 
+				"hasAuthority('UG')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
 		public @interface PodeExcluirPerfilUsuario {
 		}
 		@PreAuthorize("isAuthenticated() and " + 
@@ -57,6 +64,13 @@ public @interface CheckSecurity {
 
 	// Permissões Cliente
 	public @interface Cliente {
+
+		@PreAuthorize("isAuthenticated() and " + 
+				"hasAuthority('UG')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface PodeVerPerfil {
+		}
 
 		@PreAuthorize("isAuthenticated() and " + 
 				"hasAuthority('CG')")

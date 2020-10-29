@@ -51,6 +51,7 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		return service.listarCliente();
 	}
 
+	
 	@Override
 	@GetMapping("/{id}")
 	public ResponseEntity<ClienteGlace> buscarCliente(@PathVariable Long id) {

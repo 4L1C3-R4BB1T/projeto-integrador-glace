@@ -182,6 +182,13 @@
                             <div *ngIf="formulario.get('senha').errors?.required" class="invalid-feedback">
                                 Senha é obrigatória!
                             </div>
+                            <div *ngIf="formulario.get('senha').errors?.minlength" class="invalid-feedback">
+                                Senha deve ter menos que 6 caracteres!
+                              </div>
+              
+                              <div *ngIf="formulario.get('senha').errors?.maxlength" class="invalid-feedback" >
+                                Senha excedeu a quantidade máxima de 20 caracteres!
+                              </div>
                         </div>
                         <div>
                             <input
