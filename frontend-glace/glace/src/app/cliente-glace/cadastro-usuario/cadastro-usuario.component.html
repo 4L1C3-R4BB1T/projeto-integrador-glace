@@ -104,49 +104,68 @@
               </div>
             </div>
 
-            <div>
-              <input
-                type="text"
-                class="input mt-4 form-control"
-                formControlName="telefone"
-                mask="(00) 00000-0000"
-                placeholder="Telefone"
-                aria-label="Telephone number 10 digits only"
-                [class]="(submitted && formulario.get('telefone').errors) ||
-                (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' :
-                formulario.get('telefone').dirty ? 'is-valid' : '' "
-              />
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <input
+                  type="email"
+                  id="email"
+                  class="input mt-4"
+                  placeholder="E-mail"
+                  formControlName="email"
+                  [class]="(submitted && formulario.get('email').errors) ||
+                  (formulario.get('email').errors && formulario.get('email').dirty) ? 'is-invalid' :
+                  formulario.get('email').dirty ? 'is-valid' : '' "
+                />
 
-              <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
-                Telefone é obrigatório!
+                <div *ngIf="formulario.get('email').errors?.required" class="invalid-feedback">
+                  Email é obrigatório!
+                </div>
               </div>
 
-              <div *ngIf="formulario.get('telefone').errors?.minlength" class="invalid-feedback">
-                Telefone inválido
+              <div class="col-12 col-md-6">
+                <input
+                  type="text"
+                  class="input mt-4 form-control"
+                  formControlName="telefone"
+                  mask="(00) 00000-0000"
+                  placeholder="Telefone"
+                  aria-label="Telephone number 10 digits only"
+                  [class]="(submitted && formulario.get('telefone').errors) ||
+                  (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' :
+                  formulario.get('telefone').dirty ? 'is-valid' : '' "
+                />
+
+                <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
+                  Telefone é obrigatório!
+                </div>
+
+                <div *ngIf="formulario.get('telefone').errors?.minlength" class="invalid-feedback">
+                  Telefone inválido
+                </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-12 col-md-9">
+              <div class="col-12 col-md-6">
                 <input type="text" class="input mt-4" placeholder="Rua" formControlName="rua"/>
               </div>
 
-              <div class="col-12 col-md-3">
+              <div class="col-12 col-md-6">
                 <input type="text" class="input mt-4" placeholder="Número" formControlName="numero"/>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-12 col-md-7">
+              <div class="col-12 col-md-6">
                 <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro"/>
               </div>
 
-              <div class="col-12 col-md-5">
+              <div class="col-12 col-md-6">
                 <div>
-                  <input type="text" class="input mt-4 form-control" 
-                  formControlName="cep" 
-                  mask="00000-000" 
-                  placeholder="Cep" 
+                  <input type="text" class="input mt-4 form-control"
+                  formControlName="cep"
+                  mask="00000-000"
+                  placeholder="Cep"
                   aria-label="cep number 10 digits only">
                 </div>
               </div>
@@ -179,59 +198,44 @@
               </div>
             </div>
 
-            <div>
-              <input
-                type="email"
-                id="email"
-                class="input mt-4"
-                placeholder="E-mail"
-                formControlName="email"
-                [class]="(submitted && formulario.get('email').errors) ||
-                (formulario.get('email').errors && formulario.get('email').dirty) ? 'is-invalid' :
-                formulario.get('email').dirty ? 'is-valid' : '' "
-              />
+            <div class="row">
+              <div class="col-12 col-md-6 ">
+                <input
+                  type="password"
+                  id="senha"
+                  class="input mt-4"
+                  placeholder="Senha"
+                  formControlName="senha"
+                  [class]="(submitted && formulario.get('senha').errors) ||
+                  (formulario.get('senha').errors && formulario.get('senha').dirty) ? 'is-invalid' :
+                  formulario.get('senha').dirty ? 'is-valid' : '' "
+                />
 
-              <div *ngIf="formulario.get('email').errors?.required" class="invalid-feedback">
-                Email é obrigatório!
+                <div *ngIf="formulario.get('senha').errors?.required" class="invalid-feedback">
+                  Senha é obrigatória!
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 ">
+                <input
+                  type="password"
+                  id="confirmarsenha"
+                  class="input mt-4"
+                  placeholder="Confirmar senha"
+                  formControlName="confirmarsenha"
+                  [class]="(submitted && formulario.get('confirmarsenha').errors) ||
+                  (formulario.get('confirmarsenha').errors && formulario.get('confirmarsenha').dirty) ? 'is-invalid' :
+                  formulario.get('confirmarsenha').dirty ? 'is-valid' : '' "
+                />
+
+                <div *ngIf="formulario.get('confirmarsenha').errors?.required" class="invalid-feedback">
+                  Confirmar senha é obrigatório!
+                </div>
               </div>
             </div>
 
-            <div>
-              <input
-                type="password"
-                id="senha"
-                class="input mt-4"
-                placeholder="Senha"
-                formControlName="senha"
-                [class]="(submitted && formulario.get('senha').errors) ||
-                (formulario.get('senha').errors && formulario.get('senha').dirty) ? 'is-invalid' :
-                formulario.get('senha').dirty ? 'is-valid' : '' "
-              />
-
-              <div *ngIf="formulario.get('senha').errors?.required" class="invalid-feedback">
-                Senha é obrigatória!
-              </div>
-            </div>
-
-            <div>
-              <input
-                type="password"
-                id="confirmarsenha"
-                class="input mt-4"
-                placeholder="Confirmar senha"
-                formControlName="confirmarsenha"
-                [class]="(submitted && formulario.get('confirmarsenha').errors) ||
-                (formulario.get('confirmarsenha').errors && formulario.get('confirmarsenha').dirty) ? 'is-invalid' :
-                formulario.get('confirmarsenha').dirty ? 'is-valid' : '' "
-              />
-
-              <div *ngIf="formulario.get('confirmarsenha').errors?.required" class="invalid-feedback">
-                Confirmar senha é obrigatório!
-              </div>
-            </div>
-
-            <button type="submit" class="btn mt-4 mb-2 entrar " 
-            [class]="operacao? 'btn-primary' : 'btn-success'" > 
+            <button type="submit" class="btn mt-4 mb-2 entrar "
+            [class]="operacao? 'btn-primary' : 'btn-success'" >
              {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
           </form>
           <!--FIM FORMULÁRIO-->
