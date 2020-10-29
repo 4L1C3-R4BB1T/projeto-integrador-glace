@@ -3,6 +3,10 @@
   margin: auto;
 }
 
+:host /deep/ .p-inputtext {
+  font-size: 20px;
+}
+
 .input {
   width: 100%;
   height: 55px;
