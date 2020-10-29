@@ -61,6 +61,7 @@ export class CadastroUsuarioComponent implements OnInit {
       this.formulario.controls.cidade.setValue(resposta.endereco.cidade.estado.id);
       this.listarCidadeSelecionada(resposta.endereco.cidade.id);
       this.imagem = resposta.foto.id;
+      this.title.setTitle(`Edição do Perfil cliente: ${this.formulario.value.nome}`)
   });
   }
   public iniciarFormulario() {

@@ -79,7 +79,7 @@ export class HttpService {
     
         if (environment.traceRequest) {
           // tslint:disable-next-line: no-console
-          console.trace('trace');
+         // console.trace('trace');
         }
     
         return this.http
@@ -97,7 +97,7 @@ export class HttpService {
     
       private getDefaultHeader(useFormData: boolean = false) {
         const token: string = localStorage.getItem('token');
-        const headers = new HttpHeaders({'Authorization':'Bearer '+token});
+        const headers = new HttpHeaders({'Authorization':'Bearer '+ token});
     
         return headers;
       }
