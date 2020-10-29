@@ -14,13 +14,13 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink="/quemSomos" routerLinkActive="active">Quem somos</a>
             </li>
-            <!--li class="nav-item">
-                <a class="nav-link" routerLink="/perfil" routerLinkActive="active">Perfil</a>
+            <li *ngIf="service.estaLogado()"class="nav-item">
+                <a class="nav-link" routerLink="/perfilUsuario" routerLinkActive="active">Perfil</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link logout" routerLink="/login" routerLinkActive="active">Logout</a>
-            </li-->
-            <li class="nav-item">
+            <li *ngIf="service.estaLogado()" class="nav-item">
+                <a href="javascript:;" class="nav-link logout" (click)="logout()">Logout</a>
+            </li>
+            <li *ngIf="!service.estaLogado()" class="nav-item">
                 <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a><br>
             </li>
         </ul>
