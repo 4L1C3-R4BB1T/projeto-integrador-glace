@@ -1,22 +1,28 @@
 package br.com.projetoglace.service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.projetoglace.dto.ClienteGlaceDTO;
 import br.com.projetoglace.exception.ClienteNaoEncontradoException;
 import br.com.projetoglace.mapper.ClienteGlaceMapper;
 import br.com.projetoglace.model.ClienteGlace;
+import br.com.projetoglace.model.Grupo;
+import br.com.projetoglace.model.UsuarioADMGlace;
 import br.com.projetoglace.repository.CidadeRepository;
 import br.com.projetoglace.repository.ClienteGlaceRepository;
 import br.com.projetoglace.repository.EstadoRepository;
+import br.com.projetoglace.repository.GrupoRepository;
 import br.com.projetoglace.request.ClienteGlaceRequest;
 
 @Service
@@ -30,14 +36,25 @@ public class ClienteGlaceService {
 	
 	@Autowired
 	private EstadoRepository estadoRepository;
+	@Autowired
+	private GrupoRepository grupoRepository;
 	
 	@Autowired
 	private ClienteGlaceMapper mapper;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Transactional
 	public ClienteGlaceDTO salvarCliente(ClienteGlaceRequest clienteRequest) {
-		ClienteGlace cliente = mapper.requestToModel(clienteRequest);
 		
+		UsuarioADMGlace usuario = new UsuarioADMGlace();
+		Grupo grupo = grupoRepository.findById(2L).get();
+		Set<Grupo> grupos = new HashSet<>();
+	    grupos.add(grupo);
+	    usuario.setGrupos(grupos);
+		
+		ClienteGlace cliente = mapper.requestToModel(clienteRequest);
+		cliente.setSenha(passwordEncoder.encode(clienteRequest.getSenha()));
 		if(cliente.getEndereco().getCidade().getId() == null) {
 			
 //			estadoRepository.findById(cliente.getEndereco().getCidade().getEstado().getId());

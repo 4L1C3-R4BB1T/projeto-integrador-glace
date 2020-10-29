@@ -1,21 +1,27 @@
 package br.com.projetoglace.service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.projetoglace.dto.ParceiroGlaceDTO;
 import br.com.projetoglace.exception.ClienteNaoEncontradoException;
 import br.com.projetoglace.mapper.ParceiroGlaceMapper;
+import br.com.projetoglace.model.Grupo;
 import br.com.projetoglace.model.ParceiroGlace;
+import br.com.projetoglace.model.UsuarioADMGlace;
 import br.com.projetoglace.repository.CidadeRepository;
 import br.com.projetoglace.repository.EstadoRepository;
+import br.com.projetoglace.repository.GrupoRepository;
 import br.com.projetoglace.repository.ParceiroGlaceRepository;
 import br.com.projetoglace.request.ParceiroGlaceRequest;
 
@@ -33,10 +39,23 @@ public class ParceiroGlaceService {
 	
 	@Autowired
 	private ParceiroGlaceMapper mapper;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	@Autowired
+	private GrupoRepository grupoRepository;
 	
 	@Transactional
 	public ParceiroGlaceDTO salvar(ParceiroGlaceRequest parceiroRequest) {
+		
+
+		UsuarioADMGlace usuario = new UsuarioADMGlace();
+		Grupo grupo = grupoRepository.findById(2L).get();
+		Set<Grupo> grupos = new HashSet<>();
+	    grupos.add(grupo);
+	    usuario.setGrupos(grupos);
+	    
 		ParceiroGlace parceiro = mapper.requestToModel(parceiroRequest);
+		parceiro.setSenha(passwordEncoder.encode(parceiroRequest.getSenha()));
 		
 		if(parceiro.getEndereco().getCidade().getId() == null) {
 			estadoRepository.save(parceiro.getEndereco().getCidade().getEstado());
