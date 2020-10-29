@@ -5,9 +5,6 @@ import { AppRoutingModule } from './../app-routing.module';
 import { LoginFormComponent } from './../seguranca/login-form/login-form.component';
 import { NavBarSecundariaComponent } from './../template/nav-bar-secundaria/nav-bar-secundaria.component';
 import { CardPesquisaComponent } from './../estabelecimento-glace/card-pesquisa/card-pesquisa.component';
-import { CardComponent } from './../estabelecimento-glace/card/card.component';
-import { CadastroParceiroComponent } from './../parceiro-glace/cadastro-parceiro/cadastro-parceiro.component';
-import { CadastroLocalComponent } from './../estabelecimento-glace/cadastro-local/cadastro-local.component';
 import { FooterComponent } from './../template/footer/footer.component';
 import { DetalhesLocalComponent } from './../estabelecimento-glace/detalhes-local/detalhes-local.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
@@ -21,7 +18,7 @@ import { NavBarComponent } from '../template/nav-bar/nav-bar.component';
 import { MessageService } from 'primeng/api';
 import { AuthService } from '../seguranca/auth.service';
 import { SegurancaModule } from '../seguranca/seguranca.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -37,7 +34,7 @@ import {InputMaskModule} from 'primeng/inputmask';
 
 @NgModule({
   declarations: [
-    AppComponent,
+   
     HomeComponent,
     PesquisaComponent,
     QuemSomosComponent,
@@ -46,13 +43,11 @@ import {InputMaskModule} from 'primeng/inputmask';
     PerfilUsuarioComponent,
     DetalhesLocalComponent,
     FooterComponent,
-    CadastroLocalComponent,
-    CadastroParceiroComponent,
-    CardComponent,
     CardPesquisaComponent,
     NavBarSecundariaComponent,
     LoginFormComponent,
     NavBarComponent,
+    Title
     
   ],
   imports: [

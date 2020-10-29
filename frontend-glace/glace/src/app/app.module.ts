@@ -2,7 +2,7 @@ import { NavBarComponent } from '../app/template/nav-bar/nav-bar.component';
 import { MessageService } from 'primeng/api';
 import { AuthService } from './seguranca/auth.service';
 import { SegurancaModule } from './seguranca/seguranca.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from "@angular/forms";
@@ -79,12 +79,14 @@ import { NavigationStart } from '@angular/router';
     SegurancaModule,
     BrowserModule,
     AppRoutingModule,
+    ToastModule
     
 
   ],
   providers: [
     AuthService,
-    MessageService 
+    MessageService,
+    Title
   ],
   bootstrap: [AppComponent]
 

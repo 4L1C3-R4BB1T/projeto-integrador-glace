@@ -49,7 +49,7 @@ public class ParceiroGlaceService {
 		
 
 		UsuarioADMGlace usuario = new UsuarioADMGlace();
-		Grupo grupo = grupoRepository.findById(2L).get();
+		Grupo grupo = grupoRepository.findById(1L).get();
 		Set<Grupo> grupos = new HashSet<>();
 	    grupos.add(grupo);
 	    usuario.setGrupos(grupos);

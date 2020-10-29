@@ -215,6 +215,13 @@
                 <div *ngIf="formulario.get('senha').errors?.required" class="invalid-feedback">
                   Senha é obrigatória!
                 </div>
+                <div *ngIf="formulario.get('nome').errors?.minlength" class="invalid-feedback">
+                  Nome deve ter mais que 3 caracteres!
+                </div>
+
+                <div *ngIf="formulario.get('nome').errors?.maxlength" class="invalid-feedback" >
+                  Nome excedeu a quantidade máxima de 50 caracteres!
+                </div>
               </div>
 
               <div class="col-12 col-md-6 ">

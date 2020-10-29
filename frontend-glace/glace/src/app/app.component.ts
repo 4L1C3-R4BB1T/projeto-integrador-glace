@@ -11,5 +11,8 @@ export class AppComponent {
 
   constructor(private router: Router){ }
   
+  get exibirNavBar(){
+    return this.router.url !=='/home';
+  }
   
 }

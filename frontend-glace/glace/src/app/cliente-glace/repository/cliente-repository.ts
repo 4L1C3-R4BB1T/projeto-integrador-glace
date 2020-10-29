@@ -21,15 +21,18 @@ export class ClienteRepository {
     mapperEstado = new EstadoMapper();
     mapperCidade = new CidadeMapper();
     mapperImagem = new ImagemMapper();
+
     constructor(public http: BaseHttpService) { }
 
     getClienteById(id: number): Observable<ClienteModel> {
+        
         return this.http
             .getAll<ClienteModel>(`${environment.URLSERVIDOR}cliente/${id}`)
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
 
     getAllClientes(): Observable<ClienteModel> {
+        
         return this.http
             .getAll<ClienteEntity[]>(`${environment.URLSERVIDOR}cliente`)
             .pipe(mergeMap((x) => x.data))
@@ -37,25 +40,37 @@ export class ClienteRepository {
     }
 
     getAllEstados(): Observable<EstadoModel> {
+        
         return this.http
             .getAll<EstadoEntity[]>(`${environment.URLSERVIDOR}estado`)
             .pipe(mergeMap((x) => x.data))
             .pipe(map((x) => this.mapperEstado.mapFrom(x)));
     }
-
+    
     getAllCidadesByEstado(id: number): Observable<CidadeModel> {
+        
         return this.http
             .getAll<CidadeEntity[]>(`${environment.URLSERVIDOR}estado/${id}/cidades`)
             .pipe(mergeMap((x) => x.data))
             .pipe(map((x) => this.mapperCidade.mapFrom(x)));
     }
- 
+
     postCliente(param: ClienteModel) {
+        
         return this.http
             .post<ClienteEntity>(`${environment.URLSERVIDOR}cliente`, this.mapper.mapTo(param))
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
+
+    postImagem(param: any) {
+        
+        return this.http
+            .post<ImagemEntity>(`${environment.URLSERVIDOR}imagem`, param)
+            .pipe(map((x) => this.mapperImagem.mapFrom(x.data)));
+    }
+
     putCliente(param: ClienteModel) {
+        
         return this.http
             .put<void>(
                 `${environment.URLSERVIDOR}cliente/${param.id}`,
@@ -65,35 +80,9 @@ export class ClienteRepository {
     }
 
     deleteCliente(id: number): Observable<void> {
+        
         return this.http
             .delete<void>(`${environment.URLSERVIDOR}cliente/${id}`, id)
             .pipe(map((x) => x.data));
     }
-
-    postImagem(param: any) {
-        return this.http
-            .post<ImagemEntity>(`${environment.URLSERVIDOR}imagem`, param)
-            .pipe(map((x) => this.mapperImagem.mapFrom(x.data)));
-    }
-    getImagemById(id: number): Observable<ImagemModel> {
-        return this.http
-            .getAll<ImagemModel>(`${environment.URLSERVIDOR}imagem/${id}`)
-            .pipe(map((x) => this.mapper.mapFrom(x.data)));
-    }
-    putImageById(param: ImagemModel) {
-        return this.http
-            .put<void>(
-                `${environment.URLSERVIDOR}imagem/${param.id}`,
-                this.mapper.mapTo(param)
-            )
-            .pipe(map((x) => x.data));
-    }
-
-    deleteImagem(id: number): Observable<void> {
-        return this.http
-            .delete<void>(`${environment.URLSERVIDOR}imagem/${id}`, id)
-            .pipe(map((x) => x.data));
-    }
-
-    
 }

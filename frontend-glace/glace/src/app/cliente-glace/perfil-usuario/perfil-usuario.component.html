@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="modal-body">
-                  <form [formGroup]="formulario" (ngSubmit)="atualizar()">
+                  <form [formGroup]="formulario" (ngSubmit)="salvarOuAtualizar()">
                     <div class="row">
                       <div class="col-12">
                         <input 
@@ -141,8 +141,10 @@
                         formControlName="confirmarsenha" />
                     </div>
                     <div class="float-right mt-4">
-                      <button type="button" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
-                      <button type="submit" class="btn botao">Atualizar</button>
+                      <button type="submit" class="btn botao mr-2" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn mr-2 botao "
+                      [class]="operacao? 'btn-primary' : 'btn-success'" >
+                       {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
                     </div>
                   </form>
                 </div>
