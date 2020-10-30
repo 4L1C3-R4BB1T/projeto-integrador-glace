@@ -2,19 +2,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { NgxMaskModule } from 'ngx-mask';
 import { DropdownModule } from 'primeng/dropdown';
 import { AppRoutingModule } from './../app-routing.module';
-import { LoginFormComponent } from './../seguranca/login-form/login-form.component';
-import { NavBarSecundariaComponent } from './../template/nav-bar-secundaria/nav-bar-secundaria.component';
-import { CardPesquisaComponent } from './../estabelecimento-glace/card-pesquisa/card-pesquisa.component';
-import { FooterComponent } from './../template/footer/footer.component';
-import { DetalhesLocalComponent } from './../estabelecimento-glace/detalhes-local/detalhes-local.component';
 import { PerfilParceiroComponent } from './../parceiro-glace/perfil-parceiro/perfil-parceiro.component';
-import { QuemSomosComponent } from './../pagina-glace/quem-somos/quem-somos.component';
-import { PesquisaComponent } from './../pagina-glace/pesquisa/pesquisa.component';
-import { HomeComponent } from './../pagina-glace/home/home.component';
-import { AppComponent } from './../app.component';
-import { NavBarComponent } from '../template/nav-bar/nav-bar.component';
-import { MessageService } from 'primeng/api';
-import { AuthService } from '../seguranca/auth.service';
 import { SegurancaModule } from '../seguranca/seguranca.module';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -54,8 +42,22 @@ import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro
     InputMaskModule,
     FileUploadModule,
     TemplateModule,
+    InputMaskModule,
+    NgxMaskModule.forRoot(),
+    InputTextModule,
     TableModule,
     PanelModule,
+    ButtonModule,
+    MessageModule,
+    MessagesModule,
+    InputMaskModule,
+    NgxMaskModule.forRoot(),
+    FileUploadModule,
+    SegurancaModule,
+    BrowserModule,
+    AppRoutingModule,
+    ToastModule,
+    TemplateModule,
   ],
   providers: [
   ],
