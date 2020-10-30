@@ -12,7 +12,6 @@
           <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
             <!--FOTO PERFIL-->
             <div class="form-group div-uploads" >
-              <label class="foto-title" for="nome">Foto</label>
               <p-fileUpload #upload
                 name="demo[]"
                 chooseLabel="Escolher uma foto"
@@ -87,7 +86,29 @@
                 </div>
               </div>
 
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-3">
+                <input
+                  type="text"
+                  class="input mt-4 form-control"
+                  formControlName="telefone"
+                  mask="(00) 00000-0000"
+                  placeholder="Telefone"
+                  aria-label="Telephone number 10 digits only"
+                  [class]="(submitted && formulario.get('telefone').errors) ||
+                  (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' :
+                  formulario.get('telefone').dirty ? 'is-valid' : '' "
+                />
+
+                <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
+                  Telefone é obrigatório!
+                </div>
+
+                <div *ngIf="formulario.get('telefone').errors?.minlength" class="invalid-feedback">
+                  Telefone inválido
+                </div>
+              </div>
+
+              <div class="col-12 col-md-3">
                 <input
                   type="date"
                   id="dataNasc"
@@ -123,25 +144,7 @@
               </div>
 
               <div class="col-12 col-md-6">
-                <input
-                  type="text"
-                  class="input mt-4 form-control"
-                  formControlName="telefone"
-                  mask="(00) 00000-0000"
-                  placeholder="Telefone"
-                  aria-label="Telephone number 10 digits only"
-                  [class]="(submitted && formulario.get('telefone').errors) ||
-                  (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' :
-                  formulario.get('telefone').dirty ? 'is-valid' : '' "
-                />
-
-                <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
-                  Telefone é obrigatório!
-                </div>
-
-                <div *ngIf="formulario.get('telefone').errors?.minlength" class="invalid-feedback">
-                  Telefone inválido
-                </div>
+                <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro"/>
               </div>
             </div>
 
@@ -150,22 +153,16 @@
                 <input type="text" class="input mt-4" placeholder="Rua" formControlName="rua"/>
               </div>
 
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-3">
                 <input type="text" class="input mt-4" placeholder="Número" formControlName="numero"/>
               </div>
-            </div>
 
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro"/>
-              </div>
-
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-3">
                 <div>
                   <input type="text" class="input mt-4 form-control"
                   formControlName="cep"
                   mask="00000-000"
-                  placeholder="Cep"
+                  placeholder="CEP"
                   aria-label="cep number 10 digits only">
                 </div>
               </div>

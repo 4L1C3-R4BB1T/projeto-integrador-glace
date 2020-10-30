@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ParceiroModel } from '../model/parceiro-model';
 import { ParceiroRepository } from '../repository/parceiro-repository';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -12,14 +11,18 @@ import { Message } from 'primeng/api';
 })
 export class PerfilParceiroComponent implements OnInit {
 
-  estados: any[] = [];
-  cidades: any[] = [];
-  public submitted: boolean = false;
-
-  mensagem: Message[] = [];
-  operacao: boolean = true;
+  @ViewChild('upload') upload: ElementRef;
 
   public formulario: FormGroup;
+
+  public submitted: boolean = false;
+
+  operacao: boolean = true;
+
+  uploadedFiles: any[] = [];
+  estados: any[] = [];
+  cidades: any[] = [];
+  mensagem: Message[] = [];
 
   constructor(
     private repository: ParceiroRepository,
@@ -50,12 +53,14 @@ export class PerfilParceiroComponent implements OnInit {
   }
 
   cadastrar() {
+    console.log("aqui");
     this.submitted = true;
     if (this.formulario.invalid) {
       return;
     }
+
     this.salvar();
-  };
+  }
 
   atualizar() {
     this.submitted = true;
@@ -63,7 +68,8 @@ export class PerfilParceiroComponent implements OnInit {
       return;
     }
     this.salvar();
-  };
+  }
+
   salvar() {
     const dados = {
       id: this.formulario.value.id,
@@ -143,6 +149,15 @@ export class PerfilParceiroComponent implements OnInit {
     this.repository.getAllEstados().subscribe(resposta => {
       this.estados.push({ label: resposta.nome, value: resposta.id });
     });
+  }
+
+  enviarImagem(evento){
+    this.uploadedFiles = [];
+
+    for(let file of evento.files) {
+      this.uploadedFiles.push(file);
+    }
+
   }
 
 }

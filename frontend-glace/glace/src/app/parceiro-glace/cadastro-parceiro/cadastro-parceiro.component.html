@@ -1,227 +1,329 @@
 <div class="container-fluid">
-    <div id="container">
+  <div id="container">
 
-        <app-nav-bar-secundaria></app-nav-bar-secundaria>
+    <app-nav-bar-secundaria></app-nav-bar-secundaria>
 
-        <div class="content mt-4">
-            <div class="pt-5 pb-5">
+    <div class="content mt-4">
+      <div class="pt-5 pb-5">
 
-                <!--FORMULÁRIO DE PARCEIRO-->
-                <div id="formAdmin">
-                    <!--FORMULÁRIO-->
-                    <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
-                         <!--FOTO PERFIL-->
-                         <div class="form-group" >
-                            <label class="foto-title" for="nome">Foto</label>
-                            <p-fileUpload #upload
-                                name="demo[]"
-                                chooseLabel="Escolher uma foto"
-                                [showUploadButton]="false"
-                                [showCancelButton]="false"
-                                (onSelect)="enviarImagem($event)"
-                                [multiple]="false"
-                                accept="image/*"
-                                maxFileSize="1000000">
-                        </p-fileUpload>
-                    </div>
-                        <div>
-                            <input
-                                type="text"
-                                class="input mt-4"
-                                placeholder="Razão social"
-                                formControlName="razao"
-                                [class]="(submitted && formulario.get('razao').errors) ||
-                                (formulario.get('razao').errors && formulario.get('razao').dirty) ? 'is-invalid' :
-                                formulario.get('razao').dirty ? 'is-valid' : '' " />
-                            <div *ngIf="formulario.get('razao').errors?.required" class="invalid-feedback">
-                                Razão Social é obrigatório!
-                            </div>
-                            <div *ngIf="formulario.get('razao').errors?.minlength" class="invalid-feedback">
-                                Razão Social deve ter mais que 3 caracteres!
-                            </div>
-                            <div *ngIf="formulario.get('razao').errors?.maxlength" class="invalid-feedback">
-                                Razão Social excedeu a quantidade máxima de 150 caracteres!
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <input type="text" class="input mt-4 form-control" placeholder="CNPJ"
-                                formControlName="cnpj" mask="00.000.000/0000-00"
-                                 [class]="(submitted && formulario.get('cnpj').errors) ||
-                                     (formulario.get('cnpj').errors && formulario.get('cnpj').dirty) ? 'is-invalid' :
-                                     formulario.get('cnpj').dirty ? 'is-valid' : '' " />
-                            <div *ngIf="formulario.get('cnpj').errors?.required" class="invalid-feedback">
-                                CNPJ é obrigatório!
-                            </div>
-                            <div *ngIf="formulario.get('cnpj').errors?.minlength" class="invalid-feedback">
-                                CNPJ inválido
-                            </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                    <input type="text"
-                                    class="input mt-4 form-control"
-                                    mask="(000) 00000-9999"
-                                    placeholder="Telefone"
-                                    formControlName="telefone"
-                                    aria-label="Telephone number 10 digits only"
-                                    [class]="(submitted && formulario.get('telefone').errors) ||
-                                (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' :
-                                formulario.get('telefone').dirty ? 'is-valid' : '' " />
-                            <div *ngIf="formulario.get('telefone').errors?.required" class="invalid-feedback">
-                                Telefone é obrigatório!
-                            </div>
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-9">
-                                <input type="text" class="input mt-4" placeholder="Rua" formControlName="rua" [class]="(submitted && formulario.get('rua').errors) ||
-                                (formulario.get('rua').errors && formulario.get('rua').dirty) ? 'is-invalid' :
-                                formulario.get('rua').dirty ? 'is-valid' : '' " />
-                            <div *ngIf="formulario.get('rua').errors?.required" class="invalid-feedback">
-                                Rua é obrigatório!
-                            </div>
-                            </div>
-                            <div class="col-12 col-md-3">
-                                <input type="text" class="input mt-4" placeholder="Número" formControlName="numero" [class]="(submitted && formulario.get('rua').errors) ||
-                                (formulario.get('numero').errors && formulario.get('numero').dirty) ? 'is-invalid' :
-                                formulario.get('numero').dirty ? 'is-valid' : '' " />
-                            <div *ngIf="formulario.get('numero').errors?.required" class="invalid-feedback">
-                                Número é obrigatório!
-                            </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-7">
-                                <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro"[class]="(submitted && formulario.get('bairro').errors) ||
-                                (formulario.get('bairro').errors && formulario.get('bairro').dirty) ? 'is-invalid' :
-                                formulario.get('bairro').dirty ? 'is-valid' : '' " />
-                            <div *ngIf="formulario.get('bairro').errors?.required" class="invalid-feedback">
-                                Bairro é obrigatório!
-                            </div>
-                            </div>
-                            <div class="col-12 col-md-5">
-                                <input type="text" class="input mt-4 form-control" placeholder="CEP"
-                                formControlName="cep" mask="00000.000"
-                                 [class]="(submitted && formulario.get('cep').errors) ||
-                                     (formulario.get('cep').errors && formulario.get('cep').dirty) ? 'is-invalid' :
-                                     formulario.get('cep').dirty ? 'is-valid' : '' " />
-                            <div *ngIf="formulario.get('cep').errors?.required" class="invalid-feedback">
-                                Cep é obrigatório!
-                            </div>
-                            <div *ngIf="formulario.get('cep').errors?.minlength" class="invalid-feedback">
-                                Cep inválido
-                            </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-md-6 ">
-                                <div>
-                                    <p-dropdown
-                                        placeholder="Estado"
-                                        [options]="estados"
-                                        class="mt-4 input no-padding form-control"
-                                        formControlName="estado"
-                                        [filter]="true"
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                        (onChange)="listarCidades()"
-                                        [class]="(submitted && formulario.get('estado').errors) ||
-                                (formulario.get('estado').errors && formulario.get('estado').dirty) ? 'is-invalid' :
-                                formulario.get('estado').dirty ? 'is-valid' : '' " >
-                                    </p-dropdown>
-                                    <div *ngIf="formulario.get('estado').errors?.required" class="invalid-feedback">
-                                        Estado é obrigatório!
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div>
-                                    <p-dropdown
-                                        class="mt-4 input no-padding form-control"
-                                        placeholder="Cidade"
-                                        [options]="cidades"
-                                        formControlName="cidade"
-                                        [filter]="true"
-                                        [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                        [class]="(submitted && formulario.get('cidade').errors) ||
-                                        (formulario.get('cidade').errors && formulario.get('cidade').dirty) ? 'is-invalid' :
-                                        formulario.get('cidade').dirty ? 'is-valid' : '' " >
-                                    </p-dropdown>
-                                    <div *ngIf="formulario.get('estado').errors?.required" class="invalid-feedback">
-                                        Cidade é obrigatório!
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <input
-                                type="email"
-                                id="email"
-                                class="input mt-4"
-                                placeholder="E-mail"
-                                formControlName="email"
-                                [class]="(submitted && formulario.get('email').errors) ||
-                                (formulario.get('email').errors && formulario.get('email').dirty) ? 'is-invalid' :
-                                formulario.get('email').dirty ? 'is-valid' : '' "
-                            />
-                            <div *ngIf="formulario.get('email').errors?.required" class="invalid-feedback">
-                                Email é obrigatório!
-                            </div>
-                        </div>
-                        <div>
-                            <input
-                                type="password"
-                                id="senha"
-                                class="input mt-4"
-                                placeholder="Senha"
-                                formControlName="senha"
-                                [class]="(submitted && formulario.get('senha').errors) ||
-                                (formulario.get('senha').errors && formulario.get('senha').dirty) ? 'is-invalid' :
-                                formulario.get('senha').dirty ? 'is-valid' : '' "
-                            />
-                            <div *ngIf="formulario.get('senha').errors?.required" class="invalid-feedback">
-                                Senha é obrigatória!
-                            </div>
-                            <div *ngIf="formulario.get('senha').errors?.minlength" class="invalid-feedback">
-                                Senha deve ter menos que 6 caracteres!
-                              </div>
-              
-                              <div *ngIf="formulario.get('senha').errors?.maxlength" class="invalid-feedback" >
-                                Senha excedeu a quantidade máxima de 20 caracteres!
-                              </div>
-                        </div>
-                        <div>
-                            <input
-                                type="password"
-                                id="confirmarsenha"
-                                class="input mt-4"
-                                placeholder="Confirmar senha"
-                                formControlName="confirmarsenha"
-                                [class]="(submitted && formulario.get('confirmarsenha').errors) ||
-                                (formulario.get('confirmarsenha').errors && formulario.get('confirmarsenha').dirty) ? 'is-invalid' :
-                                formulario.get('confirmarsenha').dirty ? 'is-valid' : '' "
-                            />
-                            <div *ngIf="formulario.get('confirmarsenha').errors?.required" class="invalid-feedback">
-                                Confirmar senha é obrigatório!
-                            </div>
-                        </div>
-                        <button type="submit" class="btn mt-4 mb-2 entrar">{{ operacao ? "Cadastrar" : "Atualizar" }}</button>
-                    </form>
-                    <!--FIM FORMULÁRIO-->
-                </div>
-                <!--FIM FORMULÁRIO DE PARCEIRO-->
-
-                <p class="mt-4 cadastro"><a routerLink="/login"><i class="fas fa-arrow-left mr-2"></i>Voltar para
-                        login</a></p>
-
-                <p-messages [(value)]="mensagem"
-                    [enableService]="false"
-                    [showTransitionOptions]="'1000ms'"
-                    [hideTransitionOptions]="'1000ms'">
-                </p-messages>
-
+        <!--FORMULÁRIO DE PARCEIRO-->
+        <div id="formAdmin">
+          <!--FORMULÁRIO-->
+          <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
+            <!--FOTO PERFIL-->
+            <div class="form-group" >
+              <p-fileUpload #upload
+                name="demo[]"
+                chooseLabel="Escolher uma foto"
+                [showUploadButton]="false"
+                [showCancelButton]="false"
+                (onSelect)="enviarImagem($event)"
+                [multiple]="false"
+                accept="image/*"
+                maxFileSize="1000000">
+              </p-fileUpload>
             </div>
-        </div>
 
+            <div>
+              <input
+                type="text"
+                class="input mt-4"
+                placeholder="Razão social"
+                formControlName="razao"
+                [class]="(submitted && formulario.get('razao').errors) ||
+                (formulario.get('razao').errors && formulario.get('razao').dirty) ? 'is-invalid' :
+                formulario.get('razao').dirty ? 'is-valid' : '' "
+              />
+
+              <div
+                *ngIf="formulario.get('razao').errors?.required"
+                class="invalid-feedback">
+                Razão Social é obrigatório!
+              </div>
+
+              <div
+                *ngIf="formulario.get('razao').errors?.minlength"
+                class="invalid-feedback">
+                Razão Social deve ter mais que 3 caracteres!
+              </div>
+
+              <div
+                *ngIf="formulario.get('razao').errors?.maxlength"
+                class="invalid-feedback">
+                Razão Social excedeu a quantidade máxima de 150 caracteres!
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <input
+                  type="email"
+                  id="email"
+                  class="input mt-4"
+                  placeholder="E-mail"
+                  formControlName="email"
+                  [class]="(submitted && formulario.get('email').errors) ||
+                  (formulario.get('email').errors && formulario.get('email').dirty) ? 'is-invalid' :
+                  formulario.get('email').dirty ? 'is-valid' : '' "
+                />
+
+                <div
+                  *ngIf="formulario.get('email').errors?.required"
+                  class="invalid-feedback">
+                  Email é obrigatório!
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <input
+                  type="text"
+                  class="input mt-4 form-control"
+                  mask="(000) 00000-9999"
+                  placeholder="Telefone"
+                  formControlName="telefone"
+                  aria-label="Telephone number 10 digits only"
+                  [class]="(submitted && formulario.get('telefone').errors) ||
+                  (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' :
+                  formulario.get('telefone').dirty ? 'is-valid' : '' "
+                />
+
+                <div
+                  *ngIf="formulario.get('telefone').errors?.required"
+                  class="invalid-feedback">
+                  Telefone é obrigatório!
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <input
+                  type="text"
+                  class="input mt-4 form-control"
+                  placeholder="CNPJ"
+                  formControlName="cnpj"
+                  mask="00.000.000/0000-00"
+                  [class]="(submitted && formulario.get('cnpj').errors) ||
+                  (formulario.get('cnpj').errors && formulario.get('cnpj').dirty) ? 'is-invalid' :
+                  formulario.get('cnpj').dirty ? 'is-valid' : '' "
+                />
+
+                <div
+                  *ngIf="formulario.get('cnpj').errors?.required"
+                  class="invalid-feedback">
+                  CNPJ é obrigatório!
+                </div>
+
+                <div
+                  *ngIf="formulario.get('cnpj').errors?.minlength"
+                  class="invalid-feedback">
+                  CNPJ inválido
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <input
+                  type="text"
+                  class="input mt-4"
+                  placeholder="Bairro"
+                  formControlName="bairro"
+                  [class]="(submitted && formulario.get('bairro').errors) ||
+                  (formulario.get('bairro').errors && formulario.get('bairro').dirty) ? 'is-invalid' :
+                  formulario.get('bairro').dirty ? 'is-valid' : '' "
+                />
+
+                <div
+                  *ngIf="formulario.get('bairro').errors?.required"
+                  class="invalid-feedback">
+                  Bairro é obrigatório!
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <input
+                  type="text"
+                  class="input mt-4"
+                  placeholder="Rua"
+                  formControlName="rua"
+                  [class]="(submitted && formulario.get('rua').errors) ||
+                  (formulario.get('rua').errors && formulario.get('rua').dirty) ? 'is-invalid' :
+                  formulario.get('rua').dirty ? 'is-valid' : '' "
+                />
+
+                <div
+                  *ngIf="formulario.get('rua').errors?.required"
+                  class="invalid-feedback">
+                  Rua é obrigatório!
+                </div>
+              </div>
+
+              <div class="col-12 col-md-3">
+                <input
+                  type="text"
+                  class="input mt-4"
+                  placeholder="Número"
+                  formControlName="numero"
+                  [class]="(submitted && formulario.get('rua').errors) ||
+                  (formulario.get('numero').errors && formulario.get('numero').dirty) ? 'is-invalid' :
+                  formulario.get('numero').dirty ? 'is-valid' : '' "
+                />
+
+                <div
+                  *ngIf="formulario.get('numero').errors?.required"
+                  class="invalid-feedback">
+                  Número é obrigatório!
+                </div>
+              </div>
+
+              <div class="col-12 col-md-3">
+                <input
+                  type="text"
+                  class="input mt-4 form-control"
+                  placeholder="CEP"
+                  formControlName="cep"
+                  mask="00000.000"
+                  [class]="(submitted && formulario.get('cep').errors) ||
+                  (formulario.get('cep').errors && formulario.get('cep').dirty) ? 'is-invalid' :
+                  formulario.get('cep').dirty ? 'is-valid' : '' "
+                />
+
+                <div
+                  *ngIf="formulario.get('cep').errors?.required"
+                  class="invalid-feedback">
+                  Cep é obrigatório!
+                </div>
+
+                <div
+                  *ngIf="formulario.get('cep').errors?.minlength"
+                  class="invalid-feedback">
+                  Cep inválido
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-6 ">
+                <div>
+                  <p-dropdown
+                    placeholder="Estado"
+                    [options]="estados"
+                    class="mt-4 input no-padding form-control"
+                    formControlName="estado"
+                    [filter]="true"
+                    [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                    (onChange)="listarCidades()"
+                    [class]="(submitted && formulario.get('estado').errors) ||
+                    (formulario.get('estado').errors && formulario.get('estado').dirty) ? 'is-invalid' :
+                    formulario.get('estado').dirty ? 'is-valid' : '' " >
+                  </p-dropdown>
+
+                  <div
+                    *ngIf="formulario.get('estado').errors?.required"
+                    class="invalid-feedback">
+                    Estado é obrigatório!
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div>
+                  <p-dropdown
+                    class="mt-4 input no-padding form-control"
+                    placeholder="Cidade"
+                    [options]="cidades"
+                    formControlName="cidade"
+                    [filter]="true"
+                    [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                    [class]="(submitted && formulario.get('cidade').errors) ||
+                    (formulario.get('cidade').errors && formulario.get('cidade').dirty) ? 'is-invalid' :
+                    formulario.get('cidade').dirty ? 'is-valid' : '' " >
+                  </p-dropdown>
+
+                  <div
+                    *ngIf="formulario.get('estado').errors?.required"
+                    class="invalid-feedback">
+                    Cidade é obrigatório!
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <input
+                  type="password"
+                  id="senha"
+                  class="input mt-4"
+                  placeholder="Senha"
+                  formControlName="senha"
+                  [class]="(submitted && formulario.get('senha').errors) ||
+                  (formulario.get('senha').errors && formulario.get('senha').dirty) ? 'is-invalid' :
+                  formulario.get('senha').dirty ? 'is-valid' : '' "
+                />
+
+                <div
+                  *ngIf="formulario.get('senha').errors?.required"
+                  class="invalid-feedback">
+                  Senha é obrigatória!
+                </div>
+
+                <div
+                  *ngIf="formulario.get('senha').errors?.minlength"
+                  class="invalid-feedback">
+                  Senha deve ter menos que 6 caracteres!
+                </div>
+
+                <div
+                  *ngIf="formulario.get('senha').errors?.maxlength"
+                  class="invalid-feedback" >
+                  Senha excedeu a quantidade máxima de 20 caracteres!
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <input
+                  type="password"
+                  id="confirmarsenha"
+                  class="input mt-4"
+                  placeholder="Confirmar senha"
+                  formControlName="confirmarsenha"
+                  [class]="(submitted && formulario.get('confirmarsenha').errors) ||
+                  (formulario.get('confirmarsenha').errors && formulario.get('confirmarsenha').dirty) ? 'is-invalid' :
+                  formulario.get('confirmarsenha').dirty ? 'is-valid' : '' "
+                />
+
+                <div
+                  *ngIf="formulario.get('confirmarsenha').errors?.required"
+                  class="invalid-feedback">
+                  Confirmar senha é obrigatório!
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn mt-4 mb-2 entrar">
+              {{ operacao ? "Cadastrar" : "Atualizar" }}
+            </button>
+          </form>
+          <!--FIM FORMULÁRIO-->
+        </div>
+        <!--FIM FORMULÁRIO DE PARCEIRO-->
+
+        <p class="mt-4 cadastro">
+          <a routerLink="/login">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Voltar para login
+          </a>
+        </p>
+
+        <p-messages
+          [(value)]="mensagem"
+          [enableService]="false"
+          [showTransitionOptions]="'1000ms'"
+          [hideTransitionOptions]="'1000ms'">
+        </p-messages>
+      </div>
     </div>
+  </div>
 </div>

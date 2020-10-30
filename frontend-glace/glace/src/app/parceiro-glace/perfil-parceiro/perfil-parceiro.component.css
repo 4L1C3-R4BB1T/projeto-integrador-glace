@@ -36,9 +36,24 @@
   align-items: center;
 }
 
+.circulo2 {
+  border: 5px solid #FF9900;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .img-circulo1 {
   font-size: 60px;
   color: #ADB8D7;
+}
+
+.img-circulo2 {
+  font-size: 60px;
+  color: #FF9900;
 }
 
 .button {
@@ -63,7 +78,17 @@
   background-color: none;
 }
 
-.title-button1:hover {
+.title-button2 {
+  font-weight: bold;
+  color: #FF9900;
+  width: 100%;
+  font-family: 'Ruda', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  border: none;
+}
+
+.title-button1:hover, .title-button2:hover {
   transition: 1s;
   color: #3E3E3E;
 }
@@ -75,10 +100,6 @@
   margin-top: 20px;
 }
 
-.modal {
-  padding: 0;
-}
-
 .modal-title {
   color: #3E3E3E;
   font-family: 'Ruda', sans-serif;
@@ -86,18 +107,8 @@
   font-weight: bold;
 }
 
-.fechar-button {
-  background-color: #908F8E;
-  color: #FFFFFF;
-}
-
-.salvar-mudancas-button {
-  background-color: #FF9900;
-  color: #FFFFFF;
-}
-
 .modal-dialog.modal-dialog-centered {
-  max-width: 800px;
+  max-width: 80%;
 }
 
 .modal-content {
@@ -118,7 +129,7 @@ background: rgba(255, 255, 255);
   padding-left: 20px;
 }
 
-.input:hover {
+.input:hover, textarea:hover {
   transition: 0.5s;
   border-color:#f58723;
 }
@@ -131,6 +142,20 @@ background: rgba(255, 255, 255);
 .is-valid {
   border-color: green;
   background: #ebfaeb;
+}
+
+:host /deep/ .p-inputtext {
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding: 13px 0 0 0;
+}
+
+:host /deep/ .p-fileupload-buttonbar {
+  border-radius: 10px 10px 0 0;
+}
+
+:host /deep/ .p-fileupload-content {
+  border-radius: 0 0 10px 10px;
 }
 
 @media screen and (max-width: 1440px) {
@@ -173,4 +198,169 @@ background: rgba(255, 255, 255);
     padding-left: 10px;
     margin-top: 8px;
   }
+}
+
+
+
+textarea {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #F1E9E9;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.image-checkbox p {
+  font-family: 'Ruda', sans-serif;
+  color: #08074E;
+  font-size: 17px;
+}
+
+.title-filtros {
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding: 20px;
+  color: #4E4E4E;
+  margin: 0;
+  text-align: left;
+}
+
+.img-deficiencias {
+  width: 40px;
+  opacity: 80%;
+}
+
+.img-deficiencias:hover {
+  transition: 0.5s;
+  opacity: 100%;
+}
+
+.text-center {
+  padding: 0 !important;
+  max-width: 50%;
+}
+
+.descricao {
+  padding-top: 10px;
+}
+
+.image-checkbox {
+  cursor: pointer;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 4px solid transparent;
+  outline: 0;
+}
+
+.image-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.image-checkbox-checked {
+  border-color: #f58723;
+}
+
+.img-deficiencias {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+}
+
+input[type="checkbox"][id^="myCheckbox"] {
+  display: none;
+}
+
+label {
+  border: 1px solid #fff;
+  padding: 10px;
+  display: block;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+label:before {
+  content: " ";
+  display: block;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 22.5px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+label img {
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked + label {
+  border-color: #ddd;
+}
+
+:checked + label:before {
+  content: "✓";
+  background-color: grey;
+  transform: scale(1);
+}
+
+:checked + label img {
+  transform: scale(0.9);
+  /* box-shadow: 0 0 5px #333; */
+  z-index: -1;
+}
+
+p {
+  font-family: 'Ruda', sans-serif;
+  color: #08074E;
+  font-size: 17px;
+  margin-top: 5px;
+}
+
+.checkbox-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cadastrar {
+  background-color: rgba(255, 153, 0, 1);
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 24px;
+  border: none;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  padding: 5px 10px 5px 10px;
+  margin-top: 0 !important;
+}
+
+.cadastrar:hover {
+  transition: 1s;
+  background-color: orange;
+}
+
+.cancelar {
+  font-family: 'Ruda', sans-serif;
+  font-size: 24px;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  margin-right: 10px;
 }

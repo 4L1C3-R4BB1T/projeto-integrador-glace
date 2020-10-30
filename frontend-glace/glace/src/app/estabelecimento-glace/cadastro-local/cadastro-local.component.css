@@ -1,6 +1,20 @@
 .form-local {
-  width: 70%;
+  width: 80%;
   margin: auto;
+}
+
+:host /deep/ .p-inputtext {
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding: 13px 0 0 0;
+}
+
+:host /deep/ .p-fileupload-buttonbar {
+  border-radius: 10px 10px 0 0;
+}
+
+:host /deep/ .p-fileupload-content {
+  border-radius: 0 0 10px 10px;
 }
 
 .nome-perfil {
@@ -15,13 +29,9 @@
 
 h4 {
   font-family: 'Ruda', sans-serif;
+  font-size: 30px;
   color: #08074E;
-}
-
-.foto-title {
-  font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  color: #4E4E4E;
+  margin-bottom: 30px;
 }
 
 .input, textarea {

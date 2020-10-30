@@ -10,10 +10,10 @@
     </div>
 
     <div class="row botoes">
-      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="botoes-perfil">
           <div class="circulo1">
-            <i class="fas fa-user-edit img-circulo1"></i>
+            <i class="fas fa-pen img-circulo1"></i>
           </div>
 
           <button class="button">
@@ -21,7 +21,7 @@
             <!-- MODAL -->
             <!-- Botão para acionar modal -->
               <button type="button" class="btn title-button1" data-toggle="modal" data-target="#ExemploModalCentralizado">
-                Editar dados do estabelecimento
+                Cadastrar Estabelecimento
               </button>
 
             <!-- Modal -->
@@ -29,44 +29,79 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="TituloModalCentralizado">Perfil</h5>
+                      <h5 class="modal-title" id="TituloModalCentralizado">Cadastrar estabelecimento</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
 
                     <div class="modal-body">
-                      <form [formGroup]="formulario" (ngSubmit)="atualizar()">
+                      <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
+                        <div class="form-group div-uploads" >
+                          <p-fileUpload #upload
+                            name="demo[]"
+                            chooseLabel="Escolher uma foto"
+                            [showUploadButton]="false"
+                            [showCancelButton]="false"
+                            (onSelect)="enviarImagem($event)"
+                            [multiple]="true"
+                            accept="image/*"
+                            maxFileSize="1000000">
+                          </p-fileUpload>
+                        </div>
+
                         <div class="row">
-                          <div class="col-12 col-md-12">
-                            <input type="text"
-                            class="input mt-4 form-control"
-                            mask="(00) 00000-0000"
-                            placeholder="Telefone"
-                            aria-label="Telephone number 11 digits only"
+                          <div class="col-12 col-md-6">
+                            <input type="text" class="input mt-3" placeholder="Nome" name="nome"  formControlName="nome">
+                          </div>
+
+                          <div class="col-12 col-md-6">
+                            <input
+                              type="text"
+                              class="input mt-4 form-control"
+                              placeholder="CNPJ"
+                              formControlName="cnpj"
+                              mask="00.000.000/0000-00"
+                              [class]="(submitted && formulario.get('cnpj').errors) ||
+                              (formulario.get('cnpj').errors && formulario.get('cnpj').dirty) ? 'is-invalid' :
+                              formulario.get('cnpj').dirty ? 'is-valid' : '' "
                             />
-                          </div>
-                        </div>
 
-                        <div class="row">
-                          <div class="col-12 col-md-8">
-                            <input type="text" class="input mt-4" placeholder="Rua" formControlName="rua"/>
-                          </div>
-
-                          <div class="col-12 col-md-4">
-                            <input type="text" class="input mt-4" placeholder="Número" formControlName="numero"/>
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-12 col-md-7">
-                            <input type="text" class="input mt-4" placeholder="Bairro" formControlName="bairro"/>
-                          </div>
-
-                          <div class="col-12 col-md-5">
-                            <div>
-                              <input type="text" class="input mt-4 form-control" mask="00000-000" placeholder="Cep" aria-label="cep number 10 digits only">
+                            <div
+                              *ngIf="formulario.get('cnpj').errors?.required"
+                              class="invalid-feedback">
+                              CNPJ é obrigatório!
                             </div>
+
+                            <div
+                              *ngIf="formulario.get('cnpj').errors?.minlength"
+                              class="invalid-feedback">
+                              CNPJ inválido
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-md-6">
+                            <input type="text" class="input mt-4" placeholder="Rua" name="rua"  formControlName="rua">
+                          </div>
+
+                          <div class="col-12 col-md-6">
+                            <input type="text" class="input mt-4" placeholder="Telefone" name="telefone" >
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-md-6">
+                            <input type="text" class="input mt-4" placeholder="Bairro" name="bairro"  formControlName="bairro">
+                          </div>
+
+                          <div class="col-12 col-md-3">
+                            <input type="text" class="input mt-4" placeholder="CEP" name="cep"  formControlName="cep">
+                          </div>
+
+                          <div class="col-12 col-md-3">
+                            <input type="text" class="input mt-4" placeholder="Número" name="numero"  formControlName="numero">
                           </div>
                         </div>
 
@@ -91,7 +126,6 @@
                                 placeholder="Cidade"
                                 [options]="cidades"
                                 formControlName="cidade"
-                                placeholder="Cidade"
                                 [filter]="true"
                                 [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
                               </p-dropdown>
@@ -100,46 +134,94 @@
                         </div>
 
                         <div>
-                          <input
-                            type="email"
-                            id="email"
-                            class="input mt-4"
-                            placeholder="E-mail"
-                            formControlName="email"
-                          />
+                          <textarea class="descricao mt-4" rows="4" cols="60" placeholder="Descrição do local" name="descricao"></textarea>
                         </div>
 
-                        <div>
-                          <input
-                            type="password"
-                            id="senha"
-                            class="input mt-4"
-                            placeholder="Senha"
-                            formControlName="senha"
-                          />
+                        <div class="mt-2 mb-3">
+                          <div class="div-filtros">
+                            <p class="title-filtros"> Acessível para deficiência:</p>
+                          </div>
+
+                          <div id="filtro-deficiencia">
+                            <div class="col-md-7 text-center">
+                              <ul>
+                                <li>
+                                  <input type="checkbox" id="myCheckbox1" />
+                                  <label for="myCheckbox1">
+                                    <div class="checkbox-img">
+                                      <img class="img-deficiencias" src="../../assets/images/mobilidade.png" />
+                                      <p>Motora</p>
+                                    </div>
+                                  </label>
+                                </li>
+
+                                <li>
+                                  <input type="checkbox" id="myCheckbox2" />
+                                  <label for="myCheckbox2">
+                                    <div class="checkbox-img">
+                                      <img class="img-deficiencias" src="../../assets/images/auditivo.png" />
+                                      <p>Auditiva</p>
+                                    </div>
+                                  </label>
+                                </li>
+
+                                <li>
+                                  <input type="checkbox" id="myCheckbox3" />
+                                  <label for="myCheckbox3">
+                                    <div class="checkbox-img">
+                                      <img class="img-deficiencias" src="../../assets/images/cego.png" />
+                                      <p>Visual</p>
+                                    </div>
+                                  </label>
+                                </li>
+
+                                <li>
+                                  <input type="checkbox" id="myCheckbox4" />
+                                  <label for="myCheckbox4">
+                                    <div class="checkbox-img">
+                                      <img class="img-deficiencias" src="../../assets/images/intelectual.png" />
+                                      <p>Intelectual</p>
+                                    </div>
+                                  </label>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
 
-                        <div>
-                          <input
-                            type="password"
-                            id="confirmarsenha"
-                            class="input mt-4"
-                            placeholder="Confirmar senha"
-                            formControlName="confirmarsenha"
-                            />
+                        <div class="float-right mb-5">
+                          <button type="button" class="btn cancelar  btn-outline-secondary" routerLink="/perfilParceiro">Cancelar</button>
+                          <button type="submit" class="btn cadastrar">{{ operacao ? "Cadastrar" : "Atualizar" }}</button>
                         </div>
                       </form>
-                    </div>
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn fechar-button" data-dismiss="modal">Fechar</button>
-                      <button type="button" class="btn salvar-mudancas-button">Salvar mudanças</button>
                     </div>
                   </div>
                 </div>
               </div>
               <!-- FIM MODAL -->
-              <p class="description-button">Imagens, nome do estabelecimento, email, telefone, descrição, senha...</p>
+              <p class="description-button">
+                Imagens, nome do estabelecimento, email, telefone, descrição, acessibilidades...
+              </p>
+            </a>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="botoes-perfil">
+          <div class="circulo2">
+            <i class="far fa-list-alt img-circulo2"></i>
+          </div>
+
+          <button class="button">
+            <a class="nav-link editar-perfil-button" >
+            <!-- MODAL -->
+            <!-- Botão para acionar modal -->
+              <button type="button" class="btn title-button2">
+                Ver estabelecimentos cadastrados
+              </button>
+
+              <p class="description-button">Atualizar dados do estabelecimento, excluir estabelecimento...</p>
             </a>
           </button>
         </div>
