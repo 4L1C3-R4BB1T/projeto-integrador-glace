@@ -54,6 +54,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\Aline\Documents\workspace-spring-tool\projeto\projeto-integrador-glace\projeto-glace"/>
+			<item value="C:\Users\Aline\Documents\workspace-spring-tool\projeto\projeto-integrador-glace"/>
 			<item value="C:\Users\Aline\Documents\workspace-spring-tool\Nova pasta\projeto-integrador-glace\projeto-glace"/>
 			<item value="C:\Users\Aline\Documents\workspace-spring-tool\Projeto Integrador\projeto-integrador-glace\projeto-glace"/>
 		</list>
