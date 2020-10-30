@@ -1,7 +1,6 @@
 import { LoginFormComponent } from './seguranca/login-form/login-form.component';
 import { CadastroParceiroComponent } from './parceiro-glace/cadastro-parceiro/cadastro-parceiro.component';
 import { CadastroLocalComponent } from './estabelecimento-glace/cadastro-local/cadastro-local.component';
-import { PerfilUsuarioComponent } from './cliente-glace/perfil-usuario/perfil-usuario.component';
 import { PerfilParceiroComponent } from './parceiro-glace/perfil-parceiro/perfil-parceiro.component';
 import { DetalhesLocalComponent } from './estabelecimento-glace/detalhes-local/detalhes-local.component';
 import { CadastroUsuarioComponent } from './cliente-glace/cadastro-usuario/cadastro-usuario.component';
@@ -18,7 +17,6 @@ const routes: Routes = [
   {path: 'login', component: LoginFormComponent},
   {path: 'pesquisa', component: PesquisaComponent},
   {path: 'cadastroUsuario', component: CadastroUsuarioComponent},
-  {path: 'perfilUsuario', component: PerfilUsuarioComponent},
   {path: 'perfilParceiro', component: PerfilParceiroComponent},
   {path: 'detalhesLocal', component: DetalhesLocalComponent},
   {path: 'cadastroLocal', component: CadastroLocalComponent},

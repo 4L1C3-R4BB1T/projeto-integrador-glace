@@ -37,6 +37,8 @@ import { CardComponent } from "./estabelecimento-glace/card/card.component";
 import { FileUploadModule } from 'primeng/fileupload';
 import { CardPesquisaComponent } from './estabelecimento-glace/card-pesquisa/card-pesquisa.component';
 import { NavigationStart } from '@angular/router';
+import { ClienteGlaceModule } from './cliente-glace/cliente-glace.module';
+import { TemplateModule } from './template/template.module';
 
 @NgModule({
   declarations: [
@@ -44,19 +46,14 @@ import { NavigationStart } from '@angular/router';
     HomeComponent,
     PesquisaComponent,
     QuemSomosComponent,
-    CadastroUsuarioComponent,
     PerfilParceiroComponent,
-    PerfilUsuarioComponent,
     DetalhesLocalComponent,
-    FooterComponent,
     CadastroLocalComponent,
     CadastroParceiroComponent,
     CardComponent,
     CardPesquisaComponent,
-    NavBarSecundariaComponent,
     LoginFormComponent,
-    NavBarComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -79,12 +76,13 @@ import { NavigationStart } from '@angular/router';
     SegurancaModule,
     BrowserModule,
     AppRoutingModule,
-    ToastModule
+    ToastModule,
+    ClienteGlaceModule,
+    TemplateModule,
     
 
   ],
   providers: [
-    AuthService,
     MessageService,
     Title
   ],

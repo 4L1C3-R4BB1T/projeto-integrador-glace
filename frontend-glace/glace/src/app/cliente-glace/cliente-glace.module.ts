@@ -31,54 +31,33 @@ import { TableModule } from 'primeng/table';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {InputMaskModule} from 'primeng/inputmask';
+import { TemplateModule } from '../template/template.module';
+
+
+import { ClienteGlaceRoutingModule } from './cliente-glace-routing.module';
 
 @NgModule({
   declarations: [
-   
-    HomeComponent,
-    PesquisaComponent,
-    QuemSomosComponent,
     CadastroUsuarioComponent,
-    PerfilParceiroComponent,
     PerfilUsuarioComponent,
-    DetalhesLocalComponent,
-    FooterComponent,
-    CardPesquisaComponent,
-    NavBarSecundariaComponent,
-    LoginFormComponent,
-    NavBarComponent,
-    Title
-    
+  ],
+  exports:[
+    CadastroUsuarioComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
-    BrowserModule,
+    ClienteGlaceRoutingModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    TableModule,
-    PanelModule,
-    InputTextModule,
-    ButtonModule,
-    ToastModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
     DropdownModule,
-    MessageModule,
-    MessagesModule,
+    BrowserAnimationsModule,
     InputMaskModule,
-    NgxMaskModule.forRoot(),
     FileUploadModule,
-    SegurancaModule,
-    BrowserModule,
-    AppRoutingModule,
-    
-
+    TemplateModule,
+   
   ],
   providers: [
-    AuthService,
-    MessageService 
   ],
-  bootstrap: [AppComponent]
-
 })
 export class ClienteGlaceModule { }
