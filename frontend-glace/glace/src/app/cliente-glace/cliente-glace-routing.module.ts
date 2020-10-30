@@ -11,17 +11,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['CG'] } 
   },
-  { path: 'perfilUsuario', component: PerfilUsuarioComponent,
+  { path: 'perfilUsuario/:codigo', component: PerfilUsuarioComponent,
   canActivate: [AuthGuard],
   data: { roles: ['CG'] } 
-},
-{ path: 'perfilParceiro', component: PerfilParceiroComponent,
-canActivate: [AuthGuard],
-data: { roles: ['PG'] } 
-},
-{ path: 'cadastroParceiro', component: CadastroParceiroComponent,
-canActivate: [AuthGuard],
-data: { roles: ['PG'] } 
 },
 { path: 'cliente/:codigo', component: CadastroUsuarioComponent }
 ];

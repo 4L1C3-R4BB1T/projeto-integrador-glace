@@ -95,10 +95,12 @@ export class HttpService {
 
       private getDefaultHeader(useFormData: boolean = false) {
         const token: string = localStorage.getItem('token');
+       if(token){
         const headers = new HttpHeaders({'Authorization':'Bearer '+ token});
 
         return headers;
       }
+       }
 
       private oncatch<T>(e) {
         const result = new DefaultResponse<T>();
