@@ -40,14 +40,10 @@ const routes: Routes = [
     data: { roles: ['CG'] }
   },
   {path: 'login', component: LoginFormComponent},
-<<<<<<< HEAD
   {path: 'pesquisa', component: PesquisaComponent},
   {path: 'cadastroUsuario', component: CadastroUsuarioComponent},
   {path: 'detalhesLocal', component: DetalhesLocalComponent},
   {path: 'cadastroLocal', component: CadastroLocalComponent},
-=======
-  { path: 'cadastroUsuario', component: CadastroUsuarioComponent},
->>>>>>> 6e2132862e58634f2f94d488a75add0ae48da978
   {path: 'cadastroParceiro', component: CadastroParceiroComponent},
   {path: '', pathMatch: 'full', redirectTo:'/home'}
 ];
