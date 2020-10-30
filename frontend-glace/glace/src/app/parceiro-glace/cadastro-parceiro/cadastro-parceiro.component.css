@@ -1,6 +1,20 @@
 .content {
-    width: 80%;
+    width: 80% !important;
     margin: auto;
+}
+
+:host /deep/ .p-inputtext {
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  padding: 13px 0 0 18px;
+}
+
+:host /deep/ .p-fileupload-buttonbar {
+  border-radius: 10px 10px 0 0;
+}
+
+:host /deep/ .p-fileupload-content {
+  border-radius: 0 0 10px 10px;
 }
 
 .input {

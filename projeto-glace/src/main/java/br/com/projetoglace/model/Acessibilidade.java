@@ -18,19 +18,8 @@ public class Acessibilidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "tipo_acessibilidade")
+	@Column(name = "tipo_deficiencia")
 	private String tipoAcessibilidade;
 	
-	@Column
-	private String mobilidadeReduzida;
-	
-	@Column
-	private String deficienciaVisual;
-	
-	@Column
-	private String deficienciaAuditiva;
-	
-	@Column
-	private String deficienciaIntelectual;
 
 }

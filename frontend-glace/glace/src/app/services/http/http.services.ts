@@ -12,9 +12,9 @@ import { DefaultResponse } from './default-response';
 export class HttpService {
     constructor(private http: HttpClient,
         private service: AuthService) {}
-    
+
       headers = new HttpHeaders();
-    
+
       post<T>(
         url,
         body,
@@ -31,7 +31,7 @@ export class HttpService {
           newHeaders
         );
       }
-    
+
       put<T>(
         url,
         body,
@@ -46,19 +46,19 @@ export class HttpService {
           useFormData
         );
       }
-    
+
       patch<T>(url, body): Observable<DefaultResponse<T>> {
         return this.request<T>('PATCH', `${url}`, body);
       }
-    
+
       get<T>(url): Observable<DefaultResponse<T>> {
         return this.request<T>('GET', `${url}`);
       }
-    
+
       delete<T>(url, id: number): Observable<DefaultResponse<T>> {
         return this.request<T>('DELETE', `${url}`, { id });
       }
-    
+
       private request<T>(
         type: string,
         url: string,
@@ -67,21 +67,19 @@ export class HttpService {
         useFormData: boolean = false,
         newHeaders: HttpHeaders = null
       ): Observable<DefaultResponse<T>> {
-    
-        this.service.isAccessTokenInvalido();
-    
+
         let headers: HttpHeaders;
         headers = newHeaders || this.getDefaultHeader(useFormData);
-    
+
         if (environment.logRequest) {
           console.dir({ type, url, headers, body });
         }
-    
+
         if (environment.traceRequest) {
           // tslint:disable-next-line: no-console
          // console.trace('trace');
         }
-    
+
         return this.http
           .request<T>(type, url, {
             body,
@@ -94,33 +92,32 @@ export class HttpService {
             map((x) => this.onsuccess<T>(type, x))
           );
       }
-    
+
       private getDefaultHeader(useFormData: boolean = false) {
         const token: string = localStorage.getItem('token');
         const headers = new HttpHeaders({'Authorization':'Bearer '+ token});
-    
+
         return headers;
       }
-    
+
       private oncatch<T>(e) {
         const result = new DefaultResponse<T>();
         result.error(e);
         return result;
       }
-    
+
       private onsuccess<T>(type, e) {
         const result = new DefaultResponse<T>();
         result.success(type, e);
         return result;
       }
-    
+
       getData(url: string): Observable<any> {
         return this.http.get(url).pipe(map(this.extractData));
       }
-    
+
       private extractData(res: Response) {
         const body = res;
         return body || {};
       }
     }
-    

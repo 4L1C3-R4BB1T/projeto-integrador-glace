@@ -14,14 +14,13 @@
       <div id="formUser">
         <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
           <div class="form-group div-uploads" >
-            <label class="foto-title" for="nome">Foto</label>
             <p-fileUpload #upload
               name="demo[]"
               chooseLabel="Escolher uma foto"
               [showUploadButton]="false"
               [showCancelButton]="false"
               (onSelect)="enviarImagem($event)"
-              [multiple]="false"
+              [multiple]="true"
               accept="image/*"
               maxFileSize="1000000">
             </p-fileUpload>
