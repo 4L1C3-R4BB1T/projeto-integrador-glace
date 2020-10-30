@@ -17,7 +17,6 @@ const routes: Routes = [
   {path: 'login', component: LoginFormComponent},
   {path: 'pesquisa', component: PesquisaComponent},
   {path: 'cadastroUsuario', component: CadastroUsuarioComponent},
-  {path: 'perfilParceiro', component: PerfilParceiroComponent},
   {path: 'detalhesLocal', component: DetalhesLocalComponent},
   {path: 'cadastroLocal', component: CadastroLocalComponent},
   {path: 'cadastroParceiro', component: CadastroParceiroComponent},

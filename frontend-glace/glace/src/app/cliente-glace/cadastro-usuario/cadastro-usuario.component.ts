@@ -44,7 +44,7 @@ export class CadastroUsuarioComponent implements OnInit {
     }
   }
 
-  carregarCliente(codigoCliente){
+  carregarCliente(codigoCliente: number){
     this.repository.getClienteById(codigoCliente).subscribe(resposta => {
       this.formulario.controls.id.setValue(resposta.id);
       this.formulario.controls.nome.setValue(resposta.nome);

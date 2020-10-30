@@ -42,12 +42,14 @@ export class PerfilUsuarioComponent implements OnInit {
     this.listarEstados();
     const codigoCliente = this.route.snapshot.params['codigo'];
     this.title.setTitle('Novo cliente');
+    console.log(codigoCliente)
     if (codigoCliente) {
       this.operacao = false;
+      console.log("teste")
       this.carregarCliente(codigoCliente);
     }
   }
-  carregarCliente(codigoCliente){
+  carregarCliente(codigoCliente: number ){
     this.repository.getClienteById(codigoCliente).subscribe(resposta => {
       this.formulario.controls.id.setValue(resposta.id);
       this.formulario.controls.nome.setValue(resposta.nome);
@@ -64,6 +66,7 @@ export class PerfilUsuarioComponent implements OnInit {
       this.formulario.controls.cidade.setValue(resposta.endereco.cidade.estado.id);
       this.listarCidadeSelecionada(resposta.endereco.cidade.id);
       this.imagem = resposta.foto.id;
+     
   });
   }
   logout() {

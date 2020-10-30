@@ -25,7 +25,7 @@ export class AuthService {
 
         console.log('Novo access token criado!'+JSON.stringify(this.jwtPayload));
         this.logado = true;
-        this.router.navigate(['/perfilUsuario',] || ['perfilParceiro'] || ['usuario']);
+        this.router.navigate(['/perfilUsuario',] || ['/perfilParceiro'] || ['usuario']);
       },
         (e) => {
           console.log(e.error.error_description);

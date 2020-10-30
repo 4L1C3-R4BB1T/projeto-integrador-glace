@@ -38,6 +38,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { CardPesquisaComponent } from './estabelecimento-glace/card-pesquisa/card-pesquisa.component';
 import { NavigationStart } from '@angular/router';
 import { ClienteGlaceModule } from './cliente-glace/cliente-glace.module';
+import { ParceiroGlaceModule } from './parceiro-glace/parceiro-glace.module';
 import { TemplateModule } from './template/template.module';
 
 @NgModule({
@@ -46,10 +47,8 @@ import { TemplateModule } from './template/template.module';
     HomeComponent,
     PesquisaComponent,
     QuemSomosComponent,
-    PerfilParceiroComponent,
     DetalhesLocalComponent,
     CadastroLocalComponent,
-    CadastroParceiroComponent,
     CardComponent,
     CardPesquisaComponent,
     LoginFormComponent,
@@ -78,13 +77,13 @@ import { TemplateModule } from './template/template.module';
     AppRoutingModule,
     ToastModule,
     ClienteGlaceModule,
+    ParceiroGlaceModule,
     TemplateModule,
-    
-
   ],
   providers: [
     MessageService,
-    Title
+    Title,
+    AuthService
   ],
   bootstrap: [AppComponent]
 
