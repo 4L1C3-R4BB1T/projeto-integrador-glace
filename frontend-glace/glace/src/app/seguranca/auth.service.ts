@@ -19,17 +19,28 @@ export class AuthService {
 
     return this.repository.postLogin(login, senha).subscribe(resposta => {
 
-        const json: JSON = JSON.parse(JSON.stringify(resposta));
-        console.log(json);
-        this.armazenarToken(json['access_token']);
+      const json: JSON = JSON.parse(JSON.stringify(resposta));
 
-        console.log('Novo access token criado!'+JSON.stringify(this.jwtPayload));
-        this.logado = true;
-        this.router.navigate(['/perfilUsuario',] || ['/perfilParceiro'] || ['usuario']);
+      console.log(json);
+      this.armazenarToken(json['access_token']);
+
+      console.log('Novo access token criado!'+JSON.stringify(this.jwtPayload));
+
+      this.logado = true;
+
+      if(this.jwtPayload['authorities'].includes('CG')) {
+        this.router.navigate(['/perfilUsuario']);
+      }
+
+      if(this.jwtPayload['authorities'].includes('PG')) {
+        this.router.navigate(['/perfilParceiro']);
+      }
+
       },
-        (e) => {
-          console.log(e.error.error_description);
-        });
+      (e) => {
+        console.log(e.error.error_description);
+      }
+    );
   }
 
   private armazenarToken(token: string) {
@@ -54,7 +65,8 @@ export class AuthService {
       },
       (e) => {
         console.log(e.error.error_description);
-      });
+      }
+    );
   }
 
   limparAccessToken() {
@@ -88,7 +100,8 @@ export class AuthService {
       (e) => {
         console.log(e.error.error_description);
         this.router.navigate(['/login']);
-      });
+      }
+    );
   }
 
   temPermissao(permissao: string) {

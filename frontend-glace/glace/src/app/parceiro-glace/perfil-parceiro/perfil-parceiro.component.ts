@@ -1,3 +1,4 @@
+import { AuthService } from './../../seguranca/auth.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ParceiroModel } from '../model/parceiro-model';
 import { ParceiroRepository } from '../repository/parceiro-repository';
@@ -16,6 +17,7 @@ export class PerfilParceiroComponent implements OnInit {
   public formulario: FormGroup;
 
   public submitted: boolean = false;
+  usuario: string = '';
 
   operacao: boolean = true;
 
@@ -25,9 +27,10 @@ export class PerfilParceiroComponent implements OnInit {
   mensagem: Message[] = [];
 
   constructor(
+    public service: AuthService,
     private repository: ParceiroRepository,
     private fb: FormBuilder
-  ) { }
+  ) { this.usuario = service.jwtPayload ? service.jwtPayload.nome_completo : ''; }
 
   ngOnInit(): void {
     this.iniciarFormulario();

@@ -57,6 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		return jwtAuthenticationConverter;
 	}
+	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -67,6 +68,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected AuthenticationManager authenticationManager() throws Exception {
 		return super.authenticationManager();
 	}
+	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		

@@ -9,21 +9,21 @@ import { PerfilUsuarioComponent } from '../cliente-glace/perfil-usuario/perfil-u
 const routes: Routes = [
   { path: 'cliente', component: CadastroUsuarioComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['CG'] } 
+    data: { roles: ['CG'] }
   },
   { path: 'perfilUsuario', component: PerfilUsuarioComponent,
-  canActivate: [AuthGuard],
-  data: { roles: ['CG'] } 
-},
-{ path: 'perfilParceiro', component: PerfilParceiroComponent,
-canActivate: [AuthGuard],
-data: { roles: ['PG'] } 
-},
-{ path: 'cadastroParceiro', component: CadastroParceiroComponent,
-canActivate: [AuthGuard],
-data: { roles: ['PG'] } 
-},
-{ path: 'cliente/:codigo', component: CadastroUsuarioComponent }
+    canActivate: [AuthGuard],
+    data: { roles: ['CG'] }
+  },
+  { path: 'perfilParceiro', component: PerfilParceiroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['PG'] }
+  },
+  { path: 'cadastroParceiro', component: CadastroParceiroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['PG'] }
+  },
+  { path: 'cliente/:codigo', component: CadastroUsuarioComponent }
 ];
 
 @NgModule({
