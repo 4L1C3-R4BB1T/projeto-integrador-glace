@@ -52,7 +52,7 @@
 
                         <div class="row">
                           <div class="col-12 col-md-6">
-                            <input type="text" class="input mt-3" placeholder="Nome" name="nome"  formControlName="nome">
+                            <input type="text" class="input mt-3" placeholder="Razão Social" name="razao"  formControlName="nome">
                           </div>
 
                           <div class="col-12 col-md-6">
@@ -87,7 +87,13 @@
                           </div>
 
                           <div class="col-12 col-md-6">
-                            <input type="text" class="input mt-4" placeholder="Telefone" name="telefone" >
+                            <input type="text" 
+                              class="input mt-4 form-control"
+                              placeholder="Telefone"
+                              formControlName="telefone"
+                              mask="(00)00000-0000"
+                              name="telefone" >
+                            
                           </div>
                         </div>
 
@@ -97,7 +103,12 @@
                           </div>
 
                           <div class="col-12 col-md-3">
-                            <input type="text" class="input mt-4" placeholder="CEP" name="cep"  formControlName="cep">
+                            <input type="text"
+                            class="input mt-4 form-control"
+                            placeholder="CEP"
+                            formControlName="cep"
+                            mask="00000-000"
+                            name="cep" >
                           </div>
 
                           <div class="col-12 col-md-3">

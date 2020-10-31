@@ -302,9 +302,9 @@
               </div>
             </div>
 
-            <button type="submit" class="btn mt-4 mb-2 entrar">
-              {{ operacao ? "Cadastrar" : "Atualizar" }}
-            </button>
+            <button type="submit" class="btn mt-4 mb-2 entrar "
+            [class]="operacao? 'btn-primary' : 'btn-success'" >
+             {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
           </form>
           <!--FIM FORMULÁRIO-->
         </div>

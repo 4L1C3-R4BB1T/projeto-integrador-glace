@@ -15,7 +15,7 @@ const routes: Routes = [
   canActivate: [AuthGuard],
   data: { roles: ['CG'] } 
 },
-{ path: 'perfilParceiro', component: PerfilParceiroComponent,
+{ path: 'perfilParceiro/:codigo', component: PerfilParceiroComponent,
 canActivate: [AuthGuard],
 data: { roles: ['PG'] } 
 },
