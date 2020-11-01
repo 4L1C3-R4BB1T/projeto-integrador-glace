@@ -9,8 +9,6 @@ export class AuthService {
 
   jwtPayload: any;
 
-  logado: boolean = false;
-
   constructor(public repository: AuthRepository, private router: Router) {
     this.carregarToken();
   }
@@ -25,8 +23,6 @@ export class AuthService {
       this.armazenarToken(json['access_token']);
 
       console.log('Novo access token criado!'+JSON.stringify(this.jwtPayload));
-
-      this.logado = true;
 
       if(this.jwtPayload['authorities'].includes('CG')) {
         this.router.navigate(['/perfilUsuario']);
@@ -60,7 +56,6 @@ export class AuthService {
   logout() {
     return this.repository.postLogout().subscribe(resposta => {
         this.limparAccessToken();
-        this.logado = false;
         this.router.navigate(['/login']);
       },
       (e) => {
@@ -115,11 +110,6 @@ export class AuthService {
       }
     }
     return false;
-  }
-
-  estaLogado() {
-    //console.log("status: " + this.logado);
-    return this.logado;
   }
 
 }
