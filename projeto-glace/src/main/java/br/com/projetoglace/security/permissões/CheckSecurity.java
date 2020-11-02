@@ -10,92 +10,73 @@ import org.springframework.security.access.prepost.PreAuthorize;
 
 public @interface CheckSecurity {
 	
-	// permissões Usuario do projeto Glace
-	
-	public @interface UsuarioADM{
+	// Controle de acesso do controller UsuarioADMGlace
+	public @interface UsuarioADM {
 		
+		// Permissão apenas de usuario administrativo
 		@PreAuthorize("isAuthenticated() and " + 
 				"hasAuthority('UG')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
-		public @interface PodeEditarPerfilUsuario {
+		public @interface PodeEditarPerfilAdm {
 		}
 		
+		// Permissão apenas de usuario administrativo
 		@PreAuthorize("isAuthenticated() and " + 
 				"hasAuthority('UG')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
-		public @interface PodeVerPerfil {
+		public @interface PodeVerPerfilAdm {
 		}
 		
+		// Permissão apenas de usuario administrativo
 		@PreAuthorize("isAuthenticated() and " + 
 				"hasAuthority('UG')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
-		public @interface PodeExcluirPerfilUsuario {
-		}
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('CG')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface PodeEditarPerfil {
+		public @interface PodeExcluirPerfilAdm {
 		}
 
+	}
+
+	// Controle de acesso do controller ClienteGlace
+	public @interface Cliente {
+
+		// Permissão de cliente e usuario administrativo
 		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('CG')")
+				"hasAuthority('CG')" + "or hasAuthority('UG')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
-		public @interface PodeExcluirPerfil {
+		public @interface PodeEditarPerfilCliente {
 		}
+
+		// Permissão de cliente e usuario administrativo
 		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('PG')")
+				"hasAuthority('CG')" + "or hasAuthority('UG')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
-		public @interface PodeEditarPerfilParcerio {
-		}
-					
+		public @interface PodeExcluirPerfilCliente {
+		}	
+		
+	}
+	
+	// Controle de acesso do controller ParceiroGlace
+	public @interface Parceiro { 
+		
+		// Permissão de parceiro e usuario administrativo
 		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('PG')")
+				"hasAuthority('PG')" + "or hasAuthority('UG')")
+		@Retention(RUNTIME)
+		@Target(METHOD)
+		public @interface PodeEditarPerfilParceiro {
+		}
+				
+		// Permissão de parceiro e usuario administrativo
+		@PreAuthorize("isAuthenticated() and " + 
+				"hasAuthority('PG')" + "or hasAuthority('UG')")
 		@Retention(RUNTIME)
 		@Target(METHOD)
 		public @interface PodeExcluirPerfilParceiro {
-		}	
-	}
-
-	// Permissões Cliente
-	public @interface Cliente {
-
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('CG')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface PodeEditarPerfil {
-		}
-
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('CG')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface PodeExcluirPerfil {
-		}	
-		
-	}
-	
-	// Permissões Parceiro
-	public @interface Parceiro { 
-		
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('PG')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface PodeEditarPerfil {
-		}
-					
-		@PreAuthorize("isAuthenticated() and " + 
-				"hasAuthority('PG')")
-		@Retention(RUNTIME)
-		@Target(METHOD)
-		public @interface PodeExcluirPerfil {
 		}	
 		
 	}

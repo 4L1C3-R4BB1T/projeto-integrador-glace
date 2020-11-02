@@ -62,7 +62,7 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		return ResponseEntity.notFound().build();
 	}
 		
-	@CheckSecurity.Cliente.PodeExcluirPerfil
+	@CheckSecurity.Cliente.PodeExcluirPerfilCliente
 	@Override
 	@DeleteMapping("/{id}")
 	public ResponseEntity<ClienteGlace> excluirCliente(@PathVariable Long id) {
@@ -74,7 +74,7 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		}
 	}
 		
-	@CheckSecurity.Cliente.PodeEditarPerfil
+	@CheckSecurity.Cliente.PodeEditarPerfilCliente
 	@Override
 	@PutMapping("/{id}")
 	public ResponseEntity<?> atualizarCliente(@RequestBody ClienteGlace cliente, @PathVariable Long id) {

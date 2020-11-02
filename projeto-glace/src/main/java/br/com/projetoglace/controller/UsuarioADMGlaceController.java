@@ -47,7 +47,7 @@ public class UsuarioADMGlaceController implements UsuarioADMGlaceControllerOpenA
 		}
 	}
 
-	@CheckSecurity.Cliente.PodeEditarPerfil
+	@CheckSecurity.UsuarioADM.PodeEditarPerfilAdm
 	@Override
 	@PutMapping("/{id}")
 	public ResponseEntity<?> atualizarUsuario (@RequestBody UsuarioADMGlace usuario, @PathVariable Long id) {
@@ -60,7 +60,7 @@ public class UsuarioADMGlaceController implements UsuarioADMGlaceControllerOpenA
 		return ResponseEntity.notFound().build();
 	}
 
-	@CheckSecurity.Cliente.PodeExcluirPerfil
+	@CheckSecurity.UsuarioADM.PodeExcluirPerfilAdm
 	@Override
 	public ResponseEntity<UsuarioADMGlace> excluirUsuario(@PathVariable Long id) {
 		try {
@@ -72,7 +72,7 @@ public class UsuarioADMGlaceController implements UsuarioADMGlaceControllerOpenA
 		
 	}
 
-	@CheckSecurity.UsuarioADM.PodeVerPerfil
+	@CheckSecurity.UsuarioADM.PodeVerPerfilAdm
 	@Override
 	@GetMapping ("/{id}")
 	public ResponseEntity<UsuarioADMGlace> buscarUsuario(@PathVariable Long id) {

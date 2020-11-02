@@ -60,7 +60,7 @@ public class ParceiroGlaceController implements ParceiroGlaceControllerOpenApi {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@CheckSecurity.Parceiro.PodeExcluirPerfil
+	@CheckSecurity.Parceiro.PodeExcluirPerfilParceiro
 	@Override
 	@DeleteMapping("/{id}")
 	public ResponseEntity<ParceiroGlace> excluir(@PathVariable Long id) {
@@ -72,7 +72,7 @@ public class ParceiroGlaceController implements ParceiroGlaceControllerOpenApi {
 		}
 	}
 	
-	@CheckSecurity.Parceiro.PodeEditarPerfil
+	@CheckSecurity.Parceiro.PodeEditarPerfilParceiro
 	@Override
 	@PutMapping("/{id}")
 	public ResponseEntity<?> atualizar(@RequestBody ParceiroGlace parceiro, @PathVariable Long id) {
