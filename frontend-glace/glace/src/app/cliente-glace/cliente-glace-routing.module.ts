@@ -1,6 +1,4 @@
 import { ClienteTableComponent } from './cliente-table/cliente-table.component';
-import { CadastroParceiroComponent } from './../parceiro-glace/cadastro-parceiro/cadastro-parceiro.component';
-import { PerfilParceiroComponent } from './../parceiro-glace/perfil-parceiro/perfil-parceiro.component';
 import { AuthGuard } from './../seguranca/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -16,14 +14,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['CG'] }
   },
-  { path: 'perfilParceiro', component: PerfilParceiroComponent,
+  { path: 'perfilUsuario', component: PerfilUsuarioComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['PG'] }
+    data: { roles: ['CG'] }
   },
-  { path: 'cadastroParceiro', component: CadastroParceiroComponent,
-    canActivate: [AuthGuard],
-    data: { roles: ['PG'] }
-  },
+  {path: 'cadastroUsuario', component: CadastroUsuarioComponent},
   {path: 'listar/cliente', component: ClienteTableComponent}
 ];
 

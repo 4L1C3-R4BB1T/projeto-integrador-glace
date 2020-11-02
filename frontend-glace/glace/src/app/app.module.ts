@@ -1,3 +1,5 @@
+import { PaginaGlaceModule } from './pagina-glace/pagina-glace.module';
+import { PaginaGlaceRoutingModule } from './pagina-glace/pagina-glace-routing.module';
 import { MessageService } from 'primeng/api';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { BrowserModule, Title } from '@angular/platform-browser';
@@ -69,6 +71,7 @@ import { TemplateModule } from './template/template.module';
     ClienteGlaceModule,
     ParceiroGlaceModule,
     TemplateModule,
+    PaginaGlaceModule
   ],
   providers: [
     MessageService,

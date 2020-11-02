@@ -1,3 +1,4 @@
+import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { AuthGuard } from './auth.guard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +14,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    SegurancaRoutingModule
   ],
   providers:[
     AuthGuard,
