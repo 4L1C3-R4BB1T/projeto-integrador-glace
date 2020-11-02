@@ -79,7 +79,7 @@ export class CadastroUsuarioComponent implements OnInit {
       telefone: ['', Validators.required],
       email: ['', Validators.required],
       senha: ['', Validators.required, Validators.minLength(6), Validators.maxLength(20)],
-      confirmarsenha: ['', Validators.required],
+      confirmarsenha: ['', Validators.required, Validators.minLength(6), Validators.maxLength(20)],
       cep: [''],
       rua: [''],
       numero: [''],

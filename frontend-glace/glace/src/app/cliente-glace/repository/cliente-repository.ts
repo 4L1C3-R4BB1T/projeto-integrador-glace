@@ -31,12 +31,13 @@ export class ClienteRepository {
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
 
-    getAllClientes(): Observable<ClienteModel> {
+    getAllClientes(): Promise<ClienteModel[]> {
         
         return this.http
             .getAll<ClienteEntity[]>(`${environment.URLSERVIDOR}cliente`)
-            .pipe(mergeMap((x) => x.data))
-            .pipe(map((x) => this.mapper.mapFrom(x)));
+            .toPromise().then(x => {
+                return x.data.map(this.mapper.mapFrom);
+            })            
     }
 
     getAllEstados(): Observable<EstadoModel> {

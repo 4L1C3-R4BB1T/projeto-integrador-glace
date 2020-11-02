@@ -1,3 +1,4 @@
+import { ClienteTableComponent } from './cliente-table/cliente-table.component';
 import { CadastroParceiroComponent } from './../parceiro-glace/cadastro-parceiro/cadastro-parceiro.component';
 import { PerfilParceiroComponent } from './../parceiro-glace/perfil-parceiro/perfil-parceiro.component';
 import { AuthGuard } from './../seguranca/auth.guard';
@@ -23,7 +24,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['PG'] }
   },
-  { path: 'cliente/:codigo', component: CadastroUsuarioComponent }
+  {path: 'listar/cliente', component: ClienteTableComponent}
 ];
 
 @NgModule({
