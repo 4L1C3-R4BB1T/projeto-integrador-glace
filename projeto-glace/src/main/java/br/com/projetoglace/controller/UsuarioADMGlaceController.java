@@ -72,7 +72,7 @@ public class UsuarioADMGlaceController implements UsuarioADMGlaceControllerOpenA
 		
 	}
 
-	@CheckSecurity.Cliente.PodeVerPerfil
+	@CheckSecurity.UsuarioADM.PodeVerPerfil
 	@Override
 	@GetMapping ("/{id}")
 	public ResponseEntity<UsuarioADMGlace> buscarUsuario(@PathVariable Long id) {
