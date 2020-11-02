@@ -14,7 +14,7 @@ import { Message, MessageService } from 'primeng/api';
 })
 export class PerfilParceiroComponent implements OnInit {
   @ViewChild('upload') upload: ElementRef;
-  
+
   public formulario: FormGroup;
   estados: any[] = [];
   cidades: any[] = [];
@@ -26,12 +26,12 @@ export class PerfilParceiroComponent implements OnInit {
   operacao: boolean = true;
   usuario: string = '';
   uploadFiles: any[]=[];
- 
+
 
   constructor(
     public service: AuthService,
     private repository: ParceiroRepository,
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private messageService: MessageService,
     private route: ActivatedRoute,
     private title: Title
@@ -40,16 +40,21 @@ export class PerfilParceiroComponent implements OnInit {
   ngOnInit(): void {
     this.iniciarFormulario();
     this.listarEstados();
+
     const codigoParceiro = this.route.snapshot.params['codigo'];
+
     this.title.setTitle('Novo cliente');
     console.log(codigoParceiro)
+
     if (codigoParceiro) {
       this.operacao = false;
       console.log("teste")
+
       this.carregarParceiro(codigoParceiro);
     }
   }
-  carregarParceiro(codigoParceiro: number ){
+
+  carregarParceiro(codigoParceiro: number ) {
     this.repository.getParceiroById(codigoParceiro).subscribe(resposta => {
       this.formulario.controls.id.setValue(resposta.id);
       this.formulario.controls.razao.setValue(resposta.razao);
@@ -64,28 +69,28 @@ export class PerfilParceiroComponent implements OnInit {
       this.formulario.controls.cidade.setValue(resposta.endereco.cidade.estado.id);
       this.listarCidadeSelecionada(resposta.endereco.cidade.id);
       this.imagem = resposta.foto.id;
-     
-  });
+    });
   }
+
   logout() {
-    this.service.logout();      
+    this.service.logout();
   }
 
   public iniciarFormulario() {
     this.formulario = this.fb.group({
-              id: [null],
-              razao: [''],
-              cnpj: [''],
-              telefone: [''],
-              email: [''],
-              senha: [''],
-              confirmarsenha: [''],
-              cep: [''],
-              rua: [''],
-              numero: [''],
-              bairro: [''],
-              cidade: [''],
-              estado: [''],
+      id: [null],
+      razao: [''],
+      cnpj: [''],
+      telefone: [''],
+      email: [''],
+      senha: [''],
+      confirmarsenha: [''],
+      cep: [''],
+      rua: [''],
+      numero: [''],
+      bairro: [''],
+      cidade: [''],
+      estado: [''],
     });
   }
 
@@ -96,108 +101,110 @@ export class PerfilParceiroComponent implements OnInit {
     }
     this.salvar();
   };
+
   salvar() {
-    if (this.imagem && !this.uploadedFiles[0]){
+    if (this.imagem && !this.uploadedFiles[0]) {
       this.salvarOuAtualizar();
-    } else{
+    } else {
       const foto: any = this.uploadedFiles[0];
-      const formData: any = new FormData(); 
+      const formData: any = new FormData();
       formData.append('imagem', foto);
       this.repository.postImagem(formData).subscribe(resposta => {
         this.imagem = resposta.id;
         this.salvarOuAtualizar();
-    })
+      })
+    }
   }
-}
 
   salvarOuAtualizar(){
     const dados = {
       id: this.formulario.value.id,
-            razao: this.formulario.value.razao,
-            cnpj: this.formulario.value.cnpj,
-            telefone: this.formulario.value.telefone,
-            email: this.formulario.value.email,
-            senha: this.formulario.value.senha,
-            confirmarsenha: this.formulario.value.confirmarsenha,
-            endereco: {
-              cep: this.formulario.value.cep,
-              rua: this.formulario.value.rua,
-              numero: this.formulario.value.numero,
-              bairro: this.formulario.value.bairro,
-              cidade: {
-                id: this.formulario.value.cidade
+      razao: this.formulario.value.razao,
+      cnpj: this.formulario.value.cnpj,
+      telefone: this.formulario.value.telefone,
+      email: this.formulario.value.email,
+      senha: this.formulario.value.senha,
+      confirmarsenha: this.formulario.value.confirmarsenha,
+      endereco: {
+        cep: this.formulario.value.cep,
+        rua: this.formulario.value.rua,
+        numero: this.formulario.value.numero,
+        bairro: this.formulario.value.bairro,
+        cidade: {
+          id: this.formulario.value.cidade
         }
       },
       foto: {
         id: this.imagem
       }
-  }as ParceiroModel;
-  if (dados.id) {
-    this.repository.putParceiro(dados).subscribe(resposta => {
-      this.messageService.add(
-        {
+    } as ParceiroModel;
+
+    if (dados.id) {
+      this.repository.putParceiro(dados).subscribe(resposta => {
+        this.messageService.add({
           key: 'toast',
           severity: 'success',
           summary: 'PARCEIRO',
           detail: 'atualizado com sucesso!'
-        });        
-      this.limparFormulario();
-    },
-    (e) => {
-        var msg: any[] = [];
-        //Erro Principal
-        msg.push({
-          severity: 'error',
-          summary: 'ERRO',
-          detail: e.error.userMessage
         });
-        //Erro de cada atributo
-        var erros = e.error.objects;
-        erros.forEach(function (elemento) {
-          msg.push(
-            {
+
+        this.limparFormulario();
+      },
+        (e) => {
+          var msg: any[] = [];
+          //Erro Principal
+          msg.push({
+            severity: 'error',
+            summary: 'ERRO',
+            detail: e.error.userMessage
+          });
+          //Erro de cada atributo
+          var erros = e.error.objects;
+          erros.forEach(function (elemento) {
+            msg.push({
               severity: 'error',
               summary: 'ERRO',
               detail: elemento.userMessage
             });
-        });
-        this.messageService.addAll(msg);
-  });   
-  } else {
-    this.repository.postParceiro(dados).subscribe(resposta => {
-      this.messageService.add(
-        {
+          });
+
+          this.messageService.addAll(msg);
+        }
+      );
+    } else {
+      this.repository.postParceiro(dados).subscribe(resposta => {
+        this.messageService.add({
           key: 'toast',
           severity: 'success',
           summary: 'PARCEIRO',
           detail: 'cadastrado com sucesso!'
         });
-      //window.scrollTo(0, 0);
-      this.limparFormulario();
-    },
-    (e) => {
-        var msg: any[] = [];
-        //Erro Principal
-        msg.push({
-          severity: 'error',
-          summary: 'ERRO',
-          detail: e.error.userMessage
-        });
-        //Erro de cada atributo
-        var erros = e.error.objects;
-        erros.forEach(function (elemento) {
-          msg.push(
-            {
+        //window.scrollTo(0, 0);
+        this.limparFormulario();
+      },
+        (e) => {
+          var msg: any[] = [];
+          //Erro Principal
+          msg.push({
+            severity: 'error',
+            summary: 'ERRO',
+            detail: e.error.userMessage
+          });
+          //Erro de cada atributo
+          var erros = e.error.objects;
+          erros.forEach(function (elemento) {
+            msg.push({
               severity: 'error',
               summary: 'ERRO',
-              detail: elemento.userMessage
+                detail: elemento.userMessage
             });
-        });
-        this.messageService.addAll(msg);
-      }
-    );
+          });
+          this.messageService.addAll(msg);
+        }
+      );
+    }
   }
-  }
+
   limparFormulario() {
     this.submitted = false;
     this.formulario.reset();
@@ -221,9 +228,11 @@ export class PerfilParceiroComponent implements OnInit {
       this.estados.push({ label: resposta.nome, value: resposta.id });
     });
   }
+
   listarCidadeSelecionada(idCidade: number) {
     this.cidades = [];
     let id: number = this.formulario.value.estado;
+
     this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
       this.cidades.push({ label: resposta.nome, value: resposta.id });
       this.formulario.controls.cidade.setValue(idCidade);
@@ -236,9 +245,7 @@ export class PerfilParceiroComponent implements OnInit {
     for(let file of evento.files) {
       this.uploadedFiles.push(file);
     }
-
   }
-
 }
 
 //   @ViewChild('upload') upload: ElementRef;

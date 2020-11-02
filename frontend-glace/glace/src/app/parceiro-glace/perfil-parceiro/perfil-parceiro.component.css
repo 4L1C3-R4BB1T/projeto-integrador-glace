@@ -27,7 +27,7 @@
 }
 
 .circulo1 {
-  border: 5px solid #ADB8D7;
+  border: 5px solid #AAAAAA;
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -37,6 +37,16 @@
 }
 
 .circulo2 {
+  border: 5px solid #ADB8D7;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circulo3 {
   border: 5px solid #FF9900;
   border-radius: 50%;
   width: 150px;
@@ -48,10 +58,15 @@
 
 .img-circulo1 {
   font-size: 60px;
-  color: #ADB8D7;
+  color: #AAAAAA;
 }
 
 .img-circulo2 {
+  font-size: 60px;
+  color: #ADB8D7;
+}
+
+.img-circulo3 {
   font-size: 60px;
   color: #FF9900;
 }
@@ -70,7 +85,7 @@
 .title-button1 {
   width: 100%;
 
-  color: #ADB8D7;
+  color: #AAAAAA;
   font-family: 'Ruda', sans-serif;
   font-size: 40px;
   font-weight: bold;
@@ -79,6 +94,17 @@
 }
 
 .title-button2 {
+  width: 100%;
+
+  color: #ADB8D7;
+  font-family: 'Ruda', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  border: none;
+  background-color: none;
+}
+
+.title-button3 {
   font-weight: bold;
   color: #FF9900;
   width: 100%;
@@ -88,7 +114,7 @@
   border: none;
 }
 
-.title-button1:hover, .title-button2:hover {
+.title-button1:hover, .title-button2:hover, .title-button3:hover {
   transition: 1s;
   color: #3E3E3E;
 }
@@ -345,7 +371,7 @@ p {
   border-radius: 10px;
   color: #FFFFFF;
   font-family: 'Ruda', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   border: none;
   box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
   padding: 5px 10px 5px 10px;
@@ -359,7 +385,7 @@ p {
 
 .cancelar {
   font-family: 'Ruda', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
   margin-right: 10px;
