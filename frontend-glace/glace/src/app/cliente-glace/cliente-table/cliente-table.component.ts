@@ -15,6 +15,7 @@ export class ClienteTableComponent implements OnInit {
   
   clientes: ClienteModel[] = [];
   loading: boolean;
+  usuario: string = '';
   @ViewChild('dt') table: Table;
   @ViewChild('dt2') table2: Table;
   constructor(
@@ -27,6 +28,7 @@ export class ClienteTableComponent implements OnInit {
     this.loading = true;
     this.carregarClientes();  
   }  
+  
 
   carregarClientes(){
     this.title.setTitle('Lista de clientes');
@@ -38,17 +40,20 @@ export class ClienteTableComponent implements OnInit {
   }
 
   excluir(id: number){
+    
     this.confirmarService.confirm({
       message: 'Tem certeza que deseja excluir este cliente?',
       accept: () => {
         this.repository.deleteCliente(id).subscribe( resposta => {
           this.messageService.add(
+            
             {
               key: 'toast',
               severity: 'success',
               summary: 'CLIENTE',
               detail: 'excluído com sucesso!'
             });   
+            
             this.carregarClientes();
         });    
       }

@@ -12,13 +12,13 @@ const routes: Routes = [
   },
   { path: 'perfilUsuario/:codigo', component: PerfilUsuarioComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['CG'] }
+    data: { roles: ['UG' , 'CG'] }
   },
   { path: 'perfilUsuario', component: PerfilUsuarioComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['CG'] }
+    data: { roles: ['CG', 'UG'] }
   },
-  {path: 'cadastroUsuario', component: CadastroUsuarioComponent},
+  
   {path: 'listar/cliente', component: ClienteTableComponent}
 ];
 

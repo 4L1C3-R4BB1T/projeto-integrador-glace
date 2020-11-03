@@ -47,13 +47,13 @@ public class ClienteGlaceService {
 	@Transactional
 	public ClienteGlaceDTO salvarCliente(ClienteGlaceRequest clienteRequest) {
 		
-		UsuarioADMGlace usuario = new UsuarioADMGlace();
+		ClienteGlace cliente = new ClienteGlace();
 		Grupo grupo = grupoRepository.findById(2L).get();
 		Set<Grupo> grupos = new HashSet<>();
 	    grupos.add(grupo);
-	    usuario.setGrupos(grupos);
+	    cliente.setGrupos(grupos);
 		
-		ClienteGlace cliente = mapper.requestToModel(clienteRequest);
+		cliente = mapper.requestToModel(clienteRequest);
 		cliente.setSenha(passwordEncoder.encode(clienteRequest.getSenha()));
 		if(cliente.getEndereco().getCidade().getId() == null) {
 			

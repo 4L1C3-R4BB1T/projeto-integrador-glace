@@ -1,94 +1,55 @@
-<div class="container margem-nav mb-5">
-    <p-table #dt
-    [value]="clientes"
-    [paginator]="true" 
-    [rows]="10" 
-    [showCurrentPageReport]="true" 
-    currentPageReportTemplate="Mostrando {first} até {last} de {totalRecords} registros" 
-    [rowsPerPageOptions]="[5,10,25,50]"
-    [loading]="loading"
-    [filterDelay]="0" 
-    [globalFilterFields]="['id','nome','email','endereco.cep']">
-        <ng-template pTemplate="caption">
-            <div class="table-header">           
-                <span class="p-input-icon-left">
-                    <i class="pi pi-search"></i>
-                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Pesquisar" />
-                </span>
-            </div>
-        </ng-template>
-        <ng-template pTemplate="header">
-            <tr>
-                <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
-                <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon></th>
-                <th pSortableColumn="email">E-mail <p-sortIcon field="email"></p-sortIcon></th>
-                <th pSortableColumn="cep">CEP <p-sortIcon field="cep"></p-sortIcon></th>
-                <th class="deletar-atualizar"></th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-cliente>
-            <tr>
-                <td>{{cliente.id}}</td>
-                <td>{{cliente.nome}}</td>
-                <td>{{cliente.email}}</td>
-                <td>{{cliente.telefone}}</td>
-                <td class="deletar-atualizar">
-                    <p-button routerLink="/cliente/{{cliente.id}}" class="espaco" icon="pi pi-pencil"></p-button>
-                    <p-button (click)="excluir(cliente.id)" icon="pi pi-trash"></p-button>
-                </td>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="paginatorleft">
-            <p-button type="button" routerLink="/cliente">Novo Cliente</p-button>
-        </ng-template>
-    </p-table>
 
-</div>
+<div class="container-fluid">
+    <div id="container">
+    
+    <app-nav-bar></app-nav-bar>
 
-<div class="container margem-nav mb-5">
-    <p-table 
-    #dt2
-    [value]="clientes"
-    [paginator]="true" 
-    [rows]="10" 
-    [showCurrentPageReport]="true" 
-    currentPageReportTemplate="Exibindo {first} até {last} de {totalRecords} registros" 
-    [rowsPerPageOptions]="[5,10,25,50]"
-    [filterDelay]="0" 
-    [globalFilterFields]="['id','nome','sobrenome','email']"
-    [loading]="loading">
-    <ng-template pTemplate="caption">
-        <div class="table-header">
-            <span class="p-input-icon-left">
-                <i class="pi pi-search"></i>
-                <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')" placeholder="Pesquisar" />
-            </span>
-        </div>
-    </ng-template>
-        <ng-template pTemplate="header">
-            <tr>
-                <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
-                <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon></th>
-                <th pSortableColumn="sobrenome">Sobrenome <p-sortIcon field="sobrenome"></p-sortIcon></th>
-                <th pSortableColumn="email">E-mail <p-sortIcon field="email"></p-sortIcon></th>
-                <th class="deletar-atualizar"></th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-cliente>
-            <tr>
-                <td>{{cliente.id}}</td>
-                <td>{{cliente.nome}}</td>
-                <td>{{cliente.sobrenome}}</td>
-                <td>{{cliente.telefone}}</td>
-                <td class="deletar-atualizar">
-                    <p-button routerLink="/cliente/{{cliente.id}}" class="espaco" icon="pi pi-pencil"></p-button>
-                    <p-button (click)="excluir(cliente.id)" icon="pi pi-trash"></p-button>
-                </td>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="paginatorleft">
-            <p-button type="button">Novo Cliente</p-button>
-        </ng-template>
-    </p-table>
+    <div class="container margem-nav mb-5">
+        <p-table #dt
+        [value]="clientes"
+        [paginator]="true" 
+        [rows]="10" 
+        [showCurrentPageReport]="true" 
+        currentPageReportTemplate="Mostrando {first} até {last} de {totalRecords} registros" 
+        [rowsPerPageOptions]="[5,10,25,50]"
+        [loading]="loading"
+        [filterDelay]="0" 
+        [globalFilterFields]="['id','nome','email','endereco.cep']">
+            <ng-template pTemplate="caption">
+                <div class="table-header">           
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Pesquisar" />
+                    </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
+                    <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon></th>
+                    <th pSortableColumn="email">E-mail <p-sortIcon field="email"></p-sortIcon></th>
+                    <th pSortableColumn="cep">CEP <p-sortIcon field="cep"></p-sortIcon></th>
+                    <th class="deletar-atualizar"></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-cliente>
+                <tr>
+                    <td>{{cliente.id}}</td>
+                    <td>{{cliente.nome}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.telefone}}</td>
+                    <td class="deletar-atualizar">
+                        <p-button routerLink="/cliente/{{cliente.id}}" class="espaco" icon="pi pi-pencil"></p-button>
+                        <p-button (click)="excluir(cliente.id)" icon="pi pi-trash"></p-button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+                <p-button type="button" routerLink="/cliente">Novo Cliente</p-button>
+            </ng-template>
+        </p-table>
 
-</div>
+    </div>
+
+    </div>
+    </div>

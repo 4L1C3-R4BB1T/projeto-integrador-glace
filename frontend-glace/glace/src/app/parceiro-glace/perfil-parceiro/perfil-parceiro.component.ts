@@ -43,7 +43,7 @@ export class PerfilParceiroComponent implements OnInit {
 
     const codigoParceiro = this.route.snapshot.params['codigo'];
 
-    this.title.setTitle('Novo cliente');
+    this.title.setTitle('Novo Parceiro');
     console.log(codigoParceiro)
 
     if (codigoParceiro) {

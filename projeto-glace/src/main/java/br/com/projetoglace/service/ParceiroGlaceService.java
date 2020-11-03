@@ -48,13 +48,13 @@ public class ParceiroGlaceService {
 	public ParceiroGlaceDTO salvar(ParceiroGlaceRequest parceiroRequest) {
 		
 
-		UsuarioADMGlace usuario = new UsuarioADMGlace();
+		ParceiroGlace parceiro	 = new ParceiroGlace();
 		Grupo grupo = grupoRepository.findById(1L).get();
 		Set<Grupo> grupos = new HashSet<>();
 	    grupos.add(grupo);
-	    usuario.setGrupos(grupos);
+	    parceiro.setGrupos(grupos);
 	    
-		ParceiroGlace parceiro = mapper.requestToModel(parceiroRequest);
+		parceiro = mapper.requestToModel(parceiroRequest);
 		parceiro.setSenha(passwordEncoder.encode(parceiroRequest.getSenha()));
 		
 		if(parceiro.getEndereco().getCidade().getId() == null) {

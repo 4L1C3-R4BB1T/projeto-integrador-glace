@@ -1,6 +1,6 @@
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from './../../seguranca/auth.service';
+import { AuthService } from '../../seguranca/auth.service';
 import { ClienteModel } from '../model/cliente-model';
 import { ClienteRepository } from '../repository/cliente-repository';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -40,7 +40,8 @@ export class PerfilUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.iniciarFormulario();
     this.listarEstados();
-    const codigoCliente = this.route.snapshot.params['codigo'];
+   // const codigoCliente = this.route.snapshot.params['codigo'];
+   const codigoCliente = this.service.jwtPayload.usuario_id;
     this.title.setTitle('Novo cliente');
     console.log(codigoCliente)
     if (codigoCliente) {

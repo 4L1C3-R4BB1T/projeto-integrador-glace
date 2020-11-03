@@ -22,6 +22,7 @@ import br.com.projetoglace.dto.ClienteGlaceDTO;
 import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.request.ClienteGlaceRequest;
 import br.com.projetoglace.security.permissões.CheckSecurity;
+import br.com.projetoglace.security.permissões.GlaceSecurity;
 import br.com.projetoglace.service.ClienteGlaceService;
 
 @CrossOrigin
@@ -31,6 +32,9 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 
 	@Autowired
 	private ClienteGlaceService service;
+	
+	@Autowired 
+	private GlaceSecurity glaceSecurity;
 		
 	@Override
 	@PostMapping
@@ -62,6 +66,19 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		return ResponseEntity.notFound().build();
 	}
 		
+	
+	@GetMapping("/usuarioAdm")
+	public ResponseEntity<ClienteGlace> buscarPorIdnoToken() {
+		
+		Long id = glaceSecurity.getUsuarioId();
+		Optional<ClienteGlace> cliente = service.buscarCliente(id);
+		if (cliente.isPresent()) {
+			return ResponseEntity.ok(cliente.get());
+		}
+		return ResponseEntity.notFound().build();
+	}
+	
+	
 	@CheckSecurity.Cliente.PodeExcluirPerfilCliente
 	@Override
 	@DeleteMapping("/{id}")

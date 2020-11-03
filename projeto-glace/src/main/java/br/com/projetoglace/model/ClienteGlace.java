@@ -1,6 +1,8 @@
 package br.com.projetoglace.model;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -8,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -52,5 +57,9 @@ public class ClienteGlace {
 	@OneToOne
 	private Imagem foto;
 	
+	@ManyToMany
+	@JoinTable(name = "cliente_grupo", joinColumns = @JoinColumn(name = "cliente_id"),
+			inverseJoinColumns = @JoinColumn(name = "grupo_id"))
+	private Set<Grupo> grupos = new HashSet<>();
 
 }
