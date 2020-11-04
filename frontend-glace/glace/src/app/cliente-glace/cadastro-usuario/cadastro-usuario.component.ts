@@ -9,8 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-cadastro-usuario',
   templateUrl: './cadastro-usuario.component.html',
-  styleUrls: ['./cadastro-usuario.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./cadastro-usuario.component.css']
 })
 export class CadastroUsuarioComponent implements OnInit {
 
@@ -153,6 +152,7 @@ export class CadastroUsuarioComponent implements OnInit {
           var msg: any[] = [];
           //Erro Principal
           msg.push({
+          key: 'toast',
           severity: 'error',
           summary: 'ERRO',
           detail: e.error.userMessage
@@ -163,6 +163,7 @@ export class CadastroUsuarioComponent implements OnInit {
       var erros = e.error.objects;
       erros.forEach(function (elemento) {
         msg.push({
+          key: 'toast',
           severity: 'error',
           summary: 'ERRO',
           detail: elemento.userMessage
@@ -187,6 +188,7 @@ export class CadastroUsuarioComponent implements OnInit {
           var msg: any[] = [];
           //Erro Principal
           msg.push({
+            key: 'toast',
             severity: 'error',
             summary: 'ERRO',
             detail: e.error.userMessage
@@ -195,6 +197,7 @@ export class CadastroUsuarioComponent implements OnInit {
           var erros = e.error.objects;
           erros.forEach(function (elemento) {
             msg.push({
+              key: 'toast',
               severity: 'error',
               summary: 'ERRO',
               detail: elemento.userMessage
