@@ -32,6 +32,10 @@ export class AuthService {
         this.router.navigate(['/perfilParceiro']);
       }
 
+      if(this.jwtPayload['authorities'].includes('UG')) {
+        this.router.navigate(['/listar/cliente']);
+      }
+
       },
       (e) => {
         console.log(e.error.error_description);

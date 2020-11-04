@@ -46,6 +46,7 @@
                           class="input form-control"
                           mask="(00) 00000-0000"
                           placeholder="Telefone"
+                          formControlName="telefone"
                           aria-label="Telephone number 11 digits only" />
                       </div>
                     </div>
@@ -80,6 +81,7 @@
                             class="input mt-4 form-control"
                             mask="00000-000"
                             placeholder="Cep"
+                            formControlName="cep"
                             aria-label="cep number 10 digits only">
                         </div>
                       </div>
@@ -137,7 +139,7 @@
                       <button type="submit" class="btn cancelar btn-outline-secondary" data-dismiss="modal">Cancelar</button>
                       <button type="submit" class="btn cadastrar"
                       [class]="operacao? 'btn-primary' : 'btn-success'" >
-                       {{ operacao ? "Atualizar" : "" }}</button>
+                       {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
                     </div>
                   </form>
                 </div>

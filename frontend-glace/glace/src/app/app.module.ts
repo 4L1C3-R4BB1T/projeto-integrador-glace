@@ -12,9 +12,10 @@ import { ButtonModule } from 'primeng/button'
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
-import {InputMaskModule} from 'primeng/inputmask';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { InputMaskModule } from 'primeng/inputmask';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -71,7 +72,8 @@ import { TemplateModule } from './template/template.module';
     ClienteGlaceModule,
     ParceiroGlaceModule,
     TemplateModule,
-    PaginaGlaceModule
+    PaginaGlaceModule,
+    ConfirmDialogModule
   ],
   providers: [
     MessageService,
