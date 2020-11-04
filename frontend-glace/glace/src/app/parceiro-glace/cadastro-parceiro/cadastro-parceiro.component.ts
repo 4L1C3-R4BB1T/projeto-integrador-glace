@@ -11,8 +11,7 @@ import { Message, MessageService } from 'primeng/api';
 @Component({
   selector: 'app-cadastro-parceiro',
   templateUrl: './cadastro-parceiro.component.html',
-  styleUrls: ['./cadastro-parceiro.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./cadastro-parceiro.component.css']
 })
 export class CadastroParceiroComponent implements OnInit {
 
@@ -150,6 +149,7 @@ export class CadastroParceiroComponent implements OnInit {
         var msg: any[] = [];
         //Erro Principal
         msg.push({
+          key: 'toast',
           severity: 'error',
           summary: 'ERRO',
           detail: e.error.userMessage
@@ -159,6 +159,7 @@ export class CadastroParceiroComponent implements OnInit {
         erros.forEach(function (elemento) {
           msg.push(
             {
+              key: 'toast',
               severity: 'error',
               summary: 'ERRO',
               detail: elemento.userMessage
@@ -182,6 +183,7 @@ export class CadastroParceiroComponent implements OnInit {
         var msg: any[] = [];
         //Erro Principal
         msg.push({
+          key: 'toast',
           severity: 'error',
           summary: 'ERRO',
           detail: e.error.userMessage
@@ -191,6 +193,7 @@ export class CadastroParceiroComponent implements OnInit {
         erros.forEach(function (elemento) {
           msg.push(
             {
+              key: 'toast',
               severity: 'error',
               summary: 'ERRO',
               detail: elemento.userMessage
