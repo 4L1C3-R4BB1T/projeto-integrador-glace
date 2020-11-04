@@ -18,7 +18,6 @@ import br.com.projetoglace.exception.ClienteNaoEncontradoException;
 import br.com.projetoglace.mapper.ClienteGlaceMapper;
 import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.model.Grupo;
-import br.com.projetoglace.model.UsuarioADMGlace;
 import br.com.projetoglace.repository.CidadeRepository;
 import br.com.projetoglace.repository.ClienteGlaceRepository;
 import br.com.projetoglace.repository.EstadoRepository;
@@ -53,7 +52,6 @@ public class ClienteGlaceService {
 	    grupos.add(grupo);
 	    cliente.setGrupos(grupos);
 		
-		cliente = mapper.requestToModel(clienteRequest);
 		cliente.setSenha(passwordEncoder.encode(clienteRequest.getSenha()));
 		if(cliente.getEndereco().getCidade().getId() == null) {
 			

@@ -18,7 +18,6 @@ import br.com.projetoglace.exception.ClienteNaoEncontradoException;
 import br.com.projetoglace.mapper.ParceiroGlaceMapper;
 import br.com.projetoglace.model.Grupo;
 import br.com.projetoglace.model.ParceiroGlace;
-import br.com.projetoglace.model.UsuarioADMGlace;
 import br.com.projetoglace.repository.CidadeRepository;
 import br.com.projetoglace.repository.EstadoRepository;
 import br.com.projetoglace.repository.GrupoRepository;

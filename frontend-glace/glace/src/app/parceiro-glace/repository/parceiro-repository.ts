@@ -36,6 +36,14 @@ export class ParceiroRepository {
             .pipe(map((x) => this.mapper.mapFrom(x)));
     }
 
+    getAllParceiro(): Promise<ParceiroModel[]> {
+        
+        return this.http
+            .getAll<ParceiroEntity[]>(`${environment.URLSERVIDOR}parceiro`)
+            .toPromise().then(x => {
+                return x.data.map(this.mapper.mapFrom);
+            })            
+    }
     getAllEstados(): Observable<EstadoModel> {
         return this.http
             .getAll<EstadoEntity[]>(`${environment.URLSERVIDOR}estado`)
