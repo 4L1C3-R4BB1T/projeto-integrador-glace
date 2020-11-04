@@ -1,5 +1,4 @@
 import { PaginaGlaceModule } from './pagina-glace/pagina-glace.module';
-import { PaginaGlaceRoutingModule } from './pagina-glace/pagina-glace-routing.module';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { BrowserModule, Title } from '@angular/platform-browser';
