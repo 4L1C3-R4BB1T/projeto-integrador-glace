@@ -3,12 +3,18 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start": "node server.js",
+    "postinstall": "ng build --aot --prod"
   },
+    "engines": {
+      "node": "10.13.0",
+      "npm": "6.4.1"
+    },
+  
   "private": true,
   "dependencies": {
     "@angular/animation": "^4.0.0-beta.8",
@@ -22,6 +28,7 @@
     "@angular/platform-browser-dynamic": "~10.1.1",
     "@angular/router": "~10.1.1",
     "angular-cors": "^1.0.0",
+    "express": "^4.17.1",
     "ngx-mask": "^10.0.4",
     "primeicons": "^4.0.0",
     "primeng": "^10.0.0",
