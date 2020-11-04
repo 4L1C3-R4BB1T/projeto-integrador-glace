@@ -52,14 +52,14 @@
                         <td>{{cliente.email}}</td>
                         <td>{{cliente.telefone}}</td>
                         <td class="deletar-atualizar">
-                            <p-button routerLink="/cliente/{{cliente.id}}" class="espaco" icon="pi pi-pencil">
+                            <p-button routerLink="/perfilUsuario/{{cliente.id}}" class="espaco" icon="pi pi-pencil">
                             </p-button>
                             <p-button (click)="excluir(cliente.id)" icon="pi pi-trash"></p-button>
                         </td>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="paginatorleft">
-                    <p-button type="button" routerLink="/cliente">Novo Cliente</p-button>
+                    <p-button type="button" routerLink="/cadastroUsuario">Novo Cliente</p-button>
                 </ng-template>
             </p-table>
         </div>
