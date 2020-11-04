@@ -52,16 +52,18 @@ public class ClienteGlaceService {
 	    grupos.add(grupo);
 	    cliente.setGrupos(grupos);
 		
+	    cliente = mapper.requestToModel(clienteRequest);
 		cliente.setSenha(passwordEncoder.encode(clienteRequest.getSenha()));
+		
 		if(cliente.getEndereco().getCidade().getId() == null) {
 			
-//			estadoRepository.findById(cliente.getEndereco().getCidade().getEstado().getId());
-//			cidadeRepository.findById(cliente.getEndereco().getCidade().getId());
+			//estadoRepository.findById(cliente.getEndereco().getCidade().getEstado().getId());
+			//cidadeRepository.findById(cliente.getEndereco().getCidade().getId());
 			
 			estadoRepository.save(cliente.getEndereco().getCidade().getEstado());
 		    cidadeRepository.save(cliente.getEndereco().getCidade());
 		}
-		System.out.println(cliente.getEndereco().getCep()+ "\n\n\n\n\n\n");
+		//System.out.println(cliente.getEndereco().getCep()+ "\n\n\n\n\n\n");
 	    return mapper.modelToDTO(repository.save(cliente));		
 	}
 	

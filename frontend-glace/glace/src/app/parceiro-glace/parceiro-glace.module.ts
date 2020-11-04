@@ -22,11 +22,13 @@ import { TemplateModule } from '../template/template.module';
 
 import { ParceiroGlaceRoutingModule } from './parceiro-glace-routing.module';
 import { CadastroParceiroComponent } from './cadastro-parceiro/cadastro-parceiro.component';
+import { ParceiroTableComponent } from './parceiro-table/parceiro-table.component';
 
 @NgModule({
   declarations: [
     PerfilParceiroComponent,
     CadastroParceiroComponent,
+    ParceiroTableComponent,
   ],
   exports:[
     PerfilParceiroComponent,

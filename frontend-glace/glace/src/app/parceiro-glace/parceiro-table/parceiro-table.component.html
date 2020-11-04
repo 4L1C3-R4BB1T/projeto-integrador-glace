@@ -12,9 +12,9 @@
         </div>   
 
         <div class="container mt-3 mb-5">
-            <p>Lista de Clientes</p>
+            <p>Lista de Parceiros</p>
             <p-table 
-                #dt [value]="clientes" 
+                #dt2 [value]="parceiros" 
                 [paginator]="true" 
                 [rows]="10" 
                 [showCurrentPageReport]="true"
@@ -22,7 +22,7 @@
                 [rowsPerPageOptions]="[5,10,25,50]" 
                 [loading]="loading" 
                 [filterDelay]="0"
-                [globalFilterFields]="['id','nome','email','endereco.cep']">
+                [globalFilterFields]="['id','razao','email','endereco.cep']">
                 <ng-template pTemplate="caption">
                     <div class="table-header">
                         <span class="p-input-icon-left">
@@ -36,7 +36,7 @@
                     <tr>
                         <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon>
                         </th>
-                        <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon>
+                        <th pSortableColumn="razao">Razão<p-sortIcon field="razao"></p-sortIcon>
                         </th>
                         <th pSortableColumn="email">E-mail <p-sortIcon field="email"></p-sortIcon>
                         </th>
@@ -45,24 +45,24 @@
                         <th class="deletar-atualizar"></th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-cliente>
+                <ng-template pTemplate="body" let-parceiro>
                     <tr>
-                        <td>{{cliente.id}}</td>
-                        <td>{{cliente.nome}}</td>
-                        <td>{{cliente.email}}</td>
-                        <td>{{cliente.telefone}}</td>
+                        <td>{{parceiro.id}}</td>
+                        <td>{{parceiro.razao}}</td>
+                        <td>{{parceiro.email}}</td>
+                        <td>{{parceiro.telefone}}</td>
                         <td class="deletar-atualizar">
-                            <p-button routerLink="/cliente/{{cliente.id}}" class="espaco" icon="pi pi-pencil">
+                            <p-button routerLink="/parceiro/{{parceiro.id}}" class="espaco" icon="pi pi-pencil">
                             </p-button>
-                            <p-button (click)="excluir(cliente.id)" icon="pi pi-trash"></p-button>
+                            <p-button (click)="excluirParc(parceiro.id)" icon="pi pi-trash"></p-button>
                         </td>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="paginatorleft">
-                    <p-button type="button" routerLink="/cliente">Novo Cliente</p-button>
+                    <p-button type="button" routerLink="/parceiro">Novo Parceiro</p-button>
                 </ng-template>
             </p-table>
         </div>
-        
+
     </div>
 </div>

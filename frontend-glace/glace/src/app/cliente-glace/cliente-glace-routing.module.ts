@@ -7,11 +7,6 @@ import { PerfilUsuarioComponent } from '../cliente-glace/perfil-usuario/perfil-u
 
 const routes: Routes = [
   {
-    path: 'cliente', component: CadastroUsuarioComponent,
-    canActivate: [AuthGuard],
-    data: { roles: ['CG'] }
-  },
-  {
     path: 'perfilUsuario/:codigo', component: PerfilUsuarioComponent,
     canActivate: [AuthGuard],
     data: { roles: ['UG', 'CG'] }
@@ -25,7 +20,8 @@ const routes: Routes = [
     path: 'listar/cliente', component: ClienteTableComponent,
     canActivate: [AuthGuard],
     data: { roles: ['UG'] }
-  }
+  },
+  { path: 'cadastroUsuario', component: CadastroUsuarioComponent }
 ];
 
 @NgModule({
