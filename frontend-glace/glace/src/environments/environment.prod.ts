@@ -2,5 +2,5 @@ export const environment = {
   production: true,
   logRequest: true,
   traceRequest: true,
-  URLSERVIDOR: 'https://projetoglace.herokuapp.com/' 
+  URLSERVIDOR: 'https://glace-backend.herokuapp.com/' 
 };
