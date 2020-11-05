@@ -16,7 +16,7 @@ public enum ProblemType {
 	private String uri;
 	
 	ProblemType(String path, String title) {
-		this.uri = "https://localhost:8080/" + path;
+		this.uri = "https://glace-backend.herokuapp.com/" + path;
 		this.title = title;
 	}
 	

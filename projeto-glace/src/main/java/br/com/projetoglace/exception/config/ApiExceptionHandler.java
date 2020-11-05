@@ -28,6 +28,8 @@ import com.fasterxml.jackson.databind.exc.PropertyBindingException;
 
 import br.com.projetoglace.exception.BusinessException;
 import br.com.projetoglace.exception.EntidadeNaoEncontradaException;
+
+
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	public static final String MSG_ERRO_GENERICA_USUARIO_FINAL
