@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   logRequest: true,
   traceRequest: true,
-  URLSERVIDOR: 'https://git.heroku.com/projetoglace.git/'
+  URLSERVIDOR: 'https://projetoglace.herokuapp.com/'
 };
 
 /*

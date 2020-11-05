@@ -10,11 +10,10 @@
     "start": "node server.js",
     "postinstall": "ng build --aot --prod"
   },
-    "engines": {
-      "node": "10.13.0",
-      "npm": "6.4.1"
-    },
-  
+  "engines": {
+    "node": "12.18.2",
+    "npm": "6.14.8"
+  },
   "private": true,
   "dependencies": {
     "@angular/animation": "^4.0.0-beta.8",
