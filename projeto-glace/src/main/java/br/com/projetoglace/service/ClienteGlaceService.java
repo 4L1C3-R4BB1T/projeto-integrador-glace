@@ -14,8 +14,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.projetoglace.dto.ClienteGlaceDTO;
+import br.com.projetoglace.email.EnvioEmailService;
+import br.com.projetoglace.email.Mensagem;
 import br.com.projetoglace.exception.ClienteNaoEncontradoException;
 import br.com.projetoglace.mapper.ClienteGlaceMapper;
+import br.com.projetoglace.model.Cidade;
 import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.model.Grupo;
 import br.com.projetoglace.repository.CidadeRepository;
@@ -40,8 +43,12 @@ public class ClienteGlaceService {
 	
 	@Autowired
 	private ClienteGlaceMapper mapper;
+	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	EnvioEmailService envioMensagem;
 	
 	@Transactional
 	public ClienteGlaceDTO salvarCliente(ClienteGlaceRequest clienteRequest) {
@@ -69,6 +76,19 @@ public class ClienteGlaceService {
 	
 	@Transactional
 	public void atualizarCliente(ClienteGlace cliente) {
+		
+		Cidade cidade = cidadeRepository.findById(cliente.getEndereco().getCidade().getEstado()); 
+		
+			Mensagem mensagem = Mensagem.builder()
+				.assunto(cliente.getNome()+ "Cliente Atualizado")
+				.corpo("Cliente-atualizado.html")
+				.variavel("cliente",cliente)
+				.variavel("cidade",cidade.getNome())
+				.variavel("estado",cidade.getEstado().getNome())
+				.destinatario(cliente.getEmail())
+				.build();
+			envioMensagem.enviar(mensagem);
+				
 		repository.save(cliente);		
 	}
 	

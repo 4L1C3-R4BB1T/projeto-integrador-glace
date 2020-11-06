@@ -1,0 +1,34 @@
+<html>
+<body style="font: 14px Arial, Helvetica, sans-serif">
+	<h1 style="color: red; font-size: 26px">Cliente atualizado!</h1>
+	
+	<p>${cliente.nome}, você foi atualizado com sucesso!</p>
+	
+	<h2 style="font-size: 20px">${cliente.sobrenome}</h2>
+	
+	<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			style="max-width: 400px; color: #6F6F6F">
+		<#list cliente.telefones as telefone>
+		<tr>
+			<td style="padding: 10px 0">${telefone.telefone}</td>
+			<td style="width: 30px">${telefone.tipo}</td>			
+		</tr>
+		</#list>
+		<tr>
+			<td style="padding: 10px 0">Data de Nascimento</td>
+			<td>${cliente.dataNasc}</td>
+		</tr>
+		<tr style="font-weight: bold">
+			<td style="padding: 10px 0">Cidade</td>
+			<td>${cidade}</td>
+		</tr>
+		<td style="widtg:30px">${item.precoTotal?string.currency}</td>
+	</table>
+	
+	<h2 style="font-size: 20px">Estado</h2>
+	<p style="color: #6F6F6F">${estado}</p>
+</body>
+</html>
+
+
+
