@@ -8,11 +8,11 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: 'perfilParceiro/:codigo', component: PerfilParceiroComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['PG', 'UG'] }
+    data: { roles: ['PG'] }
   },
   { path: 'perfilParceiro', component: PerfilParceiroComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['PG', 'UG'] }
+    data: { roles: ['PG'] }
   },
   {
     path: 'listar/parceiro', component: ParceiroTableComponent,
