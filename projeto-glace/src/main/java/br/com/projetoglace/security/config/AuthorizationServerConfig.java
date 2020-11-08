@@ -30,7 +30,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Autowired
 	private UserDetailsService userDetailsService;
 	
-	@Value("${proojetoglace.password.client}")
+	@Value("${projetoglace.password.client}")
 	private String clientPassw;
 	
 	@Override

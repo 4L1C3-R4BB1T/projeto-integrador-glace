@@ -3,12 +3,9 @@ package br.com.projetoglace.request;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
-import br.com.projetoglace.model.Imagem;
 
 public class UsuarioADMGlaceRequest {
 
@@ -31,6 +28,4 @@ public class UsuarioADMGlaceRequest {
 	@NotBlank
 	private String senha;
 	
-	@OneToOne
-	private Imagem foto;
 }

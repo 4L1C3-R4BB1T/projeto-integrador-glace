@@ -26,7 +26,6 @@ private Long id;
 	@NotNull
 	private String telefone;
 	
-	
 	private LocalDate dataNasc;
 	
 	@NotNull

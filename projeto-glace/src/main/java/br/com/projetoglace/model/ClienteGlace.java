@@ -19,17 +19,20 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @Entity
 @Table(name="cliente")
 public class ClienteGlace {
-
+	
+	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
+	@Column(nullable = false)
 	private String nome;
 	
 	@Column
@@ -42,13 +45,13 @@ public class ClienteGlace {
 	@Column
 	private String cpf;
 	
-	@Column
+	@Column(nullable = false)
 	private String email;
 	
 	@Column
 	private String telefone;
 	
-	@Column
+	@Column(nullable = false)
 	private String senha;
 	
 	@Embedded

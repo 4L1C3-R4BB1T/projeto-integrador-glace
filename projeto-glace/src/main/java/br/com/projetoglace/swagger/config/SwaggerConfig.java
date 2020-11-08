@@ -92,7 +92,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
 	}
 	
 	private List<GrantType> grantTypes() {
-		return Arrays.asList(new ResourceOwnerPasswordCredentialsGrant("http://localhost:8081/oauth/token"));
+		return Arrays.asList(new ResourceOwnerPasswordCredentialsGrant("http://localhost:8080/oauth/token"));
 	}
 	
 	private List<AuthorizationScope> scopes() {
@@ -156,9 +156,9 @@ public class SwaggerConfig implements WebMvcConfigurer {
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
 				.title("Projeto Glace - API")
-				.description("API para o Sistema de de busca de estabelecimentos voltados para deficiêntes")
+				.description("API para o Sistema de de busca de estabelecimentos voltados para deficientes")
 				.version("1.0")
-				.contact(new Contact("Projeto Glace", "https://www.glace.com", "contato@glace.com.br"))
+				.contact(new Contact("Projeto Glace", "https://projetoglace.herokuapp.com/", "contato@glace.com.br"))
 				.build();
 	}
 	

@@ -19,23 +19,25 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @Entity
 @Table(name="parceiro")
 public class ParceiroGlace {
-
+	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
+	@Column(nullable = false)
 	private String razao;
 	
 	@Column
 	private String cnpj;
 
-	@Column
+	@Column(nullable = false)
 	private String email;
 	
 	@Column
@@ -44,7 +46,7 @@ public class ParceiroGlace {
 	@Embedded
 	private Endereco endereco;
 	
-	@Column
+	@Column(nullable = false)
 	private String senha;
 		
 	@OneToMany(mappedBy = "parceiroGlace", cascade = CascadeType.ALL)

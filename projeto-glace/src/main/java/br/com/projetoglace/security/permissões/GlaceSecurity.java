@@ -15,4 +15,12 @@ public class GlaceSecurity {
 		Jwt jwt = (Jwt) getAuthentication().getPrincipal();
 		return jwt.getClaim("usuario_id");
 	}
+	public Long getParceiroId() {
+		Jwt jwt = (Jwt) getAuthentication().getPrincipal();
+		return jwt.getClaim("parceiro_id");
+	}
+	public Long getClienteId() {
+		Jwt jwt = (Jwt) getAuthentication().getPrincipal();
+		return jwt.getClaim("cliente_id");
+	}
 }
