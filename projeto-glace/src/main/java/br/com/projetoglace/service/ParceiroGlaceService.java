@@ -62,7 +62,7 @@ public class ParceiroGlaceService {
 		    cidadeRepository.save(parceiro.getEndereco().getCidade());
 		}
 		
-		Grupo grupo = grupoRepository.findById(1L).get();
+		Grupo grupo = grupoRepository.findById(3L).get();
 		Set<Grupo> grupos = new HashSet<>();
 	    grupos.add(grupo);
 	    parceiro.setGrupos(grupos);

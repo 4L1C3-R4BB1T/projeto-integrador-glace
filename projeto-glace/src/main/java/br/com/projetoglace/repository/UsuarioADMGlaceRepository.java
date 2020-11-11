@@ -11,5 +11,4 @@ import br.com.projetoglace.model.UsuarioADMGlace;
 public interface UsuarioADMGlaceRepository extends JpaRepository<UsuarioADMGlace, Long> {
 
 	Optional<UsuarioADMGlace> findByEmail(String email);
-	
 }

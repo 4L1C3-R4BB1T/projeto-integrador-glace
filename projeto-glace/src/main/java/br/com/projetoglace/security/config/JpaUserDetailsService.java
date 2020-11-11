@@ -22,8 +22,6 @@ import br.com.projetoglace.repository.UsuarioADMGlaceRepository;
 @Service
 public class JpaUserDetailsService implements UserDetailsService {
 
-	private static final boolean UsuarioADMGlace = false;
-	private static final boolean ParceiroGlace = false;
 	@Autowired
 	private UsuarioADMGlaceRepository usuarioRepository;
 	@Autowired
@@ -36,13 +34,15 @@ public class JpaUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		if(UsuarioADMGlace) {
+		//Verifica se há algum usuário cadastrado no banco com esse usuario
+		if(!usuarioRepository.findByEmail(username).isEmpty()) {
 		UsuarioADMGlace usuario = usuarioRepository.findByEmail(username)
 				.orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado com e-mail informado"));
 		
 		return new AuthUser(usuario, getAuthorities(usuario));
 		}
-		else if(ParceiroGlace) {
+		//Verifica se há algum usuário cadastrado no banco com esse usuario
+		else if(!parceiroRepository.findByEmail(username).isEmpty()) {
 			ParceiroGlace parceiro = parceiroRepository.findByEmail(username)
 					.orElseThrow(() -> new UsernameNotFoundException("Parceiro não encontrado com e-mail informado"));
 			
@@ -79,5 +79,4 @@ public class JpaUserDetailsService implements UserDetailsService {
 				.map(permissao -> new SimpleGrantedAuthority(permissao.getNome().toUpperCase()))
 				.collect(Collectors.toSet());
 	}
-
 }
