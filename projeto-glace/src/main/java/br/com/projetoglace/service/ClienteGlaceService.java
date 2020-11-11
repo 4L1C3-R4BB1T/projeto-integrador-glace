@@ -54,10 +54,6 @@ public class ClienteGlaceService {
 	public ClienteGlaceDTO salvarCliente(ClienteGlaceRequest clienteRequest) {
 		
 		ClienteGlace cliente = new ClienteGlace();
-		Grupo grupo = grupoRepository.findById(2L).get();
-		Set<Grupo> grupos = new HashSet<>();
-	    grupos.add(grupo);
-	    cliente.setGrupos(grupos);
 		
 	    cliente = mapper.requestToModel(clienteRequest);
 		cliente.setSenha(passwordEncoder.encode(clienteRequest.getSenha()));
@@ -70,6 +66,11 @@ public class ClienteGlaceService {
 			estadoRepository.save(cliente.getEndereco().getCidade().getEstado());
 		    cidadeRepository.save(cliente.getEndereco().getCidade());
 		}
+		Grupo grupo = grupoRepository.findById(2L).get();
+		Set<Grupo> grupos = new HashSet<>();
+	    grupos.add(grupo);
+	    cliente.setGrupos(grupos);
+	    repository.save(cliente);
 		//System.out.println(cliente.getEndereco().getCep()+ "\n\n\n\n\n\n");
 	    return mapper.modelToDTO(repository.save(cliente));		
 	}

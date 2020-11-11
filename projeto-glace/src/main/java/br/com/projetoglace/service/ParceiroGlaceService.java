@@ -53,11 +53,7 @@ public class ParceiroGlaceService {
 		
 
 		ParceiroGlace parceiro	 = new ParceiroGlace();
-		Grupo grupo = grupoRepository.findById(1L).get();
-		Set<Grupo> grupos = new HashSet<>();
-	    grupos.add(grupo);
-	    parceiro.setGrupos(grupos);
-	    
+		
 		parceiro = mapper.requestToModel(parceiroRequest);
 		parceiro.setSenha(passwordEncoder.encode(parceiroRequest.getSenha()));
 		
@@ -65,6 +61,12 @@ public class ParceiroGlaceService {
 			estadoRepository.save(parceiro.getEndereco().getCidade().getEstado());
 		    cidadeRepository.save(parceiro.getEndereco().getCidade());
 		}
+		
+		Grupo grupo = grupoRepository.findById(1L).get();
+		Set<Grupo> grupos = new HashSet<>();
+	    grupos.add(grupo);
+	    parceiro.setGrupos(grupos);
+	    repository.save(parceiro);
 	    return mapper.modelToDTO(repository.save(parceiro));		
 	}
 	

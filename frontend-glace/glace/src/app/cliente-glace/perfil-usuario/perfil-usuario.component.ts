@@ -40,13 +40,14 @@ export class PerfilUsuarioComponent implements OnInit {
     this.iniciarFormulario();
     this.listarEstados();
     const codigoCliente = this.route.snapshot.params['codigo'];
+    //Pegando o id do usuario através do token
+    const codigo = this.service.jwtPayload.usuario_id;
     //const codigoCliente = this.service.jwtPayload.usuario_id;
     this.title.setTitle('Novo cliente');
-    console.log(codigoCliente)
-    if (codigoCliente) {
+
+    if (codigo) {
       this.operacao = false;
-      console.log("teste")
-      this.carregarCliente(codigoCliente);
+      this.carregarCliente(codigo);
     }
   }
 
