@@ -8,7 +8,12 @@ export class EstabelecimentoMapper extends Mapper<EstabelecimentoEntity, Estabel
         return {
             id: entity.id,
             nome: entity.nome ? entity.nome : '',
-            cnpj: entity.cnpj
+            cnpj: entity.cnpj,
+            descricao: entity.descricao,
+            tipoEstabelecimento: entity.tipoEstabelecimento,
+            endereco: entity.endereco,
+            acessibilidades: entity.acessibilidades,
+            foto: entity.foto
         };
     }
 
@@ -16,7 +21,12 @@ export class EstabelecimentoMapper extends Mapper<EstabelecimentoEntity, Estabel
         return {
             id: model.id,
             nome: model.nome,
-            cnpj: model.cnpj
+            cnpj: model.cnpj,
+            descricao: model.descricao,
+            tipoEstabelecimento: model.tipoEstabelecimento,
+            endereco: model.endereco,
+            acessibilidades: model.acessibilidades,
+            foto: model.foto
         };
     }
 }

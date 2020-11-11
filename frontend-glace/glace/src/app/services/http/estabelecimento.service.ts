@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { EstabelecimentoModel } from 'src/app/estabelecimento-glace/model/estabelecimento-model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class EstabelecimentoService {
   constructor(private httpClient: HttpClient) { }
 
   listar(){
-    return this.httpClient.get(this.apiUrl);
+    return this.httpClient.get(this.apiUrl + '/estabelecimento');
   }
 
   listarEstados(){

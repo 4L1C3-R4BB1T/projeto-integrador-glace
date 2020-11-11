@@ -1,7 +1,14 @@
+import { Url } from 'url';
+
 export interface EstabelecimentoModel {
   id?: number;
   nome?: string;
   cnpj?: string;
+  descricao?: string;
+  tipoEstabelecimento?: string;
+  endereco?: EnderecoModel;
+  acessibilidades?: AcessibilidadeModel;
+  foto?: FotoModel;
 }
 
 export interface ParceiroModel {
@@ -25,4 +32,18 @@ export interface CidadeModel {
 export interface EstadoModel {
   id?: number;
   nome?: string;
+}
+
+export interface FotoModel{
+  id?: number;
+  nomeArquivo?: string;
+  nomeArquivoCompleto?: string;
+  contentType?: string;
+  tamanho?: number;
+  url?: Url;
+}
+
+export interface AcessibilidadeModel {
+  id?: number;
+  tipoAcessibilidade?: string;
 }

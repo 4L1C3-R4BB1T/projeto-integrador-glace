@@ -1,20 +1,27 @@
 <div class="row row-cols-1 row-cols-xl-3 row-cols-md-2 row-cols-sm-1">
-  <div *ngFor="let c of meusCards" class="col mb-4">
+  <div *ngFor="let card of meusCards" class="col mb-4">
     <div class="card">
-      <img [src]="c.imagem" class="card-img-top img-card" alt="imagem de quarto de hotel">
+      <img [src]="card.foto.url" type="" class="card-img-top img-card" alt="imagem de quarto de hotel">
       <div class="card-body">
-        <h5 class="card-title">{{c.title}}</h5>
-        <p class="card-text descricao">{{c.descricao}}</p>
+        <h5 class="card-title">{{card.nome}}</h5>
+        <div class="max-length-description">
+          <p class="card-text descricao">{{card.descricao}}</p>
+        </div>
         <p><small class="text-muted">Acessível</small></p>
         <div class="acessivel-button">
-          <p *ngIf="c.acessibilidades"> <i class="icon fab fa-accessible-icon"></i> </p>
-          <button
-            class="float-right ver-mais"
-            type="submit"
-            routerLink="/detalhesLocal"
-            routerLinkActive="active">
-            Ver mais
-          </button>
+          <div class="icones">
+            <div *ngFor="let access of card.acessibilidades">
+              <p *ngIf="access.tipoAcessibilidade === 'motora'"> <i class="icon fab fa-accessible-icon"></i> </p>
+              <p *ngIf="access.tipoAcessibilidade === 'visual'"> <i class="icon fas fa-blind"></i> </p>
+              <p *ngIf="access.tipoAcessibilidade === 'intelectual'"> <i class="icon fas fa-brain"></i> </p>
+              <p *ngIf="access.tipoAcessibilidade === 'auditivo'"> <i class="icon fas fa-sign-language"></i> </p>
+            </div>
+          </div>
+          <div class="botao">
+            <button class="float-right ver-mais" type="submit" routerLink="/detalhesLocal" routerLinkActive="active">
+              Ver mais
+            </button>
+          </div>
         </div>
       </div>
     </div>

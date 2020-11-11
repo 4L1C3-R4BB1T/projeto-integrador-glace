@@ -76,6 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    web.ignoring().antMatchers("/estado/getAllEstado");
 	    web.ignoring().antMatchers("/imagem/getAllImagem");
 	    web.ignoring().antMatchers("/estado/{id}/cidades");
+	    web.ignoring().antMatchers("/estabelecimento");
 	    
 	}
 

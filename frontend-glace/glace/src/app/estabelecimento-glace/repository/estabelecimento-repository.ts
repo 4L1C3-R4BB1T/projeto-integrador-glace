@@ -17,16 +17,23 @@ export class EstabelecimentoRepository {
     mapper = new EstabelecimentoMapper();
     mapperEstado = new EstadoMapper();
     mapperCidade = new CidadeMapper();
-   
+
     constructor(public http: BaseHttpService) { }
- 
+
+    getAllEstabelecimentos(): Observable<EstabelecimentoModel> {
+        return this.http
+        .getAll<EstabelecimentoEntity[]>(`${environment.URLSERVIDOR}estabelecimento`)
+        .pipe(mergeMap((x) => x.data))
+        .pipe(map((x) => this.mapper.mapFrom(x)));
+    }
+
     postEstabelecimento(id: number, param: EstabelecimentoModel) {
         return this.http
             .post<EstabelecimentoEntity>(`${environment.URLSERVIDOR}estabelecimento/${id}/parceiro`, this.mapper.mapTo(param))
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
 
-      getAllEstados(): Observable<EstadoModel> {
+    getAllEstados(): Observable<EstadoModel> {
         return this.http
             .getAll<EstadoEntity[]>(`${environment.URLSERVIDOR}estado`)
             .pipe(mergeMap((x) => x.data))

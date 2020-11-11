@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projetoglace.controller.openapi.EstabelecimentoControllerOpenApi;
 import br.com.projetoglace.model.EstabelecimentoGlace;
 
 import br.com.projetoglace.service.EstabelecimentoGlaceService;
 
 @CrossOrigin
 @RestController
-@RequestMapping ("/estabelecimento")
-public class EstabelecimentoController {
+@RequestMapping("/estabelecimento")
+public class EstabelecimentoController implements EstabelecimentoControllerOpenApi {
 	
 	@Autowired
 	private EstabelecimentoGlaceService service;
@@ -28,7 +29,7 @@ public class EstabelecimentoController {
 		service.salvar(id, estabelecimento);
 	}
 	
-	@GetMapping("/listar")
+	@GetMapping()
 	public List<EstabelecimentoGlace> listarEstabelecimentos(){
 		return service.listar();
 	}

@@ -3,6 +3,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-deck {
@@ -10,13 +11,13 @@
 }
 
 .img-card {
-  max-height: 180px;
+  min-height: 200px;
+  max-height: 201px;
   object-fit: cover;
 }
 
-.card-text {
-  min-height: 119px;
-  max-height: 120px;
+.max-length-description {
+  min-height: 100px;
 }
 
 .icon {
@@ -30,13 +31,20 @@
   padding: 5px 10px 5px 10px;
   color: #FFFFFF;
   font-family: 'Ruda', sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   border: 0;
+  margin-bottom: 13px;
 }
 
 .acessivel-button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.icones {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

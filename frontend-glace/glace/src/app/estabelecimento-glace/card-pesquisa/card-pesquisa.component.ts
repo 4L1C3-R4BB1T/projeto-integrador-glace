@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CardService } from '../../services/http/card.service';
-import { Card } from '../card/card.model'
+import { EstabelecimentoModel } from '../model/estabelecimento-model';
+import { EstabelecimentoRepository } from '../repository/estabelecimento-repository';
 
 @Component({
   selector: 'app-card-pesquisa',
@@ -9,14 +9,24 @@ import { Card } from '../card/card.model'
 })
 export class CardPesquisaComponent implements OnInit {
 
-  constructor(private cardService: CardService) { }
+  constructor(private repository: EstabelecimentoRepository) { }
 
-  meusCards: Card[] = [];
+  meusCards: EstabelecimentoModel[] = [];
 
   ngOnInit(): void {
-    this.cardService.getCards().then(c => {
-      this.meusCards = c;
-    })
-  }
+    this.repository.getAllEstabelecimentos().subscribe(resposta => {
+      this.meusCards.push({
+        id: resposta.id,
+        nome: resposta.nome,
+        descricao: resposta.descricao,
+        cnpj: resposta.cnpj,
+        acessibilidades: resposta.acessibilidades,
+        endereco: resposta.endereco,
+        tipoEstabelecimento: resposta.tipoEstabelecimento,
+        foto: resposta.foto,
+      });
+    });
 
+    console.log(this.meusCards);
+  }
 }
