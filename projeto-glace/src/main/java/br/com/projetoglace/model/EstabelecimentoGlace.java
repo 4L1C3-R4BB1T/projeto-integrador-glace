@@ -14,43 +14,38 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
-@NoArgsConstructor
-@Builder
-@AllArgsConstructor
 @Entity
-@Table(name = "estabelecimento")
+@Table(name="estabelecimento")
 public class EstabelecimentoGlace {
 
+	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@Column
-	private String nome;
+	
+	@Column(nullable = false)
+	private String razao;
 	
 	@Column
 	private String cnpj;
+
+	@Column(nullable = false)
+	private String email;
 	
 	@Column
 	private String telefone;
 	
-	@Column
-	private String descricao;
 	
-	@Column 
-	String tipoEstabelecimento;
+	@Column(nullable = false)
+	private String senha;
 	
-	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name="parceiro_id", nullable = false) 
+	@JoinColumn(name="parceiro_id", nullable=false)
 	private ParceiroGlace parceiroGlace;
 	
 	@ManyToMany

@@ -1,20 +1,19 @@
 package br.com.projetoglace.request;
 
-import java.util.List;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import br.com.projetoglace.model.Endereco;
-import br.com.projetoglace.model.EstabelecimentoGlace;
 import br.com.projetoglace.model.Imagem;
+import br.com.projetoglace.model.ParceiroGlace;
 import lombok.Data;
 
 @Data
-public class ParceiroGlaceRequest {
-	
-private Long id;
+public class EstabelecimentoGlaceRequest {
 	
 	@NotNull
 	@NotBlank
@@ -39,9 +38,9 @@ private Long id;
 	@NotNull
 	private Endereco endereco;
 	
-	@NotNull
 	private Imagem foto;
 	
-	private List<EstabelecimentoGlace> estabelecimentos;
-	
+	@NotNull
+	private ParceiroGlace parceiroGlace;
+		
 }

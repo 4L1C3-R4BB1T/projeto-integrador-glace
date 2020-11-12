@@ -1,18 +1,21 @@
 package br.com.projetoglace.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import br.com.projetoglace.dto.EstabelecimentoDTO;
+import br.com.projetoglace.email.EnvioEmailService;
+import br.com.projetoglace.mapper.EstabelecimentoGlaceMapper;
 import br.com.projetoglace.model.EstabelecimentoGlace;
-import br.com.projetoglace.model.ParceiroGlace;
 import br.com.projetoglace.repository.CidadeRepository;
 import br.com.projetoglace.repository.EstabelecimentoRepository;
 import br.com.projetoglace.repository.EstadoRepository;
+import br.com.projetoglace.request.EstabelecimentoGlaceRequest;
 
 @Service
 public class EstabelecimentoGlaceService {
@@ -21,28 +24,34 @@ public class EstabelecimentoGlaceService {
 	private EstabelecimentoRepository repository;
 	
 	@Autowired
-	private EstadoRepository estadoReposity;
+	private CidadeRepository cidadeRepository;
 	
 	@Autowired
-	private CidadeRepository cidadeReposity;
+	private EstadoRepository estadoRepository;
 	
 	@Autowired
-	private ParceiroGlaceService parceiroGlaceService; 
-	//@Autowired
-	//private ParceiroGlaceMapper mapper;
+	private EstabelecimentoGlaceMapper mapper;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	@Autowired
+	EnvioEmailService envioMensagem;
 	
 	@Transactional
-	public void salvar(Long id, EstabelecimentoGlace estabelecimento) {
+	public EstabelecimentoDTO salvar(EstabelecimentoGlaceRequest estabelecimentoRequest) {
 		
-		Optional<ParceiroGlace> glace = parceiroGlaceService.buscar(id);
-		ParceiroGlace parceiroGlace = glace.get();
-			
-		estabelecimento.setParceiroGlace(parceiroGlace);
+
+		EstabelecimentoGlace estabelecimentoGlace = new EstabelecimentoGlace();
 		
-		estadoReposity.save(estabelecimento.getEndereco().getCidade().getEstado());
-		cidadeReposity.save(estabelecimento.getEndereco().getCidade());
+		estabelecimentoGlace = mapper.requestToModel(estabelecimentoRequest);
+		estabelecimentoGlace.setSenha(passwordEncoder.encode(estabelecimentoRequest.getSenha()));
 		
-		repository.save(estabelecimento);
+		if(estabelecimentoGlace.getEndereco().getCidade().getId() == null) {
+			estadoRepository.save(estabelecimentoGlace.getEndereco().getCidade().getEstado());
+		    cidadeRepository.save(estabelecimentoGlace.getEndereco().getCidade());
+		}
+		
+
+	    return mapper.modelToDTO(repository.save(estabelecimentoGlace));		
 	}
 	
 	public List<EstabelecimentoGlace> listar() {
