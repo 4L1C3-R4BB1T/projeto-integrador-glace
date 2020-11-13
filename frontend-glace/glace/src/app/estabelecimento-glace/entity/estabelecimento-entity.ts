@@ -4,11 +4,16 @@ export interface EstabelecimentoEntity {
   id?: number;
   nome?: string;
   cnpj?: string;
-  descricao?: string;
   tipoEstabelecimento?: string;
+  descricao?: string;
+  telefone?: string;
   endereco?: EnderecoEntity;
-  acessibilidades?: AcessibilidadeEntity;
-  foto?: FotoEntity;
+  foto?: any;
+  parceiroGlace?: ParceiroEntity;
+}
+
+export interface ParceiroEntity {
+  id?: number;
 }
 
 export interface EnderecoEntity {

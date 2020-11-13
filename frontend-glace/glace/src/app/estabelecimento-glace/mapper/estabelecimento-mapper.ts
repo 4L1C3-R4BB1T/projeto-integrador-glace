@@ -7,26 +7,29 @@ export class EstabelecimentoMapper extends Mapper<EstabelecimentoEntity, Estabel
     mapFrom(entity: EstabelecimentoEntity): EstabelecimentoModel {
         return {
             id: entity.id,
-            nome: entity.nome ? entity.nome : '',
+            nome: entity.nome,
             cnpj: entity.cnpj,
+            telefone: entity.telefone,
+            endereco: entity.endereco,
             descricao: entity.descricao,
             tipoEstabelecimento: entity.tipoEstabelecimento,
-            endereco: entity.endereco,
-            acessibilidades: entity.acessibilidades,
-            foto: entity.foto
+            foto: entity.foto,
+            parceiroGlace: entity.parceiroGlace
         };
     }
+
 
     mapTo(model: EstabelecimentoModel): EstabelecimentoEntity {
         return {
             id: model.id,
             nome: model.nome,
             cnpj: model.cnpj,
+            telefone: model.telefone,
+            endereco: model.endereco,
             descricao: model.descricao,
             tipoEstabelecimento: model.tipoEstabelecimento,
-            endereco: model.endereco,
-            acessibilidades: model.acessibilidades,
-            foto: model.foto
+            foto: model.foto,
+            parceiroGlace: model.parceiroGlace
         };
     }
 }

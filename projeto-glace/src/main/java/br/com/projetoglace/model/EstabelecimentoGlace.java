@@ -29,20 +29,20 @@ public class EstabelecimentoGlace {
 	private Long id;
 	
 	@Column(nullable = false)
-	private String razao;
+	private String nome;
 	
-	@Column
-	private String cnpj;
-
 	@Column(nullable = false)
-	private String email;
+	private String cnpj;
 	
-	@Column
+	@Column(nullable = false)
 	private String telefone;
 	
 	
 	@Column(nullable = false)
-	private String senha;
+	private String descricao;
+	
+	@Column(nullable = false)
+	private String tipoEstabelecimento;
 	
 	@ManyToOne
 	@JoinColumn(name="parceiro_id", nullable=false)

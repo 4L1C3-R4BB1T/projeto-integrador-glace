@@ -5,7 +5,6 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.projetoglace.dto.EstabelecimentoDTO;
@@ -32,8 +31,6 @@ public class EstabelecimentoGlaceService {
 	@Autowired
 	private EstabelecimentoGlaceMapper mapper;
 	@Autowired
-	private PasswordEncoder passwordEncoder;
-	@Autowired
 	EnvioEmailService envioMensagem;
 	
 	@Transactional
@@ -43,8 +40,7 @@ public class EstabelecimentoGlaceService {
 		EstabelecimentoGlace estabelecimentoGlace = new EstabelecimentoGlace();
 		
 		estabelecimentoGlace = mapper.requestToModel(estabelecimentoRequest);
-		estabelecimentoGlace.setSenha(passwordEncoder.encode(estabelecimentoRequest.getSenha()));
-		
+	
 		if(estabelecimentoGlace.getEndereco().getCidade().getId() == null) {
 			estadoRepository.save(estabelecimentoGlace.getEndereco().getCidade().getEstado());
 		    cidadeRepository.save(estabelecimentoGlace.getEndereco().getCidade());

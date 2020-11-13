@@ -63,6 +63,7 @@ export class ParceiroRepository {
             .post<ParceiroEntity>(`${environment.URLSERVIDOR}parceiro`, this.mapper.mapTo(param))
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
+    
 
     putParceiro(param: ParceiroModel) {
         return this.http
