@@ -8,6 +8,8 @@ import { EstabelecimentoModel, EstadoModel, CidadeModel } from '../model/estabel
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
+import { ImagemEntity } from '../entity/imagem-entity';
+import { ImagemMapper } from '../mapper/imagem-mapper';
 
 @Injectable({
     providedIn: 'root',
@@ -17,6 +19,7 @@ export class EstabelecimentoRepository {
     mapper = new EstabelecimentoMapper();
     mapperEstado = new EstadoMapper();
     mapperCidade = new CidadeMapper();
+    mapperImagem = new ImagemMapper();
 
     constructor(public http: BaseHttpService) { }
 
@@ -27,10 +30,17 @@ export class EstabelecimentoRepository {
         .pipe(map((x) => this.mapper.mapFrom(x)));
     }
 
-    postEstabelecimento(id: number, param: EstabelecimentoModel) {
+
+    postEstabelecimento(param: EstabelecimentoModel) {
         return this.http
-            .post<EstabelecimentoEntity>(`${environment.URLSERVIDOR}estabelecimento/${id}/parceiro`, this.mapper.mapTo(param))
+            .post<EstabelecimentoModel>(`${environment.URLSERVIDOR}estabelecimento`, this.mapper.mapTo(param))
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
+    }
+
+    postImagem(param: any) {
+        return this.http
+            .post<ImagemEntity>(`${environment.URLSERVIDOR}imagem`, param)
+            .pipe(map((x) => this.mapperImagem.mapFrom(x.data)));
     }
 
     getAllEstados(): Observable<EstadoModel> {
@@ -46,11 +56,10 @@ export class EstabelecimentoRepository {
             .pipe(mergeMap((x) => x.data))
             .pipe(map((x) => this.mapperCidade.mapFrom(x)));
     }
-
     putEstabelecimento(param: EstabelecimentoModel) {
         return this.http
             .put<void>(
-                `${environment.URLSERVIDOR}parceiro/${param.id}`,
+                `${environment.URLSERVIDOR}estabelecimento/${param.id}`,
                 this.mapper.mapTo(param)
             )
             .pipe(map((x) => x.data));

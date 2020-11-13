@@ -1,47 +1,44 @@
 package br.com.projetoglace.request;
 
-import java.util.List;
-
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import br.com.projetoglace.model.Endereco;
-import br.com.projetoglace.model.EstabelecimentoGlace;
 import br.com.projetoglace.model.Imagem;
+import br.com.projetoglace.model.ParceiroGlace;
 import lombok.Data;
 
 @Data
-public class ParceiroGlaceRequest {
+public class EstabelecimentoGlaceRequest {
 	
-private Long id;
-	
-	@NotNull
-	@NotBlank
-	private String razao;
+	private Long id;
 	
 	@NotNull
 	@NotBlank
 	private String cnpj;
 	
-	@Email
 	@NotNull
 	@NotBlank
-	private String email;
+	private String tipoEstabelecimento;
 	
 	@NotNull
+	@NotBlank
+	private String nome;
+	
+	@NotNull
+	@NotBlank
 	private String telefone;
 	
 	@NotNull
 	@NotBlank
-	private String senha;
+	private String descricao;
 	
 	@NotNull
 	private Endereco endereco;
 	
-	@NotNull
 	private Imagem foto;
 	
-	private List<EstabelecimentoGlace> estabelecimentos;
-	
+	@NotNull
+	private ParceiroGlace parceiroGlace;
+		
 }

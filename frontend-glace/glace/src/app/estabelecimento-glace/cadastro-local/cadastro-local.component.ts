@@ -79,7 +79,7 @@ export class CadastroLocalComponent implements OnInit {
             this.limparFormulario();
           });
         } else {
-          this.repository.postEstabelecimento(1, dados).subscribe(resposta => {
+          this.repository.postEstabelecimento(dados).subscribe(resposta => {
             this.mensagem = [
               {
                 severity: 'success',

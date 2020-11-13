@@ -6,6 +6,8 @@ import { ParceiroModel } from '../model/parceiro-model';
 import { ParceiroRepository } from '../repository/parceiro-repository';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Message, MessageService } from 'primeng/api';
+import { EstabelecimentoModel } from 'src/app/estabelecimento-glace/model/estabelecimento-model';
+import { EstabelecimentoRepository } from 'src/app/estabelecimento-glace/repository/estabelecimento-repository';
 
 @Component({
   selector: 'app-perfil-parceiro',
@@ -25,16 +27,17 @@ export class PerfilParceiroComponent implements OnInit {
   mensagem: Message[] = [];
   operacao: boolean = true;
   usuario: string = '';
-  uploadFiles: any[]=[];
+  uploadFiles: any[] = [];
 
   constructor(
     public service: AuthService,
     private repository: ParceiroRepository,
+    private repositoryEstabelecimento: EstabelecimentoRepository,
     private fb: FormBuilder,
     private messageService: MessageService,
     private route: ActivatedRoute,
     private title: Title
-  ) { this.usuario = service.jwtPayload ? service.jwtPayload.nome_completo : '';}
+  ) { this.usuario = service.jwtPayload ? service.jwtPayload.nome_completo : ''; }
 
   ngOnInit(): void {
     this.iniciarFormulario();
@@ -46,7 +49,7 @@ export class PerfilParceiroComponent implements OnInit {
     const cidigo = this.service.jwtPayload.usuario_id;
 
     this.title.setTitle('Novo Parceiro');
- 
+
     if (cidigo) {
       this.operacao = false;
       console.log("teste")
@@ -55,7 +58,7 @@ export class PerfilParceiroComponent implements OnInit {
     }
   }
 
-  carregarParceiro(codigoParceiro: number ) {
+  carregarParceiro(codigoParceiro: number) {
     this.repository.getParceiroById(codigoParceiro).subscribe(resposta => {
       this.formulario.controls.id.setValue(resposta.id);
       this.formulario.controls.razao.setValue(resposta.razao);
@@ -91,7 +94,18 @@ export class PerfilParceiroComponent implements OnInit {
       numero: [''],
       bairro: [''],
       cidade: [''],
+      cidadeEstabelecimento: [''],
       estado: [''],
+      estadoEstabelecimento: [''],
+      nomeEstabelecimento: [''],
+      telefoneEstabelecimento: [''],
+      cepEstabelecimento: [''],
+      ruaEstabelecimento: [''],
+      tipoEstabelecimento: [''],
+      cnpjEstabelecimento: [''],
+      numeroEstabelecimento: [''],
+      bairroEstabelecimento: [''],
+      descricao: [''],
     });
   }
 
@@ -101,6 +115,16 @@ export class PerfilParceiroComponent implements OnInit {
       return;
     }
     this.salvar();
+  }
+
+
+  cadastrarEstabelecimento() {
+    this.submitted = true;
+    if (this.formulario.invalid) {
+
+      return;
+    }
+    this.salvarEstabelecimento();
   }
 
   salvar() {
@@ -117,7 +141,21 @@ export class PerfilParceiroComponent implements OnInit {
     }
   }
 
-  salvarOuAtualizar(){
+  salvarEstabelecimento() {
+    if (this.imagem && !this.uploadedFiles[0]) {
+      this.salvarOuAtualizarEstabelecimento();
+    } else {
+      const foto: any = this.uploadedFiles[0];
+      const formData: any = new FormData();
+      formData.append('imagem', foto);
+      this.repositoryEstabelecimento.postImagem(formData).subscribe(resposta => {
+        this.imagem = resposta.id;
+        this.salvarOuAtualizarEstabelecimento();
+      })
+    }
+  }
+
+  salvarOuAtualizar() {
     const dados = {
       id: this.formulario.value.id,
       razao: this.formulario.value.razao,
@@ -197,7 +235,99 @@ export class PerfilParceiroComponent implements OnInit {
             msg.push({
               severity: 'error',
               summary: 'ERRO',
-                detail: elemento.userMessage
+              detail: elemento.userMessage
+            });
+          });
+          this.messageService.addAll(msg);
+        }
+      );
+    }
+  }
+
+  salvarOuAtualizarEstabelecimento() {
+    const codigo = this.service.jwtPayload.usuario_id;
+    console.log(this.formulario.value.nomeEstabelecimento);
+    const dados = {
+      id: this.formulario.value.id,
+      nome: this.formulario.value.nomeEstabelecimento,
+      cnpj: this.formulario.value.cnpjEstabelecimento,
+      descricao: this.formulario.value.descricao,
+      tipoEstabelecimento: this.formulario.value.tipoEstabelecimento,
+      telefone: this.formulario.value.telefoneEstabelecimento,
+      parceiroGlace: {
+        id: codigo
+      },
+      endereco: {
+        cep: this.formulario.value.cepEstabelecimento,
+        rua: this.formulario.value.ruaEstabelecimento,
+        numero: this.formulario.value.numeroEstabelecimento,
+        bairro: this.formulario.value.bairroEstabelecimento,
+        cidade: {
+          id: this.formulario.value.cidade
+        }
+      },
+      foto: {
+        id: this.imagem
+      }
+    } as EstabelecimentoModel;
+
+    if (dados.id) {
+      this.repositoryEstabelecimento.postEstabelecimento(dados).subscribe(resposta => {
+        this.messageService.add({
+          key: 'toast',
+          severity: 'success',
+          summary: 'ESTABELECIMENTO',
+          detail: 'cadastrado com sucesso!'
+        });
+        //window.scrollTo(0, 0);
+        this.limparFormulario();
+      },
+        (e) => {
+          var msg: any[] = [];
+          //Erro Principal
+          msg.push({
+            severity: 'error',
+            summary: 'ERRO',
+            detail: e.error.userMessage
+          });
+          //Erro de cada atributo
+          var erros = e.error.objects;
+          erros.forEach(function (elemento) {
+            msg.push({
+              severity: 'error',
+              summary: 'ERRO',
+              detail: elemento.userMessage
+            });
+          });
+          this.messageService.addAll(msg);
+        }
+      );
+    } else {
+      this.repositoryEstabelecimento.postEstabelecimento(dados).subscribe(resposta => {
+        this.messageService.add({
+          key: 'toast',
+          severity: 'success',
+          summary: 'ESTABELECIMENTO',
+          detail: 'cadastrado com sucesso!'
+        });
+        //window.scrollTo(0, 0);
+        this.limparFormulario();
+      },
+        (e) => {
+          var msg: any[] = [];
+          //Erro Principal
+          msg.push({
+            severity: 'error',
+            summary: 'ERRO',
+            detail: e.error.userMessage
+          });
+          //Erro de cada atributo
+          var erros = e.error.objects;
+          erros.forEach(function (elemento) {
+            msg.push({
+              severity: 'error',
+              summary: 'ERRO',
+              detail: elemento.userMessage
             });
           });
           this.messageService.addAll(msg);
@@ -238,9 +368,9 @@ export class PerfilParceiroComponent implements OnInit {
     });
   }
 
-  enviarImagem(evento){
+  enviarImagem(evento) {
     this.uploadedFiles = [];
-    for(let file of evento.files) {
+    for (let file of evento.files) {
       this.uploadedFiles.push(file);
     }
   }

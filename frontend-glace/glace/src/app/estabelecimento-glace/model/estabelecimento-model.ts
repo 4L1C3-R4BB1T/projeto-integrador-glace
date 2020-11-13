@@ -4,11 +4,12 @@ export interface EstabelecimentoModel {
   id?: number;
   nome?: string;
   cnpj?: string;
-  descricao?: string;
   tipoEstabelecimento?: string;
+  descricao?: string;
+  telefone?: string;
   endereco?: EnderecoModel;
-  acessibilidades?: AcessibilidadeModel;
-  foto?: FotoModel;
+  foto?: any;
+  parceiroGlace?: ParceiroModel;
 }
 
 export interface ParceiroModel {

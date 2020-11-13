@@ -177,7 +177,7 @@
                     </div>
 
                     <div class="modal-body">
-                      <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
+                      <form [formGroup]="formulario" (ngSubmit)="cadastrarEstabelecimento()">
                         <div class="form-group div-uploads" >
                           <p-fileUpload #upload
                             name="demo[]"
@@ -193,29 +193,51 @@
 
                         <div class="row">
                           <div class="col-12 col-md-6">
-                            <input type="text" class="input mt-3" placeholder="Razão Social" name="razao"  formControlName="razao">
+                            <input 
+                            type="text" 
+                            class="input mt-3" 
+                            placeholder="Nome" 
+                            name="nome"  
+                            formControlName="nomeEstabelecimento"
+                            [class]="(submitted && formulario.get('nomeEstabelecimento').errors) ||
+                              (formulario.get('nomeEstabelecimento').errors && formulario.get('nomeEstabelecimento').dirty) ? 'is-invalid' :
+                              formulario.get('nomeEstabelecimento').dirty ? 'is-valid' : '' "
+                            >
+
+                            <div
+                            *ngIf="formulario.get('nomeEstabelecimento').errors?.required"
+                            class="invalid-feedback">
+                            CNPJ é obrigatório!
+                            </div>
+                              
                           </div>
+
+                          <div class="col-12 col-md-6">
+                            <input type="text" class="input mt-3" placeholder="Tipo do Estabelecimento" name="tipo"  formControlName="tipoEstabelecimento">
+                          </div>
+                          
+
 
                           <div class="col-12 col-md-6">
                             <input
                               type="text"
                               class="input mt-4 form-control"
                               placeholder="CNPJ"
-                              formControlName="cnpj"
+                              formControlName="cnpjEstabelecimento"
                               mask="00.000.000/0000-00"
-                              [class]="(submitted && formulario.get('cnpj').errors) ||
-                              (formulario.get('cnpj').errors && formulario.get('cnpj').dirty) ? 'is-invalid' :
-                              formulario.get('cnpj').dirty ? 'is-valid' : '' "
+                              [class]="(submitted && formulario.get('cnpjEstabelecimento').errors) ||
+                              (formulario.get('cnpjEstabelecimento').errors && formulario.get('cnpjEstabelecimento').dirty) ? 'is-invalid' :
+                              formulario.get('cnpjEstabelecimento').dirty ? 'is-valid' : '' "
                             />
 
                             <div
-                              *ngIf="formulario.get('cnpj').errors?.required"
+                              *ngIf="formulario.get('cnpjEstabelecimento').errors?.required"
                               class="invalid-feedback">
                               CNPJ é obrigatório!
                             </div>
 
                             <div
-                              *ngIf="formulario.get('cnpj').errors?.minlength"
+                              *ngIf="formulario.get('cnpjEstabelecimento').errors?.minlength"
                               class="invalid-feedback">
                               CNPJ inválido
                             </div>
@@ -224,14 +246,14 @@
 
                         <div class="row">
                           <div class="col-12 col-md-6">
-                            <input type="text" class="input mt-4" placeholder="Rua" name="rua"  formControlName="rua">
+                            <input type="text" class="input mt-4" placeholder="Rua" name="rua"  formControlName="ruaEstabelecimento">
                           </div>
 
                           <div class="col-12 col-md-6">
                             <input type="text"
                               class="input mt-4 form-control"
                               placeholder="Telefone"
-                              formControlName="telefone"
+                              formControlName="telefoneEstabelecimento"
                               mask="(00)00000-0000"
                               name="telefone" >
 
@@ -240,20 +262,20 @@
 
                         <div class="row">
                           <div class="col-12 col-md-6">
-                            <input type="text" class="input mt-4" placeholder="Bairro" name="bairro"  formControlName="bairro">
+                            <input type="text" class="input mt-4" placeholder="Bairro" name="bairro"  formControlName="bairroEstabelecimento">
                           </div>
 
                           <div class="col-12 col-md-3">
                             <input type="text"
                             class="input mt-4 form-control"
                             placeholder="CEP"
-                            formControlName="cep"
+                            formControlName="cepEstabelecimento"
                             mask="00000-000"
                             name="cep" >
                           </div>
 
                           <div class="col-12 col-md-3">
-                            <input type="text" class="input mt-4" placeholder="Número" name="numero"  formControlName="numero">
+                            <input type="text" class="input mt-4" placeholder="Número" name="numero"  formControlName="numeroEstabelecimento">
                           </div>
                         </div>
 
@@ -263,7 +285,7 @@
                               <p-dropdown
                                 placeholder="Estado"
                                 [options]="estados"
-                                formControlName="estado"
+                                formControlName="estadoEstabelecimento"
                                 placeholder="Estado"
                                 [filter]="true"
                                 [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
@@ -277,7 +299,7 @@
                               <p-dropdown
                                 placeholder="Cidade"
                                 [options]="cidades"
-                                formControlName="cidade"
+                                formControlName="cidadeEstabelecimento"
                                 [filter]="true"
                                 [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
                               </p-dropdown>
@@ -286,7 +308,7 @@
                         </div>
 
                         <div>
-                          <textarea class="descricao mt-4" rows="4" cols="60" placeholder="Descrição do local" name="descricao"></textarea>
+                          <textarea class="descricao mt-4" rows="4" cols="60" formControlName="descricao" placeholder="Descrição do local" name="descricao"></textarea>
                         </div>
 
                         <div class="mt-2 mb-3">
