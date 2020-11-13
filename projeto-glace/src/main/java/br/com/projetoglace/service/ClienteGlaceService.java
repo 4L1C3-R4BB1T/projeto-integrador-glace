@@ -20,6 +20,7 @@ import br.com.projetoglace.exception.ClienteNaoEncontradoException;
 import br.com.projetoglace.mapper.ClienteGlaceMapper;
 import br.com.projetoglace.model.Cidade;
 import br.com.projetoglace.model.ClienteGlace;
+import br.com.projetoglace.model.Estado;
 import br.com.projetoglace.model.Grupo;
 import br.com.projetoglace.repository.CidadeRepository;
 import br.com.projetoglace.repository.ClienteGlaceRepository;
@@ -60,8 +61,8 @@ public class ClienteGlaceService {
 		
 		if(cliente.getEndereco().getCidade().getId() == null) {
 			
-			//estadoRepository.findById(cliente.getEndereco().getCidade().getEstado().getId());
-			//cidadeRepository.findById(cliente.getEndereco().getCidade().getId());
+//			estadoRepository.findById(cliente.getEndereco().getCidade().getEstado().getId());
+//			cidadeRepository.findById(cliente.getEndereco().getCidade().getId());
 			
 			estadoRepository.save(cliente.getEndereco().getCidade().getEstado());
 		    cidadeRepository.save(cliente.getEndereco().getCidade());
@@ -71,7 +72,7 @@ public class ClienteGlaceService {
 	    grupos.add(grupo);
 	    cliente.setGrupos(grupos);
 	    repository.save(cliente);
-		//System.out.println(cliente.getEndereco().getCep()+ "\n\n\n\n\n\n");
+
 	    return mapper.modelToDTO(repository.save(cliente));		
 	}
 	
@@ -112,6 +113,10 @@ public class ClienteGlaceService {
 				.stream()
 				.map(cli -> mapper.modelToDTO(cli))
 				.collect(Collectors.toList());	
+	}
+
+	public Estado salvarEstado(Estado estado) {
+		return estadoRepository.save(estado);
 	}
 	
 }

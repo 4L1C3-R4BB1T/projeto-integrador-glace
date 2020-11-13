@@ -35,14 +35,14 @@ public class JpaUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		//Verifica se há algum usuário cadastrado no banco com esse usuario
-		if(!usuarioRepository.findByEmail(username).isEmpty()) {
+		if(usuarioRepository.findByEmail(username).isPresent()) {
 		UsuarioADMGlace usuario = usuarioRepository.findByEmail(username)
 				.orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado com e-mail informado"));
 		
 		return new AuthUser(usuario, getAuthorities(usuario));
 		}
 		//Verifica se há algum usuário cadastrado no banco com esse usuario
-		else if(!parceiroRepository.findByEmail(username).isEmpty()) {
+		else if(parceiroRepository.findByEmail(username).isPresent()) {
 			ParceiroGlace parceiro = parceiroRepository.findByEmail(username)
 					.orElseThrow(() -> new UsernameNotFoundException("Parceiro não encontrado com e-mail informado"));
 			
