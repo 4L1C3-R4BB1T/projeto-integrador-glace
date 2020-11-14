@@ -15,7 +15,7 @@ export class ParceiroTableComponent implements OnInit {
 
   parceiros: ParceiroModel[]=[];
   loading: boolean;
-  @ViewChild('dt2') table2: Table;
+  @ViewChild('dt') table2: Table;
 
   constructor(
     private confirmarService: ConfirmationService,
