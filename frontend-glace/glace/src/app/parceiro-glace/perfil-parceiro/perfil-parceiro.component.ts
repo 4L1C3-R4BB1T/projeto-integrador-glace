@@ -46,15 +46,16 @@ export class PerfilParceiroComponent implements OnInit {
     const codigoParceiro = this.route.snapshot.params['codigo'];
 
     //Pegado id do parceiro por meio do token
-    const cidigo = this.service.jwtPayload.usuario_id;
+    const codigo = this.service.jwtPayload.usuario_id;
 
     this.title.setTitle('Novo Parceiro');
 
-    if (cidigo) {
+    if (codigoParceiro) {
       this.operacao = false;
-      console.log("teste")
-
-      this.carregarParceiro(cidigo);
+      this.carregarParceiro(codigoParceiro);
+    } else if (codigo) {
+      this.operacao = false;
+      this.carregarParceiro(codigo);
     }
   }
 

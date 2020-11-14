@@ -39,13 +39,18 @@ export class PerfilUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.iniciarFormulario();
     this.listarEstados();
+    
     const codigoCliente = this.route.snapshot.params['codigo'];
+    
     //Pegando o id do usuario através do token
     const codigo = this.service.jwtPayload.usuario_id;
-    //const codigoCliente = this.service.jwtPayload.usuario_id;
+
     this.title.setTitle('Novo cliente');
 
-    if (codigo) {
+    if (codigoCliente) {
+      this.operacao = false;
+      this.carregarCliente(codigoCliente);
+    } else if (codigo) {
       this.operacao = false;
       this.carregarCliente(codigo);
     }
