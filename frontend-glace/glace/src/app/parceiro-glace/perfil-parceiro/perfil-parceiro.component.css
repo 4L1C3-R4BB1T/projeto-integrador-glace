@@ -170,6 +170,26 @@ background: rgba(255, 255, 255);
   background: #ebfaeb;
 }
 
+.botao {
+  background-color: rgba(255, 153, 0, 1);
+  border-radius: 7px;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  border: none;
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  padding: 5px 15px 5px 15px;
+}
+
+.botao:hover {
+  background-color: orange;
+}
+
+.btn-outline-danger {
+  border-radius: 5px;
+  font-size: 16px;
+}
+
 :host /deep/ .p-inputtext {
   font-family: 'Ruda', sans-serif;
   font-size: 20px;
@@ -225,8 +245,6 @@ background: rgba(255, 255, 255);
     margin-top: 8px;
   }
 }
-
-
 
 textarea {
   width: 100%;

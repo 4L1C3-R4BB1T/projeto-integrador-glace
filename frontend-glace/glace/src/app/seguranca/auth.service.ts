@@ -25,11 +25,11 @@ export class AuthService {
       console.log('Novo access token criado!'+JSON.stringify(this.jwtPayload));
 
       if(this.jwtPayload['authorities'].includes('CG')) {
-        this.router.navigate(['/perfilUsuario']);
+        this.router.navigate(['/perfil/usuario']);
       }
 
       if(this.jwtPayload['authorities'].includes('PG')) {
-        this.router.navigate(['/perfilParceiro']);
+        this.router.navigate(['/perfil/parceiro']);
       }
 
       if(this.jwtPayload['authorities'].includes('UG')) {

@@ -6,11 +6,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'perfilParceiro/:codigo', component: PerfilParceiroComponent,
+  { path: 'perfil/parceiro/:codigo', component: PerfilParceiroComponent,
     canActivate: [AuthGuard],
     data: { roles: ['PG', 'UG'] }
   },
-  { path: 'perfilParceiro', component: PerfilParceiroComponent,
+  { path: 'perfil/parceiro', component: PerfilParceiroComponent,
     canActivate: [AuthGuard],
     data: { roles: ['PG', 'UG'] }
   },
@@ -19,7 +19,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['UG'] }
   },
-  { path: 'cadastroParceiro', component: CadastroParceiroComponent }
+  { path: 'cadastro/parceiro', component: CadastroParceiroComponent }
 ];
 
 @NgModule({

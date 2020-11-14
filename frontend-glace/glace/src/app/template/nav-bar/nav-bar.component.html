@@ -20,7 +20,7 @@
                 <a class="nav-link" routerLink="/pesquisa" routerLinkActive="active">Pesquisa</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/quemSomos" routerLinkActive="active">Quem somos</a>
+                <a class="nav-link" routerLink="/quem-somos" routerLinkActive="active">Quem somos</a>
             </li>
             <!--PERFIL USUARIOADM-->
             <li *ngIf="service.temPermissao('UG')" class="nav-item">
@@ -28,11 +28,11 @@
             </li>
             <!--PERFIL CLIENTE-->
             <li *ngIf="service.temPermissao('CG')" class="nav-item">
-                <a class="nav-link" routerLink="/perfilUsuario" routerLinkActive="active">Perfil</a>
+                <a class="nav-link" routerLink="/perfil/usuario" routerLinkActive="active">Perfil</a>
             </li>
             <!--PERFIL PARCEIRO-->
             <li *ngIf="service.temPermissao('PG')" class="nav-item">
-                <a class="nav-link" routerLink="/perfilParceiro" routerLinkActive="active">Perfil</a>
+                <a class="nav-link" routerLink="/perfil/parceiro" routerLinkActive="active">Perfil</a>
             </li>
             <li *ngIf="service.temQualquerPermissao(['CG', 'PG', 'UG'])" class="nav-item">
                 <a href="javascript:;" class="nav-link logout" (click)="logout()">Logout</a>

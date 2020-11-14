@@ -33,6 +33,7 @@ import { CardPesquisaComponent } from './estabelecimento-glace/card-pesquisa/car
 import { ClienteGlaceModule } from './cliente-glace/cliente-glace.module';
 import { ParceiroGlaceModule } from './parceiro-glace/parceiro-glace.module';
 import { TemplateModule } from './template/template.module';
+import { EstabelecimentoGlaceModule } from './estabelecimento-glace/estabelecimento-glace.module';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { TemplateModule } from './template/template.module';
     ParceiroGlaceModule,
     TemplateModule,
     PaginaGlaceModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    EstabelecimentoGlaceModule
   ],
   providers: [
     MessageService,

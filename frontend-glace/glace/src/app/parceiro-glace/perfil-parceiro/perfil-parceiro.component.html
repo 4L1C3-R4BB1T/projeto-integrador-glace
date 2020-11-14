@@ -36,7 +36,6 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-
                 <div class="modal-body">
                   <form [formGroup]="formulario" (ngSubmit)="salvarOuAtualizar()">
                     <div class="row">
@@ -136,8 +135,8 @@
                         formControlName="confirmarsenha" />
                     </div>
                     <div class="float-right mt-4">
-                      <button type="submit" class="btn cancelar btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-                      <button type="submit" class="btn cadastrar"
+                      <button type="submit" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn botao"
                       [class]="operacao? 'btn-primary' : 'btn-success'" >
                        {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
                     </div>
@@ -157,43 +156,46 @@
             <i class="fas fa-pen img-circulo2"></i>
           </div>
 
-          <button class="button">
-            <a class="nav-link editar-perfil-button" >
-            <!-- MODAL -->
-            <!-- Botão para acionar modal -->
-              <button type="button" class="btn title-button2" data-toggle="modal" data-target="#ExemploModalCentralizado">
-                Cadastrar Estabelecimento
-              </button>
+          <!-- BOTÃO PARA ACIONAR MODAL -->
+          <button class="button" data-toggle="modal" data-target="#cadEstabelecimento">
+            <h2 class="title-button2">Cadastrar Estabelecimento</h2>
+          </button>
 
-            <!-- Modal -->
-              <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="TituloModalCentralizado">Cadastrar estabelecimento</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
+          <p class="button description-button text-center">
+            Imagens, nome, telefone, descrição, acessibilidades...
+          </p>
 
-                    <div class="modal-body">
-                      <form [formGroup]="formulario" (ngSubmit)="cadastrarEstabelecimento()">
-                        <div class="form-group div-uploads" >
-                          <p-fileUpload #upload
-                            name="demo[]"
-                            chooseLabel="Escolher uma foto"
-                            [showUploadButton]="false"
-                            [showCancelButton]="false"
-                            (onSelect)="enviarImagem($event)"
-                            [multiple]="true"
-                            accept="image/*"
-                            maxFileSize="1000000">
-                          </p-fileUpload>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-12 col-md-6">
-                            <input 
+          <!-- MODAL CADASTRAR ESTABELECIMENTO -->
+          <div class="modal fade" id="cadEstabelecimento" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="TituloModalCentralizado">
+                    <i class="fas fa-store-alt ml-2 mr-2"></i>Cadastrar estabelecimento
+                  </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  
+                  <div class="modal-body">
+                    <form [formGroup]="formulario" (ngSubmit)="cadastrarEstabelecimento()">
+                      <div class="form-group div-uploads" >
+                        <p-fileUpload #upload
+                          name="demo[]"
+                          chooseLabel="Escolher uma foto"
+                          [showUploadButton]="false"
+                          [showCancelButton]="false"
+                          (onSelect)="enviarImagem($event)"
+                          [multiple]="true"
+                          accept="image/*"
+                          maxFileSize="1000000">
+                        </p-fileUpload>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-12">
+                          <input 
                             type="text" 
                             class="input mt-3" 
                             placeholder="Nome" 
@@ -202,182 +204,165 @@
                             [class]="(submitted && formulario.get('nomeEstabelecimento').errors) ||
                               (formulario.get('nomeEstabelecimento').errors && formulario.get('nomeEstabelecimento').dirty) ? 'is-invalid' :
                               formulario.get('nomeEstabelecimento').dirty ? 'is-valid' : '' "
-                            >
-
-                            <div
-                            *ngIf="formulario.get('nomeEstabelecimento').errors?.required"
-                            class="invalid-feedback">
+                          >
+                          <div *ngIf="formulario.get('nomeEstabelecimento').errors?.required" class="invalid-feedback">
+                            Nome é obrigatório!
+                          </div>
+                        </div>
+                      </div>    
+                      
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <input
+                            type="text"
+                            class="input mt-4 form-control"
+                            placeholder="CNPJ"
+                            formControlName="cnpjEstabelecimento"
+                            mask="00.000.000/0000-00"
+                            [class]="(submitted && formulario.get('cnpjEstabelecimento').errors) ||
+                            (formulario.get('cnpjEstabelecimento').errors && formulario.get('cnpjEstabelecimento').dirty) ? 'is-invalid' :
+                            formulario.get('cnpjEstabelecimento').dirty ? 'is-valid' : '' "
+                          />
+                          <div *ngIf="formulario.get('cnpjEstabelecimento').errors?.required" class="invalid-feedback">
                             CNPJ é obrigatório!
-                            </div>
-                              
                           </div>
-
-                          <div class="col-12 col-md-6">
-                            <input type="text" class="input mt-3" placeholder="Tipo do Estabelecimento" name="tipo"  formControlName="tipoEstabelecimento">
-                          </div>
-                          
-
-
-                          <div class="col-12 col-md-6">
-                            <input
-                              type="text"
-                              class="input mt-4 form-control"
-                              placeholder="CNPJ"
-                              formControlName="cnpjEstabelecimento"
-                              mask="00.000.000/0000-00"
-                              [class]="(submitted && formulario.get('cnpjEstabelecimento').errors) ||
-                              (formulario.get('cnpjEstabelecimento').errors && formulario.get('cnpjEstabelecimento').dirty) ? 'is-invalid' :
-                              formulario.get('cnpjEstabelecimento').dirty ? 'is-valid' : '' "
-                            />
-
-                            <div
-                              *ngIf="formulario.get('cnpjEstabelecimento').errors?.required"
-                              class="invalid-feedback">
-                              CNPJ é obrigatório!
-                            </div>
-
-                            <div
-                              *ngIf="formulario.get('cnpjEstabelecimento').errors?.minlength"
-                              class="invalid-feedback">
-                              CNPJ inválido
-                            </div>
+                          <div *ngIf="formulario.get('cnpjEstabelecimento').errors?.minlength" class="invalid-feedback">
+                            CNPJ inválido
                           </div>
                         </div>
-
-                        <div class="row">
-                          <div class="col-12 col-md-6">
-                            <input type="text" class="input mt-4" placeholder="Rua" name="rua"  formControlName="ruaEstabelecimento">
-                          </div>
-
-                          <div class="col-12 col-md-6">
-                            <input type="text"
-                              class="input mt-4 form-control"
-                              placeholder="Telefone"
-                              formControlName="telefoneEstabelecimento"
-                              mask="(00)00000-0000"
-                              name="telefone" >
-
-                          </div>
+                        <div class="col-12 col-md-6">
+                          <input type="text" class="input mt-4" placeholder="Tipo do Estabelecimento" name="tipo"  formControlName="tipoEstabelecimento">
                         </div>
-
-                        <div class="row">
-                          <div class="col-12 col-md-6">
-                            <input type="text" class="input mt-4" placeholder="Bairro" name="bairro"  formControlName="bairroEstabelecimento">
-                          </div>
-
-                          <div class="col-12 col-md-3">
-                            <input type="text"
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <input type="text" class="input mt-4" placeholder="Rua" name="rua"  formControlName="ruaEstabelecimento">
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <input type="text"
+                            class="input mt-4 form-control"
+                            placeholder="Telefone"
+                            formControlName="telefoneEstabelecimento"
+                            mask="(00)00000-0000"
+                            name="telefone"
+                          >
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <input type="text" class="input mt-4" placeholder="Bairro" name="bairro"  formControlName="bairroEstabelecimento">
+                        </div>
+                        <div class="col-12 col-md-3">
+                          <input type="text"
                             class="input mt-4 form-control"
                             placeholder="CEP"
                             formControlName="cepEstabelecimento"
                             mask="00000-000"
-                            name="cep" >
-                          </div>
-
-                          <div class="col-12 col-md-3">
-                            <input type="text" class="input mt-4" placeholder="Número" name="numero"  formControlName="numeroEstabelecimento">
+                            name="cep" 
+                          >
+                        </div>
+                        <div class="col-12 col-md-3">
+                          <input type="text" class="input mt-4" placeholder="Número" name="numero"  formControlName="numeroEstabelecimento">
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-12 col-md-6 ">
+                          <div class="mt-4 input no-padding">
+                            <p-dropdown
+                              placeholder="Estado"
+                              [options]="estados"
+                              formControlName="estadoEstabelecimento"
+                              placeholder="Estado"
+                              [filter]="true"
+                              [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                              (onChange)="listarCidades()">
+                            </p-dropdown>
                           </div>
                         </div>
-
-                        <div class="row">
-                          <div class="col-12 col-md-6 ">
-                            <div class="mt-4 input no-padding">
-                              <p-dropdown
-                                placeholder="Estado"
-                                [options]="estados"
-                                formControlName="estadoEstabelecimento"
-                                placeholder="Estado"
-                                [filter]="true"
-                                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
-                                (onChange)="listarCidades()">
-                              </p-dropdown>
-                            </div>
-                          </div>
-
-                          <div class="col-12 col-md-6">
-                            <div class="mt-4 input no-padding">
-                              <p-dropdown
-                                placeholder="Cidade"
-                                [options]="cidades"
-                                formControlName="cidadeEstabelecimento"
-                                [filter]="true"
-                                [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
-                              </p-dropdown>
-                            </div>
+                        <div class="col-12 col-md-6">
+                          <div class="mt-4 input no-padding">
+                            <p-dropdown
+                              placeholder="Cidade"
+                              [options]="cidades"
+                              formControlName="cidadeEstabelecimento"
+                              [filter]="true"
+                              [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                            </p-dropdown>
                           </div>
                         </div>
-
-                        <div>
-                          <textarea class="descricao mt-4" rows="4" cols="60" formControlName="descricao" placeholder="Descrição do local" name="descricao"></textarea>
+                      </div>
+                      
+                      <div>
+                        <textarea class="descricao mt-4" rows="4" cols="60" formControlName="descricao" placeholder="Descrição do local" name="descricao"></textarea>
+                      </div>
+                      
+                      <div class="mt-2 mb-3">
+                        <div class="div-filtros">
+                          <p class="title-filtros"> Acessível para deficiência:</p>
                         </div>
+                        <div id="filtro-deficiencia">
+                          <div class="col-md-7 text-center">
+                            <ul>
+                              <li>
+                                <input type="checkbox" id="myCheckbox1" />
+                                <label for="myCheckbox1">
+                                  <div class="checkbox-img">
+                                    <img class="img-deficiencias" src="../../assets/images/mobilidade.png" />
+                                    <p>Motora</p>
+                                  </div>
+                                </label>
+                              </li>
 
-                        <div class="mt-2 mb-3">
-                          <div class="div-filtros">
-                            <p class="title-filtros"> Acessível para deficiência:</p>
+                              <li>
+                                <input type="checkbox" id="myCheckbox2" />
+                                <label for="myCheckbox2">
+                                  <div class="checkbox-img">
+                                    <img class="img-deficiencias" src="../../assets/images/auditivo.png" />
+                                    <p>Auditiva</p>
+                                  </div>
+                                </label>
+                              </li>
+
+                              <li>
+                                <input type="checkbox" id="myCheckbox3" />
+                                <label for="myCheckbox3">
+                                  <div class="checkbox-img">
+                                    <img class="img-deficiencias" src="../../assets/images/cego.png" />
+                                    <p>Visual</p>
+                                  </div>
+                                </label>
+                              </li>
+
+                              <li>
+                                <input type="checkbox" id="myCheckbox4" />
+                                <label for="myCheckbox4">
+                                  <div class="checkbox-img">
+                                    <img class="img-deficiencias" src="../../assets/images/intelectual.png" />
+                                    <p>Intelectual</p>
+                                  </div>
+                                </label>
+                              </li>
+                            </ul>
                           </div>
-
-                          <div id="filtro-deficiencia">
-                            <div class="col-md-7 text-center">
-                              <ul>
-                                <li>
-                                  <input type="checkbox" id="myCheckbox1" />
-                                  <label for="myCheckbox1">
-                                    <div class="checkbox-img">
-                                      <img class="img-deficiencias" src="../../assets/images/mobilidade.png" />
-                                      <p>Motora</p>
-                                    </div>
-                                  </label>
-                                </li>
-
-                                <li>
-                                  <input type="checkbox" id="myCheckbox2" />
-                                  <label for="myCheckbox2">
-                                    <div class="checkbox-img">
-                                      <img class="img-deficiencias" src="../../assets/images/auditivo.png" />
-                                      <p>Auditiva</p>
-                                    </div>
-                                  </label>
-                                </li>
-
-                                <li>
-                                  <input type="checkbox" id="myCheckbox3" />
-                                  <label for="myCheckbox3">
-                                    <div class="checkbox-img">
-                                      <img class="img-deficiencias" src="../../assets/images/cego.png" />
-                                      <p>Visual</p>
-                                    </div>
-                                  </label>
-                                </li>
-
-                                <li>
-                                  <input type="checkbox" id="myCheckbox4" />
-                                  <label for="myCheckbox4">
-                                    <div class="checkbox-img">
-                                      <img class="img-deficiencias" src="../../assets/images/intelectual.png" />
-                                      <p>Intelectual</p>
-                                    </div>
-                                  </label>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
                         </div>
+                      </div>
 
-                        <div class="float-right mb-5">
-                          <button type="button" class="btn cancelar  btn-outline-secondary" routerLink="/perfilParceiro">Cancelar</button>
-                          <button type="submit" class="btn cadastrar">{{ operacao ? "Cadastrar" : "Atualizar" }}</button>
-                        </div>
-                      </form>
-                    </div>
+                      <div class="float-right">
+                        <button type="button" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn botao"
+                        [class]="operacao? 'btn-primary' : 'btn-success'" >
+                         {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
-              <!-- FIM MODAL -->
-              <p class="description-button">
-                Imagens, nome do estabelecimento, email, telefone, descrição, acessibilidades...
-              </p>
-            </a>
-          </button>
+            </div>
+            <!-- FIM MODAL CADASTRAR ESTABELECIMENTO -->
+              
         </div>
       </div>
 
@@ -387,19 +372,21 @@
             <i class="far fa-list-alt img-circulo3"></i>
           </div>
 
-          <button class="button">
-            <a class="nav-link editar-perfil-button" >
-            <!-- MODAL -->
-            <!-- Botão para acionar modal -->
-              <button type="button" class="btn title-button3">
-                Ver estabelecimentos cadastrados
-              </button>
-
-              <p class="description-button">Atualizar dados do estabelecimento, excluir estabelecimento...</p>
-            </a>
+          <!-- BOTÃO PARA ACIONAR MODAL -->
+          <button class="button" data-toggle="modal" data-target="#idModal">
+            <h2 class="title-button3">Ver estabelecimentos cadastrados</h2>
           </button>
+
+          <p class="button description-button text-center">
+            Atualizar dados, excluir...
+          </p>
+ 
+         <!-- MODAL -->
+
         </div>
       </div>
+
     </div>
+
   </div>
 </div>
