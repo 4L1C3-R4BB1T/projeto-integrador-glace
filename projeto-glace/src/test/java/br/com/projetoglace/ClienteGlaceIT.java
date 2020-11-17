@@ -1,6 +1,7 @@
 package br.com.projetoglace;
 
 import org.hamcrest.Matchers;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,13 +12,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+
 public class ClienteGlaceIT {
 	@LocalServerPort
 	private int port;
 	
-	private String token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjoxLCJ1c2VyX25hbWUiOiJhbGluZUBhbGluZS5jb20iLCJzY29wZSI6WyJ3cml0ZSIsInJlYWQiXSwiZXhwIjoxNjA1MjE1NDEyLCJhdXRob3JpdGllcyI6WyJVRyJdLCJqdGkiOiJjZWQwMzUzNC0wNjYxLTRkYmYtOTY3Yy0wOTNlMWZiZGMxNWIiLCJub21lX2NvbXBsZXRvIjoiQWxpbmUgRmVycmVpcmEiLCJjbGllbnRfaWQiOiJmcm9udGVuZEdsYWNlLWNsaWVudCJ9.cMr_Dx5QHOB9n0QN6OZMPY8lPVJyMz93LqC4C3jJIzY";
+	private String token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjoxLCJ1c2VyX25hbWUiOiJhbGluZUBhbGluZS5jb20iLCJzY29wZSI6WyJ3cml0ZSIsInJlYWQiXSwiZXhwIjoxNjAzNTcxMjk1LCJhdXRob3JpdGllcyI6WyJWRVItVFVETyJdLCJqdGkiOiJiMDcwZjc2MS1iZjljLTQ4NDUtYmViMC1mMDhkZmRmYTQxZjgiLCJub21lX2NvbXBsZXRvIjoiQWxpbmUgRmVycmVpcmEiLCJjbGllbnRfaWQiOiJmcm9udGVuZEdsYWNlLWNsaWVudCJ9.rNo8OjYnUnIhy6H0FH_Ca-ockObx0VwHYwFME_BrM-I";
 	
 	@Before
 	public void setUp() {
@@ -46,8 +49,8 @@ public class ClienteGlaceIT {
 		.when()
 			.get()
 		.then()
-			.body("", Matchers.hasSize(3))
-			.body("nome", Matchers.hasItems("Amanda"));
+			.body("", Matchers.hasSize(0))
+			.body("nome", Matchers.hasItems(""));
 	}
 	
 	@Test
@@ -61,7 +64,7 @@ public class ClienteGlaceIT {
 			.get("/{id}")
 		.then()
 			.statusCode(HttpStatus.OK.value())
-			.body("nome", Matchers.equalTo("Aparecida"));
+			.body("nome", Matchers.equalTo(""));
 	}
 	
 	@Test

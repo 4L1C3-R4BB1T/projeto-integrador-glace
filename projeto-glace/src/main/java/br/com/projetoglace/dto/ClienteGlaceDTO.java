@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import br.com.projetoglace.model.Endereco;
 import br.com.projetoglace.model.ParceiroGlace;
-import br.com.projetoglace.security.permissões.CheckSecurity.Parceiro;
 import lombok.Data;
 
 @Data

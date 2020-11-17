@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: 'perfil/usuario/:codigo', component: PerfilUsuarioComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['UG', 'CG'] }
+    data: { roles: ['CG', 'UG'] }
   },
   {
     path: 'perfil/usuario', component: PerfilUsuarioComponent,
