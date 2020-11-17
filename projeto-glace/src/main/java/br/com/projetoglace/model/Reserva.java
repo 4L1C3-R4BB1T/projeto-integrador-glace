@@ -35,10 +35,8 @@ public class Reserva {
 	@JoinColumn(name="cliente_id", nullable=false)
 	private ClienteGlace cliente;
 	
-	
 	@ManyToOne
 	@JoinColumn(name="estabelecimento_id", nullable=false)
 	private EstabelecimentoGlace estabelecimento;
-	
 	
 }

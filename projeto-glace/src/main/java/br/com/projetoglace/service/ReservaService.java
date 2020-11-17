@@ -20,33 +20,29 @@ public class ReservaService {
 	
 	@Autowired 
 	private ReservaRepository repository;
+	
 	@Autowired 
 	private ReservaMapper mapper;
 
 	public List<Reserva> listarReserva() {
-		
 		return repository.findAll();
 	}
 
 	@Transactional
 	public void excluirReserva(Long id) {
-			try {
-				repository.deleteById(id);
-				repository.flush();
-			} catch (EmptyResultDataAccessException e) {
-				throw new ClienteNaoEncontradoException(id);
-			};			
-		}
+		try {
+			repository.deleteById(id);
+			repository.flush();
+		} catch (EmptyResultDataAccessException e) {
+			throw new ClienteNaoEncontradoException(id);
+		}		
+	}
 
 	@Transactional
 	public ReservaDTO salvarReserva(ReservaRequest reservaRequest) {
-		
-			Reserva reserva = new Reserva();
-			
-			reserva = mapper.requestToModel(reservaRequest);
-		
-		    return mapper.modelToDTO(repository.save(reserva));		
-		}
-		
+		Reserva reserva = new Reserva();	
+		reserva = mapper.requestToModel(reservaRequest);
+		return mapper.modelToDTO(repository.save(reserva));		
+	}
 
 }

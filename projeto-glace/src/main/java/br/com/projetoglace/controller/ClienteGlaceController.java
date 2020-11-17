@@ -68,7 +68,6 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		return ResponseEntity.notFound().build();
 	}
 		
-	
 	@GetMapping("/usuarioAdm")
 	public ResponseEntity<ClienteGlace> buscarPorIdnoToken() {
 		
@@ -79,7 +78,6 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		}
 		return ResponseEntity.notFound().build();
 	}
-	
 	
 	@CheckSecurity.Cliente.PodeExcluirPerfilCliente
 	@Override
@@ -106,5 +104,4 @@ public class ClienteGlaceController implements ClienteGlaceControllerOpenApi {
 		return ResponseEntity.notFound().build();
 	}
 
-	
 }

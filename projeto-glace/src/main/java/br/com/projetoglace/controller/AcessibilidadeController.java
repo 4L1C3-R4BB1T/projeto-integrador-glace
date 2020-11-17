@@ -22,10 +22,6 @@ public class AcessibilidadeController {
 	@Autowired
 	private AcessibilidadeGlaceRepository acessibilidadeGlaceRepository;
 	
-	//POST - insert
-	//PUT - Update
-	//GET - select
-	//Delete - Delete
 	@PostMapping
 	public void salvar(@RequestBody Acessibilidade acessibilidade) {
 		acessibilidadeGlaceRepository.save(acessibilidade);

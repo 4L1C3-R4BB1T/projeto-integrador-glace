@@ -33,10 +33,12 @@ public class ReservaController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> salvarReserva(@RequestBody ReservaRequest reservaRequest) {	
-		try {
-			ReservaDTO reservaDto = service.salvarReserva(reservaRequest);			
-			return ResponseEntity.status(HttpStatus.CREATED).body(reservaDto);
 		
+		System.out.println(reservaRequest);
+		
+		try {
+			ReservaDTO reservaDTO = service.salvarReserva(reservaRequest);			
+			return ResponseEntity.status(HttpStatus.CREATED).body(reservaDTO);
 		}catch(Exception ex) {
 			return ResponseEntity.badRequest().body(ex.getMessage());
 		}		
@@ -56,4 +58,5 @@ public class ReservaController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+
 }

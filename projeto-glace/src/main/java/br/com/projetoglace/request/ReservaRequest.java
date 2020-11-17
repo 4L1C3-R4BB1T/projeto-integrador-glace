@@ -9,7 +9,9 @@ import javax.validation.constraints.NotNull;
 
 import br.com.projetoglace.model.ClienteGlace;
 import br.com.projetoglace.model.EstabelecimentoGlace;
+import lombok.Data;
 
+@Data
 public class ReservaRequest {
 
 	@Id
@@ -18,8 +20,11 @@ public class ReservaRequest {
 	
 	@NotNull
 	private LocalDate data;
+	
 	@NotNull
-	private EstabelecimentoGlace estabelecimento_id;
+	private EstabelecimentoGlace estabelecimento;
+	
 	@NotNull
-	private ClienteGlace cliente_id;
+	private ClienteGlace cliente;
+	
 }

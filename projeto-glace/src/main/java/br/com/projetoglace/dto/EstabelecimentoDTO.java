@@ -17,5 +17,6 @@ public class EstabelecimentoDTO {
 	private Endereco endereco;
 	private Imagem foto;
 	private ParceiroGlace parceiroGlace;
+	
 }
 

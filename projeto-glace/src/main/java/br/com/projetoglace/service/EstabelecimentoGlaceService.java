@@ -1,10 +1,15 @@
 package br.com.projetoglace.service;
+
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+
 import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import br.com.projetoglace.dto.EstabelecimentoDTO;
 import br.com.projetoglace.email.EnvioEmailService;
 import br.com.projetoglace.filtro.EstabelecimentoFiltro;
@@ -14,8 +19,10 @@ import br.com.projetoglace.repository.CidadeRepository;
 import br.com.projetoglace.repository.EstabelecimentoRepository;
 import br.com.projetoglace.repository.EstadoRepository;
 import br.com.projetoglace.request.EstabelecimentoGlaceRequest;
+
 @Service
 public class EstabelecimentoGlaceService {
+
 	@Autowired
 	private EstabelecimentoRepository repository;
 	
@@ -27,6 +34,7 @@ public class EstabelecimentoGlaceService {
 	
 	@Autowired
 	private EstabelecimentoGlaceMapper mapper;
+	
 	@Autowired
 	EnvioEmailService envioMensagem;
 	
@@ -60,6 +68,10 @@ public class EstabelecimentoGlaceService {
 		}
 		
 		return repository.findAll(filtro.getCidade(), filtro.getEstado(), filtro.getTiposEstabelecimento());
+	}
+	
+	public Optional<EstabelecimentoGlace> buscarEstabelecimento(Long id) {
+		return repository.findById(id);
 	}
 	
 }

@@ -27,6 +27,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name="parceiro")
 public class ParceiroGlace {
+	
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,8 +57,10 @@ public class ParceiroGlace {
 	
 	@OneToOne
 	private Imagem foto;
+	
 	@ManyToMany
 	@JoinTable(name = "parceiro_grupo", joinColumns = @JoinColumn(name = "parceiro_id"),
 			inverseJoinColumns = @JoinColumn(name = "grupo_id"))
 	private Set<Grupo> grupos = new HashSet<>();
+	
 }

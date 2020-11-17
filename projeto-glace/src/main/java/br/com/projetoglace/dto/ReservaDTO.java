@@ -11,6 +11,7 @@ public class ReservaDTO {
 
 	private Long id;
 	private LocalDate data;
-	private EstabelecimentoGlace estabelecimento_id;
-	private ClienteGlace cliente_id;
+	private EstabelecimentoGlace estabelecimento;
+	private ClienteGlace cliente;
+	
 }

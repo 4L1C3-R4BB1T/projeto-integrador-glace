@@ -12,7 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -37,7 +40,6 @@ public class EstabelecimentoGlace {
 	@Column(nullable = false)
 	private String telefone;
 	
-	
 	@Column(nullable = false)
 	private String descricao;
 	
@@ -58,4 +60,9 @@ public class EstabelecimentoGlace {
 	
 	@ManyToOne
 	private Imagem foto;
+	
+	@JsonIgnore	
+	@OneToMany(mappedBy="estabelecimento")
+	private List<Reserva> reservas;
+	
 }

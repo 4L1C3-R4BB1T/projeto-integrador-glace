@@ -7,14 +7,15 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class UsuarioADMGlaceRequest {
+import lombok.Data;
 
+@Data
+public class UsuarioADMGlaceRequest {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	
+		
 	@NotNull
 	@NotBlank
 	private String nome;

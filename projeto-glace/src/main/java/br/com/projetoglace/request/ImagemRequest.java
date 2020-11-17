@@ -13,4 +13,5 @@ public class ImagemRequest {
 	@NotNull
 	@FileSize(max="1000KB")
 	private MultipartFile imagem;
+	
 }
