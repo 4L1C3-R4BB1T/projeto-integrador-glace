@@ -42,46 +42,46 @@
                   <form [formGroup]="formulario" (ngSubmit)="salvarOuAtualizar()">
                     <div class="row">
                       <div class="col-12">
-                        <input 
+                        <input
                           formControlName= "telefone"
-                          type="text" 
-                          class="input form-control" 
-                          mask="(00) 00000-0000" 
+                          type="text"
+                          class="input form-control"
+                          mask="(00) 00000-0000"
                           placeholder="Telefone"
                           aria-label="Telephone number 11 digits only" />
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-12 col-md-9">
-                        <input 
-                          type="text" 
-                          class="input mt-4" 
-                          placeholder="Rua" 
+                        <input
+                          type="text"
+                          class="input mt-4"
+                          placeholder="Rua"
                           formControlName="rua" />
                       </div>
                       <div class="col-12 col-md-3">
-                        <input 
-                          type="text" 
-                          class="input mt-4" 
-                          placeholder="Número" 
+                        <input
+                          type="text"
+                          class="input mt-4"
+                          placeholder="Número"
                           formControlName="numero" />
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-12 col-md-7">
-                        <input 
-                          type="text" 
-                          class="input mt-4" 
-                          placeholder="Bairro" 
+                        <input
+                          type="text"
+                          class="input mt-4"
+                          placeholder="Bairro"
                           formControlName="bairro" />
                       </div>
                       <div class="col-12 col-md-5">
                         <div>
-                          <input 
+                          <input
                             formControlName= "cep"
-                            type="text" 
-                            class="input mt-4 form-control" 
-                            mask="00000-000" 
+                            type="text"
+                            class="input mt-4 form-control"
+                            mask="00000-000"
                             placeholder="Cep"
                             aria-label="cep number 10 digits only">
                         </div>
@@ -90,10 +90,10 @@
                     <div class="row">
                       <div class="col-12 col-md-6 ">
                         <div class="mt-4 input no-padding">
-                          <p-dropdown 
-                            placeholder="Estado" 
-                            [options]="estados" 
-                            formControlName="estado" 
+                          <p-dropdown
+                            placeholder="Estado"
+                            [options]="estados"
+                            formControlName="estado"
                             [filter]="true"
                             [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
                             (onChange)="listarCidades()">
@@ -102,9 +102,9 @@
                       </div>
                       <div class="col-12 col-md-6">
                         <div class="mt-4 input no-padding">
-                          <p-dropdown 
-                            placeholder="Cidade" 
-                            [options]="cidades" 
+                          <p-dropdown
+                            placeholder="Cidade"
+                            [options]="cidades"
                             formControlName="cidade"
                             [filter]="true"
                             [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
@@ -113,32 +113,32 @@
                       </div>
                     </div>
                     <div>
-                      <input 
-                        type="email" 
-                        id="email" 
-                        class="input mt-4" 
-                        placeholder="E-mail" 
+                      <input
+                        type="email"
+                        id="email"
+                        class="input mt-4"
+                        placeholder="E-mail"
                         formControlName="email" />
                     </div>
                     <div>
-                      <input 
-                        type="password" 
-                        id="senha" 
-                        class="input mt-4" 
+                      <input
+                        type="password"
+                        id="senha"
+                        class="input mt-4"
                         placeholder="Senha"
                         formControlName="senha" />
                     </div>
                     <div>
-                      <input 
-                        type="password" 
-                        id="confirmarsenha" 
-                        class="input mt-4" 
+                      <input
+                        type="password"
+                        id="confirmarsenha"
+                        class="input mt-4"
                         placeholder="Confirmar senha"
                         formControlName="confirmarsenha" />
                     </div>
                     <div class="float-right mt-4">
-                      <button type="submit" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
-                      <button type="submit" class="btn botao"
+                      <button type="submit" class="btn cancelar btn-outline-secondary mr-2" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn cadastrar botao"
                       [class]="operacao? 'btn-primary' : 'btn-success'" >
                        {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
                     </div>
@@ -217,7 +217,7 @@
                     </table>
                   </div>
                   <div class="float-right mt-2">
-                    <button type="button" class="btn botao bg-danger" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn botao bg-secondary" data-dismiss="modal">Fechar</button>
                   </div>
                 </div>
               </div>

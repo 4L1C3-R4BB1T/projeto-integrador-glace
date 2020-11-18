@@ -1,8 +1,61 @@
-.content {
+.title1 {
   font-family: 'Ruda', sans-serif;
+  font-weight: bold;
+  background-color: rgba(255, 153, 0, 0.6);
+  font-size: 25px;
+  border-radius: 10px;
+  padding: 10px;
+  color: #FFFFFF;
 }
 
-.content p {
-  font-size: 20px;
+.title2 {
+  font-family: 'Ruda', sans-serif;
+  font-weight: bold;
+  background-color: rgba(173, 184, 215, 0.8);
+  font-size: 25px;
+  border-radius: 10px;
+  padding: 10px;
+  color: #FFFFFF;
+  margin-top: 50px;
 }
- 
+
+.section-text {
+  padding: 0 10px 0 10px;
+  font-family: 'Ruda', sans-serif;
+  font-size: 22px;
+}
+
+.desenvolvedores {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.image {
+  width: 140px;
+  height: 150px;
+}
+
+.fotos {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.descricao {
+  width: 72%;
+  margin-left: 20px;
+}
+
+.nome {
+  font-family: 'Ruda', sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.sobre {
+  font-family: 'Ruda', sans-serif;
+  font-size: 18px;
+  color: #3E3E3E;
+}

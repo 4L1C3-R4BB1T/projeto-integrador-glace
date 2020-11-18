@@ -135,8 +135,8 @@
                         formControlName="confirmarsenha" />
                     </div>
                     <div class="float-right mt-4">
-                      <button type="submit" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
-                      <button type="submit" class="btn botao"
+                      <button type="submit" class="btn cancelar btn-outline-secondary mr-2" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn cadastrar botao"
                       [class]="operacao? 'btn-primary' : 'btn-success'" >
                        {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
                     </div>
@@ -177,7 +177,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  
+
                   <div class="modal-body">
                     <form [formGroup]="formulario" (ngSubmit)="cadastrarEstabelecimento()">
                       <div class="form-group div-uploads" >
@@ -192,14 +192,14 @@
                           maxFileSize="1000000">
                         </p-fileUpload>
                       </div>
-                      
+
                       <div class="row">
                         <div class="col-12">
-                          <input 
-                            type="text" 
-                            class="input mt-3" 
-                            placeholder="Nome" 
-                            name="nome"  
+                          <input
+                            type="text"
+                            class="input mt-3"
+                            placeholder="Nome"
+                            name="nome"
                             formControlName="nomeEstabelecimento"
                             [class]="(submitted && formulario.get('nomeEstabelecimento').errors) ||
                               (formulario.get('nomeEstabelecimento').errors && formulario.get('nomeEstabelecimento').dirty) ? 'is-invalid' :
@@ -209,8 +209,8 @@
                             Nome é obrigatório!
                           </div>
                         </div>
-                      </div>    
-                      
+                      </div>
+
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <input
@@ -230,11 +230,29 @@
                             CNPJ inválido
                           </div>
                         </div>
+                        <!-- <div class="col-12 col-md-6">
+                            <select id="inputState" class="form-control input">
+                              <option selected>Tipo do Estabelecimento</option>
+                              <option>Hotel</option>
+                              <option>Pousada</option>
+                              <option>Café</option>
+                              <option>Hotel Fazenda</option>
+                              <option>Restaurante</option>
+                            </select>
+                        </div> -->
+
                         <div class="col-12 col-md-6">
-                          <input type="text" class="input mt-4" placeholder="Tipo do Estabelecimento" name="tipo"  formControlName="tipoEstabelecimento">
+                            <select matNativeControl required class="input">
+                              <option value="">Tipo de Estabelecimento</option>
+                              <option value="Hotel">Hotel</option>
+                              <option value="Pousada">Pousada</option>
+                              <option value="Hotel Fazenda">Hotel Fazenda</option>
+                              <option value="Café">Café</option>
+                              <option value="Restaurante">Restaurante</option>
+                            </select>
                         </div>
                       </div>
-                      
+
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <input type="text" class="input mt-4" placeholder="Rua" name="rua"  formControlName="ruaEstabelecimento">
@@ -249,7 +267,7 @@
                           >
                         </div>
                       </div>
-                      
+
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <input type="text" class="input mt-4" placeholder="Bairro" name="bairro"  formControlName="bairroEstabelecimento">
@@ -260,14 +278,14 @@
                             placeholder="CEP"
                             formControlName="cepEstabelecimento"
                             mask="00000-000"
-                            name="cep" 
+                            name="cep"
                           >
                         </div>
                         <div class="col-12 col-md-3">
                           <input type="text" class="input mt-4" placeholder="Número" name="numero"  formControlName="numeroEstabelecimento">
                         </div>
                       </div>
-                      
+
                       <div class="row">
                         <div class="col-12 col-md-6 ">
                           <div class="mt-4 input no-padding">
@@ -294,11 +312,11 @@
                           </div>
                         </div>
                       </div>
-                      
+
                       <div>
                         <textarea class="descricao mt-4" rows="4" cols="60" formControlName="descricao" placeholder="Descrição do local" name="descricao"></textarea>
                       </div>
-                      
+
                       <div class="mt-2 mb-3">
                         <div class="div-filtros">
                           <p class="title-filtros"> Acessível para deficiência:</p>
@@ -351,10 +369,13 @@
                       </div>
 
                       <div class="float-right">
-                        <button type="button" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn botao"
-                        [class]="operacao? 'btn-primary' : 'btn-success'" >
-                         {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
+                        <button type="button" class="btn cancelar btn-outline-secondary mr-2" data-dismiss="modal">Cancelar</button>
+                        <button
+                          type="submit"
+                          class="btn cadastrar"
+                          [class]="operacao? 'btn-primary' : 'btn-success'" onclick="salvarEstabelecimento()">
+                          Cadastrar
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -362,7 +383,7 @@
               </div>
             </div>
             <!-- FIM MODAL CADASTRAR ESTABELECIMENTO -->
-              
+
         </div>
       </div>
 
@@ -380,7 +401,7 @@
           <p class="button description-button text-center">
             Atualizar dados, excluir...
           </p>
- 
+
          <!-- MODAL -->
 
         </div>

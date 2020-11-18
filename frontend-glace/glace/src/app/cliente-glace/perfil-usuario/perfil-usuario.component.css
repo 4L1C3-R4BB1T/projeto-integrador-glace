@@ -121,6 +121,26 @@
   background-color: orange;
 }
 
+.cadastrar {
+  background-color: rgba(255, 153, 0, 1);
+  border-radius: 7px;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  border: 1px solid rgba(255, 153, 0, 1);
+  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+  padding: 5px 10px 5px 10px;
+  margin-top: 0 !important;
+}
+
+.cancelar {
+  font-family: 'Ruda', sans-serif;
+  font-size: 20px;
+  border-radius: 7px;
+  padding: 5px 10px 5px 10px;
+  margin-right: 10px;
+}
+
 .modal {
   padding: 0;
   font-size: 18px;
@@ -159,11 +179,6 @@
 
 .no-padding {
   padding: 0;
-}
-
-.btn-outline-danger {
-  border-radius: 5px;
-  font-size: 16px;
 }
 
 @media screen and (max-width: 1440px) {

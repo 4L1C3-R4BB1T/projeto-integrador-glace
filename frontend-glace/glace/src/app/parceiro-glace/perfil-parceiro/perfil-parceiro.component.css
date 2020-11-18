@@ -159,6 +159,8 @@ background: rgba(255, 255, 255);
   font-family: 'Ruda', sans-serif;
   font-size: 20px;
   padding-left: 20px;
+  margin-top: 1.5rem;
+  color: #6c757d;
 }
 
 .input:hover, textarea:hover {
@@ -176,24 +178,8 @@ background: rgba(255, 255, 255);
   background: #ebfaeb;
 }
 
-.botao {
-  background-color: rgba(255, 153, 0, 1);
-  border-radius: 7px;
-  color: #FFFFFF;
-  font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  border: none;
-  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
-  padding: 5px 15px 5px 15px;
-}
-
 .botao:hover {
   background-color: orange;
-}
-
-.btn-outline-danger {
-  border-radius: 5px;
-  font-size: 16px;
 }
 
 :host /deep/ .p-inputtext {
@@ -204,6 +190,11 @@ background: rgba(255, 255, 255);
 
 :host /deep/ .p-fileupload-buttonbar {
   border-radius: 10px 10px 0 0;
+}
+
+:host /deep/ .p-button {
+  background-color: rgba(255, 153, 0, 1);
+  border: 0;
 }
 
 :host /deep/ .p-fileupload-content {
@@ -392,25 +383,20 @@ p {
 
 .cadastrar {
   background-color: rgba(255, 153, 0, 1);
-  border-radius: 10px;
+  border-radius: 7px;
   color: #FFFFFF;
   font-family: 'Ruda', sans-serif;
   font-size: 20px;
-  border: none;
+  border: 1px solid rgba(255, 153, 0, 1);
   box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
   padding: 5px 10px 5px 10px;
   margin-top: 0 !important;
 }
 
-.cadastrar:hover {
-  transition: 1s;
-  background-color: orange;
-}
-
 .cancelar {
   font-family: 'Ruda', sans-serif;
   font-size: 20px;
-  border-radius: 10px;
+  border-radius: 7px;
   padding: 5px 10px 5px 10px;
   margin-right: 10px;
 }

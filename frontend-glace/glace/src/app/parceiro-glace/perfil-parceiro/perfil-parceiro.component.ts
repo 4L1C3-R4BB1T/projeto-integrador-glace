@@ -21,6 +21,7 @@ export class PerfilParceiroComponent implements OnInit {
   estados: any[] = [];
   cidades: any[] = [];
   imagem: number;
+  tipoEstabelecimento: any[] = [];
 
   public submitted: boolean = false;
   uploadedFiles: any[] = [];
