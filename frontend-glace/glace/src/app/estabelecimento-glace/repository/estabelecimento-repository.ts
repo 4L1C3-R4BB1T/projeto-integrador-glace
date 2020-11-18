@@ -23,9 +23,10 @@ export class EstabelecimentoRepository {
 
     constructor(public http: BaseHttpService) { }
 
-    getAllEstabelecimentos(): Observable<EstabelecimentoModel> {
+    getAllEstabelecimentos(param: string): Observable<EstabelecimentoModel> {
+    
         return this.http
-        .getAll<EstabelecimentoEntity[]>(`${environment.URLSERVIDOR}estabelecimento`)
+        .getAll<EstabelecimentoEntity[]>(`${environment.URLSERVIDOR}estabelecimento${param}`)
         .pipe(mergeMap((x) => x.data))
         .pipe(map((x) => this.mapper.mapFrom(x)));
     }

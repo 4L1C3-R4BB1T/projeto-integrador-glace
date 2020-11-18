@@ -4,7 +4,7 @@
     <app-nav-bar></app-nav-bar>
 
     <div class="content">
-      <form [formGroup]="formulario">
+      <form [formGroup]="formulario" (ngSubmit)="buscar()">
         <div class="row">
           <div class="col-2"></div>
           <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 pesquisa form-control form-control-lg" id="input1">
@@ -27,13 +27,12 @@
             </p-dropdown>
           </div>
           <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 pesquisa">
-            <button type="submited" id="botao-pesquisa" class="btn btn-outline-light" ng-click="buscar()">
+            <button type="submit" id="botao-pesquisa" class="btn btn-outline-light">
               <i class="fas fa-search" style="color: rgba(196, 196, 196, 1); font-size: 20px;"></i>
             </button>
           </div>
           <div class="col-2"></div>
         </div>
-      </form>
 
       <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 float-left" id="container-filtros">
         <div class="div-filtros">
@@ -41,72 +40,31 @@
         </div>
 
         <div id="filtros-locais">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Hotel
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-            <label class="form-check-label" for="defaultCheck2">
-              Pousada
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-            <label class="form-check-label" for="defaultCheck3">
-              Hotel fazenda
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-            <label class="form-check-label" for="defaultCheck4">
-              Restaurantes
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
-            <label class="form-check-label" for="defaultCheck5">
-              Cafés
+          <div class="form-check">        
+            <label class="form-check-label espaco" for="defaultCheck1" formArrayName="estabelecimentos" *ngFor="let estabelecimento of listaEstabelecimentos.controls; let i = index">
+              <input [formControlName]="i" class="form-check-input" type="checkbox">
+              {{arrayEstabelecimentos[i].tipo}}
             </label>
           </div>
         </div>
-
         <div class="div-filtros">
           <h2 class="title-filtros">Acessível para:</h2>
         </div>
-
         <div id="filtro-deficiencia">
           <div class="col-md-3 text-center">
-            <label class="image-checkbox" title="Mobilidade Reduzida">
-              <img class="img-deficiencias" src="./assets/images/mobilidade.png" />
-              <input type="checkbox" name="team[]" value="england" checked="checked" />
-            </label>
-          </div>
-          <div class="col-md-3 text-center">
-            <label class="image-checkbox" title="Deficiência Auditiva">
-              <img class="img-deficiencias" src="./assets/images/auditivo.png" />
-              <input type="checkbox" name="team[]" value="germany" />
-            </label>
-          </div>
-          <div class="col-md-3 text-center">
-            <label class="image-checkbox" title="Deficiência Visual">
-              <img class="img-deficiencias" src="./assets/images/cego.png" />
-              <input type="checkbox" name="team[]" value="italy" />
-            </label>
-          </div>
-          <div class="col-md-3 text-center">
-            <label class="image-checkbox" title="Deficiência Intelectual">
-              <img class="img-deficiencias" src="./assets/images/intelectual.png" />
-              <input type="checkbox" name="team[]" value="spain" />
+            <label  class="form-check-label" for="defaultCheck1" formArrayName="acessibilidades" *ngFor="let acessibilidade of listaAcessibilidades.controls; let i = index">
+              <div class="checkbox-img">
+              <img class="img-deficiencias" src={{arrayDeAcessibilidades[i].url}} />
+              <p>{{arrayDeAcessibilidades[i].tipo}}</p>
+              </div>
+              <input [formControlName]="i" class="form-check-input" type="checkbox" />
             </label>
           </div>
         </div>
       </div>
-
+    </form>
       <div class="main-cards float-right col-xl-9 col-lg-9 col-md-12 col-sm-12">
-        <app-card-pesquisa></app-card-pesquisa>
+        <app-card-pesquisa [meusCards]="meusCards"></app-card-pesquisa>
       </div>
     </div>
   </div>

@@ -272,3 +272,8 @@
     font-size: 18px;
   }
 }
+.espaco{
+  display: block;
+  margin: 10px 0px;
+  padding: 5px;
+}
