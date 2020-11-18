@@ -9,6 +9,10 @@
     justify-content: center;
 }
 
+.navbar-toggler {
+  border: 0;
+}
+
 .navbar-brand .title-container .title {
     margin-top: 30px;
     font-size: 70px;
@@ -125,5 +129,9 @@
 @media screen and (max-width: 456px) {
     .navbar-brand {
         margin: 10px !important;
+    }
+
+    .title-container {
+      margin-right: 0!important;
     }
 }
