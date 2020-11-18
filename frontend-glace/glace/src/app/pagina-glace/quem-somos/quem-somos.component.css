@@ -59,3 +59,16 @@
   font-size: 18px;
   color: #3E3E3E;
 }
+
+a {
+  font-family: 'Ruda', sans-serif;
+  font-size: 15px;
+  color: #08074E;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  transition: 0.5s;
+  color: rgba(255, 153, 0, 0.6);
+}
