@@ -7,33 +7,33 @@
 }
 
 .card-deck {
-  margin: 20px 0 30px 0;
+  margin: 1.25rem 0 1.875rem 0;
 }
 
 .img-card {
-  min-height: 200px;
-  max-height: 201px;
+  min-height: 12.5rem;
+  max-height: 12.5625rem;
   object-fit: cover;
 }
 
 .max-length-description {
-  min-height: 100px;
+  min-height: 6.25rem;
 }
 
 .icon {
-  font-size: 25px;
-  margin-right: 15px;
+  font-size: 1.5625rem;
+  margin-right: 0.9375rem;
 }
 
 .ver-mais {
   background-color: rgba(255, 153, 0, 1);;
-  border-radius: 5px;
-  padding: 5px 10px 5px 10px;
+  border-radius: 0.3125rem;
+  padding: 0.3125rem 0.625rem 0.3125rem 0.625rem;
   color: #FFFFFF;
   font-family: 'Ruda', sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   border: 0;
-  margin-bottom: 13px;
+  margin-bottom: 0.8125rem;
 }
 
 .acessivel-button {

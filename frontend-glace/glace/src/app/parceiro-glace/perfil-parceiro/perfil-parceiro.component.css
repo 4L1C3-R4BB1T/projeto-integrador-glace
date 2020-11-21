@@ -1,7 +1,7 @@
 :host /deep/ .p-inputtext {
   font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  padding: 13px 0 0 18px;
+  font-size: 1.25rem;
+  padding: 0.8125rem 0 0 1.125rem;
 }
 
 .nome-perfil {
@@ -11,7 +11,7 @@
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
-  padding-right: 20px;
+  padding-right: 1.25rem;
 }
 
 .botoes{
@@ -23,7 +23,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 
 .editar-perfil-button {
@@ -33,47 +33,47 @@
 }
 
 .circulo1 {
-  border: 5px solid #AAAAAA;
+  border: 0.3125rem solid #AAAAAA;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 9.375rem;
+  height: 9.375rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .circulo2 {
-  border: 5px solid #ADB8D7;
+  border: 0.3125rem solid #ADB8D7;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 9.375rem;
+  height: 9.375rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .circulo3 {
-  border: 5px solid #FF9900;
+  border: 0.3125rem solid #FF9900;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 9.375rem;
+  height: 9.375rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .img-circulo1 {
-  font-size: 60px;
+  font-size: 3.75rem;
   color: #AAAAAA;
 }
 
 .img-circulo2 {
-  font-size: 60px;
+  font-size: 3.75rem;
   color: #ADB8D7;
 }
 
 .img-circulo3 {
-  font-size: 60px;
+  font-size: 3.75rem;
   color: #FF9900;
 }
 
@@ -81,7 +81,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 1.875rem;
   background: none;
   border: 0;
   font-family: 'Ruda', sans-serif;
@@ -93,7 +93,7 @@
 
   color: #AAAAAA;
   font-family: 'Ruda', sans-serif;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: bold;
   border: none;
   background-color: none;
@@ -104,7 +104,7 @@
 
   color: #ADB8D7;
   font-family: 'Ruda', sans-serif;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: bold;
   border: none;
   background-color: none;
@@ -115,7 +115,7 @@
   color: #FF9900;
   width: 100%;
   font-family: 'Ruda', sans-serif;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: bold;
   border: none;
 }
@@ -127,15 +127,15 @@
 
 .description-button {
   color: #3E3E3E;
-  font-size: 25px;
-  max-width: 450px;
-  margin-top: 20px;
+  font-size: 1.5625rem;
+  max-width: 28.125rem;
+  margin-top: 1.25rem;
 }
 
 .modal-title {
   color: #3E3E3E;
   font-family: 'Ruda', sans-serif;
-  font-size: 25px;
+  font-size: 1.5625rem;
   font-weight: bold;
 }
 
@@ -144,21 +144,21 @@
 }
 
 .modal-content {
-background: rgba(255, 255, 255);
+  background: rgba(255, 255, 255);
 }
 
 .input {
   width: 100%;
-  height: 55px;
+  height: 3.4375rem;
 
   background: #FFFFFF;
-  border: 1px solid #F1E9E9;
-  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
+  border: 0.0625rem solid #F1E9E9;
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(0, 0, 0, 0.05);
+  border-radius: 0.625rem;
 
   font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  padding-left: 20px;
+  font-size: 1.25rem;
+  padding-left: 1.25rem;
   margin-top: 1.5rem;
   color: #6c757d;
 }
@@ -184,12 +184,12 @@ background: rgba(255, 255, 255);
 
 :host /deep/ .p-inputtext {
   font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  padding: 13px 0 0 0;
+  font-size: 1.25rem;
+  padding: 0.8125rem 0 0 0;
 }
 
 :host /deep/ .p-fileupload-buttonbar {
-  border-radius: 10px 10px 0 0;
+  border-radius: 0.625rem 0.625rem 0 0;
 }
 
 :host /deep/ .p-button {
@@ -198,79 +198,37 @@ background: rgba(255, 255, 255);
 }
 
 :host /deep/ .p-fileupload-content {
-  border-radius: 0 0 10px 10px;
-}
-
-@media screen and (max-width: 1440px) {
-  .nome-perfil {
-    padding-right: 5px !important;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .nome-perfil {
-    padding-right: 5px !important;
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .nome-perfil {
-    padding-right: 5px !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .nome-perfil {
-    padding-right: 5px !important;
-  }
-
-  .modal-dialog.modal-dialog-centered {
-    max-width: 90%;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .nome-perfil {
-    padding-right: 5px !important;
-  }
-}
-
-@media screen and (max-width: 456px) {
-  .nome-perfil {
-    flex-direction: row;
-    padding-left: 10px;
-    margin-top: 8px;
-  }
+  border-radius: 0 0 0.625rem 0.625rem;
 }
 
 textarea {
   width: 100%;
   background: #FFFFFF;
-  border: 1px solid #F1E9E9;
-  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
+  border: 0.0625rem solid #F1E9E9;
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(0, 0, 0, 0.08);
+  border-radius: 0.625rem;
   font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  padding-left: 20px;
+  font-size: 1.25rem;
+  padding-left: 1.25rem;
 }
 
 .image-checkbox p {
   font-family: 'Ruda', sans-serif;
   color: #08074E;
-  font-size: 17px;
+  font-size: 1.0625rem;
 }
 
 .title-filtros {
   font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  padding: 20px;
+  font-size: 1.25rem;
+  padding: 1.25rem;
   color: #4E4E4E;
   margin: 0;
   text-align: left;
 }
 
 .img-deficiencias {
-  width: 40px;
+  width: 2.5rem;
   opacity: 80%;
 }
 
@@ -285,7 +243,7 @@ textarea {
 }
 
 .descricao {
-  padding-top: 10px;
+  padding-top: 0.625rem;
 }
 
 .image-checkbox {
@@ -293,7 +251,7 @@ textarea {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  border: 4px solid transparent;
+  border: 0.25rem solid transparent;
   outline: 0;
 }
 
@@ -306,8 +264,8 @@ textarea {
 }
 
 .img-deficiencias {
-  width: 50px !important;
-  height: 50px !important;
+  width: 3.125rem !important;
+  height: 3.125rem !important;
 }
 
 ul {
@@ -323,25 +281,25 @@ input[type="checkbox"][id^="myCheckbox"] {
 }
 
 label {
-  border: 1px solid #fff;
-  padding: 10px;
+  border: 0.0625rem solid #fff;
+  padding: 0.625rem;
   display: block;
   position: relative;
-  margin-right: 10px;
+  margin-right: 0.625rem;
   cursor: pointer;
 }
 
 label:before {
   content: " ";
   display: block;
-  border: 1px solid grey;
+  border: 0.0625rem solid grey;
   position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 25px;
-  height: 25px;
+  top: -0.3125rem;
+  left: -0.3125rem;
+  width: 1.5625rem;
+  height: 1.5625rem;
   text-align: center;
-  line-height: 22.5px;
+  line-height: 1.40625rem;
   transition-duration: 0.4s;
   transform: scale(0);
 }
@@ -363,15 +321,15 @@ label img {
 
 :checked + label img {
   transform: scale(0.9);
-  /* box-shadow: 0 0 5px #333; */
+  /* box-shadow: 0 0 0.3125rem #333; */
   z-index: -1;
 }
 
 p {
   font-family: 'Ruda', sans-serif;
   color: #08074E;
-  font-size: 17px;
-  margin-top: 5px;
+  font-size: 1.0625rem;
+  margin-top: 0.3125rem;
 }
 
 .checkbox-img {
@@ -383,20 +341,63 @@ p {
 
 .cadastrar {
   background-color: rgba(255, 153, 0, 1);
-  border-radius: 7px;
+  border-radius: 0.4375rem;
   color: #FFFFFF;
   font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  border: 1px solid rgba(255, 153, 0, 1);
-  box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
-  padding: 5px 10px 5px 10px;
+  font-size: 1.25rem;
+  border: 0.0625rem solid rgba(255, 153, 0, 1);
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(0, 0, 0, 0.08);
+  padding: 0.3125rem 0.625rem 0.3125rem 0.625rem;
   margin-top: 0 !important;
 }
 
 .cancelar {
   font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  border-radius: 7px;
-  padding: 5px 10px 5px 10px;
-  margin-right: 10px;
+  font-size: 1.25rem;
+  border-radius: 0.4375rem;
+  padding: 0.3125rem 0.625rem 0.3125rem 0.625rem;
+  margin-right: 0.625rem;
+}
+
+
+@media screen and (max-width: 1440px) {
+  .nome-perfil {
+    padding-right: 0.3125rem !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nome-perfil {
+    padding-right: 0.3125rem !important;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .nome-perfil {
+    padding-right: 0.3125rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nome-perfil {
+    padding-right: 0.3125rem !important;
+  }
+
+  .modal-dialog.modal-dialog-centered {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .nome-perfil {
+    padding-right: 0.3125rem !important;
+  }
+}
+
+@media screen and (max-width: 456px) {
+  .nome-perfil {
+    flex-direction: row;
+    padding-left: 0.625rem;
+    margin-top: 0.5rem;
+  }
 }

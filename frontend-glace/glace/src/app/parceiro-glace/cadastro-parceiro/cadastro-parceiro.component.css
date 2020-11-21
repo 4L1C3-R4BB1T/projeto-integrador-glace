@@ -5,16 +5,16 @@
 
 :host /deep/ .p-inputtext {
   font-family: 'Ruda', sans-serif;
-  font-size: 20px;
-  padding: 13px 0 0 18px;
+  font-size: 1.25rem;
+  padding: 0.8125rem 0 0 1.125rem;
 }
 
 :host /deep/ .p-fileupload-buttonbar {
-  border-radius: 10px 10px 0 0;
+  border-radius: 0.625rem 0.625rem 0 0;
 }
 
 :host /deep/ .p-fileupload-content {
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 0.625rem 0.625rem;
 }
 
 :host /deep/ .p-button {
@@ -24,16 +24,16 @@
 
 .input {
     width: 100%;
-    height: 55px;
+    height: 3.4375rem;
 
     background: #FFFFFF;
-    border: 1px solid #F1E9E9;
-    box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
+    border: 0.0625rem solid #F1E9E9;
+    box-shadow: 0.1875rem 0.125rem 1.25rem rgba(0, 0, 0, 0.08);
+    border-radius: 0.625rem;
 
     font-family: 'Ruda', sans-serif;
-    font-size: 20px;
-    padding-left: 20px;
+    font-size: 1.25rem;
+    padding-left: 1.25rem;
 }
 
 .input:hover {
@@ -55,13 +55,13 @@
     width: 100%;
 
     background-color: rgba(255, 153, 0, 1);;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 
     color: #FFFFFF;
     font-family: 'Ruda', sans-serif;
-    font-size: 24px;
+    font-size: 1.5rem;
     border: none;
-    box-shadow: 3px 2px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0.1875rem 0.125rem 1.25rem rgba(0, 0, 0, 0.08);
 }
 
 .entrar:hover {
@@ -74,7 +74,7 @@ p {
 
 .cadastro a {
     font-family: 'Ruda', sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #08074E;
 }
 
@@ -90,7 +90,7 @@ p {
 
 .foto-title {
   font-family: 'Ruda', sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #495057;
 }
 

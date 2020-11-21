@@ -2,9 +2,9 @@
   font-family: 'Ruda', sans-serif;
   font-weight: bold;
   background-color: rgba(255, 153, 0, 0.6);
-  font-size: 25px;
-  border-radius: 10px;
-  padding: 10px;
+  font-size: 1.5625rem;
+  border-radius: 0.625rem;
+  padding: 0.625rem;
   color: #FFFFFF;
 }
 
@@ -12,28 +12,28 @@
   font-family: 'Ruda', sans-serif;
   font-weight: bold;
   background-color: rgba(173, 184, 215, 0.8);
-  font-size: 25px;
-  border-radius: 10px;
-  padding: 10px;
+  font-size: 1.5625rem;
+  border-radius: 0.625rem;
+  padding: 0.625rem;
   color: #FFFFFF;
-  margin-top: 50px;
+  margin-top: 3.125rem;
 }
 
 .section-text {
-  padding: 0 10px 0 10px;
+  padding: 0 0.625rem 0 0.625rem;
   font-family: 'Ruda', sans-serif;
-  font-size: 22px;
+  font-size: 1.375rem;
 }
 
 .desenvolvedores {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 
 .image {
-  width: 140px;
-  height: 150px;
+  width: 8.75rem;
+  height: 9.375rem;
 }
 
 .fotos {
@@ -51,18 +51,18 @@
 .nome {
   font-family: 'Ruda', sans-serif;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 1.375rem;
 }
 
 .sobre {
   font-family: 'Ruda', sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #3E3E3E;
 }
 
 a {
   font-family: 'Ruda', sans-serif;
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: #08074E;
   font-weight: bold;
   text-decoration: none;
@@ -79,7 +79,7 @@ a:hover {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
 
   .descricao {
@@ -87,14 +87,14 @@ a:hover {
   }
 
   .title1, .title2 {
-    font-size: 20px
+    font-size: 1.25rem;
   }
 
   .section-text {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .nome {
-    margin-top: 15px;
+    margin-top: 0.9375rem;
     text-align: center;
   }
 }
