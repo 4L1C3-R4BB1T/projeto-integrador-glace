@@ -1,7 +1,6 @@
 package br.com.projetoglace.dto;
 
 import br.com.projetoglace.model.Endereco;
-import br.com.projetoglace.model.Imagem;
 import br.com.projetoglace.model.ParceiroGlace;
 import lombok.Data;
 
@@ -15,7 +14,6 @@ public class EstabelecimentoDTO {
 	private String tipoEstabelecimento;
 	private String descricao;
 	private Endereco endereco;
-	private Imagem foto;
 	private ParceiroGlace parceiroGlace;
 	
 }

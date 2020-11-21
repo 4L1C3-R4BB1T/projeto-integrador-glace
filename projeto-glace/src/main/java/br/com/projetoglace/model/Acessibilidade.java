@@ -21,5 +21,6 @@ public class Acessibilidade {
 	@Column(name = "tipo_deficiencia")
 	private String tipoAcessibilidade;
 	
+		
 
 }

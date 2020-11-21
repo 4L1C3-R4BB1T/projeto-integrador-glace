@@ -58,9 +58,6 @@ public class EstabelecimentoGlace {
 	@Embedded
 	private Endereco endereco;
 	
-	@ManyToOne
-	private Imagem foto;
-	
 	@JsonIgnore	
 	@OneToMany(mappedBy="estabelecimento")
 	private List<Reserva> reservas;

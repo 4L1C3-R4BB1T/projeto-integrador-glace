@@ -7,6 +7,7 @@ export interface ParceiroEntity {
     email?: string;
     senha?: string;
     foto?: any;
+    
 }
 
 export interface EnderecoEntity {

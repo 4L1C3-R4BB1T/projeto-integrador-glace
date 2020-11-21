@@ -107,6 +107,7 @@ export class PerfilParceiroComponent implements OnInit {
       cnpjEstabelecimento: [''],
       numeroEstabelecimento: [''],
       bairroEstabelecimento: [''],
+      tipoAcessibilidade: [''],
       descricao: [''],
     });
   }

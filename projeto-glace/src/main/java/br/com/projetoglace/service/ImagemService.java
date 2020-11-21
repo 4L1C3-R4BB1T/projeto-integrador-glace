@@ -42,11 +42,12 @@ public class ImagemService {
 		Imagem imagem = mapper.requestToModel(imagemRequest);
 		
 		imagem.setNomeArquivo(nomeArquivo);
+		imagem.setNomeArquivoCompleto(nomeArquivo);
 		imagem.setNomeArquivo(arquivo.getOriginalFilename());
 		imagem.setContentType(arquivo.getContentType());
 		imagem.setTamanho(arquivo.getSize());		
 	  	
-		URL url = s3FotoStorageService.armazenar(imagemRequest.getImagem(), nomeArquivo);
+		URL url = s3FotoStorageService.armazenar(arquivo, nomeArquivo);
 	  	imagem.setUrl(url);
 	   
 	  	return mapper.modelToDTO( repository.save(imagem) );	

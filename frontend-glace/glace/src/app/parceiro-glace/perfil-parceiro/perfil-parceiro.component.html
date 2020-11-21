@@ -187,6 +187,8 @@
                           [showUploadButton]="false"
                           [showCancelButton]="false"
                           (onSelect)="enviarImagem($event)"
+                          fileLimit= "10"
+                          multiple="multiple" 
                           [multiple]="true"
                           accept="image/*"
                           maxFileSize="1000000">

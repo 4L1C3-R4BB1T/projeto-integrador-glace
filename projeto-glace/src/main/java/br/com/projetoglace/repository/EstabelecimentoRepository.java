@@ -12,4 +12,10 @@ public interface EstabelecimentoRepository extends JpaRepository <Estabeleciment
 			+ "(:estado is null or e.endereco.cidade.estado.id = :estado) and "
 			+ "(e.tipoEstabelecimento in (:tipoEstabelecimento))")
 	List<EstabelecimentoGlace> findAll(Long cidade, Long estado, Set<String> tipoEstabelecimento);
+	
+//	@Query( "select * from nTab  where nColum =:idEstabelecimento ")
+//	List<EstabelecimentoGlace> listaAcessibilidade(Long idEstabelecimento);
 }
+
+
+

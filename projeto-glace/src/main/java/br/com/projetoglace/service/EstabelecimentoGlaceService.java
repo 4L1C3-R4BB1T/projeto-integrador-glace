@@ -49,6 +49,11 @@ public class EstabelecimentoGlaceService {
 			estadoRepository.save(estabelecimentoGlace.getEndereco().getCidade().getEstado());
 		    cidadeRepository.save(estabelecimentoGlace.getEndereco().getCidade());
 		}
+//		Acessibilidade acessibilidade = repository.findById(id).get();
+//		Set<Acessibilidade> acessibilidades = new HashSet<>();
+//	    acessibilidades.add(acessibilidade);
+//	    estabelecimentoGlace.setAcessibilidades(acessibilidades);
+//	    repository.save(estabelecimentoGlace);
 		
 	    return mapper.modelToDTO(repository.save(estabelecimentoGlace));		
 	}
