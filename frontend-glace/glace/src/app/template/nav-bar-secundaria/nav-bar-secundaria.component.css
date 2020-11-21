@@ -1,5 +1,5 @@
 .navbar {
-    padding-top: 30px;
+    padding-top: 1.875rem;
 }
 
 .navbar .navbar-nav .nav-item .active {
@@ -8,7 +8,7 @@
 
 .navbar-nav .nav-item .nav-link {
     font-family: 'Ruda', sans-serif;
-    font-size: 25px;
+    font-size: 1.5625rem;
     color: #08074E
 }
 
@@ -21,33 +21,39 @@
     color: #908F8E;
 }
 
+.navbar-toggler {
+    width: 1.25rem;
+    margin-top: 3.125rem;
+    border: 0;
+}
+
 #title {
     width: 100%;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-weight: bold;
-    font-size: 140px;
+    font-size: 8.75rem;
     text-align: center;
     color: #ADB8D7;
-    margin-top: 55px;
+    margin-top: 3.4375rem;
 }
 
 #subtitle {
     width: 100%;
     font-family: 'Ruda', sans-serif;
-    font-size: 35px;
+    font-size: 2.1875rem;
     text-align: center;
-    margin-top: 8px;
+    margin-top: 0.5rem;
     color: #08074E;
 }
 
 .logo1 {
-    margin-top: 70px;
-    max-height: 200px;
+    margin-top: 4.375rem;
+    max-height: 12.5rem;
 }
 
 .logo2 {
-    margin-top: 80px;
-    max-height: 200px;
+    margin-top: 5rem;
+    max-height: 12.5rem;
 }
 
 .logos {
@@ -56,98 +62,74 @@
 }
 
 @media screen and (max-width: 1440px) {
-    .navbar-collapse,
-    .navbar-toggler {
-        width: 70px;
-        margin-top: 50px;
-        border: 0;
-    }
+  #title {
+    font-size: 6.25rem;
+    margin-top: 3.75rem;
+  }
 
-    #title {
-        font-size: 100px;
-        margin-top: 60px;
-    }
+  #subtitle {
+    font-size: 1.5625rem;
+  }
 
-    #subtitle {
-        font-size: 25px;
-    }
-
-    .logo1, .logo2 {
-      max-height: 150px;
-    }
+  .logo1, .logo2 {
+    max-height: 9.375rem;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-    .navbar-collapse,
-    .navbar-toggler {
-        width: 70px;
-        margin-top: 50px;
-        border: 0;
-    }
+  #title {
+    margin: 0;
+  }
 
-    #title {
-        margin: 0;
-    }
-
-    .logo1,
-    .logo2 {
-        display: none;
-    }
+  .logo1,
+  .logo2 {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 960px) {
-    .navbar,
-    .navbar-toggler {
-        padding: 0;
-        border: 0;
-    }
+  .navbar,
+  .navbar-toggler {
+    padding: 0;
+    border: 0;
+  }
 
-    .navbar-collapse,
-    .navbar-toggler {
-        width: 70px;
-        margin-top: 50px;
-        border: 0;
-    }
+  #title {
+    font-size: 120px;
+    margin: 0;
+  }
 
-    #title {
-        font-size: 120px;
-        margin: 0;
-    }
+  #subtitle {
+    font-size: 1.875rem;
+  }
 
-    #subtitle {
-        font-size: 30px;
-    }
+  .logo1,
+  .logo2 {
+    display: none;
+  }
 
-    .logo1,
-    .logo2 {
-        display: none;
-    }
+  .titulo {
+    margin-top: -2.8125rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
+  .container {
+    width: 90%;
+  }
 
-    .navbar,
-    .navbar-toggler {
-        padding: 0;
-    }
+  .navbar,
+  .navbar-toggler {
+    padding: 0;
+  }
 
-    .navbar-collapse,
-    .navbar-toggler {
-        width: 70px;
-        margin-top: 50px;
-        border: 0;
-    }
-
-    #title {
-        font-size: 120px;
-        margin: 0;
-    }
+  #title {
+    font-size: 120px;
+    margin: 0;
+  }
 
     #subtitle {
-        font-size: 30px;
+        font-size: 1.875rem;
     }
 
     .logo1,
@@ -163,12 +145,6 @@
         padding: 0;
     }
 
-    .navbar-collapse,
-    .navbar-toggler {
-        width: 70px;
-        margin-top: 50px;
-    }
-
     #title {
         font-size: 90px;
         margin: 0;
@@ -181,5 +157,17 @@
     .logo1,
     .logo2 {
         display: none;
+    }
+}
+
+@media screen and (max-width: 435px) {
+
+    #title {
+        font-size: 4.375rem;
+        margin: 0;
+    }
+
+    #subtitle {
+      font-size: 18px;
     }
 }

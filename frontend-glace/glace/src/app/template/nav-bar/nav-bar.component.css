@@ -11,18 +11,21 @@
 
 .navbar-toggler {
   border: 0;
+  width: 1.25rem;
+  margin-top: 3.125rem;
+  margin: 0 !important;
 }
 
 .navbar-brand .title-container .title {
-    margin-top: 30px;
-    font-size: 70px;
+    margin-top: 1.875rem;
+    font-size: 4.375rem;
     color: #ADB8D7;
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .navbar-brand .title-container .sub-title {
-    font-size: 20px;
-    margin-top: -15px;
+    font-size: 1.125rem;
+    margin-top: -0.9375rem;
     color: #08074E;
     font-family: 'Ruda', sans-serif;
 }
@@ -35,12 +38,12 @@
 }
 
 .navbar .navbar-brand .navbar-img {
-    margin-top: 30px;
+    margin-top: 1.875rem;
     display: inline-block;
 }
 
 .navbar-nav .nav-item .nav-link {
-    font-size: 24px;
+    font-size: 1.5rem;
     padding-top: 0;
     color: #08074E;
     font-family: 'Ruda', sans-serif;
@@ -54,7 +57,7 @@
 .navbar-nav .nav-item .nav-link:hover {
     color: #908F8E;
 }
-z
+
 .navbar,
 .navbar-expand-lg,
 .navbar-light {
@@ -62,76 +65,35 @@ z
 }
 
 @media screen and (max-width: 1280px) {
-    .navbar .navbar-brand .navbar-img {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .navbar-collapse,
-    .navbar-toggler {
-        width: 70px;
-        margin-top: 50px;
-    }
-}
-
-@media screen and (max-width: 960px) {
-    .ml-5,
-    .navbar,
-    .navbar-toggler {
-        margin: 0 !important;
-    }
-
-    .navbar-collapse,
-    .navbar-toggler {
-        width: 70px;
-        margin-top: 0;
-    }
+  .navbar .navbar-brand .navbar-img {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .navbar,
-    .navbar-toggler {
-        padding: 0;
-    }
-
-    .navbar-collapse,
-    .navbar-toggler {
-        width: 70px;
-        margin-top: 50px;
-    }
-
-    .ml-5,
-    .navbar,
-    .navbar-toggler {
-        margin: 0 !important;
-    }
+  .navbar,
+  .navbar-toggler {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 576px) {
-    .navbar-brand {
-        margin: 0 !important;
-    }
+  .navbar {
+    justify-content: center;
+  }
 
-    .navbar,
-    .navbar-toggler {
-        padding: 0;
-        margin: 0;
-    }
-
-    .navbar-collapse,
-    .navbar-toggler {
-        width: 70px;
-        margin-top: 50px;
-    }
+  .navbar-toggler {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 @media screen and (max-width: 456px) {
-    .navbar-brand {
-        margin: 10px !important;
-    }
+  .navbar-brand {
+    margin: 0.625rem !important;
+  }
 
-    .title-container {
-      margin-right: 0!important;
-    }
+  .title-container {
+    margin-right: 0 !important;
+  }
 }
