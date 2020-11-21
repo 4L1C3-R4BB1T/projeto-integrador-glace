@@ -34,13 +34,13 @@
           <div class="col-2"></div>
         </div>
 
-      <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 float-left" id="container-filtros">
+      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 float-left" id="container-filtros">
         <div class="div-filtros">
           <h2 class="title-filtros">Filtrar por:</h2>
         </div>
 
         <div id="filtros-locais">
-          <div class="form-check">        
+          <div class="form-check">
             <label class="form-check-label espaco" for="defaultCheck1" formArrayName="estabelecimentos" *ngFor="let estabelecimento of listaEstabelecimentos.controls; let i = index">
               <input [formControlName]="i" class="form-check-input" type="checkbox">
               {{arrayEstabelecimentos[i].tipo}}
@@ -48,9 +48,19 @@
           </div>
         </div>
         <div class="div-filtros">
-          <h2 class="title-filtros">Acessível para:</h2>
+          <h2 class="title-filtros">Acessível para deficiência:</h2>
         </div>
-        <div id="filtro-deficiencia">
+
+        <div id="filtros-locais">
+          <div class="form-check">
+            <label class="form-check-label espaco" for="defaultCheck1" formArrayName="acessibilidades" *ngFor="let acessibilidade of listaAcessibilidades.controls; let i = index">
+              <input [formControlName]="i" class="form-check-input" type="checkbox">
+              {{arrayDeAcessibilidades[i].tipo}}
+            </label>
+          </div>
+        </div>
+
+        <!-- <div id="filtro-deficiencia">
           <div class="col-md-3 text-center">
             <label  class="form-check-label" for="defaultCheck1" formArrayName="acessibilidades" *ngFor="let acessibilidade of listaAcessibilidades.controls; let i = index">
               <div class="checkbox-img">
@@ -60,7 +70,8 @@
               <input [formControlName]="i" class="form-check-input" type="checkbox" />
             </label>
           </div>
-        </div>
+        </div> -->
+
       </div>
     </form>
       <div class="main-cards float-right col-xl-9 col-lg-9 col-md-12 col-sm-12">

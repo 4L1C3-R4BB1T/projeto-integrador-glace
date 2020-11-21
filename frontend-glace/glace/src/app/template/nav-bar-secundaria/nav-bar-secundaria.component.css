@@ -25,16 +25,16 @@
     width: 100%;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-weight: bold;
-    font-size: 120px;
+    font-size: 140px;
     text-align: center;
     color: #ADB8D7;
-    margin-top: 70px;
+    margin-top: 55px;
 }
 
 #subtitle {
     width: 100%;
     font-family: 'Ruda', sans-serif;
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
     margin-top: 8px;
     color: #08074E;
@@ -60,14 +60,16 @@
     .navbar-toggler {
         width: 70px;
         margin-top: 50px;
+        border: 0;
     }
 
     #title {
-        font-size: 70px;
+        font-size: 100px;
+        margin-top: 60px;
     }
 
     #subtitle {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .logo1, .logo2 {
@@ -80,6 +82,7 @@
     .navbar-toggler {
         width: 70px;
         margin-top: 50px;
+        border: 0;
     }
 
     #title {
@@ -96,12 +99,14 @@
     .navbar,
     .navbar-toggler {
         padding: 0;
+        border: 0;
     }
 
     .navbar-collapse,
     .navbar-toggler {
         width: 70px;
         margin-top: 50px;
+        border: 0;
     }
 
     #title {
@@ -133,6 +138,7 @@
     .navbar-toggler {
         width: 70px;
         margin-top: 50px;
+        border: 0;
     }
 
     #title {
@@ -153,6 +159,7 @@
 @media screen and (max-width: 576px) {
     .navbar,
     .navbar-toggler {
+      border: 0;
         padding: 0;
     }
 

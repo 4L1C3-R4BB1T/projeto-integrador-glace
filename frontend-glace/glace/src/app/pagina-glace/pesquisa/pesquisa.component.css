@@ -80,29 +80,31 @@
 
 #container-filtros {
   height: 100%;
-  margin-top: 100px;
+  margin-top: 75px;
   padding: 0 !important;
 }
 
 .div-filtros {
   border-bottom: 2px solid #C4C4C4;
+  width: 90%;
 }
 
 .title-filtros {
   font-family: 'Ruda', sans-serif;
-  font-size: 25px;
-  padding: 20px;
+  font-size: 24px;
   color: #4E4E4E;
+  padding: 15px;
   margin: 0;
 }
 
 #filtros-locais {
-  padding: 20px !important;
+  padding-left: 15px !important;
 }
 
 .form-check-input {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 23px;
+  position: relative;
 
   border: 1px solid #C4C4C4;
   box-sizing: border-box;
@@ -111,9 +113,10 @@
 
 .form-check-label {
   font-family: 'Ruda', sans-serif;
-  font-size: 24px;
-  padding-left: 20px;
-  color: #4E4E4E;;
+  font-size: 25px;
+  padding-left: 15px;
+  color: #4E4E4E;
+  padding-top: 0 !important;
 }
 
 #filtro-deficiencia {
@@ -272,6 +275,7 @@
     font-size: 18px;
   }
 }
+
 .espaco{
   display: block;
   margin: 10px 0px;
