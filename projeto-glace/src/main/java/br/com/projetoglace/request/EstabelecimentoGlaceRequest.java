@@ -1,8 +1,11 @@
 package br.com.projetoglace.request;
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.projetoglace.model.Acessibilidade;
 import br.com.projetoglace.model.Endereco;
 import br.com.projetoglace.model.ParceiroGlace;
 import lombok.Data;
@@ -37,5 +40,7 @@ public class EstabelecimentoGlaceRequest {
 	
 	@NotNull
 	private ParceiroGlace parceiroGlace;
+	
+	private List<Acessibilidade> acessibilidades;
 		
 }

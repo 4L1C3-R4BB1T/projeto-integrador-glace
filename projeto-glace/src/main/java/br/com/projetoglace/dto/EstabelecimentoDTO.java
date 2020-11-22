@@ -1,5 +1,8 @@
 package br.com.projetoglace.dto;
 
+import java.util.List;
+
+import br.com.projetoglace.model.Acessibilidade;
 import br.com.projetoglace.model.Endereco;
 import br.com.projetoglace.model.ParceiroGlace;
 import lombok.Data;
@@ -15,6 +18,7 @@ public class EstabelecimentoDTO {
 	private String descricao;
 	private Endereco endereco;
 	private ParceiroGlace parceiroGlace;
+	private List<Acessibilidade> acessibilidades;
 	
 }
 

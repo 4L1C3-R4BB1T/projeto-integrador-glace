@@ -39,7 +39,6 @@ private Long id;
 	@NotNull
 	private Endereco endereco;
 	
-	@NotNull
 	private Imagem foto;
 	
 	private List<EstabelecimentoGlace> estabelecimentos;
