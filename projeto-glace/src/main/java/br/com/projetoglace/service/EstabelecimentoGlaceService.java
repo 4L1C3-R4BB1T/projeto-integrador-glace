@@ -62,17 +62,21 @@ public class EstabelecimentoGlaceService {
 		
 		System.out.println(filtro.getTiposEstabelecimento());
 		
-		if(filtro.getTiposEstabelecimento() == null) {
+		if(filtro.getTiposEstabelecimento() == null && filtro.getTiposAcessibilidades() == null) {
 			Set<String> tipos = new HashSet<String>();
 			tipos.add("Hotel");
 			tipos.add("Pousada");
 			tipos.add("Hotel Fazenda");
 			tipos.add("Restaurantes");
 			tipos.add("Cafés");
+			tipos.add("Motora");
+			tipos.add("Auditiva");
+			tipos.add("Visual");
+			tipos.add("Intelectual");
 			filtro.setTiposEstabelecimento(tipos);
 		}
 		
-		return repository.findAll(filtro.getCidade(), filtro.getEstado(), filtro.getTiposEstabelecimento());
+		return repository.findAll(filtro.getCidade(), filtro.getEstado(), filtro.getTiposEstabelecimento(), filtro.getTiposAcessibilidades());
 	}
 	
 	public Optional<EstabelecimentoGlace> buscarEstabelecimento(Long id) {

@@ -18,6 +18,7 @@ public class EstabelecimentoDTO {
 	private String descricao;
 	private Endereco endereco;
 	private ParceiroGlace parceiroGlace;
+	private String tipoAcessibilidade;
 	private List<Acessibilidade> acessibilidades;
 	
 }

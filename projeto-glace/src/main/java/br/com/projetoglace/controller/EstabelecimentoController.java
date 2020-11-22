@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.projetoglace.controller.openapi.EstabelecimentoControllerOpenApi;
 import br.com.projetoglace.dto.EstabelecimentoDTO;
 import br.com.projetoglace.filtro.EstabelecimentoFiltro;
+import br.com.projetoglace.model.Acessibilidade;
 import br.com.projetoglace.model.EstabelecimentoGlace;
 import br.com.projetoglace.request.EstabelecimentoGlaceRequest;
 import br.com.projetoglace.service.EstabelecimentoGlaceService;
@@ -44,7 +45,7 @@ public class EstabelecimentoController implements EstabelecimentoControllerOpenA
 	public List<EstabelecimentoGlace> listarEstabelecimentos(EstabelecimentoFiltro filtro){
 		return service.listar(filtro);
 	}
-	
+
 	@Override
 	@GetMapping("/{id}")
 	public ResponseEntity<EstabelecimentoGlace> buscarEstabelecimento(@PathVariable Long id) {

@@ -46,6 +46,9 @@ public class EstabelecimentoGlace {
 	@Column(nullable = false)
 	private String tipoEstabelecimento;
 	
+	@Column(nullable = false)
+	private String tipoAcessibilidade;
+	
 	@ManyToOne
 	@JoinColumn(name="parceiro_id", nullable=false)
 	private ParceiroGlace parceiroGlace;
