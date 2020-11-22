@@ -11,30 +11,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projetoglace.controller.openapi.AcessibilidadeControllerOpenApi;
 import br.com.projetoglace.model.Acessibilidade;
 import br.com.projetoglace.repository.AcessibilidadeGlaceRepository;
 
 @CrossOrigin
 @RestController
 @RequestMapping ("/acessibilidade")
-public class AcessibilidadeController {
+public class AcessibilidadeController implements AcessibilidadeControllerOpenApi{
 
 	@Autowired
-	private AcessibilidadeGlaceRepository acessibilidadeGlaceRepository;
+	private AcessibilidadeGlaceRepository acessibilidadeRepository;
 	
+	@Override
 	@PostMapping
 	public void salvar(@RequestBody Acessibilidade acessibilidade) {
-		acessibilidadeGlaceRepository.save(acessibilidade);
+		acessibilidadeRepository.save(acessibilidade);
 	}
 	
+	@Override
 	@GetMapping("/listar")
 	public List<Acessibilidade> listarAcessibilidade(){
-		return acessibilidadeGlaceRepository.findAll();
+		return acessibilidadeRepository.findAll();
 	}
 	
+	@Override
 	@GetMapping("/buscarAcessibilidade/{id}")
 	public List<Acessibilidade> buscarAcessibilidade(@PathVariable Long id){
-		return acessibilidadeGlaceRepository.bucarAAcessibilidade(id);
+		return acessibilidadeRepository.bucarAAcessibilidade(id);
 	}
 	
 }
