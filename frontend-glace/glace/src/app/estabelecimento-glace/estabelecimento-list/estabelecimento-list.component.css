@@ -1,0 +1,89 @@
+.deletar-atualizar {
+  width: 7.5rem;
+  text-align: center;
+}
+
+.espaco {
+  margin: 0 0.625rem 0 0;
+}
+
+.dropdown,
+.container .name {
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.25rem;
+}
+
+.container .name {
+  color: white;
+}
+
+.dropdown-toggle {
+  color: #F08309;
+  font-weight: 900;
+}
+
+:host /deep/ .p-button {
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: rgba(255, 153, 0, 1);
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.0625rem;
+}
+
+:host /deep/ .p-button:hover {
+  background-color: #F08309;
+}
+
+:host /deep/ .p-inputtext {
+  font-family: 'Ruda', sans-serif;
+  border-radius: 0.3125rem;
+  font-size: 1.125rem;
+}
+
+:host /deep/ .p-inputtext:hover {
+  border-color: #F08309;
+}
+
+:host /deep/ .p-inputtext:enabled:focus {
+  border-color: orange;
+  box-shadow: none;
+}
+
+:host /deep/ .p-datatable {
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.125rem;
+}
+
+:host /deep/ .p-datatable-header {
+  background-color: rgb(255, 164, 27);
+  border-top-left-radius: 0.625rem;
+  border-top-right-radius: 0.625rem;
+}
+
+:host /deep/ .p-paginator {
+  font-family: 'Ruda', sans-serif;
+}
+
+:host /deep/ .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: orange;
+  border: none;
+  border-radius: 0.3125rem;
+}
+
+:host /deep/ .p-paginator .p-paginator-pages .p-paginator-page:enabled:focus,
+:host /deep/ .p-paginator .p-paginator-first:enabled:focus,
+:host /deep/ .p-paginator .p-paginator-prev:enabled:focus,
+:host /deep/ .p-paginator .p-paginator-next:enabled:focus,
+:host /deep/ .p-paginator .p-paginator-last:enabled:focus,
+:host /deep/ .p-button:enabled:focus {
+  border-color: none;
+  box-shadow: none;
+}
+
+:host /deep/ .p-paginator .p-paginator-rpp-options {
+  border-radius: 0.3125rem;
+}
+
+:host /deep/ .p-paginator .p-paginator-rpp-options:hover {
+  border-color: orange;
+}

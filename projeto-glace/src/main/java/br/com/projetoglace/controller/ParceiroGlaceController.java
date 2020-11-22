@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projetoglace.controller.openapi.ParceiroGlaceControllerOpenApi;
 import br.com.projetoglace.dto.ParceiroGlaceDTO;
+import br.com.projetoglace.model.EstabelecimentoGlace;
 import br.com.projetoglace.model.ParceiroGlace;
 import br.com.projetoglace.request.ParceiroGlaceRequest;
 import br.com.projetoglace.security.permissões.CheckSecurity;
@@ -82,6 +83,16 @@ public class ParceiroGlaceController implements ParceiroGlaceControllerOpenApi {
 			service.atualizar(parceiroAtual);
 			return ResponseEntity.ok(parceiroAtual);
 		}	
+		return ResponseEntity.notFound().build();
+	}
+		
+	@Override
+	@GetMapping("/listarPorParceiro/{id}")
+	public ResponseEntity<List<EstabelecimentoGlace>> buscarEstabelecimentos(@PathVariable Long id) {
+		Optional<List<EstabelecimentoGlace>> estabelecimento = Optional.of(service.listarEstabelecimentoPorParceiro(id));
+		if (estabelecimento.isPresent()) {
+			return ResponseEntity.ok(estabelecimento.get());
+		}
 		return ResponseEntity.notFound().build();
 	}
 	

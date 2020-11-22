@@ -7,8 +7,10 @@ import javax.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import br.com.projetoglace.dto.EstabelecimentoDTO;
 import br.com.projetoglace.dto.ParceiroGlaceDTO;
 import br.com.projetoglace.exception.config.Problem;
+import br.com.projetoglace.model.EstabelecimentoGlace;
 import br.com.projetoglace.model.ParceiroGlace;
 import br.com.projetoglace.request.ParceiroGlaceRequest;
 import io.swagger.annotations.Api;
@@ -51,4 +53,10 @@ public interface ParceiroGlaceControllerOpenApi {
 	ResponseEntity<?> atualizar(
 			@ApiParam(name = "corpo", value = "Representação de um novo Parceiro", required = true) @Valid ParceiroGlace parceiroGlace,
 			Long id);
+
+	@ApiOperation(value = "Buscar Estabelecimento pelo ID", httpMethod = "GET")
+	@ApiResponses({ @ApiResponse(code = 200, message = "Buscar Estabelecimento pelo ID", response = EstabelecimentoDTO.class),
+			@ApiResponse(code = 404, message = "O recurso não foi encontrado", response = Problem.class) })
+	@ApiImplicitParam(name = "id", value = "ID a ser buscado", required = true, dataType = "int", paramType = "path", example = "1")
+	ResponseEntity<List<EstabelecimentoGlace>> buscarEstabelecimentos(Long id);
 }

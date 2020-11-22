@@ -4,6 +4,7 @@ import { PerfilParceiroComponent } from './../parceiro-glace/perfil-parceiro/per
 import { AuthGuard } from './../seguranca/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EstabelecimentoListComponent } from '../estabelecimento-glace/estabelecimento-list/estabelecimento-list.component';
 
 const routes: Routes = [
   { path: 'perfil/parceiro/:codigo', component: PerfilParceiroComponent,
@@ -19,7 +20,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['UG'] }
   },
-  { path: 'cadastro/parceiro', component: CadastroParceiroComponent }
+  { path: 'cadastro/parceiro', component: CadastroParceiroComponent },
+  { path: 'listarParceiros', component: EstabelecimentoListComponent }
 ];
 
 @NgModule({

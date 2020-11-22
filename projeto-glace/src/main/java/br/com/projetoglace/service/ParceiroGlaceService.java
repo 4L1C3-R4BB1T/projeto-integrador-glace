@@ -19,6 +19,7 @@ import br.com.projetoglace.email.Mensagem;
 import br.com.projetoglace.exception.ClienteNaoEncontradoException;
 import br.com.projetoglace.mapper.ParceiroGlaceMapper;
 import br.com.projetoglace.model.Cidade;
+import br.com.projetoglace.model.EstabelecimentoGlace;
 import br.com.projetoglace.model.Grupo;
 import br.com.projetoglace.model.ParceiroGlace;
 import br.com.projetoglace.repository.CidadeRepository;
@@ -88,6 +89,10 @@ public class ParceiroGlaceService {
 	
 	public Optional<ParceiroGlace> buscar(Long id) {
 		return repository.findById(id);
+	}
+	
+	public List<EstabelecimentoGlace> listarEstabelecimentoPorParceiro(Long id) {	
+		return repository.buscarEstabelecimentos(id);
 	}
 	
 	@Transactional

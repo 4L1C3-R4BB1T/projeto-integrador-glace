@@ -54,5 +54,4 @@ public class EstabelecimentoController implements EstabelecimentoControllerOpenA
 		}
 		return ResponseEntity.notFound().build();
 	}
-	
 }

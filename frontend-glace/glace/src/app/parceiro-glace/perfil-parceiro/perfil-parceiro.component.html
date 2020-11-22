@@ -244,7 +244,7 @@
                         </div> -->
 
                         <div class="col-12 col-md-6">
-                            <select matNativeControl required class="input">
+                            <select formControlName="tipoEstabelecimento" matNativeControl required class="input ">
                               <option value="">Tipo de Estabelecimento</option>
                               <option value="Hotel">Hotel</option>
                               <option value="Pousada">Pousada</option>
@@ -395,10 +395,10 @@
             <i class="far fa-list-alt img-circulo3"></i>
           </div>
 
-          <!-- BOTÃO PARA ACIONAR MODAL -->
-          <button class="button" data-toggle="modal" data-target="#idModal">
+          <!-- BOTÃO PARA ACIONAR MODAL --> 
+          <a class="button" data-toggle="modal" data-target="#idModal" routerLink="/listarParceiros">
             <h2 class="title-button3">Ver estabelecimentos cadastrados</h2>
-          </button>
+          </a>
 
           <p class="button description-button text-center">
             Atualizar dados, excluir...

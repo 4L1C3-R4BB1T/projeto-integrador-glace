@@ -31,6 +31,15 @@ export class EstabelecimentoRepository {
         .pipe(map((x) => this.mapper.mapFrom(x)));
     }
 
+    getAllEstabelecimentosParceiros(id: number): Promise<EstabelecimentoModel[]> {
+        
+        return this.http
+            .getAll<EstabelecimentoEntity[]>(`${environment.URLSERVIDOR}parceiro/listarPorParceiro/${id}`)
+            .toPromise().then(x => {
+                return x.data.map(this.mapper.mapFrom);
+            })            
+    }
+
 
     postEstabelecimento(param: EstabelecimentoModel) {
         return this.http
@@ -57,6 +66,7 @@ export class EstabelecimentoRepository {
             .pipe(mergeMap((x) => x.data))
             .pipe(map((x) => this.mapperCidade.mapFrom(x)));
     }
+    
     putEstabelecimento(param: EstabelecimentoModel) {
         return this.http
             .put<void>(
