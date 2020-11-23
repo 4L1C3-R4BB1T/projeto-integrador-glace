@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 public class ClienteGlaceRequest {
 
-private Long id;
+	private Long id;
 	
 	@NotNull
 	@NotBlank

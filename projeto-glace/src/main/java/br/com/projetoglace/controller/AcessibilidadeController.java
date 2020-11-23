@@ -1,6 +1,11 @@
 package br.com.projetoglace.controller;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projetoglace.controller.openapi.AcessibilidadeControllerOpenApi;
+import br.com.projetoglace.dto.AcessibilidadeDTO;
+import br.com.projetoglace.mapper.AcessibilidadeMapper;
 import br.com.projetoglace.model.Acessibilidade;
+import br.com.projetoglace.model.Grupo;
 import br.com.projetoglace.repository.AcessibilidadeGlaceRepository;
+import br.com.projetoglace.request.AcessibilidadeRequest;
 
 @CrossOrigin
 @RestController
@@ -23,10 +32,29 @@ public class AcessibilidadeController implements AcessibilidadeControllerOpenApi
 	@Autowired
 	private AcessibilidadeGlaceRepository acessibilidadeRepository;
 	
+	@Autowired AcessibilidadeMapper mapper;
+	
 	@Override
 	@PostMapping
+	@Transactional
 	public void salvar(@RequestBody Acessibilidade acessibilidade) {
 		acessibilidadeRepository.save(acessibilidade);
+	}
+	
+	@Transactional
+	public AcessibilidadeDTO salvarAcessibilidade(AcessibilidadeRequest acessibilidadeRequest) {
+		
+		Acessibilidade acessibilidade = new Acessibilidade();
+		
+	    acessibilidade = mapper.requestToModel(acessibilidadeRequest);
+		
+		if(acessibilidade.getTipoAcessibilidade() == null) {
+
+		    acessibilidadeRepository.save(acessibilidade.getId());
+		}
+		acessibilidadeRepository.save(acessibilidade);
+
+	    return mapper.modelToDTO(acessibilidadeRepository.save(acessibilidade));		
 	}
 	
 	@Override
@@ -41,8 +69,8 @@ public class AcessibilidadeController implements AcessibilidadeControllerOpenApi
 		return acessibilidadeRepository.bucarAAcessibilidade(id);
 	}
 	
-	@GetMapping("findProductByTipoAcessibilidade")
-	public List<Acessibilidade> findProductByTipoAcessibilidade(@PathVariable String tipoAcessibilidade){
-	return acessibilidadeRepository.findProductByTipoAcessibilidade(tipoAcessibilidade);
+	@GetMapping
+	public Optional<Acessibilidade> findProductByTipoAcessibilidade(@PathVariable Long id){
+	return acessibilidadeRepository.findById(id);
 }
 }

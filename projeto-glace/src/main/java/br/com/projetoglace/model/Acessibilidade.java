@@ -8,17 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @Entity
 @Table(name = "acessibilidade")
 public class Acessibilidade {
 	
+	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "tipo_deficiencia")
+	@Column(name = "tipo_deficiencia", nullable = false)
 	private String tipoAcessibilidade;
 	
 		

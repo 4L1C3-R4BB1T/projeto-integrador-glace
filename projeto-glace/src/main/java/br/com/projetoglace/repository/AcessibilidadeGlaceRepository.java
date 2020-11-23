@@ -14,6 +14,11 @@ public interface AcessibilidadeGlaceRepository extends JpaRepository <Acessibili
 	@Query("from Acessibilidade a where a.id = :id")
 	List<Acessibilidade> bucarAAcessibilidade(Long id);
 	
-	List<Acessibilidade> findProductByTipoAcessibilidade(String tipAcessibilidade);
+	List<Acessibilidade> findProductById(AcessibilidadeGlaceRepository repositoryAcessibilidade);
+
+	List<Acessibilidade> findProductById(Long id);
+
+	@Query("from Acessibilidade a where a.id = :id")
+	void save(Long id);
 	
 }

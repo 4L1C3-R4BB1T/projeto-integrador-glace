@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.projetoglace.controller.openapi.EstabelecimentoControllerOpenApi;
 import br.com.projetoglace.dto.EstabelecimentoDTO;
 import br.com.projetoglace.filtro.EstabelecimentoFiltro;
-import br.com.projetoglace.model.Acessibilidade;
 import br.com.projetoglace.model.EstabelecimentoGlace;
 import br.com.projetoglace.request.EstabelecimentoGlaceRequest;
 import br.com.projetoglace.service.EstabelecimentoGlaceService;
