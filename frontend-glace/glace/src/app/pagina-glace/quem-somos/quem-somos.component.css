@@ -1,7 +1,7 @@
 .title1 {
   font-family: 'Ruda', sans-serif;
   font-weight: bold;
-  background-color: rgba(255, 153, 0, 0.6);
+  background-color: rgba(255, 153, 0, 0.7);
   font-size: 1.5625rem;
   border-radius: 0.625rem;
   padding: 0.625rem;
@@ -23,6 +23,7 @@
   padding: 0 0.625rem 0 0.625rem;
   font-family: 'Ruda', sans-serif;
   font-size: 1.375rem;
+  color: #4F4F4F;
 }
 
 .desenvolvedores {
