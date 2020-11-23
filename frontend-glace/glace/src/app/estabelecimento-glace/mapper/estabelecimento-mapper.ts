@@ -14,7 +14,8 @@ export class EstabelecimentoMapper extends Mapper<EstabelecimentoEntity, Estabel
             descricao: entity.descricao,
             tipoEstabelecimento: entity.tipoEstabelecimento,
             foto: entity.foto,
-            parceiroGlace: entity.parceiroGlace
+            parceiroGlace: entity.parceiroGlace,
+            acessibilidades: entity.acessibilidades
         };
     }
 
@@ -29,7 +30,8 @@ export class EstabelecimentoMapper extends Mapper<EstabelecimentoEntity, Estabel
             descricao: model.descricao,
             tipoEstabelecimento: model.tipoEstabelecimento,
             foto: model.foto,
-            parceiroGlace: model.parceiroGlace
+            parceiroGlace: model.parceiroGlace,
+            acessibilidades: model.acessibilidades
         };
     }
 }

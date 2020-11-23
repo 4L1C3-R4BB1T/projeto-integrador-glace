@@ -89,7 +89,7 @@ export class PesquisaComponent implements OnInit {
     .filter(v => v !== null);
 
     this.acessibilidadesSelecionadas= this.formulario.value.acessibilidades
-    .map((checked, i) => checked ? this.arrayDeAcessibilidades[i].tipo : null)
+    .map((checked, i) => checked ? this.arrayDeAcessibilidades[i].id : null)
     .filter(v => v !== null);
 
     if(this.formulario.value.estado != '' && this.formulario.value.estado != null){

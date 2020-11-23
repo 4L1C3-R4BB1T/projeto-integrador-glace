@@ -19,7 +19,7 @@ public class EstabelecimentoFiltro {
     private Long estado;
     @ApiModelProperty(value = "O tipo de estabelecimento a ser buscado", required = false, position = 1, dataType = "String", example = "Hotel")
     private Set<String> tiposEstabelecimento;
-    @ApiModelProperty(value = "O tipo de acessibilidade a ser buscado", required = false, position = 1, dataType = "String", example = "Motora")
-    private Set<String> tiposAcessibilidades;
+    @ApiModelProperty(value = "O tipo de acessibilidade a ser buscado", required = false, position = 1, dataType = "Long", example = "1")
+    private Set<Long> tiposAcessibilidades;
     
 }

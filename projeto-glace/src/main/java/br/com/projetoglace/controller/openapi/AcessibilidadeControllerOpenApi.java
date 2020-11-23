@@ -32,5 +32,5 @@ public interface AcessibilidadeControllerOpenApi {
 	@ApiResponses({ @ApiResponse(code = 200, message = "Buscar Acessibilidade pelo ID", response = Acessibilidade.class),
 			@ApiResponse(code = 404, message = "O recurso não foi encontrado", response = Problem.class) })
 	@ApiImplicitParam(name = "id", value = "ID a ser buscado", required = true, dataType = "int", paramType = "path", example = "1")
-	List<Acessibilidade> buscarAcessibilidade(@PathVariable Long id);
+	Acessibilidade buscarAcessibilidade(@PathVariable Long id);
 }

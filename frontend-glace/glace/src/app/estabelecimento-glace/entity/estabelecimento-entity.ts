@@ -10,6 +10,7 @@ export interface EstabelecimentoEntity {
   endereco?: EnderecoEntity;
   foto?: any;
   parceiroGlace?: ParceiroEntity;
+  acessibilidades?: AcessibilidadeEntity[];
 }
 
 export interface ParceiroEntity {

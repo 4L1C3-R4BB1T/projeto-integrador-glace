@@ -10,6 +10,7 @@ export interface EstabelecimentoModel {
   endereco?: EnderecoModel;
   foto?: any;
   parceiroGlace?: ParceiroModel;
+  acessibilidades?: AcessibilidadeModel[];
 }
 
 export interface ParceiroModel {

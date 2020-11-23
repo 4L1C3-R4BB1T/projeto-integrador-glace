@@ -12,7 +12,7 @@ import br.com.projetoglace.model.Acessibilidade;
 public interface AcessibilidadeGlaceRepository extends JpaRepository <Acessibilidade, Long>{
 	
 	@Query("from Acessibilidade a where a.id = :id")
-	List<Acessibilidade> bucarAAcessibilidade(Long id);
+	Acessibilidade bucarAAcessibilidade(Long id);
 	
 	List<Acessibilidade> findProductById(AcessibilidadeGlaceRepository repositoryAcessibilidade);
 

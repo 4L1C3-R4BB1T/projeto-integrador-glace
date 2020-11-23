@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.projetoglace.model.Acessibilidade;
 import br.com.projetoglace.model.Endereco;
+import br.com.projetoglace.model.Imagem;
 import br.com.projetoglace.model.ParceiroGlace;
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class EstabelecimentoDTO {
 	private ParceiroGlace parceiroGlace;
 	private String tipoAcessibilidade;
 	private List<Acessibilidade> acessibilidades;
+	private Imagem foto;
 	
 }
 

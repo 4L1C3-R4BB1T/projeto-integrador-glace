@@ -1,5 +1,6 @@
 package br.com.projetoglace.service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -55,10 +56,13 @@ public class EstabelecimentoGlaceService {
 		    cidadeRepository.save(estabelecimentoGlace.getEndereco().getCidade());
 		}
 	
-		List<Acessibilidade> acessibilidade = repositoryAcessibilidade.findAll();
-		Set<Acessibilidade> acessibilidades = new HashSet<>();
-	    acessibilidades.addAll(acessibilidade);
-	    estabelecimentoGlace.setAcessibilidades(acessibilidade);
+		List<Acessibilidade> acessibilidades = new ArrayList<>();
+		for(Acessibilidade acessibilidade: estabelecimentoRequest.getAcessibilidades()) {
+			
+			acessibilidades.add(repositoryAcessibilidade.bucarAAcessibilidade(acessibilidade.getId()));
+		}
+			
+	    estabelecimentoGlace.setAcessibilidades(acessibilidades);
 	    repository.save(estabelecimentoGlace);
 
 
@@ -70,19 +74,25 @@ public class EstabelecimentoGlaceService {
 		
 		System.out.println(filtro.getTiposEstabelecimento());
 		
-		if(filtro.getTiposEstabelecimento() == null && filtro.getTiposAcessibilidades() == null) {
+		if(filtro.getTiposEstabelecimento() == null ) {
 			Set<String> tipos = new HashSet<String>();
 			tipos.add("Hotel");
 			tipos.add("Pousada");
 			tipos.add("Hotel Fazenda");
 			tipos.add("Restaurantes");
 			tipos.add("Cafés");
-			tipos.add("Motora");
-			tipos.add("Auditiva");
-			tipos.add("Visual");
-			tipos.add("Intelectual");
+			
 			filtro.setTiposEstabelecimento(tipos);
 		}
+		if(filtro.getTiposAcessibilidades() == null) {
+			Set<Long> tipos = new HashSet<Long>();
+			tipos.add(1L);
+			tipos.add(2L);
+			tipos.add(3L);
+			tipos.add(4L);
+			filtro.setTiposAcessibilidades(tipos);
+		}
+			
 		
 		return repository.findAll(filtro.getCidade(), filtro.getEstado(), filtro.getTiposEstabelecimento(), filtro.getTiposAcessibilidades());
 	}

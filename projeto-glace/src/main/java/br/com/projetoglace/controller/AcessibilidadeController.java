@@ -62,7 +62,7 @@ public class AcessibilidadeController implements AcessibilidadeControllerOpenApi
 	
 	@Override
 	@GetMapping("/buscarAcessibilidade/{id}")
-	public List<Acessibilidade> buscarAcessibilidade(@PathVariable Long id){
+	public Acessibilidade buscarAcessibilidade(@PathVariable Long id){
 		return acessibilidadeRepository.bucarAAcessibilidade(id);
 	}
 	

@@ -1,3 +1,4 @@
+import { AcessibilidadeModel } from './../../estabelecimento-glace/model/estabelecimento-model';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from './../../seguranca/auth.service';
@@ -250,6 +251,8 @@ export class PerfilParceiroComponent implements OnInit {
   salvarOuAtualizarEstabelecimento() {
     const codigo = this.service.jwtPayload.usuario_id;
     console.log(this.formulario.value.nomeEstabelecimento);
+    const a : AcessibilidadeModel[]=[];
+    a.push({id:1});
     const dados = {
       id: this.formulario.value.id,
       nome: this.formulario.value.nomeEstabelecimento,
@@ -271,7 +274,8 @@ export class PerfilParceiroComponent implements OnInit {
       },
       foto: {
         id: this.imagem
-      }
+      },
+      acessibilidades : a
     } as EstabelecimentoModel;
 
     if (dados.id) {

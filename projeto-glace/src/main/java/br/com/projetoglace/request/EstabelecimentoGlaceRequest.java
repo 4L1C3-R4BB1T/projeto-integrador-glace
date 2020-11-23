@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import br.com.projetoglace.model.Acessibilidade;
 import br.com.projetoglace.model.Endereco;
+import br.com.projetoglace.model.Imagem;
 import br.com.projetoglace.model.ParceiroGlace;
 import lombok.Data;
 
@@ -37,6 +38,9 @@ public class EstabelecimentoGlaceRequest {
 	
 	@NotNull
 	private Endereco endereco;
+	
+	@NotNull
+	private Imagem foto;
 	
 	@NotNull
 	private ParceiroGlace parceiroGlace;

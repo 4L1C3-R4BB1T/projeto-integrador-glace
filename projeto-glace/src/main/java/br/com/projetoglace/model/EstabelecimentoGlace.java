@@ -13,6 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -46,9 +47,6 @@ public class EstabelecimentoGlace {
 	@Column(nullable = false)
 	private String tipoEstabelecimento;
 	
-	@Column(nullable = false)
-	private String tipoAcessibilidade;
-	
 	@ManyToOne
 	@JoinColumn(name="parceiro_id", nullable=false)
 	private ParceiroGlace parceiroGlace;
@@ -60,6 +58,9 @@ public class EstabelecimentoGlace {
 	
 	@Embedded
 	private Endereco endereco;
+	
+	@OneToOne
+	private Imagem foto;
 	
 	@JsonIgnore	
 	@OneToMany(mappedBy="estabelecimento")
