@@ -6,16 +6,21 @@
     <div class="content mt-4">
       <div class="pt-5 pb-5">
         <form [formGroup]="formulario"(ngSubmit)="logar()">
-          <div >
+          <div>
+            <i class="fas fa-at icon"></i>
             <input type="email"  class="input form-control" placeholder="E-mail"required autofocus formControlName="login">
           </div>
 
           <div>
-            <input type="password" id="inputPassword" class="input mt-4 mb-3 form-control" placeholder="Senha" required formControlName="senha" >
+            <i class="fas fa-lock icon"></i>
+            <input type="password" id="inputPassword" class="input mt-4 mb-3 form-control" placeholder="Senha" required formControlName="senha">
           </div>
 
           <button type="submit" class="btn mt-4 mb-2 entrar">Entrar</button>
-          <p class="mt-4 cadastro"><a routerLinkActive="active" routerLink="/cadastro/usuario">Não possuo cadastro</a></p>
+
+          <p class="mt-4 cadastro"><a routerLinkActive="active" routerLink="/cadastro/usuario">
+            <i class="fas fa-arrow-right"></i> Não possuo cadastro</a>
+          </p>
 
         </form>
       </div>

@@ -22,6 +22,15 @@
   border: 0;
 }
 
+:host /deep/ .p-button:hover {
+  background-color: #FFA723;
+  transition: 1s;
+}
+
+:host /deep/ .p-dropdown .p-dropdown-label.p-placeholder {
+  font-size: 1rem;
+}
+
 .input {
   width: 100%;
   height: 3.4375rem;
@@ -32,7 +41,7 @@
   border-radius: 0.625rem;
 
   font-family: 'Ruda', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   padding-left: 1.25rem;
 }
 
@@ -51,10 +60,10 @@
   background: #ebfaeb;
 }
 
-.entrar {
+.cadastrar {
   width: 100%;
 
-  background-color: rgba(255, 153, 0, 1);;
+  background: linear-gradient(270deg, #FF9900 26.04%, #FFA217 54.17%, #FFBC57 100%);
   border-radius: 0.625rem;
 
   color: #FFFFFF;
@@ -74,8 +83,8 @@ p {
 
 .cadastro a {
   font-family: 'Ruda', sans-serif;
-  font-size: 1.25rem;
-  color: #08074E;
+  font-size: 1.125rem;
+  color: rgba(8, 7, 78, 0.75);
 }
 
 .cadastro a:hover {

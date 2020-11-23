@@ -10,7 +10,7 @@
 
   background: #FFFFFF;
   border: 0.0625rem solid #F1E9E9;
-  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(0, 0, 0, 0.08);
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(146, 140, 140, 0.05);
   border-radius: 0.625rem 0 0 0.625rem;
 
   font-family: 'Ruda', sans-serif;
@@ -24,7 +24,7 @@
   background: #FFFFFF;
   border: 0.0625rem solid #F1E9E9;
   border-radius: 0;
-  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(0, 0, 0, 0.08);
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(146, 140, 140, 0.05);
 
   font-family: 'Ruda', sans-serif;
   font-size: 1.25rem;
@@ -37,7 +37,7 @@
   background: #FFFFFF;
   border: 0.0625rem solid #F1E9E9;
   box-sizing: border-box;
-  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(146, 140, 140, 0.08);
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(146, 140, 140, 0.05);
   border-radius: 0 0.625rem 0.625rem 0;
 }
 

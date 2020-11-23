@@ -18,7 +18,6 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pagina-glace/home/home.component';
 import { PesquisaComponent } from './pagina-glace/pesquisa/pesquisa.component';
 import { QuemSomosComponent } from './pagina-glace/quem-somos/quem-somos.component';
 import { LoginFormComponent } from '../app/seguranca/login-form/login-form.component';
@@ -38,7 +37,6 @@ import { EstabelecimentoGlaceModule } from './estabelecimento-glace/estabelecime
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     PesquisaComponent,
     QuemSomosComponent,
     DetalhesLocalComponent,
