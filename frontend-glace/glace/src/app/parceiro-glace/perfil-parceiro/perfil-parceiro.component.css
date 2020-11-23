@@ -118,6 +118,7 @@
   font-size: 2.5rem;
   font-weight: bold;
   border: none;
+  text-align: center;
 }
 
 .title-button1:hover, .title-button2:hover, .title-button3:hover {
