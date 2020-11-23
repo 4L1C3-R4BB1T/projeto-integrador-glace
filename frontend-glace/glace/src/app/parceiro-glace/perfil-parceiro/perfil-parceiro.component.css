@@ -158,7 +158,7 @@
   border-radius: 0.625rem;
 
   font-family: 'Ruda', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   padding-left: 1.25rem;
   margin-top: 1.5rem;
   color: #6c757d;
@@ -198,8 +198,17 @@
   border: 0;
 }
 
+:host /deep/ .p-button:hover {
+  background-color: #FFA723;
+  transition: 1s;
+}
+
 :host /deep/ .p-fileupload-content {
   border-radius: 0 0 0.625rem 0.625rem;
+}
+
+:host /deep/ .p-dropdown .p-dropdown-label.p-placeholder {
+  font-size: 1rem;
 }
 
 textarea {
