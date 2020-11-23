@@ -2,9 +2,9 @@
   font-family: 'Ruda', sans-serif;
   font-weight: bold;
   background-color: rgba(255, 153, 0, 0.7);
-  font-size: 1.5625rem;
+  font-size: 1.5rem;
   border-radius: 0.625rem;
-  padding: 0.625rem;
+  padding: 0.625rem 0 0.625rem 0.9375rem;
   color: #FFFFFF;
 }
 
@@ -12,9 +12,9 @@
   font-family: 'Ruda', sans-serif;
   font-weight: bold;
   background-color: rgba(173, 184, 215, 0.8);
-  font-size: 1.5625rem;
+  font-size: 1.5rem;
   border-radius: 0.625rem;
-  padding: 0.625rem;
+  padding: 0.625rem 0 0.625rem 0.9375rem;
   color: #FFFFFF;
   margin-top: 3.125rem;
 }

@@ -46,6 +46,7 @@
 :host /deep/ .p-datatable {
   font-family: 'Ruda', sans-serif;
   font-size: 1.125rem;
+  margin-top: 3.125rem !important;
 }
 
 :host /deep/ .p-datatable-header {

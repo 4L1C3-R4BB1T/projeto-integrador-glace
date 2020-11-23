@@ -1,12 +1,12 @@
 :host /deep/ .p-inputtext {
   font-family: 'Ruda', sans-serif;
   font-size: 1.25rem;
-  padding: 0.8125rem 0 0 1.125rem;
+  padding: 0.6875rem 0 0 1.125rem;
 }
 
 #input1 {
   width: 100%;
-  height: 3.4375rem;
+  height: 3.125rem;
 
   background: #FFFFFF;
   border: 0.0625rem solid #F1E9E9;
@@ -19,7 +19,7 @@
 
 #input2 {
   width: 100%;
-  height: 3.4375rem;
+  height: 3.125rem;
 
   background: #FFFFFF;
   border: 0.0625rem solid #F1E9E9;
@@ -32,7 +32,7 @@
 
 #botao-pesquisa {
   width: 100%;
-  height: 3.4375rem;
+  height: 3.125rem;
 
   background: #FFFFFF;
   border: 0.0625rem solid #F1E9E9;
@@ -85,7 +85,7 @@
 }
 
 .div-filtros {
-  border-bottom: 0.125rem solid #C4C4C4;
+  border-bottom: 0.03125rem solid #C4C4C4;
   width: 90%;
 }
 
@@ -171,6 +171,16 @@
   display: flex;
   margin:0.625rem 0px;
   padding: 0.3125rem;
+}
+
+.mensagemDeBusca {
+  font-family: 'Ruda', sans-serif;
+  background: rgba(255, 185, 48, 0.5);
+  padding: 0.9375rem;
+  font-size: 1.25rem;
+  border-radius: 0.625rem;
+  text-align: center;
+  color: #535353;
 }
 
 

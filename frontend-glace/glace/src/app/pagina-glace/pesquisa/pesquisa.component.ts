@@ -45,6 +45,7 @@ export class PesquisaComponent implements OnInit {
   ngOnInit(): void {
     this.iniciarFormulario();
     this.listarEstados();
+    this.buscar();
   }
 
   goToLogin() {

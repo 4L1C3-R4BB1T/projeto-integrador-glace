@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: row-reverse;
   padding-right: 1.25rem;
+  font-size: 1.875rem;
 }
 
 .botoes{
@@ -35,8 +36,8 @@
 .circulo1 {
   border: 0.3125rem solid #AAAAAA;
   border-radius: 50%;
-  width: 9.375rem;
-  height: 9.375rem;
+  width: 7.5rem;
+  height: 7.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,8 +46,8 @@
 .circulo2 {
   border: 0.3125rem solid #ADB8D7;
   border-radius: 50%;
-  width: 9.375rem;
-  height: 9.375rem;
+  width: 7.5rem;
+  height: 7.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,25 +56,25 @@
 .circulo3 {
   border: 0.3125rem solid #FF9900;
   border-radius: 50%;
-  width: 9.375rem;
-  height: 9.375rem;
+  width: 7.5rem;
+  height: 7.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .img-circulo1 {
-  font-size: 3.75rem;
+  font-size: 3rem;
   color: #AAAAAA;
 }
 
 .img-circulo2 {
-  font-size: 3.75rem;
+  font-size: 3rem;
   color: #ADB8D7;
 }
 
 .img-circulo3 {
-  font-size: 3.75rem;
+  font-size: 3rem;
   color: #FF9900;
 }
 
@@ -93,7 +94,7 @@
 
   color: #AAAAAA;
   font-family: 'Ruda', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.1875rem;
   font-weight: bold;
   border: none;
   background-color: none;
@@ -104,7 +105,7 @@
 
   color: #ADB8D7;
   font-family: 'Ruda', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.1875rem;
   font-weight: bold;
   border: none;
   background-color: none;
@@ -115,7 +116,7 @@
   color: #FF9900;
   width: 100%;
   font-family: 'Ruda', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.1875rem;
   font-weight: bold;
   border: none;
   text-align: center;
@@ -154,7 +155,7 @@
 
   background: #FFFFFF;
   border: 0.0625rem solid #F1E9E9;
-  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(0, 0, 0, 0.05);
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(146, 140, 140, 0.05);
   border-radius: 0.625rem;
 
   font-family: 'Ruda', sans-serif;
@@ -254,6 +255,8 @@ textarea {
 
 .descricao {
   padding-top: 0.625rem;
+  font-size: 1rem;
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(146, 140, 140, 0.05);
 }
 
 .image-checkbox {
