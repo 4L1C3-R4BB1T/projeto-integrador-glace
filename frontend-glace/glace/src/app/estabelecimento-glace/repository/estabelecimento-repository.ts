@@ -24,7 +24,6 @@ export class EstabelecimentoRepository {
     constructor(public http: BaseHttpService) { }
 
     getAllEstabelecimentos(param: string): Observable<EstabelecimentoModel> {
-    
         return this.http
         .getAll<EstabelecimentoEntity[]>(`${environment.URLSERVIDOR}estabelecimento${param}`)
         .pipe(mergeMap((x) => x.data))
@@ -32,7 +31,6 @@ export class EstabelecimentoRepository {
     }
 
     getAllEstabelecimentosParceiros(id: number): Promise<EstabelecimentoModel[]> {
-        
         return this.http
             .getAll<EstabelecimentoEntity[]>(`${environment.URLSERVIDOR}parceiro/listarPorParceiro/${id}`)
             .toPromise().then(x => {
@@ -40,6 +38,11 @@ export class EstabelecimentoRepository {
             })            
     }
 
+    getEstabelecimentoById(id: number): Observable<EstabelecimentoModel> {
+        return this.http
+            .getAll<EstabelecimentoModel>(`${environment.URLSERVIDOR}estabelecimento/${id}`)
+            .pipe(map((x) => this.mapper.mapFrom(x.data)));
+    }
 
     postEstabelecimento(param: EstabelecimentoModel) {
         return this.http
@@ -81,4 +84,5 @@ export class EstabelecimentoRepository {
             .delete<void>(`${environment.URLSERVIDOR}parceiro/${id}`, id)
             .pipe(map((x) => x.data));
     }
+    
 }

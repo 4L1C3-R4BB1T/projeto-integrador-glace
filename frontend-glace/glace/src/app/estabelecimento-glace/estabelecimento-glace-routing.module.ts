@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DetalhesLocalComponent } from './detalhes-local/detalhes-local.component';
 
 const routes: Routes = [
-    { path: 'detalhes/local', component: DetalhesLocalComponent }
+  { path: 'detalhes/local/:codigo', component: DetalhesLocalComponent }
 ];
 
 @NgModule({

@@ -4,8 +4,11 @@ import { AuthService } from '../../seguranca/auth.service';
 import { ClienteModel } from '../model/cliente-model';
 import { ClienteRepository } from '../repository/cliente-repository';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Message, MessageService } from 'primeng/api';
+import { Message, MessageService, ConfirmationService } from 'primeng/api';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ReservaModel } from '../../estabelecimento-glace/model/reserva-model';
+import { ReservaRepository } from '../../estabelecimento-glace/repository/reserva-repository';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -27,19 +30,26 @@ export class PerfilUsuarioComponent implements OnInit {
   usuario: string = '';
   uploadFiles: any[] = [];
 
+  reservas: ReservaModel[] = [];
+  loading: boolean;
+  @ViewChild('dt') table: Table;
+
   constructor(
     public service: AuthService,
     private repository: ClienteRepository,
+    private repositoryReserva: ReservaRepository,
     private fb: FormBuilder,
     private messageService: MessageService,
     private route: ActivatedRoute,
+    private confirmarService: ConfirmationService,
     private title: Title
   ) { this.usuario = service.jwtPayload ? service.jwtPayload.nome_completo : ''; }
 
   ngOnInit(): void {
     this.iniciarFormulario();
     this.listarEstados();
-    
+    this.carregarReservas();  
+
     const codigoCliente = this.route.snapshot.params['codigo'];
     
     //Pegando o id do usuario através do token
@@ -250,4 +260,31 @@ export class PerfilUsuarioComponent implements OnInit {
       this.uploadedFiles.push(file);
     }
   }
+
+  carregarReservas(){
+    this.reservas = [];
+    this.repositoryReserva.getAllReservasByCliente(this.service.jwtPayload.usuario_id).then(resposta => {
+      this.reservas = resposta;
+      this.loading = false;       
+    });  
+  }
+
+  excluir(id: number){
+    this.confirmarService.confirm({
+      message: 'Tem certeza que deseja cancelar esta reserva?',
+      accept: () => {
+        this.repositoryReserva.deleteReserva(id).subscribe( resposta => {
+          this.messageService.add( 
+            {
+              key: 'toast',
+              severity: 'success',
+              summary: 'RESERVA',
+              detail: 'cancelada com sucesso!'
+            });   
+            this.carregarReservas();
+        });    
+      }
+    });
+  }
+
 }

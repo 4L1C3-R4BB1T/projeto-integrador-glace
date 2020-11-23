@@ -183,39 +183,33 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <div class="table-responsive">
-                    <table class="table table-striped table-hover table-bordered">
-                      <thead>
-                        <tr>
-                          <th class="d-none d-sm-table-cell">Local</th>
-                          <th class="d-none d-lg-table-cell">Data</th>
-                          <th class="text-center">Ações</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <!--CONTEÚDO DINÂMICO-->
-                        <tr>
-                          <td class="d-none d-sm-table-cell">Nome do local</td>
-                          <td class="d-none d-lg-table-cell">13-10-2020</td>
-                          <td class="text-center">
-                            <span class="d-none d-md-block">
-                              <button type="button" class='btn btn-outline-danger btn-sm'>Cancelar</button>
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="d-none d-sm-table-cell">Nome do local</td>
-                          <td class="d-none d-lg-table-cell">13-10-2020</td>
-                          <td class="text-center">
-                            <span class="d-none d-md-block">
-                              <button type="button" class='btn btn-outline-danger btn-sm'>Cancelar</button>
-                            </span>
-                          </td>
-                        </tr>
-                        <!--FIM DO CONTEÚDO DINÂMICO-->
-                      </tbody>
-                    </table>
-                  </div>
+                  <p-table 
+                    #dt [value]="reservas" 
+                    [paginator]="true" 
+                    [rows]="10" 
+                    [showCurrentPageReport]="true"
+                    currentPageReportTemplate="Mostrando {first} até {last} de {totalRecords} registros"
+                    [rowsPerPageOptions]="[5,10,25,50]" 
+                    [loading]="loading" 
+                    [filterDelay]="0"
+                    [globalFilterFields]="['nome','data']"> 
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th pSortableColumn="nome">Local<p-sortIcon field="nome"></p-sortIcon></th>
+                        <th pSortableColumn="data">Data<p-sortIcon field="data"></p-sortIcon></th>
+                        <th class="deletar"></th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-reserva>
+                      <tr>
+                        <td>{{reserva.estabelecimento.nome}}</td>
+                        <td>{{reserva.dataReserva}}</td>
+                        <td class="deletar">
+                            <p-button (click)="excluir(reserva.id)" icon="pi pi-trash"></p-button>
+                        </td>
+                      </tr>
+                    </ng-template>
+                  </p-table>
                   <div class="float-right mt-2">
                     <button type="button" class="btn botao bg-secondary" data-dismiss="modal">Fechar</button>
                   </div>

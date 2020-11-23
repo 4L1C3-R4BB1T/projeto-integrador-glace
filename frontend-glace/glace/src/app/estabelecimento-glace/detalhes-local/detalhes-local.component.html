@@ -50,7 +50,7 @@
             </div>
             <p class="float-right text-right localizacao">Largo São Benedito 200, Passagem, Cabo Frio - RJ, <br> CEP
                 22061-020, Brasil</p>
-            <button class="reserva" type="button" data-toggle="modal" data-target="#fazerReserva">Fazer reserva</button>
+            <button *ngIf="service.temPermissao('CG')" class="reserva" type="button" data-toggle="modal" data-target="#fazerReserva">Fazer reserva</button>
         </div>
 
         <!-- MODAL -->
@@ -67,18 +67,17 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <input type="date" class="input mt-4" name="data">
+                        <form [formGroup]="formulario" (ngSubmit)="fazerReserva()">
+                            <div class="row mb-2">
+                                <div class="col-12">
+                                    <input type="date" class="input mt-4" formControlName="data_reserva">
+                                </div>
+                            </div> 
+                            <div class="mt-4 float-right">
+                                <button type="button" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn botao">Reservar</button>
                             </div>
-                            <div class="col-12 col-md-6">
-                                <input type="time" class="input mt-4 mb-4" name="hora">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn botao">Reservar</button>
+                        </form>
                     </div>
                 </div>
             </div>

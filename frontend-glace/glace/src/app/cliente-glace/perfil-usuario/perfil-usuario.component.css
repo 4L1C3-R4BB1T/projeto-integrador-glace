@@ -14,7 +14,7 @@
   padding-right: 1.25rem;
 }
 
-.botoes{
+.botoes {
   margin-top: 10%;
 }
 
@@ -94,7 +94,8 @@
   border: none;
 }
 
-.title-button1:hover, .title-button2:hover {
+.title-button1:hover,
+.title-button2:hover {
   transition: 1s;
   color: #3E3E3E;
 }
@@ -174,11 +175,70 @@
 
 .input:hover {
   transition: 0.5s;
-  border-color:#f58723;
+  border-color: #f58723;
 }
 
 .no-padding {
   padding: 0;
+}
+
+.deletar {
+  width: 120px;
+  text-align: center;
+}
+
+.espaco {
+  margin: 0 10px 0 0;
+}
+
+:host /deep/ .p-button {
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 153, 0, 1);
+  font-family: 'Ruda', sans-serif;
+  font-size: 17px;
+}
+
+:host /deep/ .p-button:hover {
+  background-color: #F08309;
+}
+
+:host /deep/ .p-inputtext:enabled:focus {
+  border-color: orange;
+  box-shadow: none;
+}
+
+:host /deep/ .p-datatable {
+  font-family: 'Ruda', sans-serif;
+  font-size: 18px;
+}
+
+:host /deep/ .p-paginator {
+  font-family: 'Ruda', sans-serif;
+}
+
+:host /deep/ .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: orange;
+  border: none;
+  border-radius: 5px;
+}
+
+:host /deep/ .p-paginator .p-paginator-pages .p-paginator-page:enabled:focus,
+:host /deep/ .p-paginator .p-paginator-first:enabled:focus,
+:host /deep/ .p-paginator .p-paginator-prev:enabled:focus,
+:host /deep/ .p-paginator .p-paginator-next:enabled:focus,
+:host /deep/ .p-paginator .p-paginator-last:enabled:focus,
+:host /deep/ .p-button:enabled:focus {
+  border-color: none;
+  box-shadow: none;
+}
+
+:host /deep/ .p-paginator .p-paginator-rpp-options {
+  border-radius: 5px;
+}
+
+:host /deep/ .p-paginator .p-paginator-rpp-options:hover {
+  border-color: orange;
 }
 
 @media screen and (max-width: 1440px) {

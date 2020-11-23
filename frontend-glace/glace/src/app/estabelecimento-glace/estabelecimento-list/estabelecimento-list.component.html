@@ -3,14 +3,6 @@
 
       <app-nav-bar></app-nav-bar>
 
-      <div class="nav-item dropdown mt-3 ml-4 mr-4">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Listar</a>
-          <div class="dropdown-menu">
-              <a routerLink="/listar/cliente" class="dropdown-item">Listar Clientes</a>    
-              <a routerLink="/listar/parceiro" class="dropdown-item">Listar Parceiros</a>                    
-          </div>
-      </div>   
-
       <div class="container mt-3 mb-5">
           <p-table 
               #dt [value]="clientes" 
@@ -30,7 +22,7 @@
                               placeholder="Pesquisar" />
                       </span>
                       <span class="float-right name mt-2 mr-2">
-                          Clientes
+                          Estabelecimentos
                       </span>
                   </div>
               </ng-template>

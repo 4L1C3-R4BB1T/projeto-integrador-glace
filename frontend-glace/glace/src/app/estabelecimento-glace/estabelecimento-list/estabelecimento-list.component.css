@@ -7,7 +7,6 @@
   margin: 0 0.625rem 0 0;
 }
 
-.dropdown,
 .container .name {
   font-family: 'Ruda', sans-serif;
   font-size: 1.25rem;
@@ -15,11 +14,6 @@
 
 .container .name {
   color: white;
-}
-
-.dropdown-toggle {
-  color: #F08309;
-  font-weight: 900;
 }
 
 :host /deep/ .p-button {
