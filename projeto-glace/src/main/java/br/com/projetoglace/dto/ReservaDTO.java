@@ -10,7 +10,7 @@ import lombok.Data;
 public class ReservaDTO {
 
 	private Long id;
-	private LocalDate data;
+	private LocalDate dataReserva;
 	private EstabelecimentoGlace estabelecimento;
 	private ClienteGlace cliente;
 	

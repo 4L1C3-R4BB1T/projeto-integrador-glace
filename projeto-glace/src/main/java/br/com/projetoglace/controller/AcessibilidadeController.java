@@ -1,9 +1,7 @@
 package br.com.projetoglace.controller;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -20,7 +18,6 @@ import br.com.projetoglace.controller.openapi.AcessibilidadeControllerOpenApi;
 import br.com.projetoglace.dto.AcessibilidadeDTO;
 import br.com.projetoglace.mapper.AcessibilidadeMapper;
 import br.com.projetoglace.model.Acessibilidade;
-import br.com.projetoglace.model.Grupo;
 import br.com.projetoglace.repository.AcessibilidadeGlaceRepository;
 import br.com.projetoglace.request.AcessibilidadeRequest;
 
@@ -71,6 +68,7 @@ public class AcessibilidadeController implements AcessibilidadeControllerOpenApi
 	
 	@GetMapping
 	public Optional<Acessibilidade> findProductByTipoAcessibilidade(@PathVariable Long id){
-	return acessibilidadeRepository.findById(id);
-}
+		return acessibilidadeRepository.findById(id);
+	}
+	
 }

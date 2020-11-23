@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projetoglace.controller.openapi.ReservaControllerOpenApi;
 import br.com.projetoglace.dto.ReservaDTO;
 import br.com.projetoglace.model.Reserva;
 import br.com.projetoglace.request.ReservaRequest;
@@ -23,12 +24,12 @@ import br.com.projetoglace.service.ReservaService;
 @CrossOrigin
 @RestController
 @RequestMapping ("/reserva")
-public class ReservaController {
+public class ReservaController implements ReservaControllerOpenApi {
 
 	@Autowired
 	private ReservaService service;
 	
-	//@Override
+	@Override
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> salvarReserva(@RequestBody ReservaRequest reservaRequest) {	
@@ -41,11 +42,19 @@ public class ReservaController {
 		}		
 	}
 		
+	@Override
 	@GetMapping
 	public List<Reserva> listarReserva(){
 		return service.listarReserva();
 	}
+	
+	@Override
+	@GetMapping("/{id}/cliente")
+	public List<Reserva> listarReservaPorCliente(@PathVariable Long id) {
+		return service.listarReservaPorCliente(id);
+	}
 
+	@Override
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Reserva> excluirReserva(@PathVariable Long id) {
 		try {
@@ -55,4 +64,5 @@ public class ReservaController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+	
 }

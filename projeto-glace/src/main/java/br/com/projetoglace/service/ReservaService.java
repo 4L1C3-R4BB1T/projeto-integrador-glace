@@ -27,6 +27,10 @@ public class ReservaService {
 	public List<Reserva> listarReserva() {
 		return repository.findAll();
 	}
+	
+	public List<Reserva> listarReservaPorCliente(Long id) {
+		return repository.listarReservaPorCliente(id);
+	}
 
 	@Transactional
 	public void excluirReserva(Long id) {

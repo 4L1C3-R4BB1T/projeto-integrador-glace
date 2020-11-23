@@ -19,7 +19,7 @@ public class ReservaRequest {
 	private Long id;
 	
 	@NotNull
-	private LocalDate data;
+	private LocalDate dataReserva;
 	
 	@NotNull
 	private EstabelecimentoGlace estabelecimento;
