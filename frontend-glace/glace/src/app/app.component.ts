@@ -10,9 +10,9 @@ export class AppComponent {
   title = 'glace';
 
   constructor(private router: Router){ }
-  
+
   get exibirNavBar(){
-    return this.router.url !=='/home';
+    return this.router.url !=='/pesquisa';
   }
-  
+
 }
