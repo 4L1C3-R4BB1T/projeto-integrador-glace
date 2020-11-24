@@ -9,6 +9,7 @@ import { Message, MessageService } from 'primeng/api';
 import { AcessibilidadeModel, EstabelecimentoModel } from 'src/app/estabelecimento-glace/model/estabelecimento-model';
 import { EstabelecimentoRepository } from 'src/app/estabelecimento-glace/repository/estabelecimento-repository';
 
+
 @Component({
   selector: 'app-perfil-parceiro',
   templateUrl: './perfil-parceiro.component.html',
