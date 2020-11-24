@@ -70,6 +70,7 @@ export class EstabelecimentoRepository {
             .pipe(map((x) => this.mapperCidade.mapFrom(x)));
     }
     
+
     putEstabelecimento(param: EstabelecimentoModel) {
         return this.http
             .put<void>(

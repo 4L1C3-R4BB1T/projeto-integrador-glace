@@ -113,6 +113,7 @@ export class CadastroParceiroComponent implements OnInit {
 }
 
   salvarOuAtualizar(){
+    console.log(this.formulario.value.id);
     const dados = {
       id: this.formulario.value.id,
             razao: this.formulario.value.razao,

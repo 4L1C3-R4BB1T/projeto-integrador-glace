@@ -1,13 +1,12 @@
-import { AcessibilidadeModel } from './../../estabelecimento-glace/model/estabelecimento-model';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from './../../seguranca/auth.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ParceiroModel } from '../model/parceiro-model';
 import { ParceiroRepository } from '../repository/parceiro-repository';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { Message, MessageService } from 'primeng/api';
-import { EstabelecimentoModel } from 'src/app/estabelecimento-glace/model/estabelecimento-model';
+import { AcessibilidadeModel, EstabelecimentoModel } from 'src/app/estabelecimento-glace/model/estabelecimento-model';
 import { EstabelecimentoRepository } from 'src/app/estabelecimento-glace/repository/estabelecimento-repository';
 
 @Component({
@@ -23,6 +22,15 @@ export class PerfilParceiroComponent implements OnInit {
   cidades: any[] = [];
   imagem: number;
   tipoEstabelecimento: any[] = [];
+
+  acessibilidadesSelecionadas: any[]=[];
+
+  arrayDeAcessibilidades: any[] = [
+    { id: 1, tipo: 'Motora' },
+    { id: 2, tipo: 'Visual' },
+    { id: 3, tipo: 'Auditiva' },
+    { id: 4, tipo: 'Intelectual' }
+  ];
 
   public submitted: boolean = false;
   uploadedFiles: any[] = [];
@@ -86,6 +94,7 @@ export class PerfilParceiroComponent implements OnInit {
   public iniciarFormulario() {
     this.formulario = this.fb.group({
       id: [null],
+      idE: [null],
       razao: [''],
       cnpj: [''],
       telefone: [''],
@@ -110,7 +119,10 @@ export class PerfilParceiroComponent implements OnInit {
       bairroEstabelecimento: [''],
       tipoAcessibilidade: [''],
       descricao: [''],
+      acessibilidades: new FormArray([]),
     });
+
+    this.adicionarCheckboxAcessibilidades();
   }
 
   cadastrar() {
@@ -121,13 +133,40 @@ export class PerfilParceiroComponent implements OnInit {
     this.salvar();
   }
 
+  get listaAcessibilidades() {
+    return this.formulario.controls.acessibilidades as FormArray;
+  }
+
+  private adicionarCheckboxAcessibilidades() {
+    this.arrayDeAcessibilidades.forEach(() => this.listaAcessibilidades.push(new FormControl(false)));
+  }
+
 
   cadastrarEstabelecimento() {
+    let param: string = '';
+
+    this.acessibilidadesSelecionadas= this.formulario.value.acessibilidades
+    .map((checked, i) => checked ? this.arrayDeAcessibilidades[i].id : null)
+    .filter(v => v !== null);
+
+    this.acessibilidadesSelecionadas.forEach(element => {
+      if(element != '' && element != null) {
+        if (param == ''){
+          param += "?tiposAcessibilidades="+element;
+
+        } else {
+          param += "&tiposAcessibilidades="+element;
+        }
+      }
+    });
+
+    console.log(this.acessibilidadesSelecionadas);
     this.submitted = true;
     if (this.formulario.invalid) {
-
+      console.log("Estou aqui2");
       return;
     }
+    console.log("Estou aqui3");
     this.salvarEstabelecimento();
   }
 
@@ -249,12 +288,16 @@ export class PerfilParceiroComponent implements OnInit {
   }
 
   salvarOuAtualizarEstabelecimento() {
+    console.log("Estou aqui7");
     const codigo = this.service.jwtPayload.usuario_id;
-    console.log(this.formulario.value.nomeEstabelecimento);
     const a : AcessibilidadeModel[]=[];
-    a.push({id:1});
+  
+    for(let ida of this.acessibilidadesSelecionadas){
+      a.push({id:parseInt(ida)});
+    }
+    console.log("5435435435");
     const dados = {
-      id: this.formulario.value.id,
+      id: this.formulario.value.idE,
       nome: this.formulario.value.nomeEstabelecimento,
       cnpj: this.formulario.value.cnpjEstabelecimento,
       descricao: this.formulario.value.descricao,

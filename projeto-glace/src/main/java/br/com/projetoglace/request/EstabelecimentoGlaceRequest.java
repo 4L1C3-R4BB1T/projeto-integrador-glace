@@ -39,7 +39,6 @@ public class EstabelecimentoGlaceRequest {
 	@NotNull
 	private Endereco endereco;
 	
-	@NotNull
 	private Imagem foto;
 	
 	@NotNull

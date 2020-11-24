@@ -55,6 +55,8 @@ import { ParceiroTableComponent } from './parceiro-table/parceiro-table.componen
     BrowserModule,
     AppRoutingModule,
     ToastModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
   ],
