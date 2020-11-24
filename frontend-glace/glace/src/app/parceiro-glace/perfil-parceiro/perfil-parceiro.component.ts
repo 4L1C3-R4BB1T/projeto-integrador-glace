@@ -313,7 +313,7 @@ export class PerfilParceiroComponent implements OnInit {
         numero: this.formulario.value.numeroEstabelecimento,
         bairro: this.formulario.value.bairroEstabelecimento,
         cidade: {
-          id: this.formulario.value.cidade
+          id: this.formulario.value.cidadeEstabelecimento
         }
       },
       foto: {

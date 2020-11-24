@@ -143,7 +143,7 @@ export class PesquisaComponent implements OnInit {
         nome: resposta.nome,
         descricao: resposta.descricao,
         cnpj: resposta.cnpj,
-        //acessibilidades: resposta.acessibilidades,
+        acessibilidades: resposta.acessibilidades,
         endereco: resposta.endereco,
         tipoEstabelecimento: resposta.tipoEstabelecimento,
         foto: resposta.foto,

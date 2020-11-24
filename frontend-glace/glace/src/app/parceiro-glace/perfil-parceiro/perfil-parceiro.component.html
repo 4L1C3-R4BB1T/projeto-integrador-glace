@@ -328,10 +328,10 @@
                         <button
                           type="submit"
                           class="btn cadastrar"
-                          [class]="operacao? 'btn-primary' : 'btn-success'" onclick="salvarEstabelecimento()">
+                          [class]="operacao? 'btn-primary' : 'btn-success'">
                           Cadastrar
                         </button>
-                      </div>
+                      </div> 
                     </form>
                   </div>
                 </div>
@@ -348,16 +348,13 @@
             <i class="far fa-list-alt img-circulo3"></i>
           </div>
 
-          <!-- BOTÃO PARA ACIONAR MODAL -->
-          <a class="button" data-toggle="modal" data-target="#idModal" routerLink="/listarParceiros">
+          <a class="button" routerLink="/listarParceiros">
             <h2 class="title-button3">Ver estabelecimentos cadastrados</h2>
           </a>
 
           <p class="button description-button text-center">
             Atualizar dados, excluir...
           </p>
-
-         <!-- MODAL -->
 
         </div>
       </div>

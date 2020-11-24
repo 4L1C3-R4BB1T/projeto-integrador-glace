@@ -11,10 +11,10 @@
         <div class="acessivel-button">
           <div class="icones">
             <div *ngFor="let access of card.acessibilidades">
-              <p *ngIf="access.tipoAcessibilidade === 'motora'"> <i class="icon fab fa-accessible-icon"></i> </p>
-              <p *ngIf="access.tipoAcessibilidade === 'visual'"> <i class="icon fas fa-blind"></i> </p>
-              <p *ngIf="access.tipoAcessibilidade === 'intelectual'"> <i class="icon fas fa-brain"></i> </p>
-              <p *ngIf="access.tipoAcessibilidade === 'auditivo'"> <i class="icon fas fa-sign-language"></i> </p>
+              <p *ngIf="access.id === 1"> <i class="icon fab fa-accessible-icon"></i> </p>
+              <p *ngIf="access.id === 2"> <i class="icon fas fa-blind"></i> </p>
+              <p *ngIf="access.id === 4"> <i class="icon fas fa-brain"></i> </p>
+              <p *ngIf="access.id === 3"> <i class="icon fas fa-sign-language"></i> </p>
             </div>
           </div>
           <div class="botao">
