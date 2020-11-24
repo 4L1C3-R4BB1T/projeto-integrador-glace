@@ -75,9 +75,13 @@
 
       </div>
     </form>
-      <div class="main-cards float-right col-xl-9 col-lg-9 col-md-12 col-sm-12">
-        <app-card-pesquisa [meusCards]="meusCards"></app-card-pesquisa>
+    <div class="main-cards float-right col-xl-9 col-lg-9 col-md-12 col-sm-12">
+      <div class="mensagemDeBusca" *ngIf="meusCards.length == 0">
+        Nenhum resultado encontrado para essa busca!
       </div>
+
+      <app-card-pesquisa [meusCards]="meusCards"></app-card-pesquisa>
+    </div>
     </div>
   </div>
 </div>

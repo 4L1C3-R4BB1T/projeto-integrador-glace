@@ -188,7 +188,7 @@
                           [showCancelButton]="false"
                           (onSelect)="enviarImagem($event)"
                           fileLimit= "10"
-                          multiple="multiple" 
+                          multiple="multiple"
                           [multiple]="true"
                           accept="image/*"
                           maxFileSize="1000000">
@@ -232,17 +232,7 @@
                             CNPJ inválido
                           </div>
                         </div>
-                        <!-- <div class="col-12 col-md-6">
-                            <select id="inputState" class="form-control input">
-                              <option selected>Tipo do Estabelecimento</option>
-                              <option>Hotel</option>
-                              <option>Pousada</option>
-                              <option>Café</option>
-                              <option>Hotel Fazenda</option>
-                              <option>Restaurante</option>
-                            </select>
-                        </div> -->
-
+                        
                         <div class="col-12 col-md-6">
                             <select formControlName="tipoEstabelecimento" matNativeControl required class="input ">
                               <option value="">Tipo de Estabelecimento</option>
@@ -360,7 +350,7 @@
             <i class="far fa-list-alt img-circulo3"></i>
           </div>
 
-          <!-- BOTÃO PARA ACIONAR MODAL --> 
+          <!-- BOTÃO PARA ACIONAR MODAL -->
           <a class="button" data-toggle="modal" data-target="#idModal" routerLink="/listarParceiros">
             <h2 class="title-button3">Ver estabelecimentos cadastrados</h2>
           </a>
