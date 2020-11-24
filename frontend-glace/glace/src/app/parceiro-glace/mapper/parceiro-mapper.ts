@@ -7,7 +7,7 @@ export class ParceiroMapper extends Mapper<ParceiroEntity, ParceiroModel> {
     mapFrom(entity: ParceiroEntity): ParceiroModel {
         return {
             id: entity.id,
-            razao: entity.razao,
+            razao: entity.razao ? entity.razao : '',
             cnpj: entity.cnpj,
             telefone: entity.telefone,
             endereco: entity.endereco,

@@ -47,7 +47,7 @@ public class ImagemService {
 		imagem.setContentType(arquivo.getContentType());
 		imagem.setTamanho(arquivo.getSize());		
 	  	
-		URL url = s3FotoStorageService.armazenar(arquivo, nomeArquivo);
+		URL url = s3FotoStorageService.armazenar(imagemRequest.getImagem(), nomeArquivo);
 	  	imagem.setUrl(url);
 	   
 	  	return mapper.modelToDTO( repository.save(imagem) );	

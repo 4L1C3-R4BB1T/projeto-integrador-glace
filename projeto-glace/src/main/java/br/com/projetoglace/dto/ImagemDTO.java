@@ -13,5 +13,5 @@ public class ImagemDTO {
 	private String contentType;
 	private Long tamanho;
 	private URL url;
-	private EstabelecimentoDTO estabelecimento;
+	
 }

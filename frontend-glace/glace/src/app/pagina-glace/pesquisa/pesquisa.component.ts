@@ -1,7 +1,5 @@
 import { Url } from 'url';
 import { EstabelecimentoRepository } from 'src/app/estabelecimento-glace/repository/estabelecimento-repository';
-import { EstabelecimentoEntity } from './../../estabelecimento-glace/entity/estabelecimento-entity';
-import { ClienteRepository } from '../../cliente-glace/repository/cliente-repository';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
