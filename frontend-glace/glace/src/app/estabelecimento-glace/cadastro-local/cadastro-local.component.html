@@ -12,7 +12,7 @@
     <div class="form-local pt-5">
       <h4>Cadastro de Estabelecimento</h4>
       <div id="formUser">
-        <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
+        <form [formGroup]="formulario" (ngSubmit)="cadastrarEstabelecimento()">
           <div class="form-group div-uploads" >
             <p-fileUpload #upload
               name="demo[]"
@@ -31,8 +31,20 @@
               <input type="text" class="input mt-3" placeholder="Nome" name="nome"  formControlName="nome">
             </div>
 
+                 
             <div class="col-12 col-md-6">
-              <input type="text" class="input mt-3" placeholder="CNPJ" name="cnpj">
+              <select formControlName="tipoEstabelecimento" matNativeControl required class="input ">
+                <option value="">Tipo de Estabelecimento</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Pousada">Pousada</option>
+                <option value="Hotel Fazenda">Hotel Fazenda</option>
+                <option value="Café">Café</option>
+                <option value="Restaurante">Restaurante</option>
+              </select>
+          </div>
+
+            <div class="col-12 col-md-6">
+              <input type="text" class="input mt-3" placeholder="CNPJ" name="cnpj" formControlName="cnpj">
             </div>
           </div>
 
@@ -42,7 +54,7 @@
             </div>
 
             <div class="col-12 col-md-6">
-              <input type="text" class="input mt-4" placeholder="Telefone" name="telefone" >
+              <input type="text" class="input mt-4" placeholder="Telefone" name="telefone" formControlName="telefone" >
             </div>
           </div>
 
@@ -89,7 +101,7 @@
           </div>
 
           <div>
-            <textarea class="descricao mt-4" rows="4" cols="60" placeholder="Descrição do local" name="descricao"></textarea>
+            <textarea class="descricao mt-4" rows="4" cols="60" placeholder="Descrição do local"  formControlName="descricao" name="descricao"></textarea>
           </div>
 
           <div class="mt-2 mb-3">
