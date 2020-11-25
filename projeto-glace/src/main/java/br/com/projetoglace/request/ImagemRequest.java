@@ -4,7 +4,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.sun.istack.NotNull;
 
-import br.com.projetoglace.dto.EstabelecimentoDTO;
 import br.com.projetoglace.validation.FileSize;
 import lombok.Data;
 

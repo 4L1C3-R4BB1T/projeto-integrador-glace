@@ -82,7 +82,7 @@ export class EstabelecimentoRepository {
 
     deleteEstabelecimento(id: number): Observable<void> {
         return this.http
-            .delete<void>(`${environment.URLSERVIDOR}parceiro/${id}`, id)
+            .delete<void>(`${environment.URLSERVIDOR}estabelecimento/${id}`, id)
             .pipe(map((x) => x.data));
     }
     

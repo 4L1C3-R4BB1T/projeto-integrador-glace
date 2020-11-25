@@ -9,10 +9,12 @@ import java.util.Set;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import br.com.projetoglace.dto.EstabelecimentoDTO;
 import br.com.projetoglace.email.EnvioEmailService;
+import br.com.projetoglace.exception.EstabelecimentoNaoEncontradoException;
 import br.com.projetoglace.filtro.EstabelecimentoFiltro;
 import br.com.projetoglace.mapper.EstabelecimentoGlaceMapper;
 import br.com.projetoglace.model.Acessibilidade;
@@ -100,5 +102,21 @@ public class EstabelecimentoGlaceService {
 	public Optional<EstabelecimentoGlace> buscarEstabelecimento(Long id) {
 		return repository.findById(id);
 	}
+
+	@Transactional
+	public void excluirEstabelecimento(Long id) {
+		try {
+			repository.deleteById(id);
+			repository.flush();
+		} catch (EmptyResultDataAccessException e) {
+			throw new EstabelecimentoNaoEncontradoException(id);
+		};			
+	}
+
+	@Transactional
+	public void atualizarEstabelecimento(EstabelecimentoGlace estabelecimento) {
+		repository.save(estabelecimento);		
+		}
+		
+	}
 	
-}

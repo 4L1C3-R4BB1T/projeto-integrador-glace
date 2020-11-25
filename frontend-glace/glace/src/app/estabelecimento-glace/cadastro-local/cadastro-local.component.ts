@@ -83,7 +83,7 @@ export class CadastroLocalComponent implements OnInit {
             this.mensagem = [
               {
                 severity: 'success',
-                summary: 'CLIENTE',
+                summary: 'ESTABELECIMENTO',
                 detail: 'cadastrado com sucesso!'
               }];
             this.limparFormulario();

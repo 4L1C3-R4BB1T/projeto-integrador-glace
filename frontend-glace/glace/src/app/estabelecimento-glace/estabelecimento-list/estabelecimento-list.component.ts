@@ -28,10 +28,10 @@ export class EstabelecimentoListComponent implements OnInit {
 
   ngOnInit() {    
     this.loading = true;
-    this.carregarClientes();  
+    this.carregarEstabelecimento();  
   }  
   
-  carregarClientes(){
+  carregarEstabelecimento(){
     //Pegado id do parceiro por meio do token
     const codigo = this.service.jwtPayload.usuario_id;
     this.title.setTitle('Lista de clientes');
@@ -44,7 +44,7 @@ export class EstabelecimentoListComponent implements OnInit {
 
   excluir(id: number){
     this.confirmarService.confirm({
-      message: 'Tem certeza que deseja excluir este cliente?',
+      message: 'Tem certeza que deseja excluir este Estabelecimento?',
       accept: () => {
         this.repository.deleteEstabelecimento(id).subscribe( resposta => {
           this.messageService.add(
@@ -52,11 +52,11 @@ export class EstabelecimentoListComponent implements OnInit {
             {
               key: 'toast',
               severity: 'success',
-              summary: 'CLIENTE',
+              summary: 'ESTABELECIMENTO',
               detail: 'excluído com sucesso!'
             });   
             
-            this.carregarClientes();
+            this.carregarEstabelecimento();
         });    
       }
     });

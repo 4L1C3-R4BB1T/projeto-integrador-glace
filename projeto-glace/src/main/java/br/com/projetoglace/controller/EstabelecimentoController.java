@@ -3,13 +3,16 @@ package br.com.projetoglace.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,6 +55,27 @@ public class EstabelecimentoController implements EstabelecimentoControllerOpenA
 		if (estabelecimento.isPresent()) {
 			return ResponseEntity.ok(estabelecimento.get());
 		}
+		return ResponseEntity.notFound().build();
+	}
+	@Override
+	@DeleteMapping("/{id}")
+	public ResponseEntity<EstabelecimentoGlace> excluirEstabelecimento(@PathVariable Long id) {
+		try {
+			service.excluirEstabelecimento(id);	
+			return ResponseEntity.noContent().build();
+		} catch (Exception e) {
+			return ResponseEntity.notFound().build();
+		}
+	}
+	@Override
+	@PutMapping("/{id}")
+	public ResponseEntity<?> atualizarEstabelecimento(@RequestBody EstabelecimentoGlace estabelecimento, @PathVariable Long id) {
+		EstabelecimentoGlace estabelecimentoAtual = service.buscarEstabelecimento(id).orElse(null);
+		if (estabelecimentoAtual != null) {
+			BeanUtils.copyProperties(estabelecimento, estabelecimentoAtual, "id");
+			service.atualizarEstabelecimento(estabelecimentoAtual);
+			return ResponseEntity.ok(estabelecimentoAtual);
+		}	
 		return ResponseEntity.notFound().build();
 	}
 }
