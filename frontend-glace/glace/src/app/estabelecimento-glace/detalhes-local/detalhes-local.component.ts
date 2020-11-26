@@ -5,6 +5,8 @@ import { ReservaRepository } from '../repository/reserva-repository';
 import { Message, MessageService } from 'primeng/api';
 import { AuthService } from './../../seguranca/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { EstabelecimentoRepository } from '../repository/estabelecimento-repository';
+import { EstabelecimentoModel } from '../model/estabelecimento-model';
 
 @Component({
   selector: 'app-detalhes-local',
@@ -18,16 +20,34 @@ export class DetalhesLocalComponent implements OnInit {
 
   public codigo = this.route.snapshot.params['codigo'];
 
+  estabelecimento: EstabelecimentoModel[] = [];
+
   constructor(
     public service: AuthService,
     private repository: ReservaRepository,
     private fb: FormBuilder,
     private messageService: MessageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private repositoryEst: EstabelecimentoRepository,
   ) { }
 
   ngOnInit(): void {
     this.iniciarFormulario();
+
+    this.repositoryEst.getEstabelecimentoById(this.codigo).subscribe(resposta => {
+      this.estabelecimento.push({
+        id: resposta.id,
+        nome: resposta.nome,
+        descricao: resposta.descricao,
+        cnpj: resposta.cnpj,
+        acessibilidades: resposta.acessibilidades,
+        endereco: resposta.endereco,
+        telefone: resposta.telefone,
+        tipoEstabelecimento: resposta.tipoEstabelecimento,
+        foto: resposta.foto        
+      });
+    });
+    console.log(this.estabelecimento);
   }
 
   public iniciarFormulario() {

@@ -15,10 +15,14 @@
   font-size: 1.875rem;
 }
 
+ .button {
+  text-decoration: none;
+}
+
 label{
   display:inline-block;
   font:18px Lucida;
-  float:left;
+  float : left;
 }
 label input{
 float: left;

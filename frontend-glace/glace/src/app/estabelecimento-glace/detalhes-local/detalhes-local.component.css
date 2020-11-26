@@ -75,3 +75,14 @@
   color: #08074E;
   font-size: 22px;
 }
+
+.icon-acess {
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+.icones {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}

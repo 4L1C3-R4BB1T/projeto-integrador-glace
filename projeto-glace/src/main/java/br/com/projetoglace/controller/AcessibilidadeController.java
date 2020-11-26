@@ -1,7 +1,6 @@
 package br.com.projetoglace.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
