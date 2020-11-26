@@ -79,14 +79,14 @@ public class ClienteGlaceService {
 	@Transactional
 	public void atualizarCliente(ClienteGlace cliente) {
 		
-		Cidade cidade = cidadeRepository.findById(cliente.getEndereco().getCidade().getEstado()); 
+		Optional<Cidade> cidade = cidadeRepository.findById(cliente.getEndereco().getCidade().getId()); 
 		
 			Mensagem mensagem = Mensagem.builder()
 				.assunto(cliente.getNome()+ "Cliente Atualizado")
 				.corpo("Cliente-atualizado.html")
 				.variavel("cliente",cliente)
-				.variavel("cidade",cidade.getNome())
-				.variavel("estado",cidade.getEstado().getNome())
+				.variavel("cidade",cidade.get().getNome())
+				.variavel("estado",cidade.get().getEstado().getNome())
 				.destinatario(cliente.getEmail())
 				.build();
 			envioMensagem.enviar(mensagem);

@@ -73,14 +73,14 @@ public class ParceiroGlaceService {
 	
 	@Transactional
 	public void atualizar(ParceiroGlace parceiro) {
-		Cidade cidade = cidadeRepository.findById(parceiro.getEndereco().getCidade().getEstado()); 
+		Optional<Cidade> cidade = cidadeRepository.findById(parceiro.getEndereco().getCidade().getId()); 
 		
 		Mensagem mensagem = Mensagem.builder()
 			.assunto(parceiro.getRazao()+ "Cliente Atualizado")
 			.corpo("Cliente-atualizado.html")
 			.variavel("cliente",parceiro)
-			.variavel("cidade",cidade.getNome())
-			.variavel("estado",cidade.getEstado().getNome())
+			.variavel("cidade", cidade.get().getNome())
+			.variavel("estado",cidade.get().getEstado().getNome())
 			.destinatario(parceiro.getEmail())
 			.build();
 		envioMensagem.enviar(mensagem);
