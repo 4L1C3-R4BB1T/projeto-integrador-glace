@@ -1,6 +1,7 @@
 package br.com.projetoglace.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -65,4 +66,9 @@ public class AcessibilidadeController implements AcessibilidadeControllerOpenApi
 		return acessibilidadeRepository.bucarAAcessibilidade(id);
 	}
 	
+	@GetMapping
+	public Optional<Acessibilidade> findProductByTipoAcessibilidade(@PathVariable Long id){
+		return acessibilidadeRepository.findById(id);
 	}
+	
+}
