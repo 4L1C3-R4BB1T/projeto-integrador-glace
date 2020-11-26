@@ -43,14 +43,14 @@
                       <td>{{cliente.nome}}</td>
                       <td>{{cliente.telefone}}</td>
                       <td class="deletar-atualizar">
-                          <p-button routerLink="/perfil/parceiro/{{cliente.id}}" class="espaco" icon="pi pi-pencil">
+                          <p-button routerLink="/perfil/usuario/{{cliente.id}}" class="espaco" icon="pi pi-pencil">
                           </p-button>
                           <p-button (click)="excluir(cliente.id)" icon="pi pi-trash"></p-button>
                       </td>
                   </tr>
               </ng-template>
               <ng-template pTemplate="paginatorleft">
-                  <p-button type="button" routerLink="/perfil/parceiro/cadastrar-estabelecimento">Novo Estabelecimento</p-button>
+                  <p-button type="button" routerLink="/cadastro/estabelecimento">Novo Estabelecimento</p-button>
               </ng-template>
           </p-table>
       </div>

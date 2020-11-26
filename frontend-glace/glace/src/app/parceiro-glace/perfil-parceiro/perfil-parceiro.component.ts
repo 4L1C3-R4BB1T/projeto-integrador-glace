@@ -323,12 +323,12 @@ export class PerfilParceiroComponent implements OnInit {
     } as EstabelecimentoModel;
 
     if (dados.id) {
-      this.repositoryEstabelecimento.postEstabelecimento(dados).subscribe(resposta => {
+      this.repositoryEstabelecimento.putEstabelecimento(dados).subscribe(resposta => {
         this.messageService.add({
           key: 'toast',
           severity: 'success',
           summary: 'ESTABELECIMENTO',
-          detail: 'cadastrado com sucesso!'
+          detail: 'atualizado com sucesso!'
         });
         //window.scrollTo(0, 0);
         this.limparFormulario();

@@ -21,7 +21,6 @@ public class EstabelecimentoGlaceRequest {
 	private String cnpj;
 	
 	@NotNull
-	@NotBlank
 	private String tipoEstabelecimento;
 	
 	@NotNull

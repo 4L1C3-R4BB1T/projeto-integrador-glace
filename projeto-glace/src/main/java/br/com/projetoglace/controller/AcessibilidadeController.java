@@ -66,9 +66,4 @@ public class AcessibilidadeController implements AcessibilidadeControllerOpenApi
 		return acessibilidadeRepository.bucarAAcessibilidade(id);
 	}
 	
-	@GetMapping
-	public Optional<Acessibilidade> findProductByTipoAcessibilidade(@PathVariable Long id){
-		return acessibilidadeRepository.findById(id);
 	}
-	
-}

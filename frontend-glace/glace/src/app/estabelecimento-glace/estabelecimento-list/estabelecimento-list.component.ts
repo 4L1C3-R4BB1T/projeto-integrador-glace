@@ -34,7 +34,7 @@ export class EstabelecimentoListComponent implements OnInit {
   carregarEstabelecimento(){
     //Pegado id do parceiro por meio do token
     const codigo = this.service.jwtPayload.usuario_id;
-    this.title.setTitle('Lista de clientes');
+    this.title.setTitle('Lista de Estabelecimentos');
     this.clientes = [];
     this.repository.getAllEstabelecimentosParceiros(codigo).then(resposta => {
       this.clientes = resposta;
