@@ -21,6 +21,8 @@ export class PerfilParceiroComponent implements OnInit {
   public formulario: FormGroup;
   estados: any[] = [];
   cidades: any[] = [];
+  estadosEstabelecimento: any[] = [];
+  cidadesEstabelecimento: any[] = [];
   imagem: number;
   tipoEstabelecimento: any[] = [];
 
@@ -289,14 +291,14 @@ export class PerfilParceiroComponent implements OnInit {
   }
 
   salvarOuAtualizarEstabelecimento() {
-    console.log("Estou aqui7");
+   // console.log("Estou aqui7");
     const codigo = this.service.jwtPayload.usuario_id;
     const a : AcessibilidadeModel[]=[];
   
     for(let ida of this.acessibilidadesSelecionadas){
       a.push({id:parseInt(ida)});
     }
-    console.log("5435435435");
+   // console.log("5435435435");
     const dados = {
       id: this.formulario.value.idE,
       nome: this.formulario.value.nomeEstabelecimento,
@@ -331,7 +333,7 @@ export class PerfilParceiroComponent implements OnInit {
           detail: 'cadastrado com sucesso!'
         });
         //window.scrollTo(0, 0);
-        this.limparFormulario();
+        this.limparFormularioEstabelecimento();
       },
         (e) => {
           var msg: any[] = [];
@@ -362,7 +364,7 @@ export class PerfilParceiroComponent implements OnInit {
           detail: 'cadastrado com sucesso!'
         });
         //window.scrollTo(0, 0);
-        this.limparFormulario();
+        this.limparFormularioEstabelecimento();
       },
         (e) => {
           var msg: any[] = [];
@@ -396,9 +398,18 @@ export class PerfilParceiroComponent implements OnInit {
     (this.upload as any).clear();
   }
 
+  limparFormularioEstabelecimento() {
+    this.submitted = false;
+    this.formulario.reset();
+    this.cidadesEstabelecimento = [];
+    this.estadosEstabelecimento = [];
+    this.listarEstados();
+    (this.upload as any).clear();
+  }
   listarCidades() {
     this.cidades = [];
     let id: number = this.formulario.value.estado;
+    console.log(id);
     this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
       this.cidades.push({ label: resposta.nome, value: resposta.id });
     });
@@ -407,6 +418,7 @@ export class PerfilParceiroComponent implements OnInit {
   listarEstados() {
     this.repository.getAllEstados().subscribe(resposta => {
       this.estados.push({ label: resposta.nome, value: resposta.id });
+      console.log(resposta.id);
     });
   }
 
@@ -416,6 +428,31 @@ export class PerfilParceiroComponent implements OnInit {
     this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
       this.cidades.push({ label: resposta.nome, value: resposta.id });
       this.formulario.controls.cidade.setValue(idCidade);
+    });
+  }
+
+  listarCidadesEstabelecimento() {
+    this.cidadesEstabelecimento = [];
+    let id: number = this.formulario.value.estadoEstabelecimento;
+    console.log(id);
+    this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
+      this.cidadesEstabelecimento.push({ label: resposta.nome, value: resposta.id });
+    });
+  }
+
+  listarEstadosEstabelecimento() {
+    this.repository.getAllEstados().subscribe(resposta => {
+      this.estadosEstabelecimento.push({ label: resposta.nome, value: resposta.id });
+      console.log(resposta.id);
+    });
+  }
+
+  listarCidadeSelecionadaEstabelecimento(idCidade: number) {
+    this.cidadesEstabelecimento = [];
+    let id: number = this.formulario.value.estadoEstabelecimento;
+    this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
+      this.cidadesEstabelecimento.push({ label: resposta.nome, value: resposta.id });
+      this.formulario.controls.cidadeEstabelecimento.setValue(idCidade);
     });
   }
 

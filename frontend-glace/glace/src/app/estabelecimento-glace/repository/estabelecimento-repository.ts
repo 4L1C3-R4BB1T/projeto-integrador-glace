@@ -64,6 +64,7 @@ export class EstabelecimentoRepository {
     }
 
     getAllCidadesByEstado(id: number): Observable<CidadeModel> {
+        console.log(id);
         return this.http
             .getAll<CidadeEntity[]>(`${environment.URLSERVIDOR}estado/${id}/cidades`)
             .pipe(mergeMap((x) => x.data))

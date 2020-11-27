@@ -270,20 +270,15 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   excluir(id: number){
-    this.confirmarService.confirm({
-      message: 'Tem certeza que deseja cancelar esta reserva?',
-      accept: () => {
-        this.repositoryReserva.deleteReserva(id).subscribe( resposta => {
-          this.messageService.add( 
-            {
-              key: 'toast',
-              severity: 'success',
-              summary: 'RESERVA',
-              detail: 'cancelada com sucesso!'
-            });   
-            this.carregarReservas();
-        });    
-      }
+    this.repositoryReserva.deleteReserva(id).subscribe( resposta => {
+      this.messageService.add( 
+        {
+          key: 'toast',
+          severity: 'success',
+          summary: 'RESERVA',
+          detail: 'cancelada com sucesso!'
+        });   
+        this.carregarReservas();
     });
   }
 
