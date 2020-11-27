@@ -55,13 +55,14 @@ export class PerfilParceiroComponent implements OnInit {
   ngOnInit(): void {
     this.iniciarFormulario();
     this.listarEstados();
+    this.listarEstadosEstabelecimento();
 
     const codigoParceiro = this.route.snapshot.params['codigo'];
 
     //Pegado id do parceiro por meio do token
     const codigo = this.service.jwtPayload.usuario_id;
 
-    this.title.setTitle('Novo Parceiro');
+    this.title.setTitle('Perfil Parceiro');
 
     if (codigoParceiro) {
       this.operacao = false;
@@ -86,7 +87,7 @@ export class PerfilParceiroComponent implements OnInit {
       this.formulario.controls.bairro.setValue(resposta.endereco.bairro);
       this.formulario.controls.estado.setValue(resposta.endereco.cidade.estado.id);
       this.listarCidadeSelecionada(resposta.endereco.cidade.id);
-      this.imagem = resposta.foto.id;
+      //this.imagem = resposta.foto.id;
     });
   }
 
@@ -109,8 +110,8 @@ export class PerfilParceiroComponent implements OnInit {
       numero: [''],
       bairro: [''],
       cidade: [''],
-      cidadeEstabelecimento: [''],
       estado: [''],
+      cidadeEstabelecimento: [''],
       estadoEstabelecimento: [''],
       nomeEstabelecimento: [''],
       telefoneEstabelecimento: [''],
@@ -403,9 +404,10 @@ export class PerfilParceiroComponent implements OnInit {
     this.formulario.reset();
     this.cidadesEstabelecimento = [];
     this.estadosEstabelecimento = [];
-    this.listarEstados();
+    this.listarEstadosEstabelecimento();
     (this.upload as any).clear();
   }
+
   listarCidades() {
     this.cidades = [];
     let id: number = this.formulario.value.estado;
@@ -418,7 +420,7 @@ export class PerfilParceiroComponent implements OnInit {
   listarEstados() {
     this.repository.getAllEstados().subscribe(resposta => {
       this.estados.push({ label: resposta.nome, value: resposta.id });
-      console.log(resposta.id);
+      //console.log(resposta.id);
     });
   }
 
@@ -434,7 +436,7 @@ export class PerfilParceiroComponent implements OnInit {
   listarCidadesEstabelecimento() {
     this.cidadesEstabelecimento = [];
     let id: number = this.formulario.value.estadoEstabelecimento;
-    console.log(id);
+    //console.log('listar cidade estabelcimento: ' + id);
     this.repository.getAllCidadesByEstado(id).subscribe(resposta => {
       this.cidadesEstabelecimento.push({ label: resposta.nome, value: resposta.id });
     });
@@ -443,7 +445,7 @@ export class PerfilParceiroComponent implements OnInit {
   listarEstadosEstabelecimento() {
     this.repository.getAllEstados().subscribe(resposta => {
       this.estadosEstabelecimento.push({ label: resposta.nome, value: resposta.id });
-      console.log(resposta.id);
+      //console.log(resposta.id);
     });
   }
 

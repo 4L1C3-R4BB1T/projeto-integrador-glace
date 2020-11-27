@@ -15,18 +15,20 @@
   font-size: 1.875rem;
 }
 
- .button {
+.button {
   text-decoration: none;
 }
 
 label{
-  display:inline-block;
-  font:18px Lucida;
-  float : left;
+  display: inline-block;
+  font: 18px Lucida;
+  float: left;
 }
+
 label input{
-float: left;
+  float: left;
 }
+
 .botoes{
   margin-top: 10%;
 }
@@ -199,7 +201,7 @@ float: left;
 :host /deep/ .p-inputtext {
   font-family: 'Ruda', sans-serif;
   font-size: 1.25rem;
-  padding: 0.8125rem 0 0 0;
+  padding: 0.8125rem 0 0 1.25rem;;
 }
 
 :host /deep/ .p-fileupload-buttonbar {
@@ -384,6 +386,9 @@ p {
   margin-right: 0.625rem;
 }
 
+.no-padding {
+  padding: 0;
+}
 
 @media screen and (max-width: 1440px) {
   .nome-perfil {
