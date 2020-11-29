@@ -1,69 +1,63 @@
 package br.com.projetoglace;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.transaction.Transactional;
-
+import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import br.com.projetoglace.dto.AcessibilidadeDTO;
-import br.com.projetoglace.mapper.AcessibilidadeMapper;
-import br.com.projetoglace.model.Acessibilidade;
-import br.com.projetoglace.repository.AcessibilidadeGlaceRepository;
-import br.com.projetoglace.request.AcessibilidadeRequest;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class AcessibilidadeIT {
 
-	@Autowired
-	private AcessibilidadeGlaceRepository acessibilidadeRepository;
-	
-	@Autowired AcessibilidadeMapper mapper;
-	
-	@Test
-	@PostMapping
-	@Transactional
-	public void salvar(@RequestBody Acessibilidade acessibilidade) {
-		acessibilidadeRepository.save(acessibilidade);
-	}
-	
-	@Test
-	@Transactional
-	public AcessibilidadeDTO salvarAcessibilidade(AcessibilidadeRequest acessibilidadeRequest) {
-		
-		Acessibilidade acessibilidade = new Acessibilidade();
-		
-	    acessibilidade = mapper.requestToModel(acessibilidadeRequest);
-		
-		if(acessibilidade.getTipoAcessibilidade() == null) {
-
-		    acessibilidadeRepository.save(acessibilidade.getId());
+		@LocalServerPort
+		private int port;
+			
+		@Before
+		public void setUp() {
+			RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+			RestAssured.port = port;
+			RestAssured.basePath = "/acessibilidade";	
 		}
-		acessibilidadeRepository.save(acessibilidade);
-
-	    return mapper.modelToDTO(acessibilidadeRepository.save(acessibilidade));		
+		
+		@Test
+		public void deveRetornarStatus200_QuandoConsultarAcessibilidades() {
+					
+			RestAssured.given()			
+				.accept(ContentType.JSON)
+			.when()
+				.get("/listar")
+			.then()
+				.statusCode(200);
+		}
+		@Test
+		public void deveConter4Acessilibidades_QuandoConsultarAcessilidades() {
+					
+			RestAssured.given()
+				.accept(ContentType.JSON)
+			.when()
+				.get("/listar")
+			.then()
+				.body("", Matchers.hasSize(4))
+				.body("tipoAcessibilidade", Matchers.hasItems("Motora"));
+		}
+		
+		@Test
+		public void deveRetornarRespostaEStatusCorretos_QuandoConsultarAcessibilidadeExistente() {
+					
+			RestAssured.given()
+				.pathParam("id", 1)
+				.accept(ContentType.JSON)
+			.when()
+				.get("/buscarAcessibilidade/{id}")
+			.then()
+				.statusCode(HttpStatus.OK.value())
+				.body("tipoAcessibilidade", Matchers.equalTo("Motora"));
+		}
 	}
-	
-	@Test
-	@GetMapping("/listar")
-	public List<Acessibilidade> listarAcessibilidade(){
-		return acessibilidadeRepository.findAll();
-	}
-	
-	@Test
-	@GetMapping("/buscarAcessibilidade/{id}")
-	public Acessibilidade buscarAcessibilidade(@PathVariable Long id){
-		return acessibilidadeRepository.bucarAAcessibilidade(id);
-	}
-	
-	@Test
-	public Optional<Acessibilidade> findProductByTipoAcessibilidade(@PathVariable Long id){
-		return acessibilidadeRepository.findById(id);
-	}
-	
-}
