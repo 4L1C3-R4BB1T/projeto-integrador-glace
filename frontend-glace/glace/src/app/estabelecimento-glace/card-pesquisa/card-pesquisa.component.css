@@ -48,3 +48,7 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.card-title {
+  min-height: 48px;
+}

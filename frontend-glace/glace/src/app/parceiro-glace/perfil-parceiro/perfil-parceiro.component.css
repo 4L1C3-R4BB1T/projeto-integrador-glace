@@ -390,6 +390,17 @@ p {
   padding: 0;
 }
 
+.espaco {
+  font-family: 'Ruda', sans-serif;
+  color: #6c757d;
+  font-size: 20px;
+}
+
+.title-filtros {
+  font-family: 'Ruda', sans-serif;
+  color: #6c757d;
+}
+
 @media screen and (max-width: 1440px) {
   .nome-perfil {
     padding-right: 0.3125rem !important;
