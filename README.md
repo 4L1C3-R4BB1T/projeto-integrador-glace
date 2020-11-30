@@ -35,13 +35,15 @@ Glace toma como base aplicativos e sites que tem como funcionalidade auxiliar aq
   Acesso pelo site https://projetoglace.herokuapp.com
   
   # Rodar o App:
-  * Front End:
-  ** npm i;
-  ** ng serve;
-  ** localhost:4200;
+  ----- Front End: -----
   
- * Back End:
- ** Na IDE importe o projeto;
- ** Maven / Update Project;
- ** Run Boot Dashboard projeto-glace
+  * npm i;
+  * ng serve;
+  * localhost:4200;
+  
+ ----- Back End: ------
+ 
+ * Na IDE importe o projeto;
+ * Maven / Update Project;
+ * Run Boot Dashboard projeto-glace
  
