@@ -11,6 +11,7 @@ import lombok.Singular;
 @Getter
 @Builder
 public class Mensagem {
+		
 	@Singular
 	private Set<String> destinatarios;
 	
@@ -23,5 +24,4 @@ public class Mensagem {
 	@Singular("variavel")
 	private Map<String, Object> variaveis;
 	
-
 }

@@ -76,9 +76,9 @@ public class ParceiroGlaceService {
 		Optional<Cidade> cidade = cidadeRepository.findById(parceiro.getEndereco().getCidade().getId()); 
 		
 		Mensagem mensagem = Mensagem.builder()
-			.assunto(parceiro.getRazao()+ "Cliente Atualizado")
-			.corpo("Cliente-atualizado.html")
-			.variavel("cliente",parceiro)
+			.assunto(parceiro.getRazao()+ "Parceiro Atualizado")
+			.corpo("parceiro-atualizado.html")
+			.variavel("parceiro",parceiro)
 			.variavel("cidade", cidade.get().getNome())
 			.variavel("estado",cidade.get().getEstado().getNome())
 			.destinatario(parceiro.getEmail())

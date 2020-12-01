@@ -83,7 +83,7 @@ public class ClienteGlaceService {
 		
 			Mensagem mensagem = Mensagem.builder()
 				.assunto(cliente.getNome()+ "Cliente Atualizado")
-				.corpo("Cliente-atualizado.html")
+				.corpo("cliente-atualizado.html")
 				.variavel("cliente",cliente)
 				.variavel("cidade",cidade.get().getNome())
 				.variavel("estado",cidade.get().getEstado().getNome())

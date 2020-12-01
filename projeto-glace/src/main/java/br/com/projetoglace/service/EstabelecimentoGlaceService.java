@@ -81,8 +81,8 @@ public class EstabelecimentoGlaceService {
 			tipos.add("Hotel");
 			tipos.add("Pousada");
 			tipos.add("Hotel Fazenda");
-			tipos.add("Restaurantes");
-			tipos.add("Cafés");
+			tipos.add("Restaurante");
+			tipos.add("Café");
 			
 			filtro.setTiposEstabelecimento(tipos);
 		}

@@ -15,6 +15,7 @@ import lombok.Setter;
 @Component
 @ConfigurationProperties("glace.email")
 public class EmailProperties {
+
 	@NotNull
 	private String remetente;
 	
