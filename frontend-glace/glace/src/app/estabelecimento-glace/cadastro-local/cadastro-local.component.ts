@@ -248,6 +248,7 @@ export class CadastroLocalComponent implements OnInit {
         }
       );
     } else {
+      
       this.repository.postParceiro(dados).subscribe(resposta => {
         this.messageService.add({
           key: 'toast',

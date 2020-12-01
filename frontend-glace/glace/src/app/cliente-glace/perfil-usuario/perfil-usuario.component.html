@@ -128,14 +128,6 @@
                         placeholder="Senha"
                         formControlName="senha" />
                     </div>
-                    <div>
-                      <input
-                        type="password"
-                        id="confirmarsenha"
-                        class="input mt-4"
-                        placeholder="Confirmar senha"
-                        formControlName="confirmarsenha" />
-                    </div>
                     <div class="float-right mt-4">
                       <button type="submit" class="btn cancelar btn-outline-secondary mr-2" data-dismiss="modal">Cancelar</button>
                       <button type="submit" class="btn cadastrar botao"
@@ -197,6 +189,7 @@
                       <tr>
                         <th pSortableColumn="nome">Local<p-sortIcon field="nome"></p-sortIcon></th>
                         <th pSortableColumn="data">Data<p-sortIcon field="data"></p-sortIcon></th>
+                        <th pSortableColumn="nome">Satus<p-sortIcon field="data"></p-sortIcon></th>
                         <th class="deletar"></th>
                       </tr>
                     </ng-template>
@@ -204,6 +197,7 @@
                       <tr>
                         <td>{{reserva.estabelecimento.nome}}</td>
                         <td>{{reserva.dataReserva}}</td>
+                        <td>{{reserva.confirmarReserva}}</td>
                         <td class="deletar">
                             <p-button (click)="excluir(reserva.id)" icon="pi pi-trash"></p-button>
                         </td>

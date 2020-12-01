@@ -49,6 +49,7 @@ export class PerfilUsuarioComponent implements OnInit {
     this.iniciarFormulario();
     this.listarEstados();
     this.carregarReservas();  
+    
 
     const codigoCliente = this.route.snapshot.params['codigo'];
     
@@ -75,7 +76,6 @@ export class PerfilUsuarioComponent implements OnInit {
       this.formulario.controls.dataNasc.setValue(resposta.dataNasc);
       this.formulario.controls.telefone.setValue(resposta.telefone);
       this.formulario.controls.email.setValue(resposta.email);
-      this.formulario.controls.senha.setValue(resposta.senha);
       this.formulario.controls.cep.setValue(resposta.endereco.cep);
       this.formulario.controls.rua.setValue(resposta.endereco.rua);
       this.formulario.controls.numero.setValue(resposta.endereco.numero);
@@ -100,7 +100,6 @@ export class PerfilUsuarioComponent implements OnInit {
       telefone: [''],
       email: [''],
       senha: [''],
-      confirmarsenha: [''],
       cep: [''],
       rua: [''],
       numero: [''],

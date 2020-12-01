@@ -58,6 +58,7 @@ export class DetalhesLocalComponent implements OnInit {
 
   fazerReserva() {
     const dados = {
+      confirmarReserva: 0,
       dataReserva: this.formulario.value.data_reserva,
       cliente: { 
         id: this.service.jwtPayload.usuario_id

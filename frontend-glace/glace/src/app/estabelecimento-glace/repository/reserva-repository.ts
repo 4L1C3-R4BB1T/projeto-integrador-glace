@@ -37,9 +37,35 @@ export class ReservaRepository {
             });
     }
 
+    getAllReservasByEstabelecimento(id: number): Promise<ReservaModel[]> {
+        return this.http
+            .getAll<ReservaEntity[]>(`${environment.URLSERVIDOR}reserva/${id}/estabelecimento`)
+            .toPromise().then(x => {
+                return x.data.map(this.mapper.mapFrom);
+            });
+    }
+
+    
+    getReservaById(id: number): Observable<ReservaModel> {
+        
+        return this.http
+            .getAll<ReservaModel>(`${environment.URLSERVIDOR}reserva/${id}`)
+            .pipe(map((x) => this.mapper.mapFrom(x.data)));
+    }
+
     deleteReserva(id: number): Observable<void> {
         return this.http
             .delete<void>(`${environment.URLSERVIDOR}reserva/${id}`, id)
+            .pipe(map((x) => x.data));
+    }
+
+    
+    putReserva(param: ReservaModel) {
+        return this.http
+            .put<void>(
+                `${environment.URLSERVIDOR}reserva/${param.id}`,
+                this.mapper.mapTo(param)
+            )
             .pipe(map((x) => x.data));
     }
     

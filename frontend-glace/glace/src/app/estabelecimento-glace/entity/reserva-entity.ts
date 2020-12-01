@@ -3,6 +3,7 @@ export interface ReservaEntity {
     dataReserva?: Date;
     cliente?: ClienteEntity;
     estabelecimento?: EstabelecimentoEntity;
+    confirmarReserva?: number;
 }
 
 export interface ClienteEntity {

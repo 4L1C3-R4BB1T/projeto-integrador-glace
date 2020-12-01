@@ -32,9 +32,9 @@
                       </th>
                       <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon>
                       </th>
-                      <th pSortableColumn="cep">CEP <p-sortIcon field="cep"></p-sortIcon>
+                      <th pSortableColumn="cep">TELEFONE <p-sortIcon field="cep"></p-sortIcon>
                       </th>
-                      <th class="deletar-atualizar"></th>
+                      <th class="deletar-atualizar-calendario"></th>
                   </tr>
               </ng-template>
               <ng-template pTemplate="body" let-cliente>
@@ -42,10 +42,71 @@
                       <td>{{cliente.id}}</td>
                       <td>{{cliente.nome}}</td>
                       <td>{{cliente.telefone}}</td>
-                      <td class="deletar-atualizar">
+                      <td class="deletar-atualizar-calendario">
                           <p-button routerLink="/estabelecimento/{{cliente.id}}" class="espaco" icon="pi pi-pencil">
                           </p-button>
-                          <p-button (click)="excluir(cliente.id)" icon="pi pi-trash"></p-button>
+                          <p-button (click)="excluir(cliente.id)" icon="pi pi-trash"  class="espaco"></p-button>
+                          <p-button (click)="carregarReservas(cliente.id)"icon="pi pi-calendar" data-toggle="modal" data-target="#reservas" ></p-button>
+
+                           <!-- MODAL RESERVAS -->
+          <div id="reservas" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+          aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="TituloModalCentralizado">
+                  <i class="far fa-list-alt ml-2 mr-2"></i>Minhas reservas
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p-table 
+                  #dt [value]="reservas" 
+                  [paginator]="true" 
+                  [rows]="10" 
+                  [showCurrentPageReport]="true"
+                  currentPageReportTemplate="Mostrando {first} até {last} de {totalRecords} registros"
+                  [rowsPerPageOptions]="[5,10,25,50]" 
+                  [loading]="loading" 
+                  [filterDelay]="0"
+                  [globalFilterFields]="['nome','data']"> 
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th pSortableColumn="nome">Cliente<p-sortIcon field="nome"></p-sortIcon></th>
+                      <th pSortableColumn="nome">Telefone<p-sortIcon field="nome"></p-sortIcon></th>
+                      <th pSortableColumn="data">Data<p-sortIcon field="data"></p-sortIcon></th>
+                      <th pSortableColumn="data">Status<p-sortIcon field="data"></p-sortIcon></th>
+                      <th class="deletar-atualizar-calendario"></th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-reserva>
+                    <tr>
+                      <td>{{reserva.cliente.nome}}</td>
+                      <td>{{reserva.cliente.telefone}}</td>
+                      <td>{{reserva.dataReserva}}</td>
+                      <td>{{reserva.confirmarReserva}}</td>
+                      <td class="deletar-atualizar-calendario">
+                          <p-button (click)="excluirReserve(reserva.id, reserva.estabelecimento.id)" class="espaco" icon="pi pi-trash"></p-button>
+                          <p-button (click)="iniciarReserva(reserva.id,reserva.cliente.id, reserva.estabelecimento.id, 1)" class="espaco" icon="pi pi-check-circle
+                          "></p-button>
+                          <p-button (click)="iniciarReserva(reserva.id,reserva.cliente.id, reserva.estabelecimento.id, 2)" icon="pi pi-times-circle
+
+                          "></p-button>
+
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+                <div class="float-right mt-2">
+                  <button type="button" class="btn botao bg-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- FIM MODAL RESERVAS -->
                       </td>
                   </tr>
               </ng-template>
@@ -54,6 +115,5 @@
               </ng-template>
           </p-table>
       </div>
-      
   </div>
 </div>

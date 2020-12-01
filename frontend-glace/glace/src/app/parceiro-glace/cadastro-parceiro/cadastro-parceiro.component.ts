@@ -58,7 +58,6 @@ export class CadastroParceiroComponent implements OnInit {
       this.formulario.controls.cnpj.setValue(resposta.cnpj);
       this.formulario.controls.telefone.setValue(resposta.telefone);
       this.formulario.controls.email.setValue(resposta.email);
-      this.formulario.controls.senha.setValue(resposta.senha);
       this.formulario.controls.cep.setValue(resposta.endereco.cep);
       this.formulario.controls.rua.setValue(resposta.endereco.rua);
       this.formulario.controls.numero.setValue(resposta.endereco.numero);
@@ -81,7 +80,6 @@ export class CadastroParceiroComponent implements OnInit {
               telefone: ['', Validators.required],
               email: ['', Validators.required],
               senha: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-              confirmarsenha: ['', [Validators.required,Validators.minLength(6), Validators.maxLength(20)]],
               cep: ['', Validators.required],
               rua: ['', Validators.required],
               numero: ['', Validators.required],

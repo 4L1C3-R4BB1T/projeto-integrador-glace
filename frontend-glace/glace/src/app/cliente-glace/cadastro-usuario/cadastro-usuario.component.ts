@@ -53,7 +53,6 @@ export class CadastroUsuarioComponent implements OnInit {
       this.formulario.controls.dataNasc.setValue(resposta.dataNasc);
       this.formulario.controls.telefone.setValue(resposta.telefone);
       this.formulario.controls.email.setValue(resposta.email);
-      this.formulario.controls.senha.setValue(resposta.senha);
       this.formulario.controls.cep.setValue(resposta.endereco.cep);
       this.formulario.controls.rua.setValue(resposta.endereco.rua);
       this.formulario.controls.numero.setValue(resposta.endereco.numero);
@@ -78,7 +77,6 @@ export class CadastroUsuarioComponent implements OnInit {
       telefone: ['', Validators.required],
       email: ['', Validators.required],
       senha: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      confirmarsenha: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       cep: [''],
       rua: [''],
       numero: [''],

@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { ImagemEntity } from '../entity/imagem-entity';
 import { ImagemMapper } from '../mapper/imagem-mapper';
+import { ReservaModel } from '../model/reserva-model';
 
 @Injectable({
     providedIn: 'root',

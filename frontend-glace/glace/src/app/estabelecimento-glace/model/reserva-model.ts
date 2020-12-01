@@ -3,6 +3,7 @@ export interface ReservaModel {
     dataReserva?: Date;
     cliente?: ClienteModel;
     estabelecimento?: EstabelecimentoModel;
+    confirmarReserva?: number;
 }
 
 export interface ClienteModel {

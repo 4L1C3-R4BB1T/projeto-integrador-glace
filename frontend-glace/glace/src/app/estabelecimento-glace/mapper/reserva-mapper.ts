@@ -9,7 +9,8 @@ export class ReservaMapper extends Mapper<ReservaEntity, ReservaModel> {
             id: param.id,
             dataReserva: param.dataReserva,
             cliente: param.cliente,
-            estabelecimento: param.estabelecimento
+            estabelecimento: param.estabelecimento,
+            confirmarReserva: param.confirmarReserva
         }
     }
 
@@ -18,8 +19,10 @@ export class ReservaMapper extends Mapper<ReservaEntity, ReservaModel> {
             id: param.id,
             dataReserva: param.dataReserva,
             cliente: param.cliente,
-            estabelecimento: param.estabelecimento
+            estabelecimento: param.estabelecimento,
+            confirmarReserva: param.confirmarReserva
         }
     }
+    
 
 }

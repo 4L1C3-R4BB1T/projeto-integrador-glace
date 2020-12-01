@@ -282,26 +282,6 @@
                   Senha excedeu a quantidade máxima de 20 caracteres!
                 </div>
               </div>
-
-              <div class="col-12 col-md-6">
-                <input
-                  required
-                  type="password"
-                  id="confirmarsenha"
-                  class="input mt-4"
-                  placeholder="Confirmar senha"
-                  formControlName="confirmarsenha"
-                  [class]="(submitted && formulario.get('confirmarsenha').errors) ||
-                  (formulario.get('confirmarsenha').errors && formulario.get('confirmarsenha').dirty) ? 'is-invalid' :
-                  formulario.get('confirmarsenha').dirty ? 'is-valid' : '' "
-                />
-
-                <div
-                  *ngIf="formulario.get('confirmarsenha').errors?.required"
-                  class="invalid-feedback">
-                  Confirmar senha é obrigatório!
-                </div>
-              </div>
             </div>
 
             <button type="submit" class="btn mt-4 mb-2 cadastrar "
