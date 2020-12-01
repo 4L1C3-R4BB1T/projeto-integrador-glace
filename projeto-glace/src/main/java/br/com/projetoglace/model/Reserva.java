@@ -32,11 +32,13 @@ public class Reserva {
 	private LocalDate dataReserva;
 	
 	@ManyToOne
-	@JoinColumn(name="cliente_id", nullable=false)
+	@JoinColumn(name="cliente_id")
 	private ClienteGlace cliente;
 	
 	@ManyToOne
-	@JoinColumn(name="estabelecimento_id", nullable=false)
+	@JoinColumn(name="estabelecimento_id")
 	private EstabelecimentoGlace estabelecimento;
 	
+	@Column
+	private Long confirmarReserva;
 }

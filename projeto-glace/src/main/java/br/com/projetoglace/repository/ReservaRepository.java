@@ -13,5 +13,8 @@ public interface ReservaRepository extends JpaRepository<Reserva, Long> {
 
 	@Query("from Reserva r where cliente.id = :id")
 	List<Reserva> listarReservaPorCliente(Long id);
+	
+	@Query("from Reserva r where estabelecimento.id = :id")
+	List<Reserva> listarReservaPorEstabelecimento(Long id);
 		
 }

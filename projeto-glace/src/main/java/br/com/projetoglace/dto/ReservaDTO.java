@@ -13,5 +13,6 @@ public class ReservaDTO {
 	private LocalDate dataReserva;
 	private EstabelecimentoGlace estabelecimento;
 	private ClienteGlace cliente;
+	private Long confirmarReserva;
 	
 }

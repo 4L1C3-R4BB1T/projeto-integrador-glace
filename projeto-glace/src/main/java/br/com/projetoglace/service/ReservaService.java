@@ -1,6 +1,7 @@
 package br.com.projetoglace.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -30,6 +31,23 @@ public class ReservaService {
 	
 	public List<Reserva> listarReservaPorCliente(Long id) {
 		return repository.listarReservaPorCliente(id);
+	}
+	
+	public Optional<Reserva> listarResera(Long id) {
+		return repository.findById(id);
+	}
+	
+	public Optional<Reserva> buscarReserva(Long id) {
+		return repository.findById(id);
+	}
+	
+	public List<Reserva> listarReservaPorEstabelecimento(Long id) {
+		return repository.listarReservaPorEstabelecimento(id);
+	}
+	
+	@Transactional
+	public void atualizarRezerva(Reserva reserva) {
+		repository.save(reserva);		
 	}
 
 	@Transactional
