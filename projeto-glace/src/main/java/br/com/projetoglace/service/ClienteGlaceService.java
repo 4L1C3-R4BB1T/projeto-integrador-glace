@@ -81,16 +81,16 @@ public class ClienteGlaceService {
 		
 		Optional<Cidade> cidade = cidadeRepository.findById(cliente.getEndereco().getCidade().getId()); 
 		
-			Mensagem mensagem = Mensagem.builder()
-				.assunto(cliente.getNome()+ "Cliente Atualizado")
-				.corpo("cliente-atualizado.html")
-				.variavel("cliente",cliente)
-				.variavel("cidade",cidade.get().getNome())
-				.variavel("estado",cidade.get().getEstado().getNome())
-				.destinatario(cliente.getEmail())
-				.build();
-			envioMensagem.enviar(mensagem);
-				
+//			Mensagem mensagem = Mensagem.builder()
+//				.assunto(cliente.getNome()+ "Cliente Atualizado")
+//				.corpo("cliente-atualizado.html")
+//				.variavel("cliente",cliente)
+//				.variavel("cidade",cidade.get().getNome())
+//				.variavel("estado",cidade.get().getEstado().getNome())
+//				.destinatario(cliente.getEmail())
+//				.build();
+//			envioMensagem.enviar(mensagem);
+			System.out.println(cliente);
 		repository.save(cliente);		
 	}
 	

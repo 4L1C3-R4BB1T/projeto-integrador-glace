@@ -75,15 +75,15 @@ public class ParceiroGlaceService {
 	public void atualizar(ParceiroGlace parceiro) {
 		Optional<Cidade> cidade = cidadeRepository.findById(parceiro.getEndereco().getCidade().getId()); 
 		
-		Mensagem mensagem = Mensagem.builder()
-			.assunto(parceiro.getRazao()+ "Parceiro Atualizado")
-			.corpo("parceiro-atualizado.html")
-			.variavel("parceiro",parceiro)
-			.variavel("cidade", cidade.get().getNome())
-			.variavel("estado",cidade.get().getEstado().getNome())
-			.destinatario(parceiro.getEmail())
-			.build();
-		envioMensagem.enviar(mensagem);
+//		Mensagem mensagem = Mensagem.builder()
+//			.assunto(parceiro.getRazao()+ "Parceiro Atualizado")
+//			.corpo("parceiro-atualizado.html")
+//			.variavel("parceiro",parceiro)
+//			.variavel("cidade", cidade.get().getNome())
+//			.variavel("estado",cidade.get().getEstado().getNome())
+//			.destinatario(parceiro.getEmail())
+//			.build();
+//		envioMensagem.enviar(mensagem);
 		repository.save(parceiro);		
 	}
 	
