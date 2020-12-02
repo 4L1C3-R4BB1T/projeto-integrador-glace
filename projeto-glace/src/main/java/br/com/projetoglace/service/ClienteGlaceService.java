@@ -90,7 +90,7 @@ public class ClienteGlaceService {
 //				.destinatario(cliente.getEmail())
 //				.build();
 //			envioMensagem.enviar(mensagem);
-			System.out.println(cliente);
+				
 		repository.save(cliente);		
 	}
 	

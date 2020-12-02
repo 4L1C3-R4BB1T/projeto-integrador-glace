@@ -81,7 +81,6 @@ export class PerfilUsuarioComponent implements OnInit {
       this.formulario.controls.numero.setValue(resposta.endereco.numero);
       this.formulario.controls.bairro.setValue(resposta.endereco.bairro);
       this.formulario.controls.estado.setValue(resposta.endereco.cidade.estado.id);
-      this.formulario.controls.senhaB.setValue(resposta.senha);
       this.listarCidadeSelecionada(resposta.endereco.cidade.id);
       this.imagem = resposta.foto.id;
     });
@@ -101,7 +100,6 @@ export class PerfilUsuarioComponent implements OnInit {
       telefone: [''],
       email: [''],
       senha: [''],
-      senhaB:[''],
       cep: [''],
       rua: [''],
       numero: [''],
@@ -134,184 +132,93 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   salvarOuAtualizar() {
-    if (this.formulario.value.senha == ''){
-      const dados = {
-        id: this.formulario.value.id,
-        nome: this.formulario.value.nome,
-        sobrenome: this.formulario.value.sobrenome,
-        cpf: this.formulario.value.cpf,
-        dataNasc: this.formulario.value.dataNasc,
-        telefone: this.formulario.value.telefone,
-        email: this.formulario.value.email,
-        senha: this.formulario.value.senhaB,
-        endereco: {
-          cep: this.formulario.value.cep,
-          rua: this.formulario.value.rua,
-          numero: this.formulario.value.numero,
-          bairro: this.formulario.value.bairro,
-          cidade: {
-            id: this.formulario.value.cidade
-          }
-        },
-        foto: {
-          id: this.imagem
+    const dados = {
+      id: this.formulario.value.id,
+      nome: this.formulario.value.nome,
+      sobrenome: this.formulario.value.sobrenome,
+      cpf: this.formulario.value.cpf,
+      dataNasc: this.formulario.value.dataNasc,
+      telefone: this.formulario.value.telefone,
+      email: this.formulario.value.email,
+      senha: this.formulario.value.senha,
+      endereco: {
+        cep: this.formulario.value.cep,
+        rua: this.formulario.value.rua,
+        numero: this.formulario.value.numero,
+        bairro: this.formulario.value.bairro,
+        cidade: {
+          id: this.formulario.value.cidade
         }
-      } as ClienteModel;
-      if (dados.id) {
-        this.repository.putCliente(dados).subscribe(resposta => {
-          this.messageService.add(
-            {
-              key: 'toast',
-              severity: 'success',
-              summary: 'CLIENTE',
-              detail: 'atualizado com sucesso!'
-            });
-          this.limparFormulario();
-        },
-          (e) => {
-            var msg: any[] = [];
-            //Erro Principal
-            msg.push({
-              severity: 'error',
-              summary: 'ERRO',
-              detail: e.error.userMessage
-            });
-            //Erro de cada atributo
-            var erros = e.error.objects;
-            erros.forEach(function (elemento) {
-              msg.push(
-                {
-                  severity: 'error',
-                  summary: 'ERRO',
-                  detail: elemento.userMessage
-                });
-            });
-            this.messageService.addAll(msg);
-          });
-      } else {
-        this.repository.postCliente(dados).subscribe(resposta => {
-          this.messageService.add(
-            {
-              key: 'toast',
-              severity: 'success',
-              summary: 'CLIENTE',
-              detail: 'cadastrado com sucesso!'
-            });
-          //window.scrollTo(0, 0);
-          this.limparFormulario();
-        },
-          (e) => {
-            var msg: any[] = [];
-            //Erro Principal
-            msg.push({
-              severity: 'error',
-              summary: 'ERRO',
-              detail: e.error.userMessage
-            });
-            //Erro de cada atributo
-            var erros = e.error.objects;
-            erros.forEach(function (elemento) {
-              msg.push(
-                {
-                  severity: 'error',
-                  summary: 'ERRO',
-                  detail: elemento.userMessage
-                });
-            });
-            this.messageService.addAll(msg);
-          }
-        );
+      },
+      foto: {
+        id: this.imagem
       }
-    }else{
-      const dados = {
-        id: this.formulario.value.id,
-        nome: this.formulario.value.nome,
-        sobrenome: this.formulario.value.sobrenome,
-        cpf: this.formulario.value.cpf,
-        dataNasc: this.formulario.value.dataNasc,
-        telefone: this.formulario.value.telefone,
-        email: this.formulario.value.email,
-        senha: this.formulario.value.senha,
-        endereco: {
-          cep: this.formulario.value.cep,
-          rua: this.formulario.value.rua,
-          numero: this.formulario.value.numero,
-          bairro: this.formulario.value.bairro,
-          cidade: {
-            id: this.formulario.value.cidade
-          }
-        },
-        foto: {
-          id: this.imagem
+    } as ClienteModel;
+    if (dados.id) {
+      this.repository.putCliente(dados).subscribe(resposta => {
+        this.messageService.add(
+          {
+            key: 'toast',
+            severity: 'success',
+            summary: 'CLIENTE',
+            detail: 'atualizado com sucesso!'
+          });
+        this.limparFormulario();
+      },
+        (e) => {
+          var msg: any[] = [];
+          //Erro Principal
+          msg.push({
+            severity: 'error',
+            summary: 'ERRO',
+            detail: e.error.userMessage
+          });
+          //Erro de cada atributo
+          var erros = e.error.objects;
+          erros.forEach(function (elemento) {
+            msg.push(
+              {
+                severity: 'error',
+                summary: 'ERRO',
+                detail: elemento.userMessage
+              });
+          });
+          this.messageService.addAll(msg);
+        });
+    } else {
+      this.repository.postCliente(dados).subscribe(resposta => {
+        this.messageService.add(
+          {
+            key: 'toast',
+            severity: 'success',
+            summary: 'CLIENTE',
+            detail: 'cadastrado com sucesso!'
+          });
+        //window.scrollTo(0, 0);
+        this.limparFormulario();
+      },
+        (e) => {
+          var msg: any[] = [];
+          //Erro Principal
+          msg.push({
+            severity: 'error',
+            summary: 'ERRO',
+            detail: e.error.userMessage
+          });
+          //Erro de cada atributo
+          var erros = e.error.objects;
+          erros.forEach(function (elemento) {
+            msg.push(
+              {
+                severity: 'error',
+                summary: 'ERRO',
+                detail: elemento.userMessage
+              });
+          });
+          this.messageService.addAll(msg);
         }
-      } as ClienteModel;
-      if (dados.id) {
-        this.repository.putCliente(dados).subscribe(resposta => {
-          this.messageService.add(
-            {
-              key: 'toast',
-              severity: 'success',
-              summary: 'CLIENTE',
-              detail: 'atualizado com sucesso!'
-            });
-          this.limparFormulario();
-        },
-          (e) => {
-            var msg: any[] = [];
-            //Erro Principal
-            msg.push({
-              severity: 'error',
-              summary: 'ERRO',
-              detail: e.error.userMessage
-            });
-            //Erro de cada atributo
-            var erros = e.error.objects;
-            erros.forEach(function (elemento) {
-              msg.push(
-                {
-                  severity: 'error',
-                  summary: 'ERRO',
-                  detail: elemento.userMessage
-                });
-            });
-            this.messageService.addAll(msg);
-          });
-      } else {
-        this.repository.postCliente(dados).subscribe(resposta => {
-          this.messageService.add(
-            {
-              key: 'toast',
-              severity: 'success',
-              summary: 'CLIENTE',
-              detail: 'cadastrado com sucesso!'
-            });
-          //window.scrollTo(0, 0);
-          this.limparFormulario();
-        },
-          (e) => {
-            var msg: any[] = [];
-            //Erro Principal
-            msg.push({
-              severity: 'error',
-              summary: 'ERRO',
-              detail: e.error.userMessage
-            });
-            //Erro de cada atributo
-            var erros = e.error.objects;
-            erros.forEach(function (elemento) {
-              msg.push(
-                {
-                  severity: 'error',
-                  summary: 'ERRO',
-                  detail: elemento.userMessage
-                });
-            });
-            this.messageService.addAll(msg);
-          }
-        );
-      }
+      );
     }
-    
   }
 
   limparFormulario() {
