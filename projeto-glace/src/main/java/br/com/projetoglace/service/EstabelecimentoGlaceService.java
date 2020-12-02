@@ -95,8 +95,8 @@ public class EstabelecimentoGlaceService {
 			filtro.setTiposAcessibilidades(tipos);
 		}
 			
-		
 		return repository.findAll(filtro.getCidade(), filtro.getEstado(), filtro.getTiposEstabelecimento(), filtro.getTiposAcessibilidades());
+		
 	}
 	
 	public Optional<EstabelecimentoGlace> buscarEstabelecimento(Long id) {
