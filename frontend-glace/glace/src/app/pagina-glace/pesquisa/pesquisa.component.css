@@ -295,4 +295,22 @@
     margin-top:  1.875rem;
     font-size: 1.125rem;
   }
+
+  #container-filtros {
+    margin-top: 1.6875rem !important;
+  }
+}
+
+@media screen and (max-width: 367px) {
+  .title-filtros {
+    font-size: 1.25rem;
+  }
+
+  .espaco {
+    font-size: 1.25rem;
+  }
+
+  #container-filtros {
+    margin-top: 1.6875rem !important;
+  }
 }

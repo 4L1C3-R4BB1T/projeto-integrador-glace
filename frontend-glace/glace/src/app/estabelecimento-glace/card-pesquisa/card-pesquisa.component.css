@@ -52,3 +52,54 @@
 .card-title {
   min-height: 48px;
 }
+
+@media screen and (max-width: 1440px) {
+  .icon {
+    font-size: 1.0625rem;
+    margin-right: 0.9375rem;
+  }
+
+  .ver-mais {
+    font-size: 0.75rem;
+    padding: 5px;
+  }
+
+  .botao {
+    width: 90px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .icon {
+    font-size: 1.5625rem;
+    margin-right: 0.9375rem;
+  }
+
+  .ver-mais {
+    font-size: 1.125rem;
+    padding: 5px;
+  }
+
+}
+
+@media screen and (max-width: 456px) {
+  .ng-star-inserted {
+    padding: 0 !important;
+  }
+}
+
+@media screen and (max-width: 367px) {
+  .icon {
+    font-size: 1.0625;
+    margin-right: 0.9375rem;
+  }
+
+  .ver-mais {
+    font-size: 0.75rem;
+    padding: 5px;
+  }
+
+  .ng-star-inserted {
+    padding: 0 !important;
+  }
+}
